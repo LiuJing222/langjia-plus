@@ -33,49 +33,49 @@ const Cover = () => {
             item1.setAttribute("id","cover_intro_item1_move")
             console.log('超过了')
             
-            item1.style.left='180px';
+            item1.style.left='200px';
             item1.style.transitionProperty='all';
-            item1.style.transitionDuration = '2s';
-            item1.style.transitionTimingFunction='ease-in'
+            item1.style.transitionDuration = '0.5s';
+            item1.style.transitionTimingFunction='ease'
 
-            item2.style.right='180px';
+            item2.style.right='200px';
             item2.style.transitionProperty='all';
-            item2.style.transitionDuration = '2s';
-            item2.style.transitionTimingFunction='ease-in'
+            item2.style.transitionDuration = '0.5s';
+            item2.style.transitionTimingFunction='ease'
         }else{
             item1.style.left='-600px';
             item1.style.transitionProperty='all';
-            item1.style.transitionDuration = '2s';
-            item1.style.transitionTimingFunction='ease-in'
+            item1.style.transitionDuration = '0.5s';
+            item1.style.transitionTimingFunction='ease'
 
             item2.style.right='-600px';
             item2.style.transitionProperty='all';
-            item2.style.transitionDuration = '2s';
-            item2.style.transitionTimingFunction='ease-in'
+            item2.style.transitionDuration = '0.5s';
+            item2.style.transitionTimingFunction='ease'
         }
         if(scrollY>=540){
             item1.setAttribute("id","cover_intro_item1_move")
             console.log('超过了')
             
-            item3.style.left='180px';
+            item3.style.left='200px';
             item3.style.transitionProperty='all';
-            item3.style.transitionDuration = '2s';
-            item3.style.transitionTimingFunction='ease-in'
+            item3.style.transitionDuration = '0.5s';
+            item3.style.transitionTimingFunction='ease'
 
-            item4.style.right='180px';
+            item4.style.right='200px';
             item4.style.transitionProperty='all';
-            item4.style.transitionDuration = '2s';
-            item4.style.transitionTimingFunction='ease-in'
+            item4.style.transitionDuration = '0.5s';
+            item4.style.transitionTimingFunction='ease'
         }else{
             item3.style.left='-600px';
             item3.style.transitionProperty='all';
-            item3.style.transitionDuration = '2s';
-            item3.style.transitionTimingFunction='ease-in'
+            item3.style.transitionDuration = '0.5s';
+            item3.style.transitionTimingFunction='ease'
 
             item4.style.right='-600px';
             item4.style.transitionProperty='all';
-            item4.style.transitionDuration = '2s';
-            item4.style.transitionTimingFunction='ease-in'
+            item4.style.transitionDuration = '0.5s';
+            item4.style.transitionTimingFunction='ease'
         }
     }
    
