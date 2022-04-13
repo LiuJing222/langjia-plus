@@ -5,12 +5,14 @@
 .login_header{
     width: 100%;
     height: 5vh;
+    background-color: rgb(2,43,99);
 }
 .login_header div{
     font-family: 微软雅黑;
     font-weight: 900;
     margin-left: 10%;
-    color: #022B63;
+    /* color: #022B63; */
+    color: white;
     font-size: 27px;
     line-height: 5vh;
 }
@@ -70,6 +72,11 @@
 input::-webkit-input-placeholder {
     color: #888;
     font-size: 1px;
+    
+
+}
+.pwd_my div div:nth-child(2) div{
+    margin-top: -20px;
 }
 input{
     padding-left: 31px;
@@ -77,12 +84,13 @@ input{
     border-radius: 15px;
     height: 20px;
     margin: 2px;
+    padding-right: 40px;
 }
 
 .ant-input-prefix svg{
     position: relative;
     left: 12px;
-    top: 28px;
+    top: 30px;
     color: #555;
     font-size: 101%;
     font-weight: lighter;
@@ -156,12 +164,17 @@ input{
     height: 40px;
 }
 .ant-input{
-    width: 250px;
+    width: 220px;
     height: 33px;
 }
 .anticon-eye-invisible svg {
     /* display: inline-block; */
     position: relative;
     top: -29px;
-    left: 273px;
+    left: 283px;
+}
+.anticon-eye svg {
+    position: relative;
+    top: -29px;
+    left: 283px;
 }
