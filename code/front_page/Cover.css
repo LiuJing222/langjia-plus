@@ -271,3 +271,32 @@
    color: #484848;
    margin-top: 10px;
 }
+.cover_serve{
+    position: fixed;
+    top:300px;
+    right: 50px;
+}
+.cover_serve_item{
+    height: 75px;
+    width: 75px;
+    background-color: #4FACFE;
+    border-radius: 50%;
+    box-shadow: 1px 1px 4px #4FACFE;
+}
+.cover_serve_img{
+    width: 27px;
+    height: 27px;
+    margin-top: 10px;
+    margin-left: 24px;
+}
+.cover_serve_txt{
+    height: 17px;
+    width: 60px;
+    text-align: center;
+    font-size: 14px;
+    color: white;
+    margin-left: 10px;
+}
+a{
+    text-decoration: none;
+}

@@ -7,6 +7,8 @@ import intro1 from './images/intro1.jpg'
 import intro2 from './images/intro2.jpg'
 import intro3 from './images/intro3.png'
 import intro4 from './images/intro4.png'
+import email from './images/email.png'
+import top from './images/top.png'
 
 import ReactPlayer from 'react-player'
 
@@ -78,6 +80,10 @@ const Cover = () => {
             item4.style.transitionTimingFunction='ease'
         }
     }
+
+    const goTop = () =>{
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+    }
    
     return (
         <div className='cover_box'>
@@ -85,7 +91,7 @@ const Cover = () => {
             <div className='cover_nav'>
                 <Link to='/'><div className='cover_nav_txt1'>朗家首页</div></Link>
 
-                <Link to='/'><div className='cover_nav_txt2'>用户名</div></Link>
+                <Link to='/login'><div className='cover_nav_txt2'>登录</div></Link>
                 <div className='cover_nav_line'>|</div>
                 <Link to='/'><div className='cover_nav_txt3'>帮助中心</div></Link>
             </div>
@@ -173,6 +179,19 @@ const Cover = () => {
                         <li>周一至周日：9:00-17:00</li>
                         <li>营业执照</li>
                     </ul>
+                </div>
+            </div>
+            {/* 客服 */}
+            <div className='cover_serve'>
+                <Link to='/'>
+                    <div className='cover_serve_item'>
+                        <img src={email} className='cover_serve_img'/>
+                        <div className='cover_serve_txt'>联系我们</div>
+                    </div>
+                </Link>       
+                <div className='cover_serve_item' onClick={()=>goTop()}>
+                    <img src={top} className='cover_serve_img' />
+                    <div className='cover_serve_txt'>TOP</div>
                 </div>
             </div>
         </div>
