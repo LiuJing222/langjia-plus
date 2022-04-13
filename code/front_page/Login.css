@@ -76,10 +76,10 @@ input::-webkit-input-placeholder {
 
 }
 .pwd_my div div:nth-child(2) div{
-    margin-top: -20px;
+    margin-Left: -10px;
 }
 input{
-    padding-left: 31px;
+    padding-left: 35px;
     border: 1px solid #555;
     border-radius: 15px;
     height: 20px;
@@ -89,24 +89,26 @@ input{
 
 .ant-input-prefix svg{
     position: relative;
-    left: 12px;
-    top: 30px;
+    left: 30px;
+    top: 4px;
     color: #555;
-    font-size: 101%;
+    font-size: 108%;
     font-weight: lighter;
 }
 .ant-form-item-explain div{
     font-size: 10px;
     /* padding-left: 23px; */
-    padding: 2px 12px 2px;
+    padding: 0px 74px 0px;
     color: #6381bc;
 }
 .ant-form-item-control-input-content{
-    width: 243px;
+    
+    width: 418px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     font-size: 19px;
+    
 }
 .ant-checkbox-wrapper{
     display: flex;
@@ -120,11 +122,11 @@ input{
     color:#6381bc;
 }
 .register{
-    color: #555;
+    color:#6381bc;
     font-size: 16px;
 }
 .register:hover{
-    color:#6381bc;
+    color:#4281fd;
 }
 .rem_password{
     color: #111;
@@ -134,12 +136,11 @@ input{
 .ant-btn{
     background-color: #7998d1;
     border: 1px solid #a4b6cd;
-    width: 120px;
-    height: 40px;
+    height: 49px;
     color: white;
     box-shadow: 1px 1px 4px #859bc8;
     transition: background-color .5s ease-in .1s;
-    font-size: 19px;
+    font-size: 24px;
 }
 .ant-btn:hover{
     background-color: #6381bc;
@@ -164,17 +165,22 @@ input{
     height: 40px;
 }
 .ant-input{
-    width: 220px;
-    height: 33px;
+    width: 285px;
+    height: 45px;
 }
 .anticon-eye-invisible svg {
-    /* display: inline-block; */
     position: relative;
-    top: -29px;
-    left: 283px;
+    top: 2px;
+    right:12px
 }
 .anticon-eye svg {
     position: relative;
-    top: -29px;
-    left: 283px;
+    top: 2px;
+    right:12px
+}
+.login_free_register,.login_have_pwd{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 100px;
 }

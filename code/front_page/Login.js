@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import "./Login.css"
 import side from "./images/login_side_img.jpg";
 import { Form, Input, Button, Checkbox } from 'antd';
@@ -45,7 +46,7 @@ const Login = () => {
   return (
     <div className="login_container">
       <div className="login_header">
-        <div>朗家</div>
+        <Link to='/home'><div>朗家</div></Link>
       </div>
       <div className='login_footer'>
         <img src={side} alt="" className='login_footer_img' />
@@ -57,6 +58,7 @@ const Login = () => {
               className="login-form"
               initialValues={{ remember: true }}
               onFinish={onFinish1}
+              style={{marginLeft:-100}}
             >
               <Form.Item
                 name="email"
@@ -89,55 +91,60 @@ const Login = () => {
               </Form.Item>
 
               <Form.Item className="sub" style={{marginTop:-10,marginLeft:-18}}>
-                <Button type="primary" htmlType="submit" className="login-form-button" style={{ marginLeft: 68 }}>
+                <Button type="primary" htmlType="submit" className="login-form-button" style={{     marginLeft: 56,width: 362,borderRadius: 10 }}>
                   登录
                 </Button>
-                Or <a className='register' onClick={() => setDiaplsy({ ...display, login: 'none', register: 'block' })}>注册</a>
               </Form.Item>
             </Form>
+            <div className='login_free_register'>
+              <div>没有账号？</div>
+              <a className='register' onClick={() => setDiaplsy({ ...display, login: 'none', register: 'block' })}>免费注册</a>
+            </div>
+            
           </div>
           <div className='login_form_inner' style={{ display: display.forget, marginTop: 20 }}>
-            <p>修改密码</p>
+            <p style={{marginBottom:80}}>修改密码</p>
             {/* <div className="loginText" style={{paddingTop: 50}}>请在下面输入框输入您的邮箱</div> */}
             <Form
               name="normal_login"
               className="login-form"
               onFinish={onFinish2}
-              // style={{ marginTop: 30 }}
+              style={{ marginLeft: -100 }}
             >
               <Form.Item
                 name="send_email"
                 rules={[{ required: true, message: 'Please input your Username!' }]}
-              // style={{marginLeft:25}}
+              style={{marginTop:25}}
               >
-                <Input prefix={<MailOutline style={{ position: 'relative', top: 30, left: 10 }} className="site-form-item-icon" />} placeholder="邮箱" />
+                <Input prefix={<MailOutline style={{ position: 'relative', top: 3, left: 31 }} className="site-form-item-icon" />} placeholder="邮箱" />
               </Form.Item>
 
-              <Form.Item style={{ marginTop: 100,marginLeft:-7 }}>
-                <Button type="primary" htmlType="submit" className="confirm-form-button">
+              <Form.Item style={{ marginTop: 50,marginLeft:-7 }}>
+                <Button type="primary" htmlType="submit" className="confirm-form-button" style={{marginLeft: 33,width: 362,borderRadius: 10}}>
                   确认
                 </Button>
               </Form.Item>
             </Form>
-            <div style={{ width: 321 ,marginLeft: -40, marginTop: 150,fontSize:20 }}>
-              -------------
-              <a style={{ fontSize: 16, color: '#6381bc' }} onClick={() => setDiaplsy({ ...display, login: 'block', forget: 'none' })}> 登 录 </a>
-              -------------
+            <div className='login_have_pwd'>
+              <div>已有密码？</div>
+              <a className='register' onClick={() => setDiaplsy({ ...display, login: 'block', forget: 'none' })}>立即登录</a>
+              
             </div>
           </div>
           <div className='login_form_inner' style={{ display: display.register }}>
-            <p style={{ marginLeft: -2 }}>欢迎注册</p>
+            <p>欢迎注册</p>
             <Form
               {...formItemLayout}
               // form={form}
               name="register"
               onFinish={onFinish3}
               scrollToFirstError
-              style={{ marginLeft: -6 }}
+              style={{ marginLeft: -96 }}
 
             >
               <Form.Item
                 name="email"
+                style={{ marginLeft: -10 }}
                 rules={[
                   {
                     type: 'email',
@@ -154,6 +161,7 @@ const Login = () => {
 
               <Form.Item
                 name="password"
+                className='pwd_my'
                 // label="密码"
                 rules={[
                   {
@@ -168,6 +176,7 @@ const Login = () => {
               <Form.Item
                 name="confirm"
                 // label="重复确认密码"
+                className='pwd_my'
                 dependencies={['password']}
                 rules={[
                   {
@@ -201,21 +210,21 @@ const Login = () => {
                 {...tailFormItemLayout}
               >
                 <Checkbox style={{marginTop:20,fontSize:15}}>
-                  我阅读并同意 <a href="/information" className='register_know'>注册须知</a>
+                  我阅读并同意 <a href="/information" className='register_know' style={{display:'inline-block'}}>注册须知</a>
                 </Checkbox>
               </Form.Item>
 
               <Form.Item {...tailFormItemLayout}>
-                <Button type="primary" htmlType="submit" style={{marginTop:20}}>
+                <Button type="primary" htmlType="submit" style={{     marginLeft: 1,width: 362,borderRadius: 10 }}>
                   注册
                 </Button>
               </Form.Item>
 
             </Form>
-            <div style={{marginTop:60, width: 321 ,marginLeft: -43, fontSize:20}}>
-              -------------
-              <a style={{ fontSize: 16, color: '#6381bc' }} onClick={() => setDiaplsy({ ...display, login: 'block', register: 'none' })}> 登 录 </a>
-              -------------
+            <div className='login_have_pwd' style={{marginTop:60}}>
+              <div>已有密码？</div>
+              <a className='register' onClick={() => setDiaplsy({ ...display, login: 'block', register: 'none' })}>立即登录</a>
+              
             </div>
 
           </div>
