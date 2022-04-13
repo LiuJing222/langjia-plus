@@ -223,7 +223,7 @@
     height: 200px;
     background-color:rgb(207,232,252);
     top:1050px;
-    box-shadow: -1px -1px 10px rgb(90, 140, 240);
+    /* box-shadow: -1px -1px 10px rgb(90, 140, 240); */
     
 }
 .cover_declare_item1{

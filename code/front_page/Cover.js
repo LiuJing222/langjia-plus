@@ -31,25 +31,37 @@ const Cover = () => {
  
         let scrollY = window.scrollY;
         console.log(scrollY)
+        if(scrollY>=156){
+            item1.style.display='block';
+            item2.style.display='block';
+            item3.style.display='block';
+            item4.style.display='block';
+        }else{
+            item1.style.display='none';
+            item2.style.display='none';
+            item3.style.display='none';
+            item4.style.display='none';
+        }
         if(scrollY>=300){
             item1.setAttribute("id","cover_intro_item1_move")
             console.log('超过了')
-            
+                     
             item1.style.left='200px';
             item1.style.transitionProperty='all';
             item1.style.transitionDuration = '0.5s';
             item1.style.transitionTimingFunction='ease'
-
+          
             item2.style.right='200px';
             item2.style.transitionProperty='all';
             item2.style.transitionDuration = '0.5s';
             item2.style.transitionTimingFunction='ease'
         }else{
+            
             item1.style.left='-600px';
             item1.style.transitionProperty='all';
             item1.style.transitionDuration = '0.5s';
             item1.style.transitionTimingFunction='ease'
-
+     
             item2.style.right='-600px';
             item2.style.transitionProperty='all';
             item2.style.transitionDuration = '0.5s';
@@ -63,17 +75,17 @@ const Cover = () => {
             item3.style.transitionProperty='all';
             item3.style.transitionDuration = '0.5s';
             item3.style.transitionTimingFunction='ease'
-
+ 
             item4.style.right='200px';
             item4.style.transitionProperty='all';
             item4.style.transitionDuration = '0.5s';
             item4.style.transitionTimingFunction='ease'
-        }else{
+        }else{           
             item3.style.left='-600px';
             item3.style.transitionProperty='all';
             item3.style.transitionDuration = '0.5s';
             item3.style.transitionTimingFunction='ease'
-
+         
             item4.style.right='-600px';
             item4.style.transitionProperty='all';
             item4.style.transitionDuration = '0.5s';
@@ -89,7 +101,7 @@ const Cover = () => {
         <div className='cover_box'>
             {/* 导航栏 */}
             <div className='cover_nav'>
-                <Link to='/home'><div className='cover_nav_txt1'>朗家首页</div></Link>
+                <Link to='/'><div className='cover_nav_txt1'>朗家首页</div></Link>
 
                 <Link to='/login'><div className='cover_nav_txt2'>登录</div></Link>
                 <div className='cover_nav_line'>|</div>
@@ -163,7 +175,7 @@ const Cover = () => {
                     <ul>
                         <li>酷家乐</li>
                         <li>npm</li>
-                        <li>QQ Windows版</li>
+                        <li>花瓣网</li>
                     </ul>
                 </div>
                 <div className='cover_declare_item2'>
