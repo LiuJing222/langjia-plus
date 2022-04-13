@@ -78,7 +78,7 @@ const Login = () => {
                   className="user_pwd_inp"
                 />
               </Form.Item>
-              <Form.Item>
+              <Form.Item style={{marginTop:40}}>
                 <Form.Item name="remember" valuePropName="checked" noStyle>
                   <Checkbox className='rem_password'>记住密码</Checkbox>
                 </Form.Item>
@@ -88,7 +88,7 @@ const Login = () => {
                 </a>
               </Form.Item>
 
-              <Form.Item className="sub">
+              <Form.Item className="sub" style={{marginTop:-10,marginLeft:-18}}>
                 <Button type="primary" htmlType="submit" className="login-form-button" style={{ marginLeft: 68 }}>
                   登录
                 </Button>
@@ -103,26 +103,26 @@ const Login = () => {
               name="normal_login"
               className="login-form"
               onFinish={onFinish2}
-              style={{ marginTop: 30 }}
+              // style={{ marginTop: 30 }}
             >
               <Form.Item
                 name="send_email"
                 rules={[{ required: true, message: 'Please input your Username!' }]}
               // style={{marginLeft:25}}
               >
-                <Input prefix={<MailOutline style={{ position: 'relative', top: 21, left: 10 }} className="site-form-item-icon" />} placeholder="邮箱" style={{ width: 200, height: 22 }} />
+                <Input prefix={<MailOutline style={{ position: 'relative', top: 30, left: 10 }} className="site-form-item-icon" />} placeholder="邮箱" />
               </Form.Item>
 
-              <Form.Item style={{ marginTop: 50 }}>
+              <Form.Item style={{ marginTop: 100,marginLeft:-7 }}>
                 <Button type="primary" htmlType="submit" className="confirm-form-button">
                   确认
                 </Button>
               </Form.Item>
             </Form>
-            <div style={{ marginLeft: 3, marginTop: 90 }}>
-              -----------
-              <a style={{ fontSize: 6, color: '#6381bc' }} onClick={() => setDiaplsy({ ...display, login: 'block', forget: 'none' })}> 登 录 </a>
-              -----------
+            <div style={{ width: 321 ,marginLeft: -40, marginTop: 150,fontSize:20 }}>
+              -------------
+              <a style={{ fontSize: 16, color: '#6381bc' }} onClick={() => setDiaplsy({ ...display, login: 'block', forget: 'none' })}> 登 录 </a>
+              -------------
             </div>
           </div>
           <div className='login_form_inner' style={{ display: display.register }}>
@@ -133,7 +133,7 @@ const Login = () => {
               name="register"
               onFinish={onFinish3}
               scrollToFirstError
-              style={{ marginLeft: -2 }}
+              style={{ marginLeft: -6 }}
 
             >
               <Form.Item
@@ -149,7 +149,7 @@ const Login = () => {
                   },
                 ]}
               >
-                <Input style={{ marginLeft: -8 }} prefix={<MailOutline className="site-form-item-icon" />} placeholder="请输入邮箱" />
+                <Input prefix={<MailOutline className="site-form-item-icon" />} placeholder="请输入邮箱" />
               </Form.Item>
 
               <Form.Item
@@ -162,7 +162,7 @@ const Login = () => {
                   },
                 ]}
               >
-                <Input.Password prefix={<KeyOutline className="site-form-item-icon" />} placeholder="请输入密码" />
+                <Input.Password prefix={<KeyOutline className="site-form-item-icon"/>} placeholder="请输入密码" />
               </Form.Item>
 
               <Form.Item
@@ -191,6 +191,7 @@ const Login = () => {
               <Form.Item
                 name="agreement"
                 valuePropName="checked"
+                
                 rules={[
                   {
                     validator: (_, value) =>
@@ -199,22 +200,22 @@ const Login = () => {
                 ]}
                 {...tailFormItemLayout}
               >
-                <Checkbox>
+                <Checkbox style={{marginTop:20,fontSize:15}}>
                   我阅读并同意 <a href="/information" className='register_know'>注册须知</a>
                 </Checkbox>
               </Form.Item>
 
               <Form.Item {...tailFormItemLayout}>
-                <Button type="primary" htmlType="submit">
+                <Button type="primary" htmlType="submit" style={{marginTop:20}}>
                   注册
                 </Button>
               </Form.Item>
 
             </Form>
-            <div>
-              -----------
-              <a style={{ fontSize: 6, color: '#6381bc' }} onClick={() => setDiaplsy({ ...display, login: 'block', register: 'none' })}> 登 录 </a>
-              -----------
+            <div style={{marginTop:60, width: 321 ,marginLeft: -43, fontSize:20}}>
+              -------------
+              <a style={{ fontSize: 16, color: '#6381bc' }} onClick={() => setDiaplsy({ ...display, login: 'block', register: 'none' })}> 登 录 </a>
+              -------------
             </div>
 
           </div>

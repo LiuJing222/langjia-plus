@@ -11,7 +11,7 @@
     font-weight: 900;
     margin-left: 10%;
     color: #022B63;
-    font-size: 19px;
+    font-size: 27px;
     line-height: 5vh;
 }
 .login_footer{
@@ -30,7 +30,7 @@
     box-shadow: 8px 8px 8px #555;
 }
 .login_form{
-    width: 308px;
+    width: 440px;
     height: 80vh;
     background-color: white;
     box-shadow: 8px 8px 8px #555;
@@ -39,12 +39,12 @@
     align-items: center;
 }
 .login_form_inner{
-    width: 227px;
-    height: 265px;
+    width: 225px;
+    height: 361px;
 }
 .login_form p{
     font-family: 黑体;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 900;
     /* text-shadow: 0px 0px 10px #6381bc; */
     margin-bottom: 32px;
@@ -72,32 +72,33 @@ input::-webkit-input-placeholder {
     font-size: 1px;
 }
 input{
-    padding-left: 24px;
+    padding-left: 31px;
     border: 1px solid #555;
-    border-radius: 7px;
+    border-radius: 15px;
     height: 20px;
     margin: 2px;
 }
 
 .ant-input-prefix svg{
     position: relative;
-    left: 20px;
+    left: 12px;
+    top: 28px;
     color: #555;
-    font-size: 110%;
+    font-size: 101%;
     font-weight: lighter;
 }
 .ant-form-item-explain div{
     font-size: 10px;
     /* padding-left: 23px; */
-    padding: 2px 23px 2px;
+    padding: 2px 12px 2px;
     color: #6381bc;
 }
 .ant-form-item-control-input-content{
-    width: 225px;
+    width: 243px;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    font-size: 10px;
+    font-size: 19px;
 }
 .ant-checkbox-wrapper{
     display: flex;
@@ -105,37 +106,39 @@ input{
 }
 .login-form-forgot{
     color: #444;
-    font-size: small;
+    font-size: 16px;
 }
 .login-form-forgot:hover{
     color:#6381bc;
 }
 .register{
     color: #555;
-    font-size: small;
+    font-size: 16px;
 }
 .register:hover{
     color:#6381bc;
 }
 .rem_password{
-    color: #444;
-    font-size: small;
+    color: #111;
+    font-size: 16px;
+    margin-right: 90px;
 }
 .ant-btn{
     background-color: #7998d1;
     border: 1px solid #a4b6cd;
-    width: 80px;
-    height: 26px;
+    width: 120px;
+    height: 40px;
     color: white;
-    box-shadow: 2px 2px 2px #859bc8;
-    transition: background-color .5s ease-in .1s,
+    box-shadow: 1px 1px 4px #859bc8;
+    transition: background-color .5s ease-in .1s;
+    font-size: 19px;
 }
 .ant-btn:hover{
     background-color: #6381bc;
     transition: background-color .5s ease-in .1s,
 }
 .ant-col{
-    margin-top: 10px;
+    margin-top: 25px;
 }
 .ant-input-suffix{
     position: relative;
@@ -151,4 +154,14 @@ input{
 }
 .ant-row{
     height: 40px;
+}
+.ant-input{
+    width: 250px;
+    height: 33px;
+}
+.anticon-eye-invisible svg {
+    /* display: inline-block; */
+    position: relative;
+    top: -29px;
+    left: 273px;
 }
