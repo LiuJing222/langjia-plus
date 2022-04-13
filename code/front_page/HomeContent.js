@@ -5,6 +5,9 @@ import SqurIcon from './images/3DSqur.png'
 import RateIcon from './images/home_rate_icon.png'
 import HomeIcon from './images/home_home_icon.png'
 import DesignIcon from './images/home_design_icon.png'
+import DoIcon from './images/doitIcon.png'
+import InsptIcon from './images/spirationIcon.png'
+import RmdIcon from './images/rmdIcon.png'
 import LivingRoom from './images/livingRoom.jfif'
 import BedRoom from './images/bedRoom.jfif'
 import Kitchen from './images/kitchen.jfif'
@@ -31,16 +34,21 @@ const HomeTop = () => {
                 <div className="home_character"><img src={HomeIcon} className="home_icon"></img><span className="home_top_text">家装</span></div>
                 <div className="home_character"><img src={DesignIcon} className="home_icon"></img><span className="home_top_text">设计</span></div>
             </div>
-            <button class="home_start">快速开始</button>
+            <button class="home_start">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                快速开始</button>
         </div>
     )
 }
 const Btns = () => {
     return (
         <div className="home_btns">
-            <button>免费体验</button>
-            <button>寻找灵感</button>
-            <button>逛逛推荐</button>
+            <button><img src={DoIcon}></img><span>免费体验</span></button>
+            <button><img src={InsptIcon}></img><span>寻找灵感</span></button>
+            <button><img src={RmdIcon}></img><span>逛逛推荐</span></button>
         </div>
     )
 }
