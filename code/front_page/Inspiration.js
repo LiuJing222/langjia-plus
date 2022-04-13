@@ -1,5 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './Inspiration.css'
+
 
 import logo from './images/logoBW.png'
 import bg2 from './images/insbg3.jpg'
@@ -23,9 +25,9 @@ const Inspiration = () => {
             <img src={logo}  className='ins_nav_logo' />
             <div className='ins_nav_logoTxt'>朗家</div>
             <ul className='ins_nav_ul'>
-                <li className='ins_nav_li'>首页</li>
-                <li className='ins_nav_li'>推荐</li>
-                <li className='ins_nav_li'>灵感</li>
+                <Link to='/home'><li className='ins_nav_li'>首页</li></Link>
+                <Link to='/'><li className='ins_nav_li'>推荐</li></Link>
+                <Link to='/ins'><li className='ins_nav_li'>灵感</li></Link>
             </ul>
         </div>
         {/* 背景图 */}
