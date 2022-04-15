@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link,NavLink } from 'react-router-dom'
 import './Inspiration.css'
 
 
@@ -25,9 +25,9 @@ const Inspiration = () => {
             <img src={logo}  className='ins_nav_logo' />
             <div className='ins_nav_logoTxt'>朗家</div>
             <ul className='ins_nav_ul'>
-                <Link to='/home'><li className='ins_nav_li'>首页</li></Link>
-                <Link to='/'><li className='ins_nav_li'>推荐</li></Link>
-                <Link to='/ins'><li className='ins_nav_li'>灵感</li></Link>
+                <NavLink to='/home'><li className='ins_nav_li'>首页</li></NavLink>
+                <NavLink to='/'><li className='ins_nav_li'>推荐</li></NavLink>
+                <NavLink to='/ins'><li className='ins_nav_li' id="ins_nav_ins">灵感</li></NavLink>
             </ul>
         </div>
         {/* 背景图 */}
@@ -41,54 +41,66 @@ const Inspiration = () => {
         </div>
         {/* 内容 */}
         <div className='ins_content'>
+            <Link to={{pathname:'/InsCon',state:{id:0}}}>
             <div className='ins_content_item'>
-                <img src={img1} className='ins_content_img' />
+                <img src='https://qhrenderstorage-oss.kujiale.com/beautify/2022/04/07/MJHEU5AKTEM2KAABAAAAACA8.jpg?x-oss-process=image/resize,m_fill,w_1715,h_1010/format,webp' className='ins_content_img' />
                 <div className='ins_content_txt_box'>
-                    <div className='ins_content_txt1'>《温柔宝藏》</div>
+                    <div className='ins_content_txt1'>《马卡龙》</div>
                     <div className='ins_content_txt2'>设计师：张伟</div>
-                    <div className='ins_content_txt3'>“世事千帆过 路的尽头会是温柔和月光”</div>
+                    <div className='ins_content_txt3'>唯美的客厅配上梦幻帘的观影效果，美得不可方物</div>
                 </div>
             </div>
+            </Link>
+            <Link to={{pathname:'/InsCon',state:{id:1}}}>
             <div className='ins_content_item'>
-                <img src={img2} className='ins_content_img' />
-                <div className='ins_content_txt_box'>
-                    <div className='ins_content_txt1'>《奶油》</div>
-                    <div className='ins_content_txt2'>设计师：张伟</div>
-                    <div className='ins_content_txt3'>轻盈的氛围感，简约大气又不失温柔</div>
-                </div>
-            </div>
-            <div className='ins_content_item'>
-                <img src={img3} className='ins_content_img' />
-                <div className='ins_content_txt_box'>
-                    <div className='ins_content_txt1'>《烟熏玫瑰》</div>
-                    <div className='ins_content_txt2'>设计师：张伟</div>
-                    <div className='ins_content_txt3'>玫瑰色格调高雅，传达的是一种浪漫情怀</div>
-                </div>
-            </div>
-            <div className='ins_content_item'>
-                <img src={img4} className='ins_content_img' />
-                <div className='ins_content_txt_box'>
-                    <div className='ins_content_txt1'>《朱莉》</div>
-                    <div className='ins_content_txt2'>设计师：张伟</div>
-                    <div className='ins_content_txt3'>法式装修风格线条柔美而富有韵味，灯光浓烈而淡雅，强调轴线的对称</div>
-                </div>
-            </div>
-            <div className='ins_content_item'>
-                <img src={img5} className='ins_content_img' />
+                <img src="https://qhrenderpic-cos.kujiale.com/r/2022/01/17/L3D206S21ENDPT5554NSGEQZ4LUF3P3XI888_2560x1440.jpg?x-oss-process=image/resize,m_fill,w_1715,h_1010/format,webp" className='ins_content_img' />
                 <div className='ins_content_txt_box'>
                     <div className='ins_content_txt1'>《侘寂》</div>
                     <div className='ins_content_txt2'>设计师：张伟</div>
-                    <div className='ins_content_txt3'>装饰线条大胆、奔放，追求自然而纯朴的意境</div>
+                    <div className='ins_content_txt3'>侘寂风别墅，给客户营造禅意与宁静的居住环境。</div>
                 </div>
             </div>
+            </Link>
+            <Link to={{pathname:'/InsCon',state:{id:2}}}>
             <div className='ins_content_item'>
-                <img src={img6} className='ins_content_img' />
+                <img src="https://qhrenderpic-cos.kujiale.com/r/2022/01/06/L3D124S21ENDPTESOGVSGH2Z6LUF3P3XY888_4000x3000.jpg?x-oss-process=image/resize,m_fill,w_1715,h_1010/format,webp" className='ins_content_img' />
                 <div className='ins_content_txt_box'>
-                    <div className='ins_content_txt1'>《时光》</div>
+                    <div className='ins_content_txt1'>《日式小院》</div>
+                    <div className='ins_content_txt2'>设计师：张伟</div>
+                    <div className='ins_content_txt3'>在这个空间里，可以尽情享受每一刻的光阴，每一份独有的美好</div>
+                </div>
+            </div>
+            </Link>
+            <Link to={{pathname:'/InsCon',state:{id:3}}}>
+            <div className='ins_content_item'>
+                <img src="https://qhrenderstorage-oss.kujiale.com/beautify/2021/11/11/YY0kd6wZ0bcAAQAAAAc.jpg?x-oss-process=image/resize,m_fill,w_1715,h_1010/format,webp" className='ins_content_img' />
+                <div className='ins_content_txt_box'>
+                    <div className='ins_content_txt1'>《摩登时代》</div>
+                    <div className='ins_content_txt2'>设计师：张伟</div>
+                    <div className='ins_content_txt3'>温馨复古的家，不需要太多浮华的装饰。</div>
+                </div>
+            </div>
+            </Link>
+            <Link to={{pathname:'/InsCon',state:{id:4}}}>
+            <div className='ins_content_item'>
+                <img src="https://qhrenderstorage-oss.kujiale.com/beautify/2021/10/13/MFTPXOFMDFXFAAABAAAAACI8.jpg?x-oss-process=image/resize,m_fill,w_1715,h_1010/format,webp" className='ins_content_img' />
+                <div className='ins_content_txt_box'>
+                    <div className='ins_content_txt1'>《原木温馨》</div>
+                    <div className='ins_content_txt2'>设计师：张伟</div>
+                    <div className='ins_content_txt3'>全屋的原木色，营造轻盈的氛围感，让家更有温度</div>
+                </div>
+            </div>
+            </Link>
+            <Link to={{pathname:'/InsCon',state:{id:5}}}>
+            <div className='ins_content_item'>
+                <img src="https://qhrenderstorage-oss.kujiale.com/beautify/2021/07/31/YQQsvqwZjWAAAQAAAAY.jpg?x-oss-process=image/resize,m_fill,w_1715,h_1010/format,webp" className='ins_content_img' />
+                <div className='ins_content_txt_box'>
+                    <div className='ins_content_txt1'>《北欧Loft》</div>
                     <div className='ins_content_txt2'>设计师：张伟</div>
                     <div className='ins_content_txt3'>小小的logt客厅通过变化家具的摆放位置，也能获取不同的新鲜感</div>
                 </div>
             </div>
+            </Link>
         </div>
         {/* 敬请期待 */}
         <div className='ins_more'>    

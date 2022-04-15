@@ -5,6 +5,7 @@ import Cover from './Cover';
 import Login from './Login';
 import Home from './Home';
 import Inspiration from './Inspiration';
+import InsContent from './InsContent';
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
             <Route path="/login" component={Login}></Route>
             <Route path="/home" component={Home}></Route>
             <Route path="/Ins" component={Inspiration}></Route>
+            <Route path="/InsCon" component={InsContent}></Route>
           </Switch>
         </Router>
       
