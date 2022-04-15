@@ -65,25 +65,25 @@
 @keyframes btntspt {
     0% {
         box-shadow: 0px 0px 10px rgb(255, 255, 255),
-        0px 0px 20px rgb(170, 202, 250),
-        0px 0px 40px rgb(86, 145, 255),
-        0px 0px 80px rgb(8, 68, 246);
+            0px 0px 20px rgb(170, 202, 250),
+            0px 0px 40px rgb(86, 145, 255),
+            0px 0px 80px rgb(8, 68, 246);
         /* opacity: 0.7; */
     }
 
     50% {
         box-shadow: 0px 0px 10px rgb(255, 255, 255),
-        0px 0px 20px rgb(208, 223, 246),
-        0px 0px 40px rgb(186, 210, 255),
-        0px 0px 80px rgb(150, 176, 255);
+            0px 0px 20px rgb(208, 223, 246),
+            0px 0px 40px rgb(186, 210, 255),
+            0px 0px 80px rgb(150, 176, 255);
         /* opacity: 1; */
     }
 
     100% {
         box-shadow: 0px 0px 10px rgb(255, 255, 255),
-        0px 0px 20px rgb(170, 202, 250),
-        0px 0px 40px rgb(86, 145, 255),
-        0px 0px 80px rgb(8, 68, 246);
+            0px 0px 20px rgb(170, 202, 250),
+            0px 0px 40px rgb(86, 145, 255),
+            0px 0px 80px rgb(8, 68, 246);
         /* opacity: 0.7; */
     }
 }
@@ -112,13 +112,14 @@
 }
 
 @keyframes btnsamt {
-    0%{
+    0% {
         transform: scale(1);
     }
+
     /* 50%{
         transform: scale(1.2);
     } */
-    100%{
+    100% {
         transform: scale(1.2);
     }
 }
@@ -136,13 +137,14 @@
 
 .home_btns button {
     width: 290px;
-    height: 100px;    
+    height: 100px;
     border: none;
     background-color: #fff;
     box-shadow: 1px 1px 5px #ccc;
     position: relative;
     /* animation: btnsamt 3s  1s infinite; */
 }
+
 /* .home_btns button:nth-child(1){
     animation: btnsamt 3s  0s infinite;
 }
@@ -152,22 +154,24 @@
 .home_btns button:nth-child(3){
     animation: btnsamt 3s  2s infinite;
 } */
-.home_btns img{
-    width:60px;
-    height:60px;
+.home_btns img {
+    width: 60px;
+    height: 60px;
     position: absolute;
-    left:40px;
-    top:20px;
+    left: 40px;
+    top: 20px;
 }
-.home_btns span{
+
+.home_btns span {
     font-size: 30px;
     font-weight: bold;
     line-height: 80px;
-    color: rgb(2,43,99);
+    color: rgb(2, 43, 99);
     position: absolute;
-    top:10%;
+    top: 10%;
     right: 20%;
 }
+
 .home_btns button:hover {
     transform: scale(1.1);
     transition: all 0.75s;
@@ -232,7 +236,7 @@ a {
 
 .home_tip_text {
     font-size: 15px;
-    margin-top: -5%;
+    margin-top: 2%;
     margin-left: 5%;
     margin-right: 5%;
 }
@@ -261,6 +265,7 @@ a {
     height: 340px;
     position: absolute;
     top: 0px;
+    object-fit: cover;
 }
 
 .home_tip_hover .home_tip_con {
@@ -290,7 +295,6 @@ a {
         opacity: 0;
         width: 0px;
         height: 0px;
-
     }
 
     100% {
@@ -324,6 +328,12 @@ a {
 .home_tip:hover .home_tip_con {
     animation: con 1s 0s;
 }
+
+.home_tip:hover .home_tip_hover img {
+    display: block;
+    animation: imgAmt 1s 0s;
+}
+
 
 
 .home_tip:nth-child(1) .home_tip_hover,
@@ -370,15 +380,15 @@ a {
     box-shadow: 1px 1px 2px #ccc;
 }
 
-.home_chater img {
-    width: 120px;
-    height: 120px;
+.home_chater_img {
+    width: 100px;
+    height: 100px;
     margin-left: 45px;
     transition: all 0.5s;
 }
 
-.home_chater img:hover {
-    transform: scale(1.3);
+.home_chater_img:hover {
+    transform: scale(0.5);
 }
 
 .home_chater_title {

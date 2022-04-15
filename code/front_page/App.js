@@ -6,6 +6,12 @@ import Login from './Login';
 import Home from './Home';
 import Inspiration from './Inspiration';
 import InsContent from './InsContent';
+import LivingTip from './LivingTip';
+import KitchenTip from './KitchenTip';
+import WashRoomTip from './WashRoomTip';
+import BedRoomTip from './BedRoomTip';
+import StudyRoomTip from './StudyRoomTip'
+import BalconyTip from './BalconyTip'
 
 const App = () => {
   return (
@@ -18,6 +24,13 @@ const App = () => {
             <Route path="/home" component={Home}></Route>
             <Route path="/Ins" component={Inspiration}></Route>
             <Route path="/InsCon" component={InsContent}></Route>
+          <Route path="/livingtip" component={LivingTip}></Route>
+          <Route path="/kitchentip" component={KitchenTip}></Route>
+          <Route path="/washroomtip" component={WashRoomTip}></Route>
+          <Route path="/bedroomtip" component={BedRoomTip}></Route>
+          <Route path="/studyroomtip" component={StudyRoomTip}></Route>
+          <Route path="/balconytip" component={BalconyTip}></Route>
+	
           </Switch>
         </Router>
       

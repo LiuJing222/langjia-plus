@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom';
 
 import HomeBg from './images/homeBg.jpg'
 import SqurIcon from './images/3DSqur.png'
@@ -63,12 +64,11 @@ const HomeTips = () => {
                     <br></br>
                     <span className="home_tip_text">房间的门面就是客厅，客厅如何设计？</span>
                     <br></br>
-                    <a href="">看看大家怎么说→</a>
                     <div className="home_tip_hover">
                         <img src={LivingRoom}></img>
                         <div className="home_tip_con">
                             <span>房间的门面就是客厅，客厅如何设计？</span>
-                            <a href="">看看大家怎么说→</a>
+                            <Link target="_blank" to="/livingtip">看看大家怎么说→</Link>
                         </div>
                     </div>
                 </div>
@@ -78,12 +78,11 @@ const HomeTips = () => {
                     <br></br>
                     <span className="home_tip_text">餐厅自然也是干净又卫生，如何不留卫生死角？</span>
                     <br></br>
-                    <a href="">看看大家怎么说→</a>
                     <div className="home_tip_hover">
                         <img src={Kitchen}></img>
                         <div className="home_tip_con">
                             <span>餐厅自然也是干净又卫生，如何不留卫生死角？</span>
-                            <a href="">看看大家怎么说→</a>
+                            <Link target="_blank" to="/kitchentip">看看大家怎么说→</Link>
                         </div>
                     </div>
                 </div>
@@ -93,12 +92,11 @@ const HomeTips = () => {
                     <br></br>
                     <span className="home_tip_text">洗手间与淋浴间的卫生最体现房子主人的卫生，如何给客人留下好印象呢？</span>
                     <br></br>
-                    <a href="">看看大家怎么说→</a>
                     <div className="home_tip_hover">
                         <img src={WashRoom}></img>
                         <div className="home_tip_con">
                             <span>洗手间与淋浴间的卫生最体现房子主人的卫生，如何给客人留下好印象呢？</span>
-                            <a href="">看看大家怎么说→</a>
+                            <Link target="_blank" to="/washroomtip">看看大家怎么说→</Link>
                         </div>
                     </div>
                 </div>
@@ -108,12 +106,11 @@ const HomeTips = () => {
                     <br></br>
                     <span className="home_tip_text">卧室又要干净又要舒服，到底要怎样设计？</span>
                     <br></br>
-                    <a href="">看看大家怎么说→</a>
                     <div className="home_tip_hover">
                         <img src={BedRoom}></img>
                         <div className="home_tip_con">
                             <span>卧室又要干净又要舒服，到底要怎样设计？</span>
-                            <a href="">看看大家怎么说→</a>
+                            <Link target="_blank" to="/bedroomtip">看看大家怎么说→</Link>
                         </div>
                     </div>
                 </div>
@@ -123,12 +120,11 @@ const HomeTips = () => {
                     <br></br>
                     <span className="home_tip_text">书房是家中最安静的地方，如何布局才能显得不局促？</span>
                     <br></br>
-                    <a href="">看看大家怎么说→</a>
                     <div className="home_tip_hover">
                         <img src={StudyRoom}></img>
                         <div className="home_tip_con">
                             <span>书房是家中最安静的地方，如何布局才能显得不局促？</span>
-                            <a href="">看看大家怎么说→</a>
+                            <Link target="_blank" to="/studyroomtip">看看大家怎么说→</Link>
                         </div>
                     </div>
                 </div>
@@ -138,12 +134,11 @@ const HomeTips = () => {
                     <br></br>
                     <span className="home_tip_text">阳台是种些花花草草，还是干干净净的？</span>
                     <br></br>
-                    <a href="">看看大家怎么说→</a>
                     <div className="home_tip_hover">
                         <img src={Balcony}></img>
                         <div className="home_tip_con">
                             <span>阳台是种些花花草草，还是干干净净的？</span>
-                            <a href="">看看大家怎么说→</a>
+                            <Link target="_blank" to="/balconytip">看看大家怎么说→</Link>
                         </div>
                     </div>
                 </div>
@@ -153,29 +148,75 @@ const HomeTips = () => {
         </div>
     )
 }
-const Chater = ()=>{
-    return(
+const Chater = () => {
+    useEffect(() => {
+        window.addEventListener("scroll", handleChater);
+        handleChater();
+        return () => {
+            window.removeEventListener("scroll", handleChater)
+        }
+    }, [])
+
+    const handleChater = () => {
+        let chaterImg = document.getElementsByClassName("home_chater_img")
+
+        let scrollY = window.scrollY;
+        if (scrollY >= 700) {
+            console.log(chaterImg[0])
+            chaterImg[0].style.transform = "scale(1.3)";
+            chaterImg[0].style.transitionProperty = "all";
+            chaterImg[0].style.transitionDuration = "1s";
+            chaterImg[0].style.transitionTimingFunction = "ease";
+            chaterImg[0].style.transitionDelay = "0.5s";
+                        
+            chaterImg[1].style.transform = "scale(1.3)";
+            chaterImg[1].style.transitionProperty = "all";
+            chaterImg[1].style.transitionDuration = "1s";
+            chaterImg[1].style.transitionTimingFunction = "ease";
+            chaterImg[1].style.transitionDelay = "0.75s";
+
+            
+            chaterImg[2].style.transform = "scale(1.3)";
+            chaterImg[2].style.transitionProperty = "all";
+            chaterImg[2].style.transitionDuration = "1s";
+            chaterImg[2].style.transitionTimingFunction = "ease";
+            chaterImg[2].style.transitionDelay = "1s";
+
+            
+            chaterImg[3].style.transform = "scale(1.3)";
+            chaterImg[3].style.transitionProperty = "all";
+            chaterImg[3].style.transitionDuration = "1s";
+            chaterImg[3].style.transitionTimingFunction = "ease";
+            chaterImg[3].style.transitionDelay = "1.25s";
+        }else if(scrollY >= 650) {            
+            chaterImg[0].style.transform = "scale(1)";
+            chaterImg[1].style.transform = "scale(1)";
+            chaterImg[2].style.transform = "scale(1)";
+            chaterImg[3].style.transform = "scale(1)";
+        }
+    }
+    return (
         <div className='home_chaters'>
-            <div class="home_chater">
-                <img src={TDBubble}></img>
+            <div className="home_chater">
+                <img className='home_chater_img' src={TDBubble}></img>
                 <span className="home_chater_title">3D</span>
                 <br></br>
-                <span className="home_chater_text">3D 技术的使用直观全面地展现房屋设计，增强您的体验感和沉浸感</span>
+                <span className="home_chater_text">3D 技术的使用直观全面地展    现房屋设计，增强您的体验感和沉浸感</span>
             </div>
-            <div class="home_chater">
-                <img src={FreeBubble}></img>
+            <div className="home_chater">
+                <img className='home_chater_img' src={FreeBubble}></img>
                 <span className="home_chater_title">Free</span>
                 <br></br>
                 <span className="home_chater_text">海量户型模板及家具模型任您选择，随心搭配，主宰自己的家</span>
             </div>
-            <div class="home_chater">
-                <img src={RferBubble}></img>
+            <div className="home_chater">
+                <img className='home_chater_img' src={RferBubble}></img>
                 <span className="home_chater_title">Reference</span>
                 <br></br>
                 <span className="home_chater_text">没有灵感？没有经验？多种风格的灵感及优秀作品供您参考</span>
             </div>
-            <div class="home_chater">
-                <img src={StartBubble}></img>
+            <div className="home_chater">
+                <img className='home_chater_img' src={StartBubble}></img>
                 <span className="home_chater_title">Start</span>
                 <br></br>
                 <span className="home_chater_text">家装从这里开始</span>
@@ -183,8 +224,8 @@ const Chater = ()=>{
         </div>
     )
 }
-const Belong = ()=>{
-    return(
+const Belong = () => {
+    return (
         <div className='home_belong'>
             <div className='home_belong_con'>
                 <p className='home_belong_title'>借鉴网站</p>
@@ -208,6 +249,7 @@ const Belong = ()=>{
 }
 
 const HomeContent = () => {
+
     return (
         <div className="home_content">
             <HomeTop></HomeTop>
