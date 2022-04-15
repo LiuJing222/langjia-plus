@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router,Route,Switch } from 'react-router-dom';
-
+import './App.css'
 import Cover from './Cover';
 import Login from './Login';
 import Home from './Home';
@@ -12,6 +12,7 @@ import WashRoomTip from './WashRoomTip';
 import BedRoomTip from './BedRoomTip';
 import StudyRoomTip from './StudyRoomTip'
 import BalconyTip from './BalconyTip'
+import Recommend from './Recommend';
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
           <Route path="/bedroomtip" component={BedRoomTip}></Route>
           <Route path="/studyroomtip" component={StudyRoomTip}></Route>
           <Route path="/balconytip" component={BalconyTip}></Route>
+          <Route path="/rec" component={Recommend}></Route>
 	
           </Switch>
         </Router>
