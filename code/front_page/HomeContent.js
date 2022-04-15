@@ -80,7 +80,7 @@ const HomeTips = () => {
                     <br></br>
                     <a href="">看看大家怎么说→</a>
                     <div className="home_tip_hover">
-                        <img src={BedRoom}></img>
+                        <img src={Kitchen}></img>
                         <div className="home_tip_con">
                             <span>餐厅自然也是干净又卫生，如何不留卫生死角？</span>
                             <a href="">看看大家怎么说→</a>
@@ -95,7 +95,7 @@ const HomeTips = () => {
                     <br></br>
                     <a href="">看看大家怎么说→</a>
                     <div className="home_tip_hover">
-                        <img src={Kitchen}></img>
+                        <img src={WashRoom}></img>
                         <div className="home_tip_con">
                             <span>洗手间与淋浴间的卫生最体现房子主人的卫生，如何给客人留下好印象呢？</span>
                             <a href="">看看大家怎么说→</a>
@@ -110,7 +110,7 @@ const HomeTips = () => {
                     <br></br>
                     <a href="">看看大家怎么说→</a>
                     <div className="home_tip_hover">
-                        <img src={StudyRoom}></img>
+                        <img src={BedRoom}></img>
                         <div className="home_tip_con">
                             <span>卧室又要干净又要舒服，到底要怎样设计？</span>
                             <a href="">看看大家怎么说→</a>
@@ -125,7 +125,7 @@ const HomeTips = () => {
                     <br></br>
                     <a href="">看看大家怎么说→</a>
                     <div className="home_tip_hover">
-                        <img src={WashRoom}></img>
+                        <img src={StudyRoom}></img>
                         <div className="home_tip_con">
                             <span>书房是家中最安静的地方，如何布局才能显得不局促？</span>
                             <a href="">看看大家怎么说→</a>
