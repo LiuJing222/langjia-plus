@@ -48,8 +48,8 @@ const Btns = () => {
     return (
         <div className="home_btns">
             <button><img src={DoIcon}></img><span>免费体验</span></button>
-            <button><img src={InsptIcon}></img><span>寻找灵感</span></button>
-            <button><img src={RmdIcon}></img><span>逛逛推荐</span></button>
+            <Link to="Ins"><button><img src={InsptIcon}></img><span>寻找灵感</span></button></Link>
+            <Link to="rec"><button><img src={RmdIcon}></img><span>逛逛推荐</span></button></Link>
         </div>
     )
 }
@@ -162,7 +162,6 @@ const Chater = () => {
 
         let scrollY = window.scrollY;
         if (scrollY >= 700) {
-            console.log(chaterImg[0])
             chaterImg[0].style.transform = "scale(1.3)";
             chaterImg[0].style.transitionProperty = "all";
             chaterImg[0].style.transitionDuration = "1s";

@@ -4,9 +4,8 @@
 }
 
 .home_header {
-    /* width: 100%; */
     height: 45px;
-    padding-left:15%;
+    padding-left: 8%;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -14,38 +13,75 @@
 }
 
 .home_logo {
-    width: 43px;
-    height: 43px;
-    margin-top: 2px;
-    margin-left: 16%;
-    margin-right: 20px;
+    width: 34px;
+    height: 34px;
+    margin-top: 8px;
+    margin-right: 10px;
 }
 
 .home_nav_logo {
     display: inline-block;
     width: 100px;
     height: 45px;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 600;
     color: rgb(2, 43, 99);
-    line-height: 45px;
+    margin-top: 9px;
 }
 
+/* 导航栏每一项 */
 .home_nav_item {
-    text-decoration: none;
+    overflow: hidden;
     width: 100px;
     height: 40px;
-    font-size: 18px;
-    font-weight: 400;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin-left: 40px;
-    color: rgb(3, 43, 99);
-    line-height: 45px;
+    margin-left: 16px;
+    padding-top: 12px;
 }
 
-.home_head_active {
-    font-weight: 700;
-    font-size: 20px;
-    text-decoration: none;
+.home_nav_item img {
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    margin-right: 3px;
+    margin-top: 3px;
+}
 
+.home_nav_item span {
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #666;
+    line-height: 30px;
+    position: absolute;
+    top: 12px;
+}
+
+/* 导航栏每一项的活跃状态 */
+
+.home_head_active {
+    overflow: hidden;
+    width: 100px;
+    height: 40px;
+    margin-left: 30px;
+    padding-top: 12px;
+}
+
+.home_head_active img {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    margin-right: 3px;
+}
+
+.home_head_active span {
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    color: rgb(2, 43, 99);
+    transform: scale(1.1);
+    line-height: 30px;
+    position: absolute;
+    top: 12px;
 }

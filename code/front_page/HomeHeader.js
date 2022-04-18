@@ -1,18 +1,31 @@
-import React from 'react'
-import {Link,NavLink} from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { Link, NavLink } from 'react-router-dom';
 
 import './HomeHeader.css'
 import HomeLogo from './images/bluetlogo.png'
 
+
 const HomeHeader = () => {
+    const [pathname, setPathname] = useState("")
+    useEffect(() => {
+        const urlParams = new URL(window.location.href);
+        const pathname = urlParams?.pathname;
+        setPathname(pathname)
+        console.log(pathname);
+    }, [])
     return (
         <div class="home_header">
-            <NavLink to='/'><img src={HomeLogo}  className="home_logo"/></NavLink>
-            <NavLink to='/home' exact activeClassName="home_head_active"><div className="home_nav_logo">朗家</div></NavLink>
-            <NavLink to='/home' exact activeClassName="home_head_active"><div className="home_nav_item">首页</div></NavLink>
-            <NavLink to='/rec' activeClassName="home_head_active"><div className="home_nav_item">推荐</div></NavLink>  
-            <NavLink to='/Ins' activeClassName="home_head_active"><div className="home_nav_item">灵感</div></NavLink>  
-            <Link to="/login"><div className="home_nav_item" style={{marginLeft:'400px'}}>登录/注册</div></Link>
+            <NavLink to='/'><img src={HomeLogo} className="home_logo" /></NavLink>
+            <NavLink to='/home' ><div className="home_nav_logo">朗家</div></NavLink>
+            <NavLink to='/home' className={pathname == "/home" ? "home_head_active" : "home_nav_item"}>
+                <span>首页</span></NavLink>
+            <NavLink to='/rec' className={pathname == "/rec" ? "home_head_active" : "home_nav_item"}>
+                <span>推荐</span></NavLink>
+            <NavLink to='/Ins' className={pathname == "/Ins" ? "home_head_active" : "home_nav_item"} >
+                <span>灵感</span></NavLink>
+            <NavLink to='/help' className={pathname == "/help" ? "home_head_active" : "home_nav_item"} >
+                <span>帮助中心</span></NavLink>
+            <Link to="/login"><div className="home_nav_item" style={{ marginLeft: '650px' }}><span>登录|注册</span></div></Link>
         </div>
     )
 }
