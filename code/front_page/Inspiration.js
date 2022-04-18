@@ -1,18 +1,13 @@
 import React from 'react'
 import { Link,NavLink } from 'react-router-dom'
 import './Inspiration.css'
+import HomeHeader from './HomeHeader'
 
 
 import logo from './images/logoBW.png'
 import bg2 from './images/insbg3.jpg'
 import topline from './images/topline.png'
 import downline from './images/downline.png'
-import img1 from './images/insimg1.png'
-import img2 from './images/insimg2.png'
-import img3 from './images/insimg3.png'
-import img4 from './images/insimg4.png'
-import img5 from './images/insimg5.png'
-import img6 from './images/insimg6.png'
 import vins from './images/ins.mp4'
 
 import ReactPlayer from 'react-player'
@@ -21,7 +16,7 @@ const Inspiration = () => {
   return (
     <div className='ins_box'>
         {/* 导航栏 */}
-        <div className='ins_nav'>
+        {/* <div className='ins_nav'>
             <img src={logo}  className='ins_nav_logo' />
             <div className='ins_nav_logoTxt'>朗家</div>
             <ul className='ins_nav_ul'>
@@ -29,7 +24,8 @@ const Inspiration = () => {
                 <NavLink to='/'><li className='ins_nav_li'>推荐</li></NavLink>
                 <NavLink to='/ins'><li className='ins_nav_li' id="ins_nav_ins">灵感</li></NavLink>
             </ul>
-        </div>
+        </div> */}
+        <HomeHeader></HomeHeader>
         {/* 背景图 */}
         <div className='ins_bg'>
             <img src={bg2} className="ins_bg_img" />
@@ -98,6 +94,36 @@ const Inspiration = () => {
                     <div className='ins_content_txt1'>《北欧Loft》</div>
                     <div className='ins_content_txt2'>设计师：张伟</div>
                     <div className='ins_content_txt3'>小小的logt客厅通过变化家具的摆放位置，也能获取不同的新鲜感</div>
+                </div>
+            </div>
+            </Link>
+            <Link to={{pathname:'/InsCon',state:{id:6}}}>
+            <div className='ins_content_item'>
+                <img src="https://qhrenderpicoss.kujiale.com/r/2022/03/08/L3D187S21ENDP44TDTYUWFY24LUF3P3WY888_3840x2160.jpg?x-oss-process=image/resize,m_fill,w_1715,h_1010/format,webp" className='ins_content_img' />
+                <div className='ins_content_txt_box'>
+                    <div className='ins_content_txt1'>《浪漫温馨》</div>
+                    <div className='ins_content_txt2'>设计师：张伟</div>
+                    <div className='ins_content_txt3'>用法式的优雅和浪漫，安放生活的诗意和疲惫。</div>
+                </div>
+            </div>
+            </Link>
+            <Link to={{pathname:'/InsCon',state:{id:7}}}>
+            <div className='ins_content_item'>
+                <img src="https://qhrenderstorage-oss.kujiale.com/beautify/2022/03/02/MIPWCAIKTEJLKAABAAAAABI8.jpg?x-oss-process=image/resize,m_fill,w_1715,h_1010/format,webp" className='ins_content_img' />
+                <div className='ins_content_txt_box'>
+                    <div className='ins_content_txt1'>《尘埃》</div>
+                    <div className='ins_content_txt2'>设计师：张伟</div>
+                    <div className='ins_content_txt3'>没有艳丽的色彩，也没有夸张的线条，只是简约如尘埃。</div>
+                </div>
+            </div>
+            </Link>
+            <Link to={{pathname:'/InsCon',state:{id:8}}}>
+            <div className='ins_content_item'>
+                <img src="https://qhrenderpic-cos.kujiale.com/r/2021/12/28/L3D206S21ENDPTKNUY5SGH5HALUF3P3WK888_2560x1440.jpg?x-oss-process=image/resize,m_fill,w_1715,h_1010/format,webp" className='ins_content_img' />
+                <div className='ins_content_txt_box'>
+                    <div className='ins_content_txt1'>《禅意》</div>
+                    <div className='ins_content_txt2'>设计师：张伟</div>
+                    <div className='ins_content_txt3'>焚香，点茶，挂画，插花，四般闲事，不宜累家。</div>
                 </div>
             </div>
             </Link>

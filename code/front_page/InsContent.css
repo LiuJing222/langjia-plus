@@ -176,6 +176,11 @@ a{
     /* box-shadow: 1px 1px 5px #448CEF; */
     
 }
+.inscon_view_nav_txt:hover{
+    /* font-size: 18px; */
+    text-shadow: 1px 1px 1px #666666;
+    color: #fff;
+}
 .inscon_view_roundnav{
     width: 25px;
     /* background-color: #448CEF; */
@@ -203,4 +208,28 @@ li{
     margin-bottom: 25px;
     margin-right: 10px;
     margin-left: 5px;
+}
+.inscon_serve_item{
+    /* position: fixed;
+    top:300px;
+    right: 50px; */
+    height: 60px;
+    width: 60px;
+    background-color: #4FACFE;
+    border-radius: 50%;
+    box-shadow: 1px 1px 4px #4FACFE;
+}
+.inscon_serve_img{
+    width: 20px;
+    height: 20px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+.inscon_serve_txt{
+    height: 17px;
+    width: 60px;
+    text-align: center;
+    font-size: 12px;
+    color: white;
+    margin-left: 2px;
 }

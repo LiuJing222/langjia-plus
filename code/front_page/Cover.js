@@ -130,7 +130,7 @@ const Cover = () => {
                     <div className='cover_img_txt2_item'>家装</div>
                     <div className='cover_img_txt2_item'>设计</div>
                 </div>
-                <Link to='/'><button className='cover_img_btn'>开始体验</button></Link>
+                <Link to='/home'><button className='cover_img_btn'>开始体验</button></Link>
 
 
             </div>

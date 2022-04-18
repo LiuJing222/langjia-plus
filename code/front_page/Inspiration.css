@@ -93,6 +93,7 @@
 .ins_content_img{
     width: 320px;
     height: 250px;
+    object-fit: cover;
     position: absolute;
     top:0;
     left: 0;

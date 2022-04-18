@@ -1,9 +1,11 @@
 import React,{ useEffect } from 'react'
 import './InsContent.css'
+import HomeHeader from './HomeHeader'
 import { Link,NavLink } from 'react-router-dom'
 import ReactPlayer from 'react-player'
 import logo from './images/logoBW.png'
 import designer from './images/designer.png'
+import top from './images/top.png'
 
 const InsContent = (props) => {
     useEffect(()=>{
@@ -17,14 +19,15 @@ const InsContent = (props) => {
         let view1 = document.querySelector(".inscon_view_txtnav");
         let view2 = document.querySelector(".inscon_view_roundnav");
         let txt = document.getElementsByClassName("inscon_view_nav_txt");
-        let round = document.getElementsByClassName('inscon_view_nav_round')
+        let round = document.getElementsByClassName('inscon_view_nav_round');
+        let top = document.querySelector('.inscon_serve_item');
         let scrollY = window.scrollY;
         console.log(scrollY)
         if(scrollY >= 500){
-            console.log('超过')
-            console.log(parseInt(scrollY/850))
-            console.log(round.length)
-            // view.style.display='block';
+            top.style.opacity=1;
+            top.style.position='fixed';
+            top.style.right='50px';
+            top.style.top='500px';
             view1.style.opacity=1;
             view1.style.position='fixed';
             view1.style.top='240px';
@@ -52,6 +55,10 @@ const InsContent = (props) => {
             view2.style.transitionTimingFunction='ease';
         }else{
             // view.style.display='none';
+            top.style.opacity=0;
+            top.style.position='fixed';
+            top.style.right='50px';
+            top.style.top='300px';
             view1.style.opacity=0;
             view1.style.position='fixed';
             view1.style.top='300px';
@@ -75,7 +82,10 @@ const InsContent = (props) => {
         '//user-platform-oss.kujiale.com/design/video/perm/23a90231c85b08a2-1641540035905-1.mp4',//日式
         '//user-platform-oss.kujiale.com/design/video/perm/410d133f25a540b4-1637060574343-1.mp4',//摩登
         '//user-platform-oss.kujiale.com/design/video/perm/aee11f1f1fefcaf3-1635337583446-1.mp4',//原木
-        '//user-platform-oss.kujiale.com/design/video/perm/c35d3ca1aefe8dc2-1631786206699-1.mp4'//loft
+        '//user-platform-oss.kujiale.com/design/video/perm/c35d3ca1aefe8dc2-1631786206699-1.mp4',//loft
+        '//user-platform-oss.kujiale.com/design/video/perm/MIUGZJYKTEFXCAABAAAAADQ8.mp4',//浪漫
+        '//user-platform-oss.kujiale.com/design/video/perm/dbc8c026d255b00e-1646115214264-1.mp4',//尘埃
+        '//user-platform-oss.kujiale.com/design/video/perm/1e6b9e6686926d75-1641278738312-1.mp4',//禅意
     ]
     const house = [
         {
@@ -215,6 +225,78 @@ const InsContent = (props) => {
                 // 'https://qhrenderstorage-oss.kujiale.com/beautify/2021/07/30/YQPotqwZjWAAAQAAAAQ.jpg?x-oss-process=image/resize,m_mfit,w_1265,h_712/format,webp',
             ],
         },
+        {
+            title:'浪漫温馨',
+            type:'3室2厅2卫1厨',
+            area:'177m²',
+            tag:'现代简约、混搭',
+            detail:'用法式的优雅和浪漫，安放生活的诗意和疲惫。空间的设计感，并不在于装饰的堆砌，有时候恰到好处的留白，反而让设计更加的纯粹，更加的高级，又没线条和个性的色彩碰撞，成就了空间的品质和高度',
+            img:'https://qhtbdoss.kujiale.com/fpimgnew/prod/imgs/3FO494CE358D/c/img/MFBQXFNMDGA42AABAAAAAEA8panoguide.png?x-oss-process=image/resize,m_pad,w_1440,h_810/format,webp',
+            message:[
+                '客厅',
+                'https://qhrenderpicoss.kujiale.com/r/2022/03/08/L3D187S21ENDP44TDTYUWFY24LUF3P3WY888_3840x2160.jpg?x-oss-process=image/resize,m_mfit,w_1265,h_712/format,webp',
+                '餐厅',
+                'https://qhrenderpicoss.kujiale.com/r/2022/03/08/L3D187S21ENDP44TD2AUWFY24LUF3P3WO888_3840x2160.jpg?x-oss-process=image/resize,m_mfit,w_1265,h_712/format,webp',
+                '厨房',
+                'https://qhrenderpicoss.kujiale.com/r/2022/03/08/L3D187S21ENDP44TDGAUWFY24LUF3P3UI888_3840x2160.jpg?x-oss-process=image/resize,m_mfit,w_1265,h_712/format,webp',
+                '卫生间',
+                'https://qhrenderpicoss.kujiale.com/r/2022/03/08/L3D187S21ENDP44TDEIUWFLLQLUF3P3XY888_3840x2160.jpg?x-oss-process=image/resize,m_mfit,w_1265,h_712/format,webp',
+                '主卧',
+                'https://qhrenderpicoss.kujiale.com/r/2022/03/08/L3D187S21ENDP44TDZAUWFY24LUF3P3WQ888_3840x2160.jpg?x-oss-process=image/resize,m_mfit,w_1265,h_712/format,webp',
+                '次卧',
+                'https://qhrenderpicoss.kujiale.com/r/2022/03/08/L3D187S21ENDP44TD5IUWFY24LUF3P3XM888_3840x2160.jpg?x-oss-process=image/resize,m_mfit,w_1265,h_712/format,webp',
+                '儿童房',
+                'https://qhrenderpicoss.kujiale.com/r/2022/03/08/L3D187S21ENDP44TDIQUWFLEKLUF3P3WW888_3840x2160.jpg?x-oss-process=image/resize,m_mfit,w_1265,h_712/format,webp',
+            ],
+        },
+        {
+            title:'尘埃',
+            type:'3室2厅2卫1厨',
+            area:'170m²',
+            tag:'现代简约、家装',
+            detail:'低调内敛与现代简约的结合，没有明丽的色彩，没有夸张的线条，简约的舒适，如尘埃',
+            img:'https://qhtbdoss.kujiale.com/fpimgnew/prod/imgs/3FO494CE358D/c/img/MFBQXFNMDGA42AABAAAAAEA8panoguide.png?x-oss-process=image/resize,m_pad,w_1440,h_810/format,webp',
+            message:[
+                '客厅',
+                'https://qhrenderstorage-oss.kujiale.com/beautify/2022/03/02/MIPWCAIKTEJLKAABAAAAABI8.jpg?x-oss-process=image/resize,m_mfit,w_1440,h_810/format,webp',
+                '餐厅',
+                'https://qhrenderstorage-oss.kujiale.com/beautify/2021/11/27/MGRERV5MDE446AABAAAAACQ8.jpg?x-oss-process=image/resize,m_mfit,w_1440,h_810/format,webp',
+                '厨房',
+                'https://qhrenderpicoss.kujiale.com/r/2022/03/04/L3D336S62ENDP47RASIUWFORGLUF3P3WG888_7680x4320.jpg?x-oss-process=image/resize,m_mfit,w_1265,h_712/format,webp',
+                '卫生间',
+                'https://qhrenderpicoss.kujiale.com/r/2022/03/04/L3D336S62ENDP47RASIUWFFC2LUF3P3WI888_7680x4320.jpg?x-oss-process=image/resize,m_mfit,w_1265,h_712/format,webp',
+                '主卧',
+                'https://qhrenderstorage-oss.kujiale.com/beautify/2021/11/28/MGRN55VMDF7RGAABAAAAADY8.jpg?x-oss-process=image/resize,m_mfit,w_1440,h_810/format,webp',
+                '次卧',
+                'https://qhrenderpicoss.kujiale.com/r/2022/03/04/L3D336S62ENDP47RATYUWFORGLUF3P3X6888_7680x4320.jpg?x-oss-process=image/resize,m_mfit,w_1440,h_810/format,webp',
+                '儿童房',
+                'https://qhrenderpicoss.kujiale.com/r/2022/03/04/L3D336S62ENDP47RATYUWFORGLUF3P3XG888_7680x4320.jpg?x-oss-process=image/resize,m_mfit,w_1265,h_712/format,webp',
+            ],
+        },
+        {
+            title:'禅意',
+            type:'3室2厅2卫1厨',
+            area:'99m²',
+            tag:'日式、新中式、家装',
+            detail:'焚香，点茶，挂画，插花，四般闲事，不宜累家。宋式美学恰如其分的将日常生活提升至艺术境界。',
+            img:'https://qhtbdoss.kujiale.com/fpimgnew/prod/imgs/3FO494CE358D/c/img/MFBQXFNMDGA42AABAAAAAEA8panoguide.png?x-oss-process=image/resize,m_pad,w_1440,h_810/format,webp',
+            message:[
+                '客厅',
+                'https://qhrenderpic-cos.kujiale.com/r/2021/12/28/L3D206S21ENDPTKNVPVSGEQESLUF3P3WY888_2560x1440.jpg?x-oss-process=image/resize,m_mfit,w_1440,h_810/format,webp',
+                '餐厅',
+                'https://qhrenderpic-cos.kujiale.com/r/2021/12/28/L3D206S21ENDPTKNVIFSGG2F4LUF3P3WU888_2560x1440.jpg?x-oss-process=image/resize,m_mfit,w_1440,h_810/format,webp',
+                '厨房',
+                'https://qhrenderpic-cos.kujiale.com/r/2021/12/31/L3D123S21ENDPTIQD4VSGEQF2LUF3P3WU888_3200x2400.jpg?x-oss-process=image/resize,m_mfit,w_1440,h_810/format,webp',
+                '卫生间',
+                'https://qhrenderpic-cos.kujiale.com/r/2021/12/31/L3D123S21ENDPTIPI4FSGEMJMLUF3P3XS888_3200x2400.jpg?x-oss-process=image/resize,m_mfit,w_1265,h_712/format,webp',
+                '主卧',
+                'https://qhrenderpic-cos.kujiale.com/r/2021/12/28/L3D206S21ENDPTKNW5NSGH5HALUF3P3XW888_2560x1440.jpg?x-oss-process=image/resize,m_mfit,w_1440,h_810/format,webp',
+                '次卧',
+                'https://qhrenderpic-cos.kujiale.com/r/2021/12/28/L3D123S21ENDPTKNXHVSGEQESLUF3P3X6888_3200x2400.jpg?x-oss-process=image/resize,m_mfit,w_1440,h_810/format,webp',
+                '客卧',
+                'https://qhrenderpic-cos.kujiale.com/r/2021/12/28/L3D206S21ENDPTKNX75SGEQESLUF3P3XO888_2560x1440.jpg?x-oss-process=image/resize,m_mfit,w_1440,h_810/format,webp',
+            ],
+        },
         
     ]
     console.log(props.location.state.id)
@@ -224,10 +306,13 @@ const InsContent = (props) => {
         console.log(i)
         document.body.scrollTop = document.documentElement.scrollTop = (i/2+1)*800;
     }
+    const goTop = () =>{
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+    }
   return (
     <div className='inscon_box'>
         {/* 导航栏 */}
-        <div className='inscon_nav'>
+        {/* <div className='inscon_nav'>
             <img src={logo}  className='inscon_nav_logo' />
             <div className='inscon_nav_logoTxt'>朗家</div>
             <ul className='inscon_nav_ul'>
@@ -235,7 +320,8 @@ const InsContent = (props) => {
                 <NavLink to='/'><li className='inscon_nav_li'>推荐</li></NavLink>
                 <NavLink to='/ins'><li className='inscon_nav_li' id="inscon_nav_ins">灵感</li></NavLink>
             </ul>
-        </div>
+        </div> */}
+        <HomeHeader></HomeHeader>
         {/* 标题 */}
         <div className='inscon_title'>
             {house[props.location.state.id].title}
@@ -313,8 +399,7 @@ const InsContent = (props) => {
                 </ul>
                 
             }
-            {
-                 
+            {               
                  <ul className='inscon_view_roundnav'>{
                      house[props.location.state.id].message.map((item,index)=>{
                          if(index%2 == 0){
@@ -330,10 +415,12 @@ const InsContent = (props) => {
                  </ul>
                  
              }
-           
-
         </div>
-        
+        {/* 去顶部 */}
+        <div className='inscon_serve_item' onClick={()=>goTop()}>
+            <img src={top} className='inscon_serve_img' />
+            <div className='inscon_serve_txt'>TOP</div>
+        </div>
         
     </div>
   )

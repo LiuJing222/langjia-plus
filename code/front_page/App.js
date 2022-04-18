@@ -13,6 +13,7 @@ import BedRoomTip from './BedRoomTip';
 import StudyRoomTip from './StudyRoomTip'
 import BalconyTip from './BalconyTip'
 import Recommend from './Recommend';
+import Help from './Help';
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
           <Route path="/studyroomtip" component={StudyRoomTip}></Route>
           <Route path="/balconytip" component={BalconyTip}></Route>
           <Route path="/rec" component={Recommend}></Route>
+          <Route path="/help" component={Help}></Route>
 	
           </Switch>
         </Router>
