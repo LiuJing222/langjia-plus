@@ -66,6 +66,7 @@
     align-items: center;
     left:5%;
     margin-bottom: 80px;
+    text-decoration: none;
 }
 .personalcenter_collect_left_item img{
     margin: 3%;
@@ -133,6 +134,7 @@
     position: absolute;
     align-items: center;
     right: 5%;
+    text-decoration: none;
 }
 .personalcenter_collect_right_item img{
     margin: 3%;

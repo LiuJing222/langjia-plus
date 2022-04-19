@@ -90,11 +90,12 @@ const PersonalCenter = () => {
         <div className="personalcenter_box" style={{ backgroundImage: `url(${banner})` }}>
             <div className="personalcenter_titlebar">
                 <img src={logo} />
-                <div className="langjiaText">朗家</div>
-                <Link to="/" className="personalcenter_link">首页</Link>
-                <Link to="" className="personalcenter_link">推荐</Link>
-                <Link to="" className="personalcenter_link">灵感</Link>
+                <Link to="/home" className="langjiaText">朗家</Link>
+                <Link to="/home" className="personalcenter_link">首页</Link>
+                <Link to="/rec" className="personalcenter_link">推荐</Link>
+                <Link to="/Ins" className="personalcenter_link">灵感</Link>
             </div>
+            <div className="logout"><Link to="/">退出登录</Link></div>
             <div className="personalcenter_titleinside">
                 <div>
                     <img src={text1} />

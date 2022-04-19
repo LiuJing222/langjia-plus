@@ -57,7 +57,7 @@ const PersonalCollects = () => {
                     <div className="personalcenter_collect_items_box" style={{ backgroundImage: `url(${backline})` }}>
                         {/* <div className="personalcenter_collect_middleline"></div> */}
                         {
-                            collectList.map(item => <div className={num++ % 2 == 0 ? "personalcenter_collect_left_item" : "personalcenter_collect_right_item"} id={item.inspire_id}>
+                            collectList.map(item => <Link to="/" className={num++ % 2 == 0 ? "personalcenter_collect_left_item" : "personalcenter_collect_right_item"} key={item.inspire_id}>
                                 <img src={"https://api.qasdwer.xyz:2019/inspiredatas/image/" + JSON.parse(item.imgname)[0]} className="mycol_img" />
                                 <span></span>
                                 <div>
@@ -68,7 +68,7 @@ const PersonalCollects = () => {
                                     <div onClick={() => { Collect(item) }}>移除</div>
                                 </div>
 
-                            </div>)
+                            </Link>)
                         }
                         <div class="blank"></div>
                     </div>
