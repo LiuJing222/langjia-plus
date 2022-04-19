@@ -14,6 +14,7 @@ import StudyRoomTip from './StudyRoomTip'
 import BalconyTip from './BalconyTip'
 import Recommend from './Recommend';
 import Help from './Help';
+import PersonalCenter from './PersonalCenter';
 
 const App = () => {
   return (
