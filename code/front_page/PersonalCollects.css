@@ -1,0 +1,210 @@
+.personalcenter_collect_box{
+    width: 100%;
+    height: 600px;
+    overflow-y: scroll;
+    position: relative;
+}
+.personalcenter_collect_blank_box{
+    width: 100%;
+    height: 600px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.personalcenter_collect_blank_box>div{
+    width:480px;
+    height: 80px;
+    color:rgb(2,43,99);
+    text-align: center;
+}
+.personalcenter_collect_blank_box>div:nth-child(1){
+    width:480px;
+    height: 80px;
+    font-size: 24px;
+    margin: 0 auto;
+    margin-top: 150px;
+    opacity: 0.8;
+}
+
+.personalcenter_collect_blank_box>div a{
+    width:200px;
+    color:rgb(2,43,99);
+    text-decoration: none;
+    font-size: 20px;
+    opacity: 0.5;
+    transition: opacity 0.3s,font-size 0.3s;
+}
+.personalcenter_collect_blank_box>div a:hover{
+    opacity: 1;
+    font-size: 24px;
+}
+.personalcenter_collect_blank_box>div img{
+    margin-top: 20px;
+    width:60px;
+    height: 50px;
+    transform: rotate(-90deg);
+} 
+.personalcenter_collect_middleline{
+    width:1px;
+    height: 100%;
+    background-color: #ccc;
+    position: absolute;
+    left: 50%;
+}
+.personalcenter_collect_left_item{
+    width:35%;
+    height: 200px;
+    border-radius: 10px;
+    border:1px solid rgba(2,43,99,0.2);
+    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    position: relative;
+    align-items: center;
+    left:5%;
+    margin-bottom: 80px;
+}
+.personalcenter_collect_left_item img{
+    margin: 3%;
+    height: 88%;
+    width: 55%;
+    object-fit: cover;
+}
+.personalcenter_collect_left_item>div{
+    width:35%;
+    height: 100%;
+    position: relative;
+}
+.personalcenter_collect_left_item>div>div:nth-child(1){
+    margin-top: 10px;
+    font-size: 18px;
+    overflow: hidden;
+    color: rgb(2,43,99);
+    font-weight: bold;
+}
+.personalcenter_collect_left_item>div>div:nth-child(2){
+    font-size: 10px;
+    color: rgba(2,43,99,0.5)
+}
+.personalcenter_collect_left_item>div>div:nth-child(3){
+    margin-top: 20px;
+    font-size: 14px;
+    color: rgba(2,43,99,0.8)
+}
+.personalcenter_collect_left_item>div>div:nth-child(4){
+    font-size: 14px;
+    margin-top: 8px;
+    color: rgba(2,43,99,0.8)
+}
+.personalcenter_collect_left_item>div>div:nth-child(5){
+    width:40%;
+    height: 30px;
+    background-color: rgb(2,43,99);
+    font-size: 13px;
+    color: white;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 5px;
+}
+.personalcenter_collect_left_item>span{
+    width:28%;
+    height: 1px;
+    background-color:#ccc;
+    position: absolute;
+    left:100%;
+    top:50%;
+}
+
+.personalcenter_collect_right_item{
+    width:35%;
+    height: 200px;
+    border-radius: 10px;
+    border:1px solid rgba(2,43,99,0.2);
+    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: -150px;
+    position: absolute;
+    align-items: center;
+    right: 5%;
+}
+.personalcenter_collect_right_item img{
+    margin: 3%;
+    height: 88%;
+    width: 55%;
+    object-fit: cover;
+}
+.personalcenter_collect_right_item>div{
+    width:35%;
+    height: 100%;
+    position: relative;
+}
+.personalcenter_collect_right_item>div>div:nth-child(1){
+    margin-top: 10px;
+    font-size: 18px;
+    overflow: hidden;
+    color: rgb(2,43,99);
+    font-weight: bold;
+}
+.personalcenter_collect_right_item>div>div:nth-child(2){
+    font-size: 10px;
+    color: rgba(2,43,99,0.5)
+}
+.personalcenter_collect_right_item>div>div:nth-child(3){
+    margin-top: 20px;
+    font-size: 14px;
+    color: rgba(2,43,99,0.8)
+}
+.personalcenter_collect_right_item>div>div:nth-child(4){
+    font-size: 14px;
+    margin-top: 8px;
+    color: rgba(2,43,99,0.8)
+}
+.personalcenter_collect_right_item>div>div:nth-child(5){
+    width:40%;
+    height: 30px;
+    background-color: rgb(2,43,99);
+    font-size: 13px;
+    color: white;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 5px;
+}
+.personalcenter_collect_right_item>span{
+    width:28%;
+    height: 1px;
+    background-color:#ccc;
+    position: absolute;
+    left:-28%;
+    top:50%;
+}
+.personalcenter_collect_items_box{
+    width: 100%;
+    background-repeat:repeat-y;
+    background-size: contain;
+    background-position: center;  
+}
+.blank{
+    height: 200px;
+}
+
+.personalcenter_collect_box::-webkit-scrollbar {
+    width: 5px;
+}
+
+.personalcenter_collect_box::-webkit-scrollbar-track {
+    background-color: #eee;
+}
+
+.personalcenter_collect_box::-webkit-scrollbar-thumb {
+    background:rgb(2,43,99);
+    border-radius: 10px;
+}

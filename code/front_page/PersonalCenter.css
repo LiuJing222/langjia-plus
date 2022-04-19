@@ -1,0 +1,287 @@
+body,html{
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+.personalcenter_box{
+    width: 100%;
+    height: 1800px;
+    background-repeat:no-repeat ;
+    background-size: cover;
+    background-position: center; 
+    position: relative;   
+}
+.personalcenter_titlebar{
+    width: 100%;
+    background-color: white;
+    height: 45px;
+    display: flex;
+    flex-direction: row;
+
+}
+.personalcenter_titlebar img{
+    height: 40px;
+    width: 40px;
+    margin: 2px;
+    margin-left: 5%;
+    display: inline-block;
+}
+.langjiaText{
+    display: inline-block;
+    width: 150px;
+    height: 45px;
+    font-size: 30px;
+    font-weight: 600;
+    color: rgb(2,43,99);
+    line-height: 45px;
+}
+.personalcenter_link{
+    width:150px;
+    height: 45px;
+    line-height: 45px;
+    text-decoration: none;
+    color:rgb(2,43,99);
+    font-size: 18px;
+    text-align: center;
+}
+.personalcenter_titleinside{
+    margin: 0 auto;
+    width: 85%;
+    height: 80px;
+    color:white;
+    display: flex;
+    flex-direction: row;  
+    margin-top: 50px;
+    justify-content: space-between;
+    align-items: center;
+}
+.personalcenter_titleinside>div{
+    width:400px;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+}
+.personalcenter_titleinside>div>img {
+    width:180px;
+    height: 70px;
+}
+.personalcenter_titleinside>a{
+    width:80px;
+    height: 30px;
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255,255,255);
+    border: none;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.5);
+    text-decoration: none;
+    color:rgb(2,43,99); 
+}
+.personalcenter_titleinside>a>img{
+    width:18px;
+    height: 18px;
+}
+.personalcenter_titleinside>div>div{
+    width: 180px;
+    height: 60px;
+    display: flex;
+    flex-direction: column-reverse;
+    font-family: '方正粗黑宋简体';
+    font-style: italic;
+}
+
+.personalcenter_data{
+    margin: 0 auto;
+    width: 85%;
+    height: 260px;
+    background-color: rgba(255,255,255,0.8);
+    padding:10px;
+    border-radius: 10px;
+}
+.personalcenter_header{
+    margin-top: 30px;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: row;
+}
+.personalcenter_header>div:nth-child(1){
+    width:100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: rgb(2,43,99);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.personalcenter_header>div>img{
+    width:90px;
+    height: 90px;
+    border-radius: 50%;
+}
+
+.personalcenter_header>div:nth-child(2){
+    height: 100px;
+    margin-left: 30px;
+    
+}
+.personalcenter_header>div:nth-child(2) div:nth-child(1){
+    height: 30px;
+    font-size: 28px;
+    font-weight: 700;
+    color:rgb(2,43,99)
+}
+.personalcenter_header>div:nth-child(2) div:nth-child(2){
+    margin-top:10px;
+    background-color: rgb(2,43,99);
+    height: 20px;
+    width:50px;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 10px;
+    color: white;
+}
+.personalcenter_header>div:nth-child(2) div:nth-child(3){
+    margin-top: 10px;
+    height: 20px;
+    font-size: 15px;
+    font-weight: 100;
+    color: rgb(2,43,99);
+}
+
+.personalcenter_data>ul{
+    padding: 0 20px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.personalcenter_data>ul>li{
+    width:24%;
+    height: 80px;
+}
+.personalcenter_data>ul>li{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+.personalcenter_data>ul>li:nth-child(1){
+    border-bottom: 2px solid #0A97FC;
+}
+.personalcenter_data>ul>li:nth-child(2){
+    border-bottom: 2px solid #0D09F4;
+}
+.personalcenter_data>ul>li:nth-child(3){
+    border-bottom: 2px solid #2406AA;
+}
+.personalcenter_data>ul>li:nth-child(4){
+    border-bottom: 2px solid #7908DC;
+}
+.personalcenter_data_left_box{
+    width:80%
+}
+.personalcenter_data_left_box>div:nth-child(1){
+    font-size: 20px;
+    font-weight: 550;
+}
+.personalcenter_data_left_box>div:nth-child(2){
+    font-size: 12px;
+    margin-top: 10px;
+}
+.personalcenter_data_right_box{
+    width:20%
+}
+.personalcenter_data_right_box{
+    font-size: 34px;
+    font-weight: 500;
+}
+.personalcenter_content{
+    width: 100%;
+    background-color: white;
+    height: 800px;
+    margin-top: 80px;
+    position: relative;
+}
+.personalcenter_content_insidebox{
+    width:85%;
+    margin: 0 auto;
+}
+.personalcenter_nav{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top:-50px;
+}
+.personalcenter_nav div{
+    width:200px;
+    height: 70px;
+    background-color: rgb(2,43,99);
+    border-radius: 15px;
+    text-align: center;
+    line-height: 70px;
+}
+.personalcenter_nav div:nth-child(1){
+    background-color:white;
+}
+.personalcenter_nav a{
+    color:white;
+    font-size: 26px;
+    text-decoration: none;
+}
+.personalcenter_nav div:nth-child(1) a{
+    color:rgb(2,43,99);
+    font-weight: bold;
+}
+.personalcenter_collect_overline{
+    border-top:1px solid #ccc;
+    width: 100%;
+    height: 10px;
+}
+.personalcenter_bottom{
+    width:100%;
+    height: 465px;
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.personalcenter_setting_box{
+    width: 100%;
+    position: fixed;
+    top:0;
+    left: 0;
+}
+
+.personalcenter_bottom>div{
+    width:25%;
+    height: 200px;
+    color:white;
+    margin-right: 20px;
+    padding: 20px;
+}
+.personalcenter_bottom>div>p{
+    font-size: 16px;
+}
+.personalcenter_bottom>div:nth-child(1){
+    margin-left: 10%;
+}
+.personalcenter_bottom>div:nth-child(1)>p:nth-child(2n) {
+    margin-left: 20px;
+}
+.personalcenter_bottom>div:nth-child(2){
+    display: flex;
+    flex-direction: column;
+}
+.personalcenter_bottom>div:nth-child(2) a{
+    margin-left: 20px;
+    color:white;
+    text-decoration: none;
+}
+.personalcenter_bottom>div:nth-child(2) a:hover{
+    color:wheat;
+}
