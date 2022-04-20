@@ -17,7 +17,7 @@
 .tip_con h2 {
   text-indent: 1cm;
   margin-left: 5%;
-  color: rgb(17, 110, 91);
+  color: rgb(13,107,161);
 }
 
 .tip_con p {
@@ -64,7 +64,7 @@
   width: 300px;
   height: 80px;
   font-weight: 600;
-  color: rgb(17, 110, 91);
+  color: rgb(13, 107, 161);
   border-bottom: 1px solid #ccc;
   position: relative;
 }
@@ -102,10 +102,10 @@
 }
 
 .stamp {
-  width: 35px;
-  height: 30px;
+  width: 25px;
+  height: 20px;
   position: absolute;
-  top:40px;
+  top:50px;
   right: 10px;
   /* animation: stampMove 0.6s infinite; */
 }

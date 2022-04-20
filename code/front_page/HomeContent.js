@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 
+import HomeBelong from './HomeBelong'
 import HomeBg from './images/homeBg.jpg'
 import SqurIcon from './images/3DSqur.png'
 import RateIcon from './images/home_rate_icon.png'
@@ -35,7 +36,7 @@ const HomeTop = () => {
                 <div className="home_character"><img src={HomeIcon} className="home_icon"></img><span className="home_top_text">家装</span></div>
                 <div className="home_character"><img src={DesignIcon} className="home_icon"></img><span className="home_top_text">设计</span></div>
             </div>
-            <button className="home_start">
+            <button class="home_start">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -48,8 +49,8 @@ const Btns = () => {
     return (
         <div className="home_btns">
             <button><img src={DoIcon}></img><span>免费体验</span></button>
-            <Link to="Ins"><button><img src={InsptIcon}></img><span>寻找灵感</span></button></Link>
-            <Link to="rec"><button><img src={RmdIcon}></img><span>逛逛推荐</span></button></Link>
+            <Link to="Ins" target="_blank"><button><img src={InsptIcon}></img><span>寻找灵感</span></button></Link>
+            <Link to="rec" target="_blank"><button><img src={RmdIcon}></img><span>逛逛推荐</span></button></Link>
         </div>
     )
 }
@@ -167,27 +168,27 @@ const Chater = () => {
             chaterImg[0].style.transitionDuration = "1s";
             chaterImg[0].style.transitionTimingFunction = "ease";
             chaterImg[0].style.transitionDelay = "0.5s";
-                        
+
             chaterImg[1].style.transform = "scale(1.3)";
             chaterImg[1].style.transitionProperty = "all";
             chaterImg[1].style.transitionDuration = "1s";
             chaterImg[1].style.transitionTimingFunction = "ease";
             chaterImg[1].style.transitionDelay = "0.75s";
 
-            
+
             chaterImg[2].style.transform = "scale(1.3)";
             chaterImg[2].style.transitionProperty = "all";
             chaterImg[2].style.transitionDuration = "1s";
             chaterImg[2].style.transitionTimingFunction = "ease";
             chaterImg[2].style.transitionDelay = "1s";
 
-            
+
             chaterImg[3].style.transform = "scale(1.3)";
             chaterImg[3].style.transitionProperty = "all";
             chaterImg[3].style.transitionDuration = "1s";
             chaterImg[3].style.transitionTimingFunction = "ease";
             chaterImg[3].style.transitionDelay = "1.25s";
-        }else if(scrollY >= 650) {            
+        } else if (scrollY >= 650) {
             chaterImg[0].style.transform = "scale(1)";
             chaterImg[1].style.transform = "scale(1)";
             chaterImg[2].style.transform = "scale(1)";
@@ -223,29 +224,7 @@ const Chater = () => {
         </div>
     )
 }
-const Belong = () => {
-    return (
-        <div className='home_belong'>
-            <div className='home_belong_con'>
-                <p className='home_belong_title'>借鉴网站</p>
-                <p>酷家乐</p>
-                <p>npm官网</p>
-                <p>花瓣网</p>
-            </div>
-            <div className='home_belong_con'>
-                <p className='home_belong_title'>关于</p>
-                <p>加入我们</p>
-            </div>
-            <div className='home_belong_con'>
-                <p className='home_belong_title'>联系我们</p>
-                <p>联系方式：2505469033@qq.com</p>
-                <p>周一至周日：9:00-17:00</p>
-                <p>侵权投诉</p>
-                <p>营业执照</p>
-            </div>
-        </div>
-    )
-}
+
 
 const HomeContent = () => {
 
@@ -256,10 +235,7 @@ const HomeContent = () => {
             <HomeTips></HomeTips>
             <hr className='home_hr'></hr>
             <Chater></Chater>
-            <Belong></Belong>
-
-
-
+            <HomeBelong></HomeBelong>
         </div>
     )
 }

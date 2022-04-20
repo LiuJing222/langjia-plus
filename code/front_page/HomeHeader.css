@@ -13,9 +13,9 @@
 }
 
 .home_logo {
-    width: 34px;
-    height: 34px;
-    margin-top: 8px;
+    width: 30px;
+    height: 30px;
+    margin-top: 11px;
     margin-right: 10px;
 }
 
@@ -31,57 +31,42 @@
 
 /* 导航栏每一项 */
 .home_nav_item {
-    overflow: hidden;
     width: 100px;
     height: 40px;
     margin-left: 16px;
-    padding-top: 12px;
-}
-
-.home_nav_item img {
-    display: inline-block;
-    width: 26px;
-    height: 26px;
-    margin-right: 3px;
-    margin-top: 3px;
+    position: relative;
 }
 
 .home_nav_item span {
     text-decoration: none;
+    line-height: 40px;
+    text-align: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: 400;
     font-size: 16px;
     color: #666;
-    line-height: 30px;
     position: absolute;
-    top: 12px;
+    top: 7px;
 }
 
 /* 导航栏每一项的活跃状态 */
 
 .home_head_active {
-    overflow: hidden;
     width: 100px;
     height: 40px;
-    margin-left: 30px;
-    padding-top: 12px;
-}
-
-.home_head_active img {
-    display: inline-block;
-    width: 32px;
-    height: 32px;
-    margin-right: 3px;
+    margin-left: 16px;
+    position: relative;
 }
 
 .home_head_active span {
     text-decoration: none;
+    line-height: 40px;
+    text-align: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bold;
     font-size: 16px;
     color: rgb(2, 43, 99);
     transform: scale(1.1);
-    line-height: 30px;
     position: absolute;
-    top: 12px;
+    top: 7px;
 }
