@@ -52,10 +52,12 @@
     align-items: center;
     margin-left: 35px;
     height: 10%;
+    position: relative;
+    width: 60%;
+    margin-left: 10%;
 }
 .personalcenter_setting_inside_nav>div{
-    text-align: center;
-    margin-right: 10%;
+    width: 33.3%;
 }
 .personalcenter_setting_inside_nav>div>a{
     text-decoration: none;
@@ -70,4 +72,13 @@
 .personalcenter_setting_inside_content{
     height: 66%;
     margin: 10px 20px;
+}
+.personalcenter_setting_bottom_line{
+    position: absolute;
+    bottom: 0;
+    left:0;
+    width: 75px;
+    height: 3px;
+    background-color: rgb(2,43,99);
+    transition: left 0.5s;
 }

@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router'
+import { Link } from 'react-router-dom'
 import './PersonalDesigns.css'
 import top from './images/personal_top.png'
+import blank from "./images/blank3.png"
+import hand from './images/hand.gif'
 
 const PersonalDesigns = () => {
     const [topList, setTopList] = useState([]);
@@ -121,35 +124,46 @@ const PersonalDesigns = () => {
     }
 
     return (
-        <div className="personalcenter_design_box">
+        <div>
             {
-                topList.map(item => {
-                    return (
-                        <div key={item.design_id} className="personalcenter_design_top_item">
-                            <div className="personalcenter_design_top_insidebox">
-                                <img src={top} alt="" className="personalcenter_design_top_icon" />
-                                <div className="personalcenter_design_title">{item.design_name}</div>
-                            </div>
-                            <div className="personalcenter_design_edit" onClick={() => intomydesign(item)}>编辑</div>
-                            <div className="personalcenter_design_delete" onClick={() => del(item)}>删除</div>
-                            <div className="personalcenter_design_cancel" onClick={() => cancelTop(item)}>取消置顶</div>
-                        </div>
-                    )
-                })
-            }
-            {
-                normalList.map(item => {
-                    return (
-                        <div key={item.design_id} className="personalcenter_design_under_item">
-                            <div className="personalcenter_design_under_insidebox">
-                                <div className="personalcenter_design_title">{item.design_name}</div>
-                            </div>
-                            <div className="personalcenter_design_edit" onClick={() => intomydesign(item)}>编辑</div>
-                            <div className="personalcenter_design_delete" onClick={() => del(item)}>删除</div>
-                            <div className="personalcenter_design_toTop" onClick={() => toTop(item)}>置顶</div>
-                        </div>
-                    )
-                })
+                normalList.length == 0 && topList.length == 0 ?
+                    <div className="personalcenter_collect_blank_box" style={{ backgroundImage: `url(${blank})` }}>
+                        <div>您还没有创作过，和我一起试试吧！</div>
+                        <div><img src={hand} /></div>
+                        <div><Link to="/home">去创作</Link></div>
+                    </div>
+                    :
+                    <div className="personalcenter_design_box">
+                        {
+                            topList.map(item => {
+                                return (
+                                    <div key={item.design_id} className="personalcenter_design_top_item">
+                                        <div className="personalcenter_design_top_insidebox">
+                                            <img src={top} alt="" className="personalcenter_design_top_icon" />
+                                            <div className="personalcenter_design_title">{item.design_name}</div>
+                                        </div>
+                                        <div className="personalcenter_design_edit" onClick={() => intomydesign(item)}>编辑</div>
+                                        <div className="personalcenter_design_delete" onClick={() => del(item)}>删除</div>
+                                        <div className="personalcenter_design_cancel" onClick={() => cancelTop(item)}>取消置顶</div>
+                                    </div>
+                                )
+                            })
+                        }
+                        {
+                            normalList.map(item => {
+                                return (
+                                    <div key={item.design_id} className="personalcenter_design_under_item">
+                                        <div className="personalcenter_design_under_insidebox">
+                                            <div className="personalcenter_design_title">{item.design_name}</div>
+                                        </div>
+                                        <div className="personalcenter_design_edit" onClick={() => intomydesign(item)}>编辑</div>
+                                        <div className="personalcenter_design_delete" onClick={() => del(item)}>删除</div>
+                                        <div className="personalcenter_design_toTop" onClick={() => toTop(item)}>置顶</div>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
             }
         </div>
     )

@@ -51,14 +51,13 @@ const PersonalCollects = () => {
                     <div className="personalcenter_collect_blank_box" style={{ backgroundImage: `url(${blank})` }}>
                         <div>您还没有收藏的灵感，快去找灵感逛逛吧！</div>
                         <div><img src={hand} /></div>
-                        <div><Link to="/">开启灵感之旅</Link></div>
+                        <div><Link to="/Ins">开启灵感之旅</Link></div>
                     </div>
                     :
                     <div className="personalcenter_collect_items_box" style={{ backgroundImage: `url(${backline})` }}>
-                        {/* <div className="personalcenter_collect_middleline"></div> */}
                         {
-                            collectList.map(item => <Link to="/" className={num++ % 2 == 0 ? "personalcenter_collect_left_item" : "personalcenter_collect_right_item"} key={item.inspire_id}>
-                                <img src={"https://api.qasdwer.xyz:2019/inspiredatas/image/" + JSON.parse(item.imgname)[0]} className="mycol_img" />
+                            collectList.map(item => <div className={num++ % 2 == 0 ? "personalcenter_collect_left_item" : "personalcenter_collect_right_item"} key={item.inspire_id}>
+                                <Link to={{pathname:'/InsCon',state:{id:item.inspire_id}}}><img src={"https://api.qasdwer.xyz:2019/inspiredatas/image/" + JSON.parse(item.imgname)[0]} className="mycol_img" /></Link>
                                 <span></span>
                                 <div>
                                     <div>{item.title.length > 6 ? item.title.slice(0, 6) + '...' : item.title}</div>
@@ -68,7 +67,7 @@ const PersonalCollects = () => {
                                     <div onClick={() => { Collect(item) }}>移除</div>
                                 </div>
 
-                            </Link>)
+                            </div>)
                         }
                         <div class="blank"></div>
                     </div>

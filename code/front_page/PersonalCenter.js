@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { Route, Switch, Redirect, Link } from 'react-router-dom';
+import { Route, Switch, Redirect, Link,NavLink } from 'react-router-dom';
 import { useHistory } from 'react-router'
 import './PersonalCenter.css'
-import banner from './images/banner.jpg'
 import logo from './images/bluetlogo.png'
 import text1 from './images/text.png'
 import set from './images/set.png'
@@ -12,6 +11,7 @@ import PersonalLikes from './PersonalLikes'
 import PersonalDesigns from './PersonalDesigns'
 import PersonalCollects from './PersonalCollects'
 import PersonalSetting from './PersonalSetting'
+import HomeBelong from './HomeBelong'
 
 const PersonalCenter = () => {
     const [message, setMessage] = useState({})
@@ -20,7 +20,7 @@ const PersonalCenter = () => {
     const [recom, setRecom] = useState(0);
 
     const history = useHistory();
-    console.log(history.location.pathname);
+    const pathname = history.location.pathname;
 
     useEffect(() => {
         //var email = '2505469033@qq.com';
@@ -74,7 +74,6 @@ const PersonalCenter = () => {
             nodelists[2].childNodes[0].style.fontWeight = "bold";
         }
     })
-
     const Changstyle = (e) => {
         console.log(e.target.parentElement.parentElement.childNodes);
         for (var i = 0; i < e.target.parentElement.parentElement.childNodes.length; i++) {
@@ -86,16 +85,25 @@ const PersonalCenter = () => {
         e.target.style.color = "rgb(2,43,99)";
         e.target.style.fontWeight = "bold";
     }
+    const ExitProcess = ()=>{
+        localStorage.removeItem('email');
+        history.push('/');
+    }
     return (
-        <div className="personalcenter_box" style={{ backgroundImage: `url(${banner})` }}>
-            <div className="personalcenter_titlebar">
-                <img src={logo} />
-                <Link to="/home" className="langjiaText">朗家</Link>
-                <Link to="/home" className="personalcenter_link">首页</Link>
-                <Link to="/rec" className="personalcenter_link">推荐</Link>
-                <Link to="/Ins" className="personalcenter_link">灵感</Link>
+        <div className="personalcenter_box">
+            <div class="home_header" style={{backgroundColor:'white'}}>
+                <NavLink to='/'><img src={logo} className="home_logo" /></NavLink>
+                <NavLink to='/home' ><div className="home_nav_logo">朗家</div></NavLink>
+                <NavLink to='/home' className={pathname == "/home" ? "home_head_active" : "home_nav_item"}>
+                    <span>首页</span></NavLink>
+                <NavLink to='/rec' className={pathname == "/rec" ? "home_head_active" : "home_nav_item"}>
+                    <span>推荐</span></NavLink>
+                <NavLink to='/Ins' className={pathname == "/Ins" ? "home_head_active" : "home_nav_item"} >
+                    <span>灵感</span></NavLink>
+                <NavLink to='/help' className={pathname == "/help" ? "home_head_active" : "home_nav_item"} >
+                    <span>帮助中心</span></NavLink>
             </div>
-            <div className="logout"><Link to="/">退出登录</Link></div>
+            <div className="logout" onClick={()=>ExitProcess()}><span>退出登录</span></div>
             <div className="personalcenter_titleinside">
                 <div>
                     <img src={text1} />
@@ -108,7 +116,7 @@ const PersonalCenter = () => {
                     <div><img src={message.user_head_portrait ? 'https://api.qasdwer.xyz:2019/headPortrait/' + message.user_head_portrait : defaultimg} alt="头像" /></div>
                     <div>
                         <div>{message.user_name}</div>
-                        <div>设计师</div>
+                        <div>{designList.length < 10 ? '新手小白' : designList.length < 30 ? '贡献者' : designList.length < 50 ? '设计家' : '设计师'}<span className="personalcenter_header_hidden_tip">发布的设计越多等级越高喔㋡</span></div>
                         <div>{message.user_introduction}</div>
                     </div>
                 </div>
@@ -161,21 +169,7 @@ const PersonalCenter = () => {
                     </div>
                 </div>
             </div>
-            <div className="personalcenter_bottom">
-                <div>
-                    <p>咨询热线</p>
-                    <p>488-888-8888</p>
-                    <p>工作时间</p>
-                    <p>9:00-19:00</p>
-                </div>
-                <div>
-                    <p>找我合作</p>
-                    <a href="">商务合作</a>
-                    <a href="">服务商加盟</a>
-                    <a href="">开放平台</a>
-                    <a href="">客户服务</a>
-                </div>
-            </div>
+            <HomeBelong/>
             <div className="personalcenter_setting_box">
                 <Switch>
                     <Route path="/personalcenter/setting" component={PersonalSetting}></Route>

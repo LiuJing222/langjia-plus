@@ -15,7 +15,6 @@ const ChangeEmail = () => {
             alert('请输入新邮箱！')
         } else {
             console.log(password, email); 
-            //const oldemail= "2505469033@qq.com";
             const word ={
                 passwd:password,
                 newemail:email

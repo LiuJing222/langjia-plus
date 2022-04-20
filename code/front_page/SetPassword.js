@@ -74,12 +74,12 @@ const SetPassword = () => {
         <div className="personalcenter_setting_setpassword">
             <div>
                 <p>账号安全</p>
-                <input type="password" value={oldword} onChange={(e) => setOldword(e.target.value)} />
+                <input type="password" value={oldword} onChange={(e) => setOldword(e.target.value)} placeholder="原密码"/>
                 <p>* 请注意原密码正确性<img className="new_eye" onClick={(e) => ToVisable(e)} src={no_eye} /></p>
-                <input type="password" value={newword} onChange={(e) => setNewword(e.target.value)} />
+                <input type="password" value={newword} onChange={(e) => setNewword(e.target.value)}  placeholder="新密码"/>
                 <p>* 新密码需包含英文字母与数字且不少于8位<img className="new_eye" onClick={(e) => ToVisable(e)} src={no_eye} /></p>
 
-                <input type="password" value={confirmword} onChange={(e) => setConfirmword(e.target.value)} />
+                <input type="password" value={confirmword} onChange={(e) => setConfirmword(e.target.value)} placeholder="确认新密码"/>
                 <p>* 新密码需包含英文字母与数字且不少于8位<img className="confirm_eye" onClick={(e) => ToVisable(e)} src={no_eye} /></p>
 
                 <div onClick={() => Changepassword()}>提交修改</div>

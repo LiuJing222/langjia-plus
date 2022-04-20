@@ -3,7 +3,7 @@ import React from 'react'
 const PersonalLikes = () => {
     return (
         <div>
-            likes
+            222
         </div>
     )
 }
