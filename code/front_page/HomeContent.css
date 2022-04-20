@@ -170,7 +170,8 @@
     height: 420px;
     font-weight: bold;
     margin-top: 6%;
-    position: absolute;
+    position: relative;
+    /* top:px; */
 }
 
 .home_tips_title {
@@ -397,9 +398,9 @@
 .home_chaters {
     width: 1000px;
     height: 280px;
-    margin-top: 42%;
-    position: absolute;
-    left: 20%;
+    margin-top: 10%;
+    position: relative;
+    margin-left: 20%;
     display: flex;
     justify-content: space-around;
     flex-direction: row;
