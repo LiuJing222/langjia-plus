@@ -35,7 +35,7 @@ const HomeTop = () => {
                 <div className="home_character"><img src={HomeIcon} className="home_icon"></img><span className="home_top_text">家装</span></div>
                 <div className="home_character"><img src={DesignIcon} className="home_icon"></img><span className="home_top_text">设计</span></div>
             </div>
-            <button class="home_start">
+            <button className="home_start">
                 <span></span>
                 <span></span>
                 <span></span>

@@ -15,6 +15,8 @@ import BalconyTip from './BalconyTip'
 import Recommend from './Recommend';
 import Help from './Help';
 import PersonalCenter from './PersonalCenter';
+import Search from './Search';
+
 
 const App = () => {
   return (
@@ -36,6 +38,7 @@ const App = () => {
           <Route path="/rec" component={Recommend}></Route>
           <Route path="/help" component={Help}></Route>
           <Route path="/personalcenter" component={PersonalCenter}></Route>
+          <Route path="/search" component={Search}></Route>
 	
           </Switch>
         </Router>

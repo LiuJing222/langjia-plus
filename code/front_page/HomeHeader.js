@@ -14,7 +14,7 @@ const HomeHeader = () => {
         console.log(pathname);
     }, [])
     return (
-        <div class="home_header">
+        <div className="home_header">
             <NavLink to='/'><img src={HomeLogo} className="home_logo" /></NavLink>
             <NavLink to='/home' ><div className="home_nav_logo">朗家</div></NavLink>
             <NavLink to='/home' className={pathname == "/home" ? "home_head_active" : "home_nav_item"}>

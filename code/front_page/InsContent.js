@@ -3,7 +3,6 @@ import './InsContent.css'
 import HomeHeader from './HomeHeader'
 import { Link,NavLink } from 'react-router-dom'
 import ReactPlayer from 'react-player'
-import logo from './images/logoBW.png'
 import designer from './images/designer.png'
 import top from './images/top.png'
 

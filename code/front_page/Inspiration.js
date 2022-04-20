@@ -3,8 +3,6 @@ import { Link,NavLink } from 'react-router-dom'
 import './Inspiration.css'
 import HomeHeader from './HomeHeader'
 
-
-import logo from './images/logoBW.png'
 import bg2 from './images/insbg3.jpg'
 import topline from './images/topline.png'
 import downline from './images/downline.png'
@@ -16,15 +14,6 @@ const Inspiration = () => {
   return (
     <div className='ins_box'>
         {/* 导航栏 */}
-        {/* <div className='ins_nav'>
-            <img src={logo}  className='ins_nav_logo' />
-            <div className='ins_nav_logoTxt'>朗家</div>
-            <ul className='ins_nav_ul'>
-                <NavLink to='/home'><li className='ins_nav_li'>首页</li></NavLink>
-                <NavLink to='/'><li className='ins_nav_li'>推荐</li></NavLink>
-                <NavLink to='/ins'><li className='ins_nav_li' id="ins_nav_ins">灵感</li></NavLink>
-            </ul>
-        </div> */}
         <HomeHeader></HomeHeader>
         {/* 背景图 */}
         <div className='ins_bg'>
