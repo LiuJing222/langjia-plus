@@ -16,7 +16,7 @@ import Recommend from './Recommend';
 import Help from './Help';
 import PersonalCenter from './PersonalCenter';
 import Search from './Search';
-
+import Designsort from './Designsort'
 
 const App = () => {
   return (
@@ -39,6 +39,7 @@ const App = () => {
           <Route path="/help" component={Help}></Route>
           <Route path="/personalcenter" component={PersonalCenter}></Route>
           <Route path="/search" component={Search}></Route>
+          <Route path="/des" component={Designsort}></Route>
 	
           </Switch>
         </Router>

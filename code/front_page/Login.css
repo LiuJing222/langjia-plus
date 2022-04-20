@@ -69,7 +69,7 @@
 .ant-col{
     height: 45px;
 }
-input::-webkit-input-placeholder {
+.ant-input::-webkit-input-placeholder {
     color: #888;
     font-size: 1px;
     
@@ -78,7 +78,7 @@ input::-webkit-input-placeholder {
 .pwd_my div div:nth-child(2) div{
     margin-Left: -10px;
 }
-input{
+.ant-input{
     padding-left: 35px;
     border: 1px solid #555;
     border-radius: 15px;

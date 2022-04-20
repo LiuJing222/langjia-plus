@@ -1,0 +1,36 @@
+.des_selector{
+    width: 81%;
+    margin:20px auto;
+    box-shadow: 0 0 5px lightgray;
+
+}
+.des_select_row{
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.des_selector div:first-child{
+    padding-top: 20px;
+}
+.des_selector div:last-child{
+    padding-bottom: 20px;
+}
+.des_select_row a{
+    margin-left: 20px;
+}
+.des_select_row_title{
+    font-weight: bolder;
+    font-size: 105%;
+    color: black;
+    padding-top: 5px;
+}
+.des_select_row_text{
+    color: #222;
+    padding: 5px 10px;
+    border-radius: 6px;
+}
+.des_selected{
+    background-color: rgb(237, 245, 255);
+    color:rgb(26, 122, 248);
+    
+}
