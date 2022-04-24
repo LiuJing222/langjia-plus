@@ -1,12 +1,17 @@
 import React,{ useEffect } from 'react'
 import './InsContent.css'
 import HomeHeader from './HomeHeader'
-import { Link,NavLink } from 'react-router-dom'
+import { Link} from 'react-router-dom'
 import ReactPlayer from 'react-player'
 import designer from './images/designer.png'
+import designer1 from './images/designer1.png'
 import top from './images/top.png'
+import pen from './images/pen.png'
 
 const InsContent = (props) => {
+    var result = props.location.search;
+    var que = decodeURI(result).slice(2,decodeURI(result).length-1);
+    console.log(que)
     useEffect(()=>{
         window.addEventListener("scroll",handleScroll);
         handleScroll();
@@ -298,9 +303,9 @@ const InsContent = (props) => {
         },
         
     ]
-    console.log(props.location.state.id)
+    // console.log(props.location.state.id)
     
-    console.log(123)
+    
     const goTo = (i) =>{
         console.log(i)
         document.body.scrollTop = document.documentElement.scrollTop = (i/2+1)*800;
@@ -311,19 +316,10 @@ const InsContent = (props) => {
   return (
     <div className='inscon_box'>
         {/* 导航栏 */}
-        {/* <div className='inscon_nav'>
-            <img src={logo}  className='inscon_nav_logo' />
-            <div className='inscon_nav_logoTxt'>朗家</div>
-            <ul className='inscon_nav_ul'>
-                <NavLink to='/home'><li className='inscon_nav_li'>首页</li></NavLink>
-                <NavLink to='/'><li className='inscon_nav_li'>推荐</li></NavLink>
-                <NavLink to='/ins'><li className='inscon_nav_li' id="inscon_nav_ins">灵感</li></NavLink>
-            </ul>
-        </div> */}
         <HomeHeader></HomeHeader>
         {/* 标题 */}
         <div className='inscon_title'>
-            {house[props.location.state.id].title}
+            {house[que].title}
         </div>
         {/* 返回 */}
         <div className='inscon_return'>
@@ -335,34 +331,35 @@ const InsContent = (props) => {
         <div className='inscon_item'>
             <ReactPlayer
                 className="inscon_player"
-                url={toArr[props.location.state.id]}
+                url={toArr[que]}
                 playing={true}
                 autoPlay={true}
                 muted={true}
                 loop={true}
-                //   controls
+                // controls
                 width='68%'
                 height='100%'
             />
             <div className='inscon_txt'>
-                <img src={designer} className='inscon_designer' />
+                <img src={designer1} className='inscon_designer' />
                 <div className='inscon_txt_name'>设计师：张伟</div>
                 <div className='inscon_txt_line'></div>
                 <div className='inscon_txt_box'>
                     <div className='inscon_txt_item'>
                         <span className='inscon_txt_title'>户型：</span>
-                        <span className='inscon_txt_content'>{house[props.location.state.id].type}</span>
+                        <span className='inscon_txt_content'>{house[que].type}</span>
                     </div>
                     <div className='inscon_txt_item'>
                         <span className='inscon_txt_title'>面积：</span>
-                        <span className='inscon_txt_content'>{house[props.location.state.id].area}</span>
+                        <span className='inscon_txt_content'>{house[que].area}</span>
                     </div>
                     <div className='inscon_txt_item'>
                         <span className='inscon_txt_title'>标签：</span>
-                        <span className='inscon_txt_content'>{house[props.location.state.id].tag}</span>
+                        <span className='inscon_txt_content'>{house[que].tag}</span>
                     </div>
                     <div className='inscon_txt_detail'>
-                        {house[props.location.state.id].detail}
+                        <img src={pen} className='inscon_txt_detail_img' />
+                        {house[que].detail}
                     </div>
                 </div>
             </div>
@@ -372,7 +369,7 @@ const InsContent = (props) => {
             <div className='inscon_view_txt'>概览</div>
            
             {
-                house[props.location.state.id].message.map((item,index)=>{
+                house[que].message.map((item,index)=>{
                     if(index % 2 == 0){
                         return <div className='inscon_view_name'>{item}</div>
                     }else{
@@ -384,7 +381,7 @@ const InsContent = (props) => {
             {
                  
                 <ul className='inscon_view_txtnav'>{
-                    house[props.location.state.id].message.map((item,index)=>{
+                    house[que].message.map((item,index)=>{
                         if(index%2 == 0){
                             return(    
                                 <li>
@@ -400,7 +397,7 @@ const InsContent = (props) => {
             }
             {               
                  <ul className='inscon_view_roundnav'>{
-                     house[props.location.state.id].message.map((item,index)=>{
+                     house[que].message.map((item,index)=>{
                          if(index%2 == 0){
                              return(    
                                  <li>

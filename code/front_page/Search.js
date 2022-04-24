@@ -1,31 +1,185 @@
 import React,{useEffect} from 'react'
-import { Link } from 'react-router-dom'
 import './Search.css'
-import HomeHeader from './HomeHeader'
 import demo from './images/school.png'
 import pre from './images/pre.png'
 
+
 const Search = (props) => {
-    useEffect(()=>{
+    var result = props.location.search;
+    var que = decodeURI(result).slice(2,decodeURI(result).length-1);
+    
+    useEffect(()=>{   
+        if(que.includes('新手') || que.includes('入门') || que.includes('使用') || que.includes('指南') || que.includes('操作') || que.includes('户型') || que.includes('绘制')){
+            document.body.scrollTop = document.documentElement.scrollTop = 0;
+        }
+        else if(que.includes('转换') || que.includes('3D') || que.includes('2D') || que.includes('切换')){
+            document.body.scrollTop = document.documentElement.scrollTop = 700;
+        }
+        else if(que.includes('家具') || que.includes('调整') || que.includes('移动') || que.includes('旋转') || que.includes('缩放') || que.includes('摆放')){
+            document.body.scrollTop = document.documentElement.scrollTop = 1300;
+        }
+        else if(que.includes('撤销') || que.includes('清空') || que.includes('清除') || que.includes('保存')){
+            document.body.scrollTop = document.documentElement.scrollTop = 1860;
+        }
+        else if(que.includes('户型') || que.includes('模板')){
+            document.body.scrollTop = document.documentElement.scrollTop = 2500;
+        }
+        else if(que.includes('规则') || que.includes('处罚') || que.includes('设计')){
+            document.body.scrollTop = document.documentElement.scrollTop = 3000;
+        }
+        else if(que.includes('推荐') || que.includes('选上')){
+            document.body.scrollTop = document.documentElement.scrollTop = 3350;
+        }
+        else if(que.includes('功能') || que.includes('更新') || que.includes('上新') || que.includes('版本')){
+            document.body.scrollTop = document.documentElement.scrollTop = 3900;
+        }
+        else if(que.includes('关于') || que.includes('朗家') || que.includes('加入')){
+            document.body.scrollTop = document.documentElement.scrollTop = 5100;
+        }
+        else if(que.includes('联系') || que.includes('沟通')){
+            document.body.scrollTop = document.documentElement.scrollTop = 5800;
+        }
+        else if(que == ''){
+            alert('检测到您未输入搜索内容，将为您呈现朗家帮助中心文档')
+        }
+        else{
+            alert('抱歉，未搜索到您所需的内容，将为您呈现朗家帮助中心文档')
+        }
         window.addEventListener("scroll",handleScroll);
         handleScroll();
         return () => {
             window.removeEventListener("scroll", handleScroll)
         }
     },[])
-    console.log(props.location.state)
+    // console.log(props.location.state.val)
 
     const handleScroll = () =>{
         let scrollY = window.scrollY;
-        console.log(scrollY)
+        let li1 = document.getElementsByClassName('search_nav_li1')
+        let li2 = document.getElementsByClassName('search_nav_li2')
+        // console.log(scrollY)
+        console.log(li1)
+        li1[0].onclick = () =>{
+            document.body.scrollTop = document.documentElement.scrollTop = 0;
+        }
+        li2[0].onclick = () =>{
+            document.body.scrollTop = document.documentElement.scrollTop = 0;
+        }
+        li2[1].onclick = () =>{
+            document.body.scrollTop = document.documentElement.scrollTop = 660;
+        }
+        li2[2].onclick = () =>{
+            document.body.scrollTop = document.documentElement.scrollTop = 1200;
+        }
+        li2[3].onclick = () =>{
+            document.body.scrollTop = document.documentElement.scrollTop = 1800;
+        }
+        li2[4].onclick = () =>{
+            document.body.scrollTop = document.documentElement.scrollTop = 2360;
+        }
+        li1[1].onclick = () =>{
+            document.body.scrollTop = document.documentElement.scrollTop = 3000;
+        }
+        li1[2].onclick = () =>{
+            document.body.scrollTop = document.documentElement.scrollTop = 3355;
+        }
+        li2[5].onclick = () =>{
+            document.body.scrollTop = document.documentElement.scrollTop = 3840;
+        }
+        li1[3].onclick = () =>{
+            document.body.scrollTop = document.documentElement.scrollTop = 3840;
+        }
+        li2[6].onclick = () =>{
+            document.body.scrollTop = document.documentElement.scrollTop = 4355;
+        }
+        li1[4].onclick = () =>{
+            document.body.scrollTop = document.documentElement.scrollTop = 5000;
+        }
+        li2[7].onclick = () =>{
+            document.body.scrollTop = document.documentElement.scrollTop = 5000;
+        }
+        li2[8].onclick = () =>{
+            document.body.scrollTop = document.documentElement.scrollTop = 5500;
+        }
+        // console.log(li2[0])
+
+        // 户型绘制
+        if(scrollY>=0 && scrollY<640){
+            // console.log('变蓝')
+            li2[0].style.color = '#448CEF';
+        }else{
+            li2[0].style.color = '#000';
+        }
+        // 2D与3D
+        if(scrollY>=640 && scrollY<1200){
+            li2[1].style.color = '#448CEF';
+        }else{
+            li2[1].style.color = '#000';
+        }
+        // 家具调整
+        if(scrollY>=1200 && scrollY<1800){
+            li2[2].style.color = '#448CEF';
+        }else{
+            li2[2].style.color = '#000';
+        }
+        // 撤销
+        if(scrollY>=1800 && scrollY<2350){
+            li2[3].style.color = '#448CEF';
+        }else{
+            li2[3].style.color = '#000';
+        }
+        // 户型模板
+        if(scrollY>=2350 && scrollY<3000){
+            li2[4].style.color = '#448CEF';
+        }else{
+            li2[4].style.color = '#000';
+        }
+        // 设计师规则
+        if(scrollY>=3000 && scrollY<3350){
+            li1[1].style.color = '#448CEF';
+            console.log(li1[1].style.color)
+        }else{
+            li1[1].style.color = '#000';
+        }
+        // 上推荐
+        if(scrollY>=3350 && scrollY<3830){
+            li1[2].style.color = '#448CEF';
+        }else{
+            li1[2].style.color = '#000';
+        }
+        // 2021
+        if(scrollY>=3830 && scrollY<4350){
+            li2[5].style.color = '#448CEF';
+        }else{
+            li2[5].style.color = '#000';
+        }
+        // 2022
+        if(scrollY>=4350 && scrollY<5000){
+            li2[6].style.color = '#448CEF';
+        }else{
+            li2[6].style.color = '#000';
+        }
+        // 联系
+        if(scrollY>=5000 && scrollY<5500){
+            li2[7].style.color = '#448CEF';
+        }else{
+            li2[7].style.color = '#000';
+        }
+        // 加入
+        if(scrollY>=5500){
+            li2[8].style.color = '#448CEF';
+        }else{
+            li2[8].style.color = '#000';
+        }
     }
+
   return (
     <div>
-        <HomeHeader></HomeHeader>
+       
         <div className='search_box'>
             {/* 左侧导航 */}
             <ul className='search_nav'>
-                <Link to='/help'><li className='search_nav_index'>帮助中心首页</li></Link>
+                {/* <Link to='/help'><li className='search_nav_index'>帮助中心首页</li></Link> */}
                 <li>
                     <a href="#">新手入门</a>
                     <ul>
@@ -38,21 +192,22 @@ const Search = (props) => {
                                 <li className='search_nav_li2'>撤销、清空与保存</li>
                                 <li className='search_nav_li2'>户型模板</li>
                                 {/* <li className='search_nav_li2'>查看收藏</li>
-                                <li className='search_nav_li2'>推荐与灵感</li>               */}
+                                <li className='search_nav_li2'>推荐与灵感</li>   */}
                             </ul>
                         </li>
+                        <li className='search_nav_li1'>设计师规则</li>
                         <li className='search_nav_li1'>如何上推荐</li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#">功能更新</a>
+                    <a className='search_nav_li1'>功能更新</a>
                     <ul>
                         <li className='search_nav_li2'>2021年</li>
                         <li className='search_nav_li2'>2022年</li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#">关于朗家</a>
+                    <a className='search_nav_li1'>关于朗家</a>
                     <ul>
                         <li className='search_nav_li2'>加入我们</li>
                         <li className='search_nav_li2'>联系我们</li>
@@ -104,7 +259,20 @@ const Search = (props) => {
                             <div className='search_content_txt'>您也可以对选择的户型模板进行修改，绘制您满意的户型图。</div>
                             <img src={demo} className='search_content_img'/>
                         </div>
-                    </div>   
+                    </div>  
+                     {/*新手必看  */}
+                     <div>
+                        <div className='search_content_new_title1'>设计师规则</div>
+                        <div className='search_content_txt'>为了避免网站不良行为的出现，为大家带来更好的使用体验，在此提出更完善的设计师规则。</div>
+                        <div className='search_content_txt'>1、作品造假</div>
+                        <div className='search_content_txt'>直接复制或抄袭他人方案投稿推荐设计或用于盈利，违规者处以账户封锁7天处罚，并下架优秀设计展示。</div>
+                        <div className='search_content_txt'>2、作品违规</div>
+                        <div className='search_content_txt'>以低俗恶搞的作品投稿推荐设计，违规者处以账户封锁7天处罚。</div>
+                        <div className='search_content_txt'>3、言论不当</div>
+                        <div className='search_content_txt'>在与本网站咨询人员沟通中，有侮辱、中伤、恐吓他人的言论以及宣扬暴力、迷信和色情淫秽的言论；违反中华人民共和国宪法和法律法规的言论；
+攻击中华人民共和国政府、中国共产党及其领导人的言论，对违规者处以账户封锁10天处罚，并下架优秀设计展示。</div>
+                       
+                    </div> 
                     {/* 如何上推荐 */}
                     <div>
                         <div className='search_content_new_title1'>如何上推荐</div>
@@ -148,6 +316,7 @@ const Search = (props) => {
                 </div>
             </div>
         </div>
+        
     </div>
   )
 }

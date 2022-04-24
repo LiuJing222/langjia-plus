@@ -125,6 +125,12 @@ a{
     line-height: 25px;
     margin-top: 20px;
 }
+.inscon_txt_detail_img{
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    float: left;
+}
 .inscon_view{
     position: absolute;
             top: 800px;
@@ -157,14 +163,14 @@ a{
     font-weight: 600;
     margin: 20px;
     margin-left: 12%;
-    margin-top: 60px;
+    margin-top: 30px;
     color: #696969;
     
 }
 .inscon_view_img{
     width: 76%;
     height: 700px;
-    object-fit: contain;
+    object-fit: cover;
     margin-bottom: 20px;
     margin-left: 12%;
     margin-right: 12%;

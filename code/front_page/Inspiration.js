@@ -26,7 +26,7 @@ const Inspiration = () => {
         </div>
         {/* 内容 */}
         <div className='ins_content'>
-            <Link to={{pathname:'/InsCon',state:{id:0}}}>
+            <Link to={{pathname:'/InsCon',search:JSON.stringify('0')}} target='_blank'>
             <div className='ins_content_item'>
                 <img src='https://qhrenderstorage-oss.kujiale.com/beautify/2022/04/07/MJHEU5AKTEM2KAABAAAAACA8.jpg?x-oss-process=image/resize,m_fill,w_1715,h_1010/format,webp' className='ins_content_img' />
                 <div className='ins_content_txt_box'>
@@ -36,7 +36,7 @@ const Inspiration = () => {
                 </div>
             </div>
             </Link>
-            <Link to={{pathname:'/InsCon',state:{id:1}}}>
+            <Link to={{pathname:'/InsCon',search:JSON.stringify('1')}} target='_blank'>
             <div className='ins_content_item'>
                 <img src="https://qhrenderpic-cos.kujiale.com/r/2022/01/17/L3D206S21ENDPT5554NSGEQZ4LUF3P3XI888_2560x1440.jpg?x-oss-process=image/resize,m_fill,w_1715,h_1010/format,webp" className='ins_content_img' />
                 <div className='ins_content_txt_box'>
@@ -46,7 +46,7 @@ const Inspiration = () => {
                 </div>
             </div>
             </Link>
-            <Link to={{pathname:'/InsCon',state:{id:2}}}>
+            <Link to={{pathname:'/InsCon',search:JSON.stringify('2')}} target='_blank'>
             <div className='ins_content_item'>
                 <img src="https://qhrenderpic-cos.kujiale.com/r/2022/01/06/L3D124S21ENDPTESOGVSGH2Z6LUF3P3XY888_4000x3000.jpg?x-oss-process=image/resize,m_fill,w_1715,h_1010/format,webp" className='ins_content_img' />
                 <div className='ins_content_txt_box'>
@@ -56,7 +56,7 @@ const Inspiration = () => {
                 </div>
             </div>
             </Link>
-            <Link to={{pathname:'/InsCon',state:{id:3}}}>
+            <Link to={{pathname:'/InsCon',search:JSON.stringify('3')}} target='_blank'>
             <div className='ins_content_item'>
                 <img src="https://qhrenderstorage-oss.kujiale.com/beautify/2021/11/11/YY0kd6wZ0bcAAQAAAAc.jpg?x-oss-process=image/resize,m_fill,w_1715,h_1010/format,webp" className='ins_content_img' />
                 <div className='ins_content_txt_box'>
@@ -66,7 +66,7 @@ const Inspiration = () => {
                 </div>
             </div>
             </Link>
-            <Link to={{pathname:'/InsCon',state:{id:4}}}>
+            <Link to={{pathname:'/InsCon',search:JSON.stringify('4')}} target='_blank'>
             <div className='ins_content_item'>
                 <img src="https://qhrenderstorage-oss.kujiale.com/beautify/2021/10/13/MFTPXOFMDFXFAAABAAAAACI8.jpg?x-oss-process=image/resize,m_fill,w_1715,h_1010/format,webp" className='ins_content_img' />
                 <div className='ins_content_txt_box'>
@@ -76,7 +76,7 @@ const Inspiration = () => {
                 </div>
             </div>
             </Link>
-            <Link to={{pathname:'/InsCon',state:{id:5}}}>
+            <Link to={{pathname:'/InsCon',search:JSON.stringify('5')}} target='_blank'>
             <div className='ins_content_item'>
                 <img src="https://qhrenderstorage-oss.kujiale.com/beautify/2021/07/31/YQQsvqwZjWAAAQAAAAY.jpg?x-oss-process=image/resize,m_fill,w_1715,h_1010/format,webp" className='ins_content_img' />
                 <div className='ins_content_txt_box'>
@@ -86,7 +86,7 @@ const Inspiration = () => {
                 </div>
             </div>
             </Link>
-            <Link to={{pathname:'/InsCon',state:{id:6}}}>
+            <Link to={{pathname:'/InsCon',search:JSON.stringify('6')}} target='_blank'>
             <div className='ins_content_item'>
                 <img src="https://qhrenderpicoss.kujiale.com/r/2022/03/08/L3D187S21ENDP44TDTYUWFY24LUF3P3WY888_3840x2160.jpg?x-oss-process=image/resize,m_fill,w_1715,h_1010/format,webp" className='ins_content_img' />
                 <div className='ins_content_txt_box'>
@@ -96,7 +96,7 @@ const Inspiration = () => {
                 </div>
             </div>
             </Link>
-            <Link to={{pathname:'/InsCon',state:{id:7}}}>
+            <Link to={{pathname:'/InsCon',search:JSON.stringify('7')}} target='_blank'>
             <div className='ins_content_item'>
                 <img src="https://qhrenderstorage-oss.kujiale.com/beautify/2022/03/02/MIPWCAIKTEJLKAABAAAAABI8.jpg?x-oss-process=image/resize,m_fill,w_1715,h_1010/format,webp" className='ins_content_img' />
                 <div className='ins_content_txt_box'>
@@ -106,7 +106,7 @@ const Inspiration = () => {
                 </div>
             </div>
             </Link>
-            <Link to={{pathname:'/InsCon',state:{id:8}}}>
+            <Link to={{pathname:'/InsCon',search:JSON.stringify('8')}} target='_blank'>
             <div className='ins_content_item'>
                 <img src="https://qhrenderpic-cos.kujiale.com/r/2021/12/28/L3D206S21ENDPTKNUY5SGH5HALUF3P3WK888_2560x1440.jpg?x-oss-process=image/resize,m_fill,w_1715,h_1010/format,webp" className='ins_content_img' />
                 <div className='ins_content_txt_box'>
