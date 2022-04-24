@@ -29,7 +29,7 @@
     position:absolute;
     top:40px;
     left: 636px;
-    background-color: #448CEF;
+    background-color: rgb(2,43,99);
     font-size: 20px;
     color: #fff;
     line-height: 45px;
@@ -48,7 +48,7 @@
     margin-top: 40px;
     padding-left: 10px;
     border:none;
-    box-shadow: 1px 1px 3px #b2d0fa;
+    box-shadow: 1px 1px 3px rgb(147, 148, 148);
     font-size: 16px;
     border-radius: 0;
     outline: none; 
@@ -63,7 +63,7 @@
     font-weight: 600;
     margin-left: 80px;
     float: left;
-    color: #448CEF;
+    color: rgb(2,43,99);
 }
 .help_guide_item{
     float: left;
@@ -103,7 +103,7 @@
     font-weight: 600;
     margin-left: 80px;
     float: left;
-    color: #448CEF;
+    color: rgb(2,43,99);
 }
 .help_about_item{
     float: left;

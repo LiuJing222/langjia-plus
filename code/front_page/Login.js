@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router';
 import "./Login.css"
 import side from "./images/login_side_img.jpg";
 import { Form, Input, Button, Checkbox } from 'antd';
@@ -36,10 +37,77 @@ const tailFormItemLayout = {
   },
 };
 const Login = () => {
+  const history = useHistory();
   const [display, setDiaplsy] = useState({ login: 'block', forget: 'none', register: 'none' })
-  const onFinish1 = (values) => { }
-  const onFinish2 = (values) => { }
-  const onFinish3 = (values) => { }
+  // 登录
+  const onFinish1 = (values) => { 
+    console.log('Received values of form: ', values);
+    fetch('https://api.qasdwer.xyz:2019/login', {
+        method: 'POST',
+        body: JSON.stringify({ id: values.email, passwd: values.password }),
+        headers: {
+            "content-type": "application/json;charset=utf-8;"
+        }
+    })
+      .then(res => res.json())
+    .then(res => {
+        if(res instanceof Array){
+            localStorage.setItem('email',res[0].user_id)
+            // dispatch({type:"set_login_info",value:res[0]})
+            history.replace('/');
+        }else{
+            alert(res.message)
+            
+        }
+    })
+    .catch(err => {
+        console.log(err);
+    })
+  }
+  // 忘记密码
+  const onFinish2 = (values) => {
+    fetch('https://api.qasdwer.xyz:2019/getpasswd', {
+            method: 'POST',
+            body: JSON.stringify({ id: values.send_email}),
+            headers: {
+                "content-type": "application/json;charset=utf-8;"
+            }
+    })
+    .then(res => res.text())
+    .then(res => {
+        if (res==='ok') {
+            history.replace('/login');
+        } else {
+            alert(res);
+            console.log(res)
+        }
+    })
+    .catch(err => {
+        console.log(err);
+    })
+   }
+  //  注册
+  const onFinish3 = (values) => { 
+    fetch('https://api.qasdwer.xyz:2019/register', {
+            method: 'POST',
+            body: JSON.stringify({ id: values.email, passwd: values.password }),
+            headers: {
+                "content-type": "application/json;charset=utf-8;"
+            }
+    })
+    .then(res => res.text())
+    .then(res => {
+        if (res==='ok') {
+            history.replace('/login');
+        } else {
+            alert(res);
+        }
+    })
+    .catch(err => {
+        alert(err.message);
+    })
+
+  }
   const forgetPwd = () => {
     setDiaplsy({ ...display, login: 'none', forget: 'block' });
   }
