@@ -37,10 +37,6 @@ const HomeTop = () => {
                 <div className="home_character"><img src={DesignIcon} className="home_icon"></img><span className="home_top_text">设计</span></div>
             </div>
             <button class="home_start">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
                 快速开始</button>
         </div>
     )
@@ -49,8 +45,8 @@ const Btns = () => {
     return (
         <div className="home_btns">
             <button><img src={DoIcon}></img><span>免费体验</span></button>
-            <Link to="Ins" target="_blank"><button><img src={InsptIcon}></img><span>寻找灵感</span></button></Link>
-            <Link to="rec" target="_blank"><button><img src={RmdIcon}></img><span>逛逛推荐</span></button></Link>
+            <Link to="Ins"><button><img src={InsptIcon}></img><span>寻找灵感</span></button></Link>
+            <Link to="rec"><button><img src={RmdIcon}></img><span>逛逛推荐</span></button></Link>
         </div>
     )
 }

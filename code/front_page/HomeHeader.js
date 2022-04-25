@@ -28,7 +28,7 @@ const HomeHeader = () => {
             {
                 localStorage.getItem("email") ?
                     <Link to="personalcenter" className={pathname == "/personalcenter" ? "home_head_active" : "home_nav_item"} ><span>个人中心</span></Link>
-                    : <Link to="/login"><div className="home_nav_item" style={{ marginLeft: '650px' }}><span>登录|注册</span></div></Link>
+                    : <Link to="/login"><div className="home_nav_item" style={{ marginLeft: '620px' }}><span>登录|注册</span></div></Link>
             }
         </div>
     )

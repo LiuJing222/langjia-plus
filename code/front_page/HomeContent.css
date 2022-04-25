@@ -106,7 +106,7 @@
 }
 
 .home_start:hover {
-    animation: btnsamt 1s;
+    animation: btnsamt 0.5s;
     animation-fill-mode: forwards;
 }
 
@@ -116,7 +116,7 @@
     }
 
     100% {
-        transform: scale(1.2);
+        transform: scale(1.1);
     }
 }
 
@@ -305,20 +305,20 @@
 .home_tip:nth-child(3):hover .home_tip_hover,
 .home_tip:nth-child(6):hover .home_tip_hover {
     display: block;
-    animation: imgAmtr 0.9s 0s;
+    animation: imgAmtr 0.7s 0s;
 }
 
 .home_tip:nth-child(2):hover .home_tip_con,
 .home_tip:nth-child(3):hover .home_tip_con,
 .home_tip:nth-child(6):hover .home_tip_con {
-    animation: conr 0.9s 0s;
+    animation: conr 0.7s 0s;
 }
 
 .home_tip:nth-child(2) .home_tip_hover img,
 .home_tip:nth-child(3) .home_tip_hover img,
 .home_tip:nth-child(6) .home_tip_hover img {
     display: block;
-    animation: imgAmtr 0.9s 0s;
+    animation: imgAmtr 0.7s 0s;
 }
 
 
@@ -350,20 +350,20 @@
 .home_tip:nth-child(4):hover .home_tip_hover,
 .home_tip:nth-child(5):hover .home_tip_hover {
     display: block;
-    animation: imgAmtl 0.9s 0s;
+    animation: imgAmtl 0.7s 0s;
 }
 
 .home_tip:nth-child(1):hover .home_tip_con,
 .home_tip:nth-child(4):hover .home_tip_con,
 .home_tip:nth-child(5):hover .home_tip_con {
-    animation: conl 0.9s 0s;
+    animation: conl 0.7s 0s;
 }
 
 .home_tip:nth-child(1) .home_tip_hover img,
 .home_tip:nth-child(4) .home_tip_hover img,
 .home_tip:nth-child(5) .home_tip_hover img {
     display: block;
-    animation: imgAmtl 0.9s 0s;
+    animation: imgAmtl 0.7s 0s;
 }
 
 
@@ -444,7 +444,7 @@
 }
 
 /* joinus */
-.joinus_mask {
+#joinus_mask {
     width: 100%;
     height: 100%;
     background-color: rgba(2, 43, 99, 0.7);
@@ -453,7 +453,7 @@
     left: 0px;
 }
 
-.joinus_con {
+#joinus_con {
     width: 600px;
     height: 350px;
     background-color: rgb(255, 255, 255);
@@ -481,6 +481,13 @@
     color: #e00;
 }
 
+.joinus_content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .joinus_con_text {
     width: 100%;
     height: 100%;
@@ -505,13 +512,13 @@
 
 .joinus_con_text span:nth-child(3) {
     font-size: 16px;
-    margin-left: 160px;
+    margin-left: 130px;
     margin-bottom: 30px;
 }
 
 .joinus_con_text span:nth-child(4) {
     font-size: 16px;
-    margin-left: 160px;
+    margin-left: 130px;
     margin-bottom: 30px;
 }
 
@@ -521,4 +528,16 @@
     margin-top: 40px;
     margin-left: 40px;
     margin-bottom: 20px;
+}
+
+.home_con_icon {
+    width: 240px;
+    height: 240px;
+    margin-left: 380px;
+    margin-top: 100px;
+}
+
+.home_con_icon img {
+    width: 120px;
+    height: 120px;
 }
