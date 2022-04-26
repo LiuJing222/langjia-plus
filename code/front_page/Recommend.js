@@ -9,18 +9,19 @@ import rainbow from './images/rainbow.png'
 import rec_show from './images/rec_show.mp4'
 import create from './images/create.jpg'
 import { RightOutline } from 'antd-mobile-icons'
+import { Link } from 'react-router-dom'
 
 
 const Recommend = () => {
-    const [sel, setSel] = useState(['none', 'none','none','none','none']);
-    const [list,setList] = useState([]);
-    useEffect(()=>{
+    const [sel, setSel] = useState(['none', 'none', 'none', 'none', 'none']);
+    const [list, setList] = useState([]);
+    useEffect(() => {
         fetch('https://api.qasdwer.xyz:2019/getexcellenceworks')
-        .then(res=>res.json())
-        .then(res=>{
-            setList(res);
-        })
-    },[])
+            .then(res => res.json())
+            .then(res => {
+                setList(res);
+            })
+    }, [])
     return (
         <div>
             <HomeHeader></HomeHeader>
@@ -37,7 +38,7 @@ const Recommend = () => {
                         <div className='expand-container-outer' onMouseOver={() => setSel(['flex', 'none', 'none', 'none', 'none'])} onMouseOut={() => setSel(['none', 'none', 'none', 'none', 'none'])}>
                             <div class="expand-container-inner" style={{ display: sel[0] }}>
                                 <div style={{ marginRight: 20, marginLeft: 10 }}>
-                                    <span class="expand-item" style={{marginTop:8}}>
+                                    <span class="expand-item" style={{ marginTop: 8 }}>
                                         <a href="/des/t_xiandaijianyue_p_1" target="_blank">现代简约</a>
                                     </span>
                                     <span class="expand-item">
@@ -60,7 +61,7 @@ const Recommend = () => {
                                     </span>
                                 </div>
                                 <div>
-                                    <span class="expand-item" style={{marginTop:8}}>
+                                    <span class="expand-item" style={{ marginTop: 8 }}>
                                         <a href="/des/t_xinzhongshi_p_1" target="_blank">新中式</a>
                                     </span>
                                     <span class="expand-item">
@@ -95,7 +96,7 @@ const Recommend = () => {
                         <div className='expand-container-outer' onMouseOver={() => setSel(['none', 'flex', 'none', 'none', 'none'])} onMouseOut={() => setSel(['none', 'none', 'none', 'none', 'none'])}>
                             <div class="expand-container-inner" style={{ display: sel[1] }}>
                                 <div style={{ marginRight: 20, marginLeft: 10 }}>
-                                <span class="expand-item" style={{marginTop:8}}>
+                                    <span class="expand-item" style={{ marginTop: 8 }}>
                                         <a href="/des/t_keting_p_1" target="_blank">客厅</a>
                                     </span>
                                     <span class="expand-item">
@@ -127,7 +128,7 @@ const Recommend = () => {
                                     </span>
                                 </div>
                                 <div>
-                                <span class="expand-item" style={{marginTop:8}}>
+                                    <span class="expand-item" style={{ marginTop: 8 }}>
                                         <a href="/des/t_zhuwo_p_1" target="_blank">主卧</a>
                                     </span>
                                     <span class="expand-item">
@@ -162,17 +163,17 @@ const Recommend = () => {
                         </div>
                     </div>
                     <div className='selector_container selector_div'>
-                        <div className='select_row selector_div' onMouseOver={() => setSel(['none', 'none','flex', 'none', 'none'])} onMouseOut={() => setSel(['none', 'none','none', 'none', 'none'])}>
+                        <div className='select_row selector_div' onMouseOver={() => setSel(['none', 'none', 'flex', 'none', 'none'])} onMouseOut={() => setSel(['none', 'none', 'none', 'none', 'none'])}>
                             <RightOutline className='select_right' />
                             <span className='select_row_title'>户型</span>
                             <a className='select_row_text'>一居</a>
                             <a className='select_row_text'>二居</a>
 
                         </div>
-                        <div className='expand-container-outer' onMouseOver={() => setSel(['none', 'none','flex', 'none', 'none'])} onMouseOut={() => setSel(['none', 'none','none', 'none', 'none'])}>
+                        <div className='expand-container-outer' onMouseOver={() => setSel(['none', 'none', 'flex', 'none', 'none'])} onMouseOut={() => setSel(['none', 'none', 'none', 'none', 'none'])}>
                             <div class="expand-container-inner" style={{ display: sel[2] }}>
                                 <div style={{ marginRight: 20, marginLeft: 10 }}>
-                                <span class="expand-item" style={{marginTop:8}}>
+                                    <span class="expand-item" style={{ marginTop: 8 }}>
                                         <a href="/des/t_yiju_p_1" target="_blank">一居</a>
                                     </span>
                                     <span class="expand-item">
@@ -183,7 +184,7 @@ const Recommend = () => {
                                     </span>
                                 </div>
                                 <div>
-                                <span class="expand-item" style={{marginTop:8}}>
+                                    <span class="expand-item" style={{ marginTop: 8 }}>
                                         <a href="/des/t_erju_p_1" target="_blank">二居</a>
                                     </span>
                                     <span class="expand-item">
@@ -194,17 +195,17 @@ const Recommend = () => {
                         </div>
                     </div>
                     <div className='selector_container selector_div'>
-                        <div className='select_row selector_div' onMouseOver={() => setSel(['none', 'none','none', 'flex', 'none'])} onMouseOut={() => setSel(['none', 'none','none', 'none', 'none'])}>
+                        <div className='select_row selector_div' onMouseOver={() => setSel(['none', 'none', 'none', 'flex', 'none'])} onMouseOut={() => setSel(['none', 'none', 'none', 'none', 'none'])}>
                             <RightOutline className='select_right' />
                             <span className='select_row_title'>面积</span>
                             <a className='select_row_text'>50-80m²</a>
                             <a className='select_row_text'>80-100m²</a>
 
                         </div>
-                        <div className='expand-container-outer' onMouseOver={() => setSel(['none', 'none','none', 'flex', 'none'])} onMouseOut={() => setSel(['none', 'none','none', 'none', 'none'])}>
+                        <div className='expand-container-outer' onMouseOver={() => setSel(['none', 'none', 'none', 'flex', 'none'])} onMouseOut={() => setSel(['none', 'none', 'none', 'none', 'none'])}>
                             <div class="expand-container-inner" style={{ display: sel[3] }}>
                                 <div style={{ marginRight: 10, marginLeft: 10 }}>
-                                    <span class="expand-item" style={{marginTop:8}}>
+                                    <span class="expand-item" style={{ marginTop: 8 }}>
                                         <a href="/des/t_50-80_p_1" target="_blank">50-80m²</a>
                                     </span>
                                     <span class="expand-item">
@@ -215,7 +216,7 @@ const Recommend = () => {
                                     </span>
                                 </div>
                                 <div>
-                                <span class="expand-item" style={{marginTop:8}}>
+                                    <span class="expand-item" style={{ marginTop: 8 }}>
                                         <a href="/des/t_80-100_p_1" target="_blank">80-100m²</a>
                                     </span>
                                     <span class="expand-item">
@@ -226,17 +227,17 @@ const Recommend = () => {
                         </div>
                     </div>
                     <div className='selector_container selector_div'>
-                        <div className='select_row selector_div' onMouseOver={() => setSel(['none', 'none','none', 'none', 'flex'])} onMouseOut={() => setSel(['none', 'none','none', 'none', 'none'])}>
+                        <div className='select_row selector_div' onMouseOver={() => setSel(['none', 'none', 'none', 'none', 'flex'])} onMouseOut={() => setSel(['none', 'none', 'none', 'none', 'none'])}>
                             <RightOutline className='select_right' />
                             <span className='select_row_title'>场景</span>
                             <a className='select_row_text'>家居</a>
                             <a className='select_row_text'>办公</a>
 
                         </div>
-                        <div className='expand-container-outer' onMouseOver={() => setSel(['none', 'none','none', 'none', 'flex'])} onMouseOut={() => setSel(['none', 'none','none', 'none', 'none'])}>
+                        <div className='expand-container-outer' onMouseOver={() => setSel(['none', 'none', 'none', 'none', 'flex'])} onMouseOut={() => setSel(['none', 'none', 'none', 'none', 'none'])}>
                             <div class="expand-container-inner" style={{ display: sel[4] }}>
                                 <div style={{ marginRight: 20, marginLeft: 10 }}>
-                                    <span class="expand-item" style={{marginTop:8}}>
+                                    <span class="expand-item" style={{ marginTop: 8 }}>
                                         <a href="/des/t_jiazhuang_p_1" target="_blank">家装</a>
                                     </span>
                                     <span class="expand-item">
@@ -244,7 +245,7 @@ const Recommend = () => {
                                     </span>
                                 </div>
                                 <div>
-                                <span class="expand-item" style={{marginTop:8}}>
+                                    <span class="expand-item" style={{ marginTop: 8 }}>
                                         <a href="/des/t_bangong_p_1" target="_blank">办公</a>
                                     </span>
                                     <span class="expand-item">
@@ -341,60 +342,64 @@ const Recommend = () => {
             </div>
             <div className='all_rec_div'>
                 <ul>
-                {
+                    {
                         list.map((item) => {
-                            if(item.work_id%3==1){
-                            if (item.cover_vedio) {
-                                return (
-                                    <li className='rec_all_li1 rec_all_li2'>
-                                        <div className='rec_li1_img rec_li1_video'>
-                                            <ReactPlayer
-                                                className="reactPlayer3"
-                                                url={item.cover_vedio}
-                                                playing={true}
-                                                autoPlay={true}
-                                                muted={true}
-                                                loop={true}
-                                                width='100%'
-                                                height='300px'
-                                            />
-                                            <div className='rec_li_div3 rec_play_div3'>
-                                                <span>{item.discribe}</span>
-                                            </div>
-                                        </div>
-                                        <div className='rec_li_div2 rec_play_div2'>
-                                            <div title={item.title}>{item.title}</div>
-                                            <div>
-                                                <img src={'https://api.qasdwer.xyz:2019/headPortrait/'+item.header} alt="" />
-                                                <span title={item.user_name}>{item.user_name}</span>
-                                            </div>
-                                        </div>
+                            if (item.work_id % 3 == 1) {
+                                if (item.cover_vedio) {
+                                    return (
+                                        <Link to={{ pathname: '/InsCon', search: JSON.stringify(item) }} target='_blank' rel="opener">
+                                            <li className='rec_all_li1 rec_all_li2'>
+                                                <div className='rec_li1_img rec_li1_video'>
+                                                    <ReactPlayer
+                                                        className="reactPlayer3"
+                                                        url={item.cover_vedio}
+                                                        playing={true}
+                                                        autoPlay={true}
+                                                        muted={true}
+                                                        loop={true}
+                                                        width='100%'
+                                                        height='300px'
+                                                    />
+                                                    <div className='rec_li_div3 rec_play_div3'>
+                                                        <span>{item.discribe}</span>
+                                                    </div>
+                                                </div>
+                                                <div className='rec_li_div2 rec_play_div2'>
+                                                    <div title={item.title}>{item.title}</div>
+                                                    <div>
+                                                        <img src={'https://api.qasdwer.xyz:2019/headPortrait/' + item.header} alt="" />
+                                                        <span title={item.user_name}>{item.user_name}</span>
+                                                    </div>
+                                                </div>
 
 
-                                    </li>
-                                )
+                                            </li>
+                                        </Link>
+                                    )
+                                } else {
+                                    return (
+                                        <Link to={{ pathname: '/InsCon', search: JSON.stringify(item) }} target='_blank' rel="opener">
+                                            <li className='rec_all_li1'>
+                                                <div className='rec_li1_img'>
+                                                    <img src={item.cover_img} alt="" />
+                                                    <div className='rec_li_div3'>
+                                                        <span>{item.discribe}</span>
+                                                    </div>
+                                                </div>
+                                                <div className='rec_li_div2'>
+                                                    <div title={item.title}>{item.title}</div>
+                                                    <div>
+                                                        <img src={'https://api.qasdwer.xyz:2019/headPortrait/' + item.header} alt="" />
+                                                        <span title={item.user_name}>{item.user_name}</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </Link>
+                                    )
+                                }
                             } else {
-                                return(
-                                    <li className='rec_all_li1'>
-                                        <div className='rec_li1_img'>
-                                            <img src={item.cover_img} alt="" />
-                                            <div className='rec_li_div3'>
-                                                <span>{item.discribe}</span>
-                                            </div>
-                                        </div>
-                                        <div className='rec_li_div2'>
-                                            <div title={item.title}>{item.title}</div>
-                                            <div>
-                                                <img src={'https://api.qasdwer.xyz:2019/headPortrait/'+item.header} alt="" />
-                                                <span title={item.user_name}>{item.user_name}</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                )
+                                return;
                             }
-                        }else{
-                            return ;
-                        }
 
                         })
                     }
@@ -402,117 +407,125 @@ const Recommend = () => {
                 <ul>
                     {
                         list.map((item) => {
-                            if(item.work_id%3==2){
-                            if (item.cover_vedio) {
-                                return (
-                                    <li className='rec_all_li1 rec_all_li2'>
-                                        <div className='rec_li1_img rec_li1_video'>
-                                            <ReactPlayer
-                                                className="reactPlayer3"
-                                                url={item.cover_vedio}
-                                                playing={true}
-                                                autoPlay={true}
-                                                muted={true}
-                                                loop={true}
-                                                width='100%'
-                                                height='300px'
-                                            />
-                                            <div className='rec_li_div3 rec_play_div3'>
-                                                <span>{item.discribe}</span>
-                                            </div>
-                                        </div>
-                                        <div className='rec_li_div2 rec_play_div2'>
-                                            <div title={item.title}>{item.title}</div>
-                                            <div>
-                                                <img src={'https://api.qasdwer.xyz:2019/headPortrait/'+item.header} alt="" />
-                                                <span title={item.user_name}>{item.user_name}</span>
-                                            </div>
-                                        </div>
+                            if (item.work_id % 3 == 2) {
+                                if (item.cover_vedio) {
+                                    return (
+                                        <Link to={{ pathname: '/InsCon', search: JSON.stringify(item) }} target='_blank' rel="opener">
+                                            <li className='rec_all_li1 rec_all_li2'>
+                                                <div className='rec_li1_img rec_li1_video'>
+                                                    <ReactPlayer
+                                                        className="reactPlayer3"
+                                                        url={item.cover_vedio}
+                                                        playing={true}
+                                                        autoPlay={true}
+                                                        muted={true}
+                                                        loop={true}
+                                                        width='100%'
+                                                        height='300px'
+                                                    />
+                                                    <div className='rec_li_div3 rec_play_div3'>
+                                                        <span>{item.discribe}</span>
+                                                    </div>
+                                                </div>
+                                                <div className='rec_li_div2 rec_play_div2'>
+                                                    <div title={item.title}>{item.title}</div>
+                                                    <div>
+                                                        <img src={'https://api.qasdwer.xyz:2019/headPortrait/' + item.header} alt="" />
+                                                        <span title={item.user_name}>{item.user_name}</span>
+                                                    </div>
+                                                </div>
 
 
-                                    </li>
-                                )
+                                            </li>
+                                        </Link>
+                                    )
+                                } else {
+                                    return (
+                                        <Link to={{ pathname: '/InsCon', search: JSON.stringify(item) }} target='_blank' rel="opener">
+                                            <li className='rec_all_li1'>
+                                                <div className='rec_li1_img'>
+                                                    <img src={item.cover_img} alt="" />
+                                                    <div className='rec_li_div3'>
+                                                        <span>{item.discribe}</span>
+                                                    </div>
+                                                </div>
+                                                <div className='rec_li_div2'>
+                                                    <div title={item.title}>{item.title}</div>
+                                                    <div>
+                                                        <img src={'https://api.qasdwer.xyz:2019/headPortrait/' + item.header} alt="" />
+                                                        <span title={item.user_name}>{item.user_name}</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </Link>
+                                    )
+                                }
                             } else {
-                                return(
-                                    <li className='rec_all_li1'>
-                                        <div className='rec_li1_img'>
-                                            <img src={item.cover_img} alt="" />
-                                            <div className='rec_li_div3'>
-                                                <span>{item.discribe}</span>
-                                            </div>
-                                        </div>
-                                        <div className='rec_li_div2'>
-                                            <div title={item.title}>{item.title}</div>
-                                            <div>
-                                                <img src={'https://api.qasdwer.xyz:2019/headPortrait/'+item.header} alt="" />
-                                                <span title={item.user_name}>{item.user_name}</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                )
+                                return;
                             }
-                        }else{
-                            return ;
-                        }
 
                         })
                     }
                 </ul>
                 <ul>
-                {
+                    {
                         list.map((item) => {
-                            if(item.work_id%3==0){
-                            if (item.cover_vedio) {
-                                return (
-                                    <li className='rec_all_li1 rec_all_li2'>
-                                        <div className='rec_li1_img rec_li1_video'>
-                                            <ReactPlayer
-                                                className="reactPlayer3"
-                                                url={item.cover_vedio}
-                                                playing={true}
-                                                autoPlay={true}
-                                                muted={true}
-                                                loop={true}
-                                                width='100%'
-                                                height='300px'
-                                            />
-                                            <div className='rec_li_div3 rec_play_div3'>
-                                                <span>{item.discribe}</span>
-                                            </div>
-                                        </div>
-                                        <div className='rec_li_div2 rec_play_div2'>
-                                            <div title={item.title}>{item.title}</div>
-                                            <div>
-                                                <img src={'https://api.qasdwer.xyz:2019/headPortrait/'+item.header} alt="" />
-                                                <span title={item.user_name}>{item.user_name}</span>
-                                            </div>
-                                        </div>
+                            if (item.work_id % 3 == 0) {
+                                if (item.cover_vedio) {
+                                    return (
+                                        <Link to={{ pathname: '/InsCon', search: JSON.stringify(item) }} target='_blank' rel="opener">
+                                            <li className='rec_all_li1 rec_all_li2'>
+                                                <div className='rec_li1_img rec_li1_video'>
+                                                    <ReactPlayer
+                                                        className="reactPlayer3"
+                                                        url={item.cover_vedio}
+                                                        playing={true}
+                                                        autoPlay={true}
+                                                        muted={true}
+                                                        loop={true}
+                                                        width='100%'
+                                                        height='300px'
+                                                    />
+                                                    <div className='rec_li_div3 rec_play_div3'>
+                                                        <span>{item.discribe}</span>
+                                                    </div>
+                                                </div>
+                                                <div className='rec_li_div2 rec_play_div2'>
+                                                    <div title={item.title}>{item.title}</div>
+                                                    <div>
+                                                        <img src={'https://api.qasdwer.xyz:2019/headPortrait/' + item.header} alt="" />
+                                                        <span title={item.user_name}>{item.user_name}</span>
+                                                    </div>
+                                                </div>
 
 
-                                    </li>
-                                )
+                                            </li>
+                                        </Link>
+                                    )
+                                } else {
+                                    return (
+                                        <Link to={{ pathname: '/InsCon', search: JSON.stringify(item) }} target='_blank' rel="opener">
+                                            <li className='rec_all_li1'>
+                                                <div className='rec_li1_img'>
+                                                    <img src={item.cover_img} alt="" />
+                                                    <div className='rec_li_div3'>
+                                                        <span>{item.discribe}</span>
+                                                    </div>
+                                                </div>
+                                                <div className='rec_li_div2'>
+                                                    <div title={item.title}>{item.title}</div>
+                                                    <div>
+                                                        <img src={'https://api.qasdwer.xyz:2019/headPortrait/' + item.header} alt="" />
+                                                        <span title={item.user_name}>{item.user_name}</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </Link>
+                                    )
+                                }
                             } else {
-                                return(
-                                    <li className='rec_all_li1'>
-                                        <div className='rec_li1_img'>
-                                            <img src={item.cover_img} alt="" />
-                                            <div className='rec_li_div3'>
-                                                <span>{item.discribe}</span>
-                                            </div>
-                                        </div>
-                                        <div className='rec_li_div2'>
-                                            <div title={item.title}>{item.title}</div>
-                                            <div>
-                                                <img src={'https://api.qasdwer.xyz:2019/headPortrait/'+item.header} alt="" />
-                                                <span title={item.user_name}>{item.user_name}</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                )
+                                return;
                             }
-                        }else{
-                            return ;
-                        }
 
                         })
                     }
