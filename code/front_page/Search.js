@@ -135,14 +135,14 @@ const Search = (props) => {
             li2[4].style.color = '#000';
         }
         // 设计师规则
-        if(scrollY>=3000 && scrollY<3350){
+        if(scrollY>=3000 && scrollY<3340){
             li1[1].style.color = '#448CEF';
             console.log(li1[1].style.color)
         }else{
             li1[1].style.color = '#000';
         }
         // 上推荐
-        if(scrollY>=3350 && scrollY<3830){
+        if(scrollY>=3340 && scrollY<3830){
             li1[2].style.color = '#448CEF';
         }else{
             li1[2].style.color = '#000';

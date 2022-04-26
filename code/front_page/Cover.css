@@ -4,6 +4,7 @@
     height: 45px;
     background-color: #1F1663;
     position: relative;
+    
 }
 
 .cover_nav_txt1 {
@@ -209,6 +210,9 @@
     position:absolute;
     top:400px;
     right: 200px;
+}
+.cover_none{
+    margin-bottom: 1000px;
 }
 .cover_declare{
     display: flex;

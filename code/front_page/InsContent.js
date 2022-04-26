@@ -112,12 +112,17 @@ const InsContent = (props) => {
         .then(res => res.json())
         .then(res => {
            
-            console.log(res)
-            if(res.message){
-                alert(res.message)
-            }else{
-               setData(res[inspire_id-1]) 
-            }
+            // console.log(res)
+            // if(res.message){
+            //     alert(res.message)
+            // }else{
+            //    setData(res[inspire_id-1]) 
+            // }
+            res.map(item=>{
+                if(item.inspire_id == data.inspire_id){
+                    setData(item)
+                }
+            })
         
         })
         console.log(window.opener)

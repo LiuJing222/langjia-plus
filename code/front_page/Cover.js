@@ -1,6 +1,7 @@
 import React,{ useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './Cover.css'
+import HomeBelong from './HomeBelong'
 
 import v2 from './images/v2.mp4'
 import intro1 from './images/intro1.jpg'
@@ -169,7 +170,7 @@ const Cover = () => {
             </div>
 
             {/* 声明 */}
-            <div className='cover_declare'>
+            {/* <div className='cover_declare'>
                 <div className='cover_declare_item1'>
                     <div>借鉴网站</div>
                     <ul>
@@ -192,7 +193,9 @@ const Cover = () => {
                         <li>营业执照</li>
                     </ul>
                 </div>
-            </div>
+            </div> */}
+            <div className='cover_none'></div>
+            <HomeBelong></HomeBelong>
             {/* 客服 */}
             <div className='cover_serve'>
                 <Link to='/'>

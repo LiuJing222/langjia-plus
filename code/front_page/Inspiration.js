@@ -22,11 +22,6 @@ const Inspiration = () => {
                 setState(res)
 
         })
-        fetch('https://api.qasdwer.xyz:2019/')
-            .then(res => res.json())
-            .then(res => {        
-                console.log(res)
-        })
     },[])
 
   return (
@@ -48,7 +43,7 @@ const Inspiration = () => {
                 state.map(item=>{
                     return(
                         // 需在a标签添加rel="opener"，否则子页面的window.opener为null
-                        <Link to={{pathname:'/InsCon',search:JSON.stringify(state[item.inspire_id-1])}} target='_blank' rel="opener">
+                        <Link to={{pathname:'/InsCon',search:JSON.stringify(item)}} target='_blank' rel="opener">
                             <div className='ins_content_item'>
                                 <img src={JSON.parse(item.message)[0].imgpath} className='ins_content_img' />
                                 <div className='ins_content_txt_box'>
