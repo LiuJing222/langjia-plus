@@ -106,7 +106,7 @@ const Cover = () => {
 
                 <Link to='/login'><div className='cover_nav_txt2'>登录</div></Link>
                 <div className='cover_nav_line'>|</div>
-                <Link to='/'><div className='cover_nav_txt3'>帮助中心</div></Link>
+                <Link to='/help'><div className='cover_nav_txt3'>帮助中心</div></Link>
             </div>
             {/* 主图 */}
             <div className='cover_img'>
