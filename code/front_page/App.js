@@ -39,7 +39,7 @@ const App = () => {
           <Route path="/help" component={Help}></Route>
           <Route path="/personalcenter" component={PersonalCenter}></Route>
           <Route path="/search" component={Search}></Route>
-          <Route path="/des" component={Designsort}></Route>
+          <Route path="/des/:t" component={Designsort}></Route>
 	
           </Switch>
         </Router>
