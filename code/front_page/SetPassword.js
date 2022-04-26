@@ -74,7 +74,7 @@ const SetPassword = () => {
         <div className="personalcenter_setting_setpassword">
             <div>
                 <p>账号安全</p>
-                <input type="password" value={oldword} onChange={(e) => setOldword(e.target.value)} placeholder="原密码"/>
+                <input type="password" value={oldword} autofocus="autofocus" onChange={(e) => setOldword(e.target.value)} placeholder="原密码"/>
                 <p>* 请注意原密码正确性<img className="new_eye" onClick={(e) => ToVisable(e)} src={no_eye} /></p>
                 <input type="password" value={newword} onChange={(e) => setNewword(e.target.value)}  placeholder="新密码"/>
                 <p>* 新密码需包含英文字母与数字且不少于8位<img className="new_eye" onClick={(e) => ToVisable(e)} src={no_eye} /></p>

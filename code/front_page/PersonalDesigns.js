@@ -14,7 +14,7 @@ const PersonalDesigns = () => {
     //var email = '2505469033@qq.com';
     var email = localStorage.getItem('email');
     useEffect(() => {
-        fetch('https://api.qasdwer.xyz:2019/getuserdesign')
+        fetch('https://api.qasdwer.xyz:2019/getuserdesign/:id')
             .then(res => res.json())
             .then(res => {
                 var newList = res.filter(item => item.user_id === email)
@@ -134,35 +134,47 @@ const PersonalDesigns = () => {
                     </div>
                     :
                     <div className="personalcenter_design_box">
-                        {
-                            topList.map(item => {
-                                return (
-                                    <div key={item.design_id} className="personalcenter_design_top_item">
-                                        <div className="personalcenter_design_top_insidebox">
-                                            <img src={top} alt="" className="personalcenter_design_top_icon" />
-                                            <div className="personalcenter_design_title">{item.design_name}</div>
+                        <div>
+                            {
+                                topList.map(item => {
+                                    return (
+                                        <div key={item.design_id} className="personalcenter_design_top_item">
+                                            <div><img src={item.imgpath} className="personalcenter_design_img" /></div>
+                                            <div><img src={top} alt="" className="personalcenter_design_top_icon" /></div>
+                                            <div className="personalcenter_design_top_insidebox">
+                                                <div className="personalcenter_design_title">{item.design_name}</div>
+                                                <div className="personalcenter_design_time">{item.create_time}</div>
+                                                <div className="personalcenter_design_buttons">
+                                                    <div className="personalcenter_design_edit" onClick={() => intomydesign(item)}>编辑</div>
+                                                    <div className="personalcenter_design_delete" onClick={() => del(item)}>删除</div>
+                                                    <div className="personalcenter_design_cancel" onClick={() => cancelTop(item)}>取消置顶</div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div className="personalcenter_design_edit" onClick={() => intomydesign(item)}>编辑</div>
-                                        <div className="personalcenter_design_delete" onClick={() => del(item)}>删除</div>
-                                        <div className="personalcenter_design_cancel" onClick={() => cancelTop(item)}>取消置顶</div>
-                                    </div>
-                                )
-                            })
-                        }
-                        {
-                            normalList.map(item => {
-                                return (
-                                    <div key={item.design_id} className="personalcenter_design_under_item">
-                                        <div className="personalcenter_design_under_insidebox">
-                                            <div className="personalcenter_design_title">{item.design_name}</div>
+                                    )
+                                })
+                            }
+                        </div>
+                        <div>
+                            {
+                                normalList.map(item => {
+                                    return (
+                                        <div key={item.design_id} className="personalcenter_design_under_item">
+                                            <div><img src={item.imgpath} className="personalcenter_design_img" /></div>
+                                            <div className="personalcenter_design_under_insidebox">
+                                                <div className="personalcenter_design_title">{item.design_name}</div>
+                                                <div className="personalcenter_design_time">{item.create_time}</div>
+                                                <div className="personalcenter_design_buttons">
+                                                    <div className="personalcenter_design_edit" onClick={() => intomydesign(item)}>编辑</div>
+                                                    <div className="personalcenter_design_delete" onClick={() => del(item)}>删除</div>
+                                                    <div className="personalcenter_design_cancel" onClick={() => cancelTop(item)}>置顶</div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div className="personalcenter_design_edit" onClick={() => intomydesign(item)}>编辑</div>
-                                        <div className="personalcenter_design_delete" onClick={() => del(item)}>删除</div>
-                                        <div className="personalcenter_design_toTop" onClick={() => toTop(item)}>置顶</div>
-                                    </div>
-                                )
-                            })
-                        }
+                                    )
+                                })
+                            }
+                        </div>
                     </div>
             }
         </div>

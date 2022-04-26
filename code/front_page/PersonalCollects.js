@@ -9,13 +9,12 @@ const PersonalCollects = () => {
     var num = 0;
     var [collectList, setCollectList] = useState([]);
     var email = localStorage.getItem('email');
-    //var email = '2505469033@qq.com';
     useEffect(() => {
         fetch('https://api.qasdwer.xyz:2019/getcollection/' + email)
             .then(res => res.json())
             .then(res => {
-                setCollectList(res);
                 console.log(res);
+                setCollectList(res);
             })
             .catch(err => console.log(err.message));
     }, [])
@@ -57,13 +56,13 @@ const PersonalCollects = () => {
                     <div className="personalcenter_collect_items_box" style={{ backgroundImage: `url(${backline})` }}>
                         {
                             collectList.map(item => <div className={num++ % 2 == 0 ? "personalcenter_collect_left_item" : "personalcenter_collect_right_item"} key={item.inspire_id}>
-                                <Link to={{pathname:'/InsCon',state:{id:item.inspire_id}}}><img src={"https://api.qasdwer.xyz:2019/inspiredatas/image/" + JSON.parse(item.imgname)[0]} className="mycol_img" /></Link>
+                                <Link to={{ pathname: '/InsCon', state: { id: item.inspire_id } }}><img src={JSON.parse(item.message)[0].imgpath} className="mycol_img" /></Link>
                                 <span></span>
                                 <div>
                                     <div>{item.title.length > 6 ? item.title.slice(0, 6) + '...' : item.title}</div>
-                                    <div>2022-04-13</div>
-                                    <div>作者：{item.title.length > 6 ? item.title.slice(0, 6) + '...' : item.title}</div>
-                                    <div>{JSON.parse(item.content)[0].slice(0, 10) + '...'}</div>
+                                    <div>{item.create_time}</div>
+                                    <div>作者：{item.designer}</div>
+                                    <div>{item.detail.slice(0, 10) + '...'}</div>
                                     <div onClick={() => { Collect(item) }}>移除</div>
                                 </div>
 

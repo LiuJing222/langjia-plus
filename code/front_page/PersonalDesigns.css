@@ -5,111 +5,115 @@
     overflow-x: hidden;
 }
 .personalcenter_design_box>div{
-    width:100%;
-    height: 80px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+}
+.personalcenter_design_box>div>div{
+    width:30%;
+    height: 280px;
+    overflow: hidden;
     border-radius: 10px;
-    /* border:1px solid #ccc; */
     box-shadow: 5px 5px 10px 0px #ccc;
     margin:15px auto;
 }
+
+.personalcenter_design_box>div:nth-child(1){
+    /* border-bottom: 1px solid #ccc; */
+    margin-bottom: 60px;
+    background-color: #eee;
+    padding-bottom: 20px;
+}
+
 .personalcenter_design_top_item{
-    background-color: rgb(2,43,99);
     position: relative;
 }
-.personalcenter_design_under_item{
-    background-color: #eee;
-    position: relative;
-    border-radius: 10px;
+.personalcenter_design_top_item>div:nth-child(1){
+    width:100%;
+    height: 100%;
+}
+.personalcenter_design_img{
+    height:150%;
+    transition: height 0.5s;
+}
+.personalcenter_design_img:hover{
+    height:100%;
+}
+.personalcenter_design_top_item>:nth-child(2){
+    width:100px;
+    height: 100px;
+    transform:rotate(45deg);
+    background-color: white;
+    position: absolute;
+    top:-50px;
+    left: -50px;
+    overflow: hidden;
+}
+.personalcenter_design_top_item>:nth-child(2)>img{
+    width:30%;
+    transform:rotate(-45deg);
+    position: absolute;
+    right: 0;
+    top:40%
 }
 .personalcenter_design_top_insidebox{
-    width:110%;
-    height: 100%;
-    background-color: rgba(255,255,255,0.8);
-    transition: width 0.8s;
-    display: flex;
-    flex-direction: row;
-    border-radius: 40px;
-    margin-left: -10%;
-    padding-left: 10%;
-}
-.personalcenter_design_under_insidebox{
-    width:110%;
-    height: 100%;
-    transition: width 0.8s;
-    display: flex;
-    flex-direction: row;
-    border-radius: 40px;
-    margin-left: -10%;
-    padding-left: 10%;
-    border-right:1px solid #eee;
-    background-color: rgb(252, 250, 250);
-}
-.personalcenter_design_top_item:hover .personalcenter_design_top_insidebox{
-    width: 70%;
-}
-.personalcenter_design_under_item:hover .personalcenter_design_under_insidebox{
-    width: 70%;
-}
-.personalcenter_design_top_icon{
-    height: 20px;
-    width: 35px;
-    margin: auto 15px;
+    width:100%;
+    height: 75px;
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    bottom: 0px;
+    transition: background-color 0.3s;
+    color: white;
 }
 .personalcenter_design_title{
-    width: 40%;
-    height: 80px;
-    line-height: 80px;
-    color: rgb(2,43,99);
+    width: 100%;
+    font-size: 18px;
     font-weight: bold;
-    font-size: 20px;
-    margin-left: 2%;
+    padding-left: 20px;
+    line-height: 30px;
 }
-.personalcenter_design_edit{
-    width:50px;
-    height: 25px;
-    font-size: 16px;
+.personalcenter_design_time{
+    width: 100%;
+    height: 15px;
+    font-size: 10px;
+    padding-left: 20px;
+}
+.personalcenter_design_buttons{
+    margin-left: 20px;
+    display: flex;
+    flex-direction: row;
+    border-top: 1px solid #ccc;
+}
+.personalcenter_design_buttons>div{
+    width:25%;
+    height: 30px;
+    line-height: 30px;
+}
+.personalcenter_design_buttons>div:hover{
+    color:rgb(2,43,99);
     font-weight: bold;
-    position: absolute;
-    top: 38%;
-    right:22%;
-    color: white;
 }
-.personalcenter_design_delete{
-    position: absolute;
-    width:50px;
-    height: 25px;
-    top: 38%;
-    right:14%;
-    font-size: 16px;
-    font-weight: bold;
-    color: white;
+.personalcenter_design_img:hover .personalcenter_design_top_insidebox{
+    background-color: red;
 }
-.personalcenter_design_cancel,
-.personalcenter_design_toTop{
-    width:70px;
-    height: 25px;
-    position: absolute;
-    top: 38%;
-    right:2%;
-    font-size: 16px;
-    font-weight: bold;  
-    color: white;
+.personalcenter_design_under_item{
+    position: relative;
+
 }
-.personalcenter_design_under_item .personalcenter_design_edit{
-    color: rgb(2,43,99);
-}
-.personalcenter_design_under_item .personalcenter_design_delete{
-    color: rgb(2,43,99);
-}
-.personalcenter_design_under_item .personalcenter_design_toTop{
-    color: rgb(2,43,99);
+.personalcenter_design_under_item>div:nth-child(1){
+    width:100%;
+    height: 100%;
 }
 
-.personalcenter_design_under_insidebox .personalcenter_design_title{
-    margin-left: 2%;
-    padding-left: 60px;
+.personalcenter_design_under_insidebox{   
+    width:100%;
+    height: 75px;
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    bottom: 0px;
+    color: white;
 }
-
 
 .personalcenter_design_box::-webkit-scrollbar {
     width: 5px;

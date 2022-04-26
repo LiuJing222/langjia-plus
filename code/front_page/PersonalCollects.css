@@ -75,6 +75,7 @@
 }
 .personalcenter_collect_left_item img{
     width: 140%;
+    height: 100%;
     object-fit: cover;
     margin-top: 0px;
     transition: width 0.5s;
@@ -151,6 +152,7 @@
 }
 .personalcenter_collect_right_item img{
     width: 140%;
+    height: 100%;
     object-fit: cover;
     margin-top: 0px;
     transition: width 0.5s;

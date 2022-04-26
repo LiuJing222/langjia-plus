@@ -41,8 +41,9 @@
 }
 .personalcenter_setting_changeemail>div:nth-child(1)>input{
     width: 320px;
-    height: 20px;
+    height: 35px;
     margin-bottom: 20px;
+    border-radius: 8px;
 }
 .personalcenter_setting_changeemail>div:nth-child(2){
     width: 40%;
@@ -58,6 +59,6 @@
 .password_eye{
     width:18px;
     position: absolute;
-    top:43px;
-    left:300px;
+    top:52px;
+    left:295px;
 }

@@ -241,7 +241,7 @@ body,html{
     border-radius: 15px;
     text-align: center;
     line-height: 70px;
-    transition: background-color 0.5s;
+    transition: background-color 0.3s;
 }
 .personalcenter_nav div:nth-child(1){
     background-color:white;
