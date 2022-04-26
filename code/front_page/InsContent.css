@@ -34,25 +34,59 @@
 #inscon_nav_ins{
     color:#448CEF;
 }
+
 .inscon_title{
     font-size: 35px;
     font-weight: 600;
     margin-left: 80px;
-    margin-top: 50px;
+    margin-top: 30px;
 }
-.inscon_return span{
-    float: left;
+.inscon_time{
+    margin-left: 80px;
+    margin-top: 15px;
+    color: #676767;
 }
-.inscon_return{
-    width: 100px;
-    color: #979898;
-    position: relative;
-    left: 240px;
-    top:-25px;
-}
-a{
+
+.ins_box a{
     text-decoration: none;
     color: #448CEF;
+}
+
+
+.inscon_collect_txt{
+    width: 120px;
+    height: 50px;
+    background-color: #448CEF;
+    border-radius: 30px;
+    text-align: center;
+    line-height: 50px;
+    color: #fff;
+    font-size: 18px;
+    position: absolute;
+    top:100px;
+    right: 150px;
+
+}
+.inscon_collect_txt:hover{
+    background-color:rgba(26, 122, 248, 0.12);
+    color:#448CEF
+}
+.inscon_uncollect_txt{
+    width: 120px;
+    height: 50px;
+    background-color: rgba(26, 122, 248, 0.12);
+    border-radius: 30px;
+    text-align: center;
+    line-height: 50px;
+    color: #448CEF;
+    font-size: 18px;
+    position: absolute;
+    top:100px;
+    right: 150px;
+}
+.inscon_uncollect_txt:hover{
+    background-color: #448CEF;
+    color: #fff;
 }
 .inscon_item{
     width: 100%;
@@ -79,6 +113,7 @@ a{
 .inscon_designer{
     width: 90px;
     height: 90px;
+    border-radius: 50%;
     position: absolute;
     top:40px;
     left: 40%;

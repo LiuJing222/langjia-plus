@@ -138,7 +138,7 @@ const Cover = () => {
             <div className='cover_intro'>
                 <div className='cover_intro_txt1'>专注于室内设计</div>
                 <div className='cover_intro_item1'>
-                    <img src={intro1} className="cover_intro_img1"></img>
+                    <img src={intro1} className="cover_intro_img1" alt='请刷新'></img>
                     <div className='cover_intro_item1_txt'>
                         <div className='cover_intro_item1_txt1'>全景搭建设计住宅</div>
                         <div className='cover_intro_item1_txt2'>摆脱传统的二维平面设计形式，使用3D 技术直观全面地展现房屋设计，给您更好的使用体验</div>
@@ -149,17 +149,17 @@ const Cover = () => {
                         <div className='cover_intro_item2_txt1'>2D与3D轻松转换</div>
                         <div className='cover_intro_item2_txt2'>2D与3D视角一键转换，设计过程中您可以快速切换，方便从不同视角阅览您的设计</div>
                     </div>
-                    <img src={intro2} className="cover_intro_img2"></img>
+                    <img src={intro2} className="cover_intro_img2" alt='请刷新'></img>
                 </div>
                 <div className='cover_intro_item3'>
                     <div className='cover_intro_item2_txt'>
                         <div className='cover_intro_item2_txt1'>家具素材随心搭配</div>
                         <div className='cover_intro_item2_txt2'>朗家为您提供全面的家具模型以及户型模板，随心搭配，畅享设计</div>
                     </div>
-                    <img src={intro3} className="cover_intro_img2"></img>
+                    <img src={intro3} className="cover_intro_img2" alt='请刷新'></img>
                 </div>
                 <div className='cover_intro_item4'>
-                    <img src={intro4} className="cover_intro_img1"></img>
+                    <img src={intro4} className="cover_intro_img1" alt='请刷新'></img>
                     <div className='cover_intro_item1_txt'>
                         <div className='cover_intro_item1_txt1'>智能推荐装修灵感</div>
                         <div className='cover_intro_item1_txt2'>没有灵感？不必担心，朗家为您提供多种风格的设计灵感，收藏之后更便于查看</div>
@@ -197,12 +197,12 @@ const Cover = () => {
             <div className='cover_serve'>
                 <Link to='/'>
                     <div className='cover_serve_item'>
-                        <img src={email} className='cover_serve_img'/>
+                        <img src={email} className='cover_serve_img' alt='img'/>
                         <div className='cover_serve_txt'>联系我们</div>
                     </div>
                 </Link>       
                 <div className='cover_serve_item' onClick={()=>goTop()}>
-                    <img src={top} className='cover_serve_img' />
+                    <img src={top} className='cover_serve_img' alt='img'/>
                     <div className='cover_serve_txt'>TOP</div>
                 </div>
             </div>

@@ -1,7 +1,8 @@
-import React from 'react'
+import React ,{useEffect,useState}from 'react'
 import { Link,NavLink } from 'react-router-dom'
 import './Inspiration.css'
 import HomeHeader from './HomeHeader'
+import Child from './InsContent'
 
 import bg2 from './images/insbg3.jpg'
 import topline from './images/topline.png'
@@ -11,6 +12,23 @@ import vins from './images/ins.mp4'
 import ReactPlayer from 'react-player'
 
 const Inspiration = () => {
+    const [state,setState] = useState([]);
+    const email = localStorage.getItem('email');
+    useEffect(()=>{      
+        fetch('https://api.qasdwer.xyz:2019/getinspiredatas/'+email)
+            .then(res => res.json())
+            .then(res => {        
+                console.log(res)
+                setState(res)
+
+        })
+        fetch('https://api.qasdwer.xyz:2019/')
+            .then(res => res.json())
+            .then(res => {        
+                console.log(res)
+        })
+    },[])
+
   return (
     <div className='ins_box'>
         {/* 导航栏 */}
@@ -26,96 +44,24 @@ const Inspiration = () => {
         </div>
         {/* 内容 */}
         <div className='ins_content'>
-            <Link to={{pathname:'/InsCon',search:JSON.stringify('0')}} target='_blank'>
-            <div className='ins_content_item'>
-                <img src='https://qhrenderstorage-oss.kujiale.com/beautify/2022/04/07/MJHEU5AKTEM2KAABAAAAACA8.jpg?x-oss-process=image/resize,m_fill,w_1715,h_1010/format,webp' className='ins_content_img' />
-                <div className='ins_content_txt_box'>
-                    <div className='ins_content_txt1'>《马卡龙》</div>
-                    <div className='ins_content_txt2'>设计师：张伟</div>
-                    <div className='ins_content_txt3'>唯美的客厅配上梦幻帘的观影效果，美得不可方物</div>
-                </div>
-            </div>
-            </Link>
-            <Link to={{pathname:'/InsCon',search:JSON.stringify('1')}} target='_blank'>
-            <div className='ins_content_item'>
-                <img src="https://qhrenderpic-cos.kujiale.com/r/2022/01/17/L3D206S21ENDPT5554NSGEQZ4LUF3P3XI888_2560x1440.jpg?x-oss-process=image/resize,m_fill,w_1715,h_1010/format,webp" className='ins_content_img' />
-                <div className='ins_content_txt_box'>
-                    <div className='ins_content_txt1'>《侘寂》</div>
-                    <div className='ins_content_txt2'>设计师：张伟</div>
-                    <div className='ins_content_txt3'>侘寂风别墅，给客户营造禅意与宁静的居住环境。</div>
-                </div>
-            </div>
-            </Link>
-            <Link to={{pathname:'/InsCon',search:JSON.stringify('2')}} target='_blank'>
-            <div className='ins_content_item'>
-                <img src="https://qhrenderpic-cos.kujiale.com/r/2022/01/06/L3D124S21ENDPTESOGVSGH2Z6LUF3P3XY888_4000x3000.jpg?x-oss-process=image/resize,m_fill,w_1715,h_1010/format,webp" className='ins_content_img' />
-                <div className='ins_content_txt_box'>
-                    <div className='ins_content_txt1'>《日式小院》</div>
-                    <div className='ins_content_txt2'>设计师：张伟</div>
-                    <div className='ins_content_txt3'>在这个空间里，可以尽情享受每一刻的光阴，每一份独有的美好</div>
-                </div>
-            </div>
-            </Link>
-            <Link to={{pathname:'/InsCon',search:JSON.stringify('3')}} target='_blank'>
-            <div className='ins_content_item'>
-                <img src="https://qhrenderstorage-oss.kujiale.com/beautify/2021/11/11/YY0kd6wZ0bcAAQAAAAc.jpg?x-oss-process=image/resize,m_fill,w_1715,h_1010/format,webp" className='ins_content_img' />
-                <div className='ins_content_txt_box'>
-                    <div className='ins_content_txt1'>《摩登时代》</div>
-                    <div className='ins_content_txt2'>设计师：张伟</div>
-                    <div className='ins_content_txt3'>温馨复古的家，不需要太多浮华的装饰。</div>
-                </div>
-            </div>
-            </Link>
-            <Link to={{pathname:'/InsCon',search:JSON.stringify('4')}} target='_blank'>
-            <div className='ins_content_item'>
-                <img src="https://qhrenderstorage-oss.kujiale.com/beautify/2021/10/13/MFTPXOFMDFXFAAABAAAAACI8.jpg?x-oss-process=image/resize,m_fill,w_1715,h_1010/format,webp" className='ins_content_img' />
-                <div className='ins_content_txt_box'>
-                    <div className='ins_content_txt1'>《原木温馨》</div>
-                    <div className='ins_content_txt2'>设计师：张伟</div>
-                    <div className='ins_content_txt3'>全屋的原木色，营造轻盈的氛围感，让家更有温度</div>
-                </div>
-            </div>
-            </Link>
-            <Link to={{pathname:'/InsCon',search:JSON.stringify('5')}} target='_blank'>
-            <div className='ins_content_item'>
-                <img src="https://qhrenderstorage-oss.kujiale.com/beautify/2021/07/31/YQQsvqwZjWAAAQAAAAY.jpg?x-oss-process=image/resize,m_fill,w_1715,h_1010/format,webp" className='ins_content_img' />
-                <div className='ins_content_txt_box'>
-                    <div className='ins_content_txt1'>《北欧Loft》</div>
-                    <div className='ins_content_txt2'>设计师：张伟</div>
-                    <div className='ins_content_txt3'>小小的logt客厅通过变化家具的摆放位置，也能获取不同的新鲜感</div>
-                </div>
-            </div>
-            </Link>
-            <Link to={{pathname:'/InsCon',search:JSON.stringify('6')}} target='_blank'>
-            <div className='ins_content_item'>
-                <img src="https://qhrenderpicoss.kujiale.com/r/2022/03/08/L3D187S21ENDP44TDTYUWFY24LUF3P3WY888_3840x2160.jpg?x-oss-process=image/resize,m_fill,w_1715,h_1010/format,webp" className='ins_content_img' />
-                <div className='ins_content_txt_box'>
-                    <div className='ins_content_txt1'>《浪漫温馨》</div>
-                    <div className='ins_content_txt2'>设计师：张伟</div>
-                    <div className='ins_content_txt3'>用法式的优雅和浪漫，安放生活的诗意和疲惫。</div>
-                </div>
-            </div>
-            </Link>
-            <Link to={{pathname:'/InsCon',search:JSON.stringify('7')}} target='_blank'>
-            <div className='ins_content_item'>
-                <img src="https://qhrenderstorage-oss.kujiale.com/beautify/2022/03/02/MIPWCAIKTEJLKAABAAAAABI8.jpg?x-oss-process=image/resize,m_fill,w_1715,h_1010/format,webp" className='ins_content_img' />
-                <div className='ins_content_txt_box'>
-                    <div className='ins_content_txt1'>《尘埃》</div>
-                    <div className='ins_content_txt2'>设计师：张伟</div>
-                    <div className='ins_content_txt3'>没有艳丽的色彩，也没有夸张的线条，只是简约如尘埃。</div>
-                </div>
-            </div>
-            </Link>
-            <Link to={{pathname:'/InsCon',search:JSON.stringify('8')}} target='_blank'>
-            <div className='ins_content_item'>
-                <img src="https://qhrenderpic-cos.kujiale.com/r/2021/12/28/L3D206S21ENDPTKNUY5SGH5HALUF3P3WK888_2560x1440.jpg?x-oss-process=image/resize,m_fill,w_1715,h_1010/format,webp" className='ins_content_img' />
-                <div className='ins_content_txt_box'>
-                    <div className='ins_content_txt1'>《禅意》</div>
-                    <div className='ins_content_txt2'>设计师：张伟</div>
-                    <div className='ins_content_txt3'>焚香，点茶，挂画，插花，四般闲事，不宜累家。</div>
-                </div>
-            </div>
-            </Link>
+            {
+                state.map(item=>{
+                    return(
+                        // 需在a标签添加rel="opener"，否则子页面的window.opener为null
+                        <Link to={{pathname:'/InsCon',search:JSON.stringify(state[item.inspire_id-1])}} target='_blank' rel="opener">
+                            <div className='ins_content_item'>
+                                <img src={JSON.parse(item.message)[0].imgpath} className='ins_content_img' />
+                                <div className='ins_content_txt_box'>
+                                    <div className='ins_content_txt1'>《{item.title}》</div>
+                                    <div className='ins_content_txt2'>设计师：{item.designer}</div>
+                                    <div className='ins_content_txt3'>{item.detail}</div>
+                                </div>
+                            </div>
+                        </Link>
+                    )
+                })
+            }
+            
         </div>
         {/* 敬请期待 */}
         <div className='ins_more'>    

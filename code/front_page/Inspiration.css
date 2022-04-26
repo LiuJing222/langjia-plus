@@ -124,8 +124,14 @@
     animation-duration: 1s;
     animation-fill-mode:forwards;
 }
+.ins_content_txt_box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
 .ins_content_txt1{
-    margin-top: 50px;
+    margin-top: 20px;
     font-size: 20px;
     font-weight: 600;
 }
@@ -134,8 +140,9 @@
     margin-top: 10px;
 }
 .ins_content_txt3{
-    font-size: 14px;
+    font-size: 12px;
     margin: 10px;
+    line-height: 22px;
 }
 .ins_more{
     width: 100%;
