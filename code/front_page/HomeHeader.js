@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom';
+import { useHistory } from 'react-router'
 
 import defaultimg from './images/tree.png'
 import './HomeHeader.css'
@@ -10,6 +11,7 @@ const HomeHeader = () => {
     const [pathname, setPathname] = useState("")
     const [msg, setMsg] = useState({})
 
+    const history = useHistory();
     var email = localStorage.getItem('email');
     useEffect(() => {
         const urlParams = new URL(window.location.href);
@@ -23,22 +25,27 @@ const HomeHeader = () => {
                 setMsg(res)
             })
             .catch(err => console.log(err.message))
-
-        var portrait = document.getElementById("home_header_user_head_portrait")
-        var portrait_hover = document.getElementById("home_header_user_portrait_hover")
-        portrait.addEventListener("mouseover",(e)=>{
-            portrait_hover.style.display = "flex"
-        })
-        portrait.addEventListener("mouseleave",(e)=>{
-            portrait_hover.style.display = "none"
-        })
-        portrait_hover.addEventListener("mouseover",(e)=>{
-            portrait_hover.style.display = "flex"
-        })
-        portrait_hover.addEventListener("mouseleave",(e)=>{
-            portrait_hover.style.display = "none"
-        })
+        if (email) {
+            var portrait = document.getElementById("home_header_user_head_portrait")
+            var portrait_hover = document.getElementById("home_header_user_portrait_hover")
+            portrait.addEventListener("mouseover", (e) => {
+                portrait_hover.style.display = "flex"
+            })
+            portrait.addEventListener("mouseleave", (e) => {
+                portrait_hover.style.display = "none"
+            })
+            portrait_hover.addEventListener("mouseover", (e) => {
+                portrait_hover.style.display = "flex"
+            })
+            portrait_hover.addEventListener("mouseleave", (e) => {
+                portrait_hover.style.display = "none"
+            })
+        }
     }, [])
+    const ExitProcess = () => {
+        localStorage.removeItem('email');
+        history.push('/home');
+    }
     return (
         <div className="home_header">
             <NavLink to='/'><img src={HomeLogo} className="home_logo" /></NavLink>
@@ -59,20 +66,19 @@ const HomeHeader = () => {
                         className={pathname == "/personalcenter" ? "home_head_active" : "home_nav_item"}
                         style={{ marginLeft: '500px' }}>
                         <img id='home_header_user_head_portrait'
-                            src={msg.user_head_portrait ? 'https://api.qasdwer.xyz:2019/headPortrait/' + msg.user_head_portrait : defaultimg} alt="头像"
-                            // onMouseOver={(e)=>{portrait.style.display = "dispay"}}
-                            // onMouseLeave={}
-                            >
+                            src={msg.user_head_portrait ? 'https://api.qasdwer.xyz:2019/headPortrait/' + msg.user_head_portrait : defaultimg} alt="头像">
                         </img>
                         <Link to="/create" className="home_header_start"><span>开始设计</span></Link>
                     </Link>
                     : <Link to="/login"><div className="home_nav_item" style={{ marginLeft: '500px' }}><span>登录|注册</span></div></Link>
             }
             <div id="home_header_user_portrait_hover">
-                <p style={{fontWeight:"600"}}>昵称：{msg.user_name}</p>
+                <p style={{ fontWeight: "600" }}>昵称：{msg.user_name}</p>
                 <Link to="/personalcenter/collects" className="home_header_user_portrait_hover_span"><span>我的收藏</span></Link>
                 <Link to="/personalcenter/likes" className="home_header_user_portrait_hover_span"><span>我的点赞</span></Link>
                 <Link to="/personalcenter/designs" className="home_header_user_portrait_hover_span"><span>我的设计</span></Link>
+
+                <div className="home_header_user_portrait_hover_exit" onClick={() => ExitProcess()}><span>退出登录</span></div>
             </div>
         </div>
     )

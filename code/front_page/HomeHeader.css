@@ -81,7 +81,7 @@
 
 #home_header_user_portrait_hover {
     width: auto;
-    height: 160px;
+    height: 190px;
     border-radius: 20px;
     box-shadow: 2px 2px 2px rgba(200, 200, 200, 0.5);
     background-color: rgb(255, 255, 255);
@@ -94,7 +94,7 @@
 }
 
 #home_header_user_portrait_hover p {
-    color: rgb(2,43,99);
+    color: rgb(2, 43, 99);
     width: 160px;
     height: auto;
     margin-top: 20px;
@@ -110,13 +110,12 @@
 }
 
 .home_header_user_portrait_hover_span span {
-    color: rgb(2,43,99);
+    color: rgb(2, 43, 99);
 
 }
 
-
 .home_header_user_portrait_hover_span:hover {
-    color: rgb(2,43,99);
+    color: rgb(2, 43, 99);
     font-weight: 600;
     width: 100px;
     height: auto;
@@ -124,8 +123,25 @@
     margin-top: 10px;
 }
 
+.home_header_user_portrait_hover_exit {
+    text-decoration: none;
+    width: 100px;
+    height: auto;
+    margin-left: 40px;
+    margin-top: 20px;
+}
+.home_header_user_portrait_hover_exit span{
+    font-weight: 600;
+    color:#666
+}
 
-
+.home_header_user_portrait_hover_exit span:hover{
+    width: 100px;
+    height: auto;
+    margin-top: 10px;
+    font-weight: 600;
+    color:red
+}
 /* 开始设计 */
 .home_header_start span {
     width: 100px;
@@ -133,7 +149,8 @@
     color: rgb(2, 43, 99);
     line-height: 30px;
     background-color: rgb(255, 255, 255);
-    border: 1px solid rgb(190, 190, 190);
+    /* border: 1px solid rgb(190, 190, 190); */
+    box-shadow: 2px 2px 2px #666;
     margin-left: 8px;
 }
 
