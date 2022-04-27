@@ -16,7 +16,7 @@ const InsContent = (props) => {
 
     const [user,setUser] = useState([])
    
-    // console.log(data)
+    console.log(data)
  
     useEffect(()=>{
         fetch('https://api.qasdwer.xyz:2019/')
@@ -42,7 +42,7 @@ const InsContent = (props) => {
         let round = document.getElementsByClassName('inscon_view_nav_round');
         let top = document.querySelector('.inscon_serve_item');
         let scrollY = window.scrollY;
-        console.log(scrollY)
+        // console.log(scrollY)
         if(scrollY >= 500){
             top.style.opacity=1;
             top.style.position='fixed';
@@ -140,27 +140,40 @@ const InsContent = (props) => {
         {/* 上传时间 */}
         <div className='inscon_time'>更新于{data.create_time}</div>
         {/* 收藏 */}
-        <div onClick={() => Collect(data.inspire_id)} className='inscon_collect_box'>
-            {/* <div>收藏</div> */}
-            {data.is_collect?          
-            <div className='inscon_collect_txt'>取消收藏</div>
-            :        
-            <div className='inscon_uncollect_txt'>收藏</div>   
+        {
+            data.inspire_id?
+            <div onClick={() => Collect(data.inspire_id)} className='inscon_collect_box'>
+            
+            {
+            data.is_collect?          
+                <div className='inscon_collect_txt'>取消收藏</div>
+                :        
+                <div className='inscon_uncollect_txt'>收藏</div>   
             }
-        </div>
+            </div>
+            :
+            <div></div>
+        }
+        
         {/* 介绍 */}
         <div className='inscon_item'>
-            <ReactPlayer
-                className="inscon_player"
-                url={data.vedio}
-                playing={true}
-                autoPlay={true}
-                muted={true}
-                loop={true}
-                // controls
-                width='68%'
-                height='100%'
-            />
+            {
+               data.cover_img && data.cover_img != ''?
+               <img src={data.cover_img} className="inscon_item_img"/>
+               :
+               <ReactPlayer
+               className="inscon_player"
+               url={data.vedio}
+               playing={true}
+               autoPlay={true}
+               muted={true}
+               loop={true}
+               // controls
+               width='68%'
+               height='100%'
+           />
+            }
+            
             <div className='inscon_txt'>
                 {
                     user.map(item=>{
@@ -178,7 +191,13 @@ const InsContent = (props) => {
                     </div>
                     <div className='inscon_txt_item'>
                         <span className='inscon_txt_title'>面积：</span>
+                        {
+                        data.inspire_id?
                         <span className='inscon_txt_content'>{data.area}</span>
+                        :
+                        <span className='inscon_txt_content'>{data.area}m²</span>
+                        }
+                       
                     </div>
                     <div className='inscon_txt_item'>
                         <span className='inscon_txt_title'>标签：</span>

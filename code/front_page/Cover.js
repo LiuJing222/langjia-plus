@@ -29,9 +29,11 @@ const Cover = () => {
         let item2 = document.querySelector(".cover_intro_item2")
         let item3 = document.querySelector(".cover_intro_item3")
         let item4 = document.querySelector(".cover_intro_item4")
+        let topbtn = document.getElementsByClassName("cover_serve_item")
  
         let scrollY = window.scrollY;
         console.log(scrollY)
+        // 动画
         if(scrollY>=156){
             item1.style.display='block';
             item2.style.display='block';
@@ -92,6 +94,14 @@ const Cover = () => {
             item4.style.transitionDuration = '0.5s';
             item4.style.transitionTimingFunction='ease'
         }
+        // 置顶
+        if(scrollY > 500){
+            topbtn[0].style.display = 'block';
+            topbtn[1].style.display = 'block';
+
+        }else{
+            topbtn[1].style.display = 'none';
+        }
     }
 
     const goTop = () =>{
@@ -103,8 +113,12 @@ const Cover = () => {
             {/* 导航栏 */}
             <div className='cover_nav'>
                 <Link to='/home'><div className='cover_nav_txt1'>朗家首页</div></Link>
-
-                <Link to='/login'><div className='cover_nav_txt2'>登录</div></Link>
+                {
+                localStorage.getItem("email") ?
+                    <Link to="personalcenter" className='cover_nav_txt2' ><span>个人中心</span></Link>
+                    : <Link to="/login"><div className="cover_nav_txt2"><span>登录|注册</span></div></Link>
+                }
+                {/* <Link to='/login'><div className='cover_nav_txt2'>登录</div></Link> */}
                 <div className='cover_nav_line'>|</div>
                 <Link to='/help'><div className='cover_nav_txt3'>帮助中心</div></Link>
             </div>

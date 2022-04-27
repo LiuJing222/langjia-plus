@@ -51,7 +51,12 @@
     text-decoration: none;
     color: #448CEF;
 }
-
+.inscon_item_img{
+    width: 58%;
+    height: 100%;
+    margin-left: 83px;
+    object-fit: cover;
+}
 
 .inscon_collect_txt{
     width: 120px;
