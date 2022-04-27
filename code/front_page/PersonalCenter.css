@@ -5,7 +5,7 @@ body,html{
 }
 .personalcenter_box{
     width: 100%;
-    height: 1400px;
+    height: 2150px;
     background-repeat:no-repeat ;
     background-size: cover;
     background-position: center; 
@@ -108,6 +108,7 @@ body,html{
     margin-left: 30px;
     display: flex;
     flex-direction: row;
+    position: relative;
 }
 .personalcenter_header>div:nth-child(1){
     width:100px;
@@ -179,7 +180,7 @@ body,html{
     justify-content: space-between;
 }
 .personalcenter_data>ul>li{
-    width:24%;
+    width:18%;
     height: 80px;
 }
 .personalcenter_data>ul>li{
@@ -199,6 +200,9 @@ body,html{
 .personalcenter_data>ul>li:nth-child(4){
     border-bottom: 2px solid #7908DC;
 }
+.personalcenter_data>ul>li:nth-child(5){
+    border-bottom: 2px solid #a908DC;
+}
 .personalcenter_data_left_box{
     width:80%
 }
@@ -209,6 +213,10 @@ body,html{
 .personalcenter_data_left_box>div:nth-child(2){
     font-size: 12px;
     margin-top: 10px;
+}
+.personalcenter_data_left_box>div:nth-child(2)>img{
+    height: 20px;
+    position: absolute;
 }
 .personalcenter_data_right_box{
     width:20%
@@ -320,4 +328,126 @@ body,html{
 .logout span{
     font-size: 14px;
     color:white;
+}
+.personalcenter_follow{
+    width:100%;
+    margin: 0 auto;
+    height: 750px;
+    display: flex;
+    flex-direction: row;
+    background-color: #f7f7f7;
+}
+.personalcenter_follow_box{
+    width: 85%;
+    height: 650px;
+    margin: 0 auto;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.personalcenter_follow_beside{
+    width:19%;
+    height: 300px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+}
+.personalcenter_follow_beside>div{
+    width: 100%;
+    height: 80px;
+    text-align: center;
+    line-height: 80px;
+    color:black;
+    font-size: 20px;
+    border-radius: 10px;
+    transition: background-color 0.2s;
+}
+.personalcenter_following{
+    background-color: rgba(2,43,99,0.5);
+}
+.personalcenter_follow_beside>div:hover {
+    color: rgb(2,43,99);
+    font-size: 22px;
+}
+
+.personalcenter_follow_content{
+    width: 80%;
+    height: 650px;
+    overflow-y: scroll;
+    background-color: white;
+    border-radius: 10px;
+}
+.personalcenter_following_box{
+    padding: 20px;
+}
+.personalcenter_followed_box{
+    padding: 20px;
+    display: none;
+}
+.personalcenter_message_box{
+    padding: 20px;
+    display: none;
+}
+.personalcenter_follow_box_title{
+    height: 40px;
+    font-weight: bold;
+    font-size: 18px;
+}
+.personalcenter_follow_user{
+    width:100%;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+    color: black;
+}
+.personalcenter_follow_headimg{
+    width:10%;
+}
+.personalcenter_follow_headimg>img{
+    height: 70px;
+    width: 70px;
+    border-radius: 35px;
+}
+.personalcenter_follow_intro{
+    width:80%;
+    height: 70%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.personalcenter_follow_intro>div:nth-child(1){
+    font-size: 18px;
+}
+.personalcenter_follow_intro>div:nth-child(2){
+    font-size: 14px;
+    color:#888;
+}
+.personalcenter_follow_cancel{
+    width:80px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #ccc;
+    line-height: 30px;
+    text-align: center;
+
+}
+
+.personalcenter_follow_content::-webkit-scrollbar {
+    width: 5px;
+}
+
+.personalcenter_follow_content::-webkit-scrollbar-track {
+    background-color: #eee;
+}
+
+.personalcenter_follow_content::-webkit-scrollbar-thumb {
+    background:rgb(2,43,99);
+    border-radius: 10px;
 }

@@ -9,7 +9,6 @@ const PersonMessage = () => {
     const [message,setMessage] = useState({});
     const [imgfile,setImgfile] = useState({});
 
-    //var email = '2505469033@qq.com';
     var email = localStorage.getItem('email');
     useEffect(() => {
         fetch('https://api.qasdwer.xyz:2019/')
@@ -17,7 +16,6 @@ const PersonMessage = () => {
             .then(res => {
                 res.map(item=>{
                     if(item.user_id==email){
-                        console.log(res)
                         setMessage(item);
                     }
                 })
@@ -41,7 +39,6 @@ const PersonMessage = () => {
 
     }
     const changeHeader=()=>{
-        // console.log(document.getElementById('head-image').files[0])
         let oFd = new FormData();
         oFd.append('upImg', document.getElementById('head-image').files[0]);
         axios.post('https://api.qasdwer.xyz:2019/addheadPortrait/'+email, oFd, {

@@ -14,21 +14,18 @@ const PersonalLikes = () => {
         fetch('https://api.qasdwer.xyz:2019/getuserdesign/' + email)
             .then(res => res.json())
             .then(res => {
-                // console.log(res);
                 const arr = [];
                 res.map((item) => {
                     if (item.is_favor) {
                         arr.push(item);
                     }
                 })
-                // console.log(arr);
                 setCollectList(arr);
             })
             .catch(err => console.log(err.message));
         fetch('https://api.qasdwer.xyz:2019/')
             .then(res => res.json())
             .then(res => {
-                console.log(res);
                 setMessage(res);
             })
             .catch(err => console.log(err.message));

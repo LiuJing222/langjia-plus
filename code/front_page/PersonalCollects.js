@@ -13,7 +13,6 @@ const PersonalCollects = () => {
         fetch('https://api.qasdwer.xyz:2019/getcollection/' + email)
             .then(res => res.json())
             .then(res => {
-                console.log(res);
                 setCollectList(res);
             })
             .catch(err => console.log(err.message));
@@ -68,7 +67,7 @@ const PersonalCollects = () => {
 
                             </div>)
                         }
-                        <div class="blank"></div>
+                        <div className="blank"></div>
                     </div>
             }
         </div>

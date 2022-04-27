@@ -35,6 +35,8 @@
 }
 .personalcenter_design_img{
     height:150%;
+    width: 100%;
+    object-fit: cover;
     transition: height 0.5s;
 }
 .personalcenter_design_img:hover{

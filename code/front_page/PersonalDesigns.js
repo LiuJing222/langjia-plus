@@ -11,18 +11,15 @@ const PersonalDesigns = () => {
     const [normalList, setNormalList] = useState([]);
 
     const history = useHistory();
-    //var email = '2505469033@qq.com';
     var email = localStorage.getItem('email');
     useEffect(() => {
         fetch('https://api.qasdwer.xyz:2019/getuserdesign/:id')
             .then(res => res.json())
             .then(res => {
                 var newList = res.filter(item => item.user_id === email)
-                console.log(newList);
                 var topl = [];
                 var underl = [];
                 newList.map(item => {
-                    console.log(item.design_id)
                     if (item.istopping) {
                         topl.push(item);
                     } else {
