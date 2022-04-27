@@ -70,3 +70,80 @@
     position: absolute;
     top: 7px;
 }
+
+/* 头像 */
+#home_header_user_head_portrait {
+    width: 36px;
+    height: 36px;
+    border-radius: 30px;
+    margin-top: 5px;
+}
+
+#home_header_user_portrait_hover {
+    width: auto;
+    height: 160px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px rgba(200, 200, 200, 0.5);
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    top: 40px;
+    left: 1260px;
+    z-index: 5;
+    display: none;
+    flex-direction: column;
+}
+
+#home_header_user_portrait_hover p {
+    color: rgb(2,43,99);
+    width: 160px;
+    height: auto;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.home_header_user_portrait_hover_span {
+    text-decoration: none;
+    width: 100px;
+    height: auto;
+    margin-left: 40px;
+    margin-top: 10px;
+}
+
+.home_header_user_portrait_hover_span span {
+    color: rgb(2,43,99);
+
+}
+
+
+.home_header_user_portrait_hover_span:hover {
+    color: rgb(2,43,99);
+    font-weight: 600;
+    width: 100px;
+    height: auto;
+    margin-left: 40px;
+    margin-top: 10px;
+}
+
+
+
+/* 开始设计 */
+.home_header_start span {
+    width: 100px;
+    height: 30px;
+    color: rgb(2, 43, 99);
+    line-height: 30px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(190, 190, 190);
+    margin-left: 8px;
+}
+
+.home_header_start:hover span {
+    width: 100px;
+    height: 30px;
+    color: #ffffff;
+    line-height: 30px;
+    font-weight: 600;
+    background-color: rgb(2, 43, 99);
+    border: 1px solid rgb(190, 190, 190);
+    margin-left: 8px;
+}
