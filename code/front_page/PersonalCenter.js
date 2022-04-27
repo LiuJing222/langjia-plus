@@ -176,7 +176,7 @@ const PersonalCenter = () => {
                     <span>推荐</span></NavLink>
                 <NavLink to='/Ins' className={pathname == "/Ins" ? "home_head_active" : "home_nav_item"} >
                     <span>灵感</span></NavLink>
-                <NavLink to='/res' className={pathname == "/res" ? "home_head_active" : "home_nav_item"} >
+                <NavLink to='/rec' className={pathname == "/rec" ? "home_head_active" : "home_nav_item"} >
                     <span>大咖秀</span></NavLink>
                 <NavLink to='/help' className={pathname == "/help" ? "home_head_active" : "home_nav_item"} >
                     <span>帮助中心</span></NavLink>
