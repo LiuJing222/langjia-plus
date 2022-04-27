@@ -1,0 +1,25 @@
+.createHeaderBox{
+    display: flex;
+    justify-content: center;
+}
+.createHeaderBox div{
+    width: 120px;
+}
+.createHeaderNavItem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 13px;
+}
+.createHeaderNavItem img{
+    width: 24px;
+    margin-bottom: 3px;
+}
+.userData{
+    position: absolute;
+    right: 0px;
+}
+.userData img{
+    width: 40px;
+    border-radius: 20px;
+}

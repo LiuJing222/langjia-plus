@@ -17,7 +17,7 @@ import Help from './Help';
 import PersonalCenter from './PersonalCenter';
 import Search from './Search';
 import Designsort from './Designsort'
-
+import CreatePage from './CreatePage';
 const App = () => {
   return (
     <div>
@@ -40,7 +40,7 @@ const App = () => {
           <Route path="/personalcenter" component={PersonalCenter}></Route>
           <Route path="/search" component={Search}></Route>
           <Route path="/des/:t" component={Designsort}></Route>
-	
+          <Route path='/create' component={CreatePage}></Route>
           </Switch>
         </Router>
       

@@ -9,12 +9,15 @@ import rainbow from './images/rainbow.png'
 import rec_show from './images/rec_show.mp4'
 import create from './images/create.jpg'
 import { RightOutline } from 'antd-mobile-icons'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
+import select from './images/des_select.mp4'
 
 
 const Recommend = () => {
+    const history = useHistory();
     const [sel, setSel] = useState(['none', 'none', 'none', 'none', 'none']);
     const [list, setList] = useState([]);
+    const [val,setVal] = useState('');
     useEffect(() => {
         fetch('https://api.qasdwer.xyz:2019/getexcellenceworks')
             .then(res => res.json())
@@ -22,6 +25,14 @@ const Recommend = () => {
                 setList(res);
             })
     }, [])
+    const changeValue = (e) => {
+        setVal(e.target.value)
+    }
+    const selectFore = (e)=>{
+        if(e.keyCode == 13){
+            history.push({pathname: '/des/t_p_1', state: {val: val}})
+        }   
+    }
     return (
         <div>
             <HomeHeader></HomeHeader>
@@ -257,7 +268,7 @@ const Recommend = () => {
                     </div>
 
                     <div className='selector_bottom selector_div' style={{ marginTop: 30 }}>
-                        <input type="text" placeholder='家居' className='select_input' />
+                        <input value={val} type="text" placeholder='家居' className='select_input' onChange={changeValue} onKeyDown={selectFore}/>
                     </div>
                     <div className='select_bottom selector_bottom selector_div' style={{ marginTop: 30, height: 60 }}>
                         <div>
@@ -275,6 +286,7 @@ const Recommend = () => {
                     <ReactPlayer
                         className="reactPlayer"
                         url={rec_banner}
+                        // url={'http://user-platform-oss.kujiale.com/design/video/perm/MJJCGGYKTFASIAABAAAAACA8.mp4'}
                         playing={true}
                         autoPlay={true}
                         muted={true}
@@ -345,14 +357,14 @@ const Recommend = () => {
                     {
                         list.map((item) => {
                             if (item.work_id % 3 == 1) {
-                                if (item.cover_vedio) {
+                                if (item.vedio) {
                                     return (
                                         <Link to={{ pathname: '/InsCon', search: JSON.stringify(item) }} target='_blank' rel="opener">
                                             <li className='rec_all_li1 rec_all_li2'>
                                                 <div className='rec_li1_img rec_li1_video'>
                                                     <ReactPlayer
                                                         className="reactPlayer3"
-                                                        url={item.cover_vedio}
+                                                        url={item.vedio}
                                                         playing={true}
                                                         autoPlay={true}
                                                         muted={true}
@@ -408,14 +420,14 @@ const Recommend = () => {
                     {
                         list.map((item) => {
                             if (item.work_id % 3 == 2) {
-                                if (item.cover_vedio) {
+                                if (item.vedio) {
                                     return (
                                         <Link to={{ pathname: '/InsCon', search: JSON.stringify(item) }} target='_blank' rel="opener">
                                             <li className='rec_all_li1 rec_all_li2'>
                                                 <div className='rec_li1_img rec_li1_video'>
                                                     <ReactPlayer
                                                         className="reactPlayer3"
-                                                        url={item.cover_vedio}
+                                                        url={item.vedio}
                                                         playing={true}
                                                         autoPlay={true}
                                                         muted={true}
@@ -471,14 +483,14 @@ const Recommend = () => {
                     {
                         list.map((item) => {
                             if (item.work_id % 3 == 0) {
-                                if (item.cover_vedio) {
+                                if (item.vedio) {
                                     return (
                                         <Link to={{ pathname: '/InsCon', search: JSON.stringify(item) }} target='_blank' rel="opener">
                                             <li className='rec_all_li1 rec_all_li2'>
                                                 <div className='rec_li1_img rec_li1_video'>
                                                     <ReactPlayer
                                                         className="reactPlayer3"
-                                                        url={item.cover_vedio}
+                                                        url={item.vedio}
                                                         playing={true}
                                                         autoPlay={true}
                                                         muted={true}
@@ -530,6 +542,21 @@ const Recommend = () => {
                         })
                     }
                 </ul>
+            </div>
+            <div className='ins_more'>
+                <ReactPlayer
+                    className="ins_more_mp4"
+                    style={{ marginTop: 0 }}
+                    url={select}
+                    playing={true}
+                    autoPlay={true}
+                    muted={true}
+                    loop={true}
+                    //   controls
+                    width='250px'
+                    height='250px'
+                />
+                <div className='ins_more_txt' style={{ marginLeft: 5, fontSize: 29 }}>更多精彩 敬请期待！</div>
             </div>
         </div>
     )
