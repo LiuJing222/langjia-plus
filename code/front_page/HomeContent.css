@@ -94,15 +94,24 @@
     height: 70px;
     border: none;
     border-radius: 40px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 1px 1px 8px #fff;
+    animation: btntspt 2s 0s infinite;
+    display: inline-block;
+    position: absolute;
+    top: 70%;
+    left: 15%;
+}
+.home_start span{
+    width: 240px;
+    height: 70px;
     font-size: 40px;
     font-weight: 700;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: rgb(2, 43, 99);
-    box-shadow: 1px 1px 8px #fff;
-    animation: btntspt 2s 0s infinite;
     position: absolute;
-    top: 70%;
-    left: 15%;
+    left: 40px;
+    top: 6px;
 }
 
 .home_start:hover {
@@ -120,11 +129,11 @@
     }
 }
 
-/* 三个按钮 */
+/* 四个按钮 */
 .home_btns {
     width: 1200px;
-    height: 65px;
-    margin-left: 10%;
+    height: 90px;
+    margin-left: 12%;
     display: flex;
     justify-content: space-around;
     position: absolute;
@@ -132,8 +141,8 @@
 }
 
 .home_btns button {
-    width: 290px;
-    height: 100px;
+    width: 250px;
+    height: 90px;
     border: none;
     background-color: #fff;
     box-shadow: 1px 1px 5px #ccc;
@@ -141,11 +150,11 @@
 }
 
 .home_btns img {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     position: absolute;
-    left: 40px;
-    top: 20px;
+    left: 20px;
+    top: 18px;
 }
 
 .home_btns span {
@@ -154,13 +163,13 @@
     line-height: 80px;
     color: rgb(2, 43, 99);
     position: absolute;
-    top: 10%;
-    right: 20%;
+    top: 8%;
+    right: 16%;
 }
 
 .home_btns button:hover {
     transform: scale(1.1);
-    transition: all 0.75s;
+    transition: all 0.7s;
     box-shadow: 2px 2px 10px #777;
 }
 
@@ -273,7 +282,7 @@
 
 .home_tip_hover a {
     color: #fff;
-    font-weight: 600;
+    font-weight: bold;
     font-style: italic;
 }
 

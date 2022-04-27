@@ -42,9 +42,11 @@ const HomeHeader = () => {
             })
         }
     }, [])
+    var portrait_hover = document.getElementById("home_header_user_portrait_hover")
     const ExitProcess = () => {
         localStorage.removeItem('email');
         history.push('/home');
+        portrait_hover.style.display = "none"
     }
     return (
         <div className="home_header">
@@ -70,14 +72,13 @@ const HomeHeader = () => {
                         </img>
                         <Link to="/create" className="home_header_start"><span>开始设计</span></Link>
                     </Link>
-                    : <Link to="/login"><div className="home_nav_item" style={{ marginLeft: '500px' }}><span>登录|注册</span></div></Link>
+                    : <Link to="/login"><div className="home_nav_item" style={{ marginLeft: '500px' }}><span style={{ fontWeight: "bold" ,color:"#111"}}>登录|注册</span></div></Link>
             }
             <div id="home_header_user_portrait_hover">
                 <p style={{ fontWeight: "600" }}>昵称：{msg.user_name}</p>
                 <Link to="/personalcenter/collects" className="home_header_user_portrait_hover_span"><span>我的收藏</span></Link>
                 <Link to="/personalcenter/likes" className="home_header_user_portrait_hover_span"><span>我的点赞</span></Link>
                 <Link to="/personalcenter/designs" className="home_header_user_portrait_hover_span"><span>我的设计</span></Link>
-
                 <div className="home_header_user_portrait_hover_exit" onClick={() => ExitProcess()}><span>退出登录</span></div>
             </div>
         </div>
