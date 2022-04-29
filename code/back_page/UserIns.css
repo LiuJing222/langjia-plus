@@ -1,0 +1,19 @@
+.back_user_ins{
+    display: flex;
+    flex-direction: row;
+}
+.back_user_con{
+    width: 1200px;
+    height: auto;
+    margin-left: 250px;
+    border: 1px solid red;
+}
+.user_manage_user_open_ins{
+    width: 100px;
+    height: 100px;
+}
+.user_manage_user_open_ins img{
+    width: 20px;
+    height: 20px;
+    margin-top:20px
+}

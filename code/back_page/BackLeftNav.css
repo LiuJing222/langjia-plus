@@ -1,0 +1,99 @@
+.back_home_leftnav {
+  width: 120px;
+  height: 600px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: rgb(28, 28, 30);
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.back_home_leftnav_nav {
+  text-decoration: none;
+  width: 85px;
+  height: 30px;
+  font-size: 13px;
+  border-radius: 5px;
+  padding-left: 35px;
+  padding-top: 20px;
+}
+
+.back_home_leftnav_nav span {
+  color: #fff;
+}
+
+.back_home_leftnav_nav:hover {
+  text-decoration: none;
+  width: 85px;
+  height: 30px;
+  font-size: 13px;
+  border-radius: 5px;
+  padding-left: 35px;
+  padding-top: 20px;
+  background-color: rgb(232, 255, 142);
+}
+
+.back_home_leftnav_nav:hover .back_home_leftnav_nav span {
+  color: rgb(203, 45, 45);
+}
+
+/* 路由对应时 */
+.back_home_leftnav_active_nav {
+  text-decoration: none;
+  width: 85px;
+  height: 30px;
+  font-size: 13px;
+  border-radius: 5px;
+  padding-left: 35px;
+  padding-top: 20px;
+  background-color: rgb(188, 224, 255);
+}
+
+.back_home_leftnav_active_nav span {
+  color: rgb(89, 161, 255);
+}
+
+
+/* 子路由 */
+.backuser_nav_navlinks {
+  width: 130px;
+  height: auto;
+  border-radius: 5px;
+  background-color: rgb(165, 213, 255);
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  /* left: -150px; */
+}
+
+.backuser_nav_navlink {
+  text-decoration: none;
+  width: 130px;
+  height: 30px;
+  border-radius: 5px;
+  font-size: 13px;
+  padding-top: 20px;
+  background-color: rgb(165, 213, 255);
+}
+
+.backuser_nav_navlink span {
+  margin-left: 10px;
+  color: #555;
+  text-align: center;
+
+}
+
+/* 未选中隐藏 */
+/* .backuser_nav_navlinks_none {
+  display: none;
+  position: absolute;
+  left: -300px;
+} */
+
+/* 悬浮 */
+.backuser_nav_navlink:hover{
+  background-color: rgb(240, 243, 255);
+}
