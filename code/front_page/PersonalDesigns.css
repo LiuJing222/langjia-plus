@@ -129,6 +129,14 @@
     padding-left: 20px;
     border-bottom: 1px solid #ccc;
 }
+.praise_quantity{
+    display: flex;
+    align-items: center;
+}
+.praise_quantity>img{
+    width:20px;
+    height: 20px;
+}
 
 .personalcenter_design_box::-webkit-scrollbar {
     width: 5px;

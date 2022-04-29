@@ -5,30 +5,30 @@ import './PersonalDesigns.css'
 import top from './images/personal_top.png'
 import blank from "./images/blank3.png"
 import hand from './images/hand.gif'
+import praise_quantity from './images/praise_quantity.png'
 
 const PersonalDesigns = () => {
     const [topList, setTopList] = useState([]);
     const [normalList, setNormalList] = useState([]);
-    const [recomList,setRecomList] = useState([]);
+    const [recomList, setRecomList] = useState([]);
 
     const history = useHistory();
     var email = localStorage.getItem('email');
     useEffect(() => {
-        fetch('https://api.qasdwer.xyz:2019/getuserdesign/'+email)
+        fetch('https://api.qasdwer.xyz:2019/getuserdesign/' + email)
             .then(res => res.json())
             .then(res => {
                 var newList = res.filter(item => item.user_id === email)
                 var topl = [];
                 var underl = [];
-                var recom = []
-                console.log(newList)
+                var recom = [];
                 newList.map(item => {
                     if (item.istopping) {
                         topl.push(item);
                     } else {
                         underl.push(item);
                     }
-                    if(item.is_recom===1){
+                    if (item.is_recom === 1) {
                         recom.push(item)
                     }
                 })
@@ -152,6 +152,7 @@ const PersonalDesigns = () => {
                                                 <div className="personalcenter_design_buttons">
                                                     <div className="personalcenter_design_edit" onClick={() => intomydesign(item)}>编辑</div>
                                                     <div className="personalcenter_design_delete" onClick={() => del(item)}>删除</div>
+                                                    <div className="praise_quantity"><img src={praise_quantity}/>{item.praise_quantity}</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -174,6 +175,7 @@ const PersonalDesigns = () => {
                                                     <div className="personalcenter_design_edit" onClick={() => intomydesign(item)}>编辑</div>
                                                     <div className="personalcenter_design_delete" onClick={() => del(item)}>删除</div>
                                                     <div className="personalcenter_design_cancel" onClick={() => cancelTop(item)}>取消置顶</div>
+                                                    <div className="praise_quantity"><img src={praise_quantity}/>{item.praise_quantity}</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -195,6 +197,7 @@ const PersonalDesigns = () => {
                                                     <div className="personalcenter_design_edit" onClick={() => intomydesign(item)}>编辑</div>
                                                     <div className="personalcenter_design_delete" onClick={() => del(item)}>删除</div>
                                                     <div className="personalcenter_design_cancel" onClick={() => cancelTop(item)}>置顶</div>
+                                                    <div className="praise_quantity"><img src={praise_quantity}/>{item.praise_quantity}</div>
                                                 </div>
                                             </div>
                                         </div>

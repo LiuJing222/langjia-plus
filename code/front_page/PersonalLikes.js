@@ -6,9 +6,9 @@ import hand from './images/hand.gif'
 import backline from './images/backline.jpg'
 
 const PersonalLikes = (props) => {
-    const userlist = props.location.state.userlist;
+    // const userlist = props.location.state.userlist;
     var num = 0;
-    const [message, setMessage] = useState(userlist);
+    const [message, setMessage] = useState([]);
     var [collectList, setCollectList] = useState([]);
     var email = localStorage.getItem('email');
     useEffect(() => {
@@ -22,8 +22,14 @@ const PersonalLikes = (props) => {
                     }
                 })
                 setCollectList(arr);
+                
             })
             .catch(err => console.log(err.message));
+        fetch('https://api.qasdwer.xyz:2019/')
+            .then(res => res.json())
+            .then(res => {
+                setMessage(res);
+            })
     }, []);
 
     const Collect = (item) => {
@@ -69,7 +75,7 @@ const PersonalLikes = (props) => {
                                 <div>
                                     <div>{item.design_name}</div>
                                     <div>{item.create_time}</div>
-                                    <div>作者：{message.map((i)=>{ if(i.user_id==item.user_id) return i.user_name})}</div>
+                                    <div>作者：{message.map((i) => { if (i.user_id == item.user_id) return i.user_name })}</div>
                                     <div></div>
                                     <div className="personalcenter_collect_removefavor" onClick={() => { Collect(item) }}>移除</div>
                                 </div>

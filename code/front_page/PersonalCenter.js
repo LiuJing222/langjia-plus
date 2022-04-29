@@ -11,6 +11,10 @@ import silver from './images/银牌.png'
 import bronze from './images/铜牌.png'
 import ReactPlayer from 'react-player'
 import nothing from './images/nothing.png'
+import followedimg from './images/followed.png'
+import followingimg from './images/following.png'
+import messageimg from './images/message.png'
+import exit from './images/exit.png'
 
 import PersonalLikes from './PersonalLikes'
 import PersonalDesigns from './PersonalDesigns'
@@ -28,6 +32,7 @@ const PersonalCenter = () => {
     const [following, setFollowing] = useState([]);
     const [followed, setFollowed] = useState([]);
     const [userList, setUserList] = useState([]);
+    const [totalNumber,setTotalNumber] = useState(0);
 
     const history = useHistory();
     const pathname = history.location.pathname;
@@ -80,6 +85,11 @@ const PersonalCenter = () => {
             .then(res => {
                 var newList = res.filter(item => item.user_id === email)
                 setDesignList(newList);
+                var number = 0;
+                newList.map(item=>{
+                    number += item.praise_quantity;
+                })
+                setTotalNumber(number);
                 var recomnum = newList.filter(item => item.is_recom === 1);
                 setRecom(recomnum.length);
             })
@@ -182,7 +192,7 @@ const PersonalCenter = () => {
                 <NavLink to='/help' className={pathname == "/help" ? "home_head_active" : "home_nav_item"} >
                     <span>帮助中心</span></NavLink>
             </div>
-            <div className="logout" onClick={() => ExitProcess()}><span>退出登录</span></div>
+            <div className="logout" onClick={() => ExitProcess()}><img src={exit}/><span className="exit_message">退出登录</span></div>
             <div className="personalcenter_titleinside">
                 <div>
                     <img src={text1} />
@@ -208,15 +218,15 @@ const PersonalCenter = () => {
                         <div className="personalcenter_data_right_box">{message.design_number}</div>
                     </Link>
                     </li>
-                    <li onClick={() => toContent()}><Link to='/personalcenter'>
+                    <li onClick={() => toContent()}><Link to='/personalcenter/designs'>
                         <div className="personalcenter_data_left_box" >
                             <div>优秀方案</div>
-                            <div>感谢你的优秀设计</div>
+                            <div>您的总获赞量为 {totalNumber}</div>
                         </div>
                         <div className="personalcenter_data_right_box">{recom != 0 ? recom : '--'}</div>
                     </Link>
                     </li>
-                    <li onClick={() => toContent()}><Link to='/personalcenter'>
+                    <li onClick={() => toContent()}><Link to={{pathname:'/designer',search: JSON.stringify(email)}}>
                         <div className="personalcenter_data_left_box">
                             <div>我的灵感</div>
                             <div>累计排名第{inspireRanking}名{inspireRanking == 1 ? <img src={gold} /> : inspireRanking == 2 ? <img src={silver} /> : inspireRanking == 3 ? <img src={bronze} /> : ''}</div>
@@ -288,9 +298,9 @@ const PersonalCenter = () => {
                 </div>
                 <div className="personalcenter_follow_box">
                     <div className="personalcenter_follow_beside">
-                        <div className="personalcenter_following" onClick={(e) => ChangeList(e, 1)}>我的关注</div>
-                        <div className="personalcenter_followed" onClick={(e) => ChangeList(e, 2)}>我的粉丝</div>
-                        <div className="personalcenter_follow_message" onClick={(e) => ChangeList(e, 3)}>我的消息</div>
+                        <div className="personalcenter_following" onClick={(e) => ChangeList(e, 1)}><img src={followingimg} alt="following"/>我的关注</div>
+                        <div className="personalcenter_followed" onClick={(e) => ChangeList(e, 2)}><img src={followedimg} alt="followed"/>我的粉丝</div>
+                        <div className="personalcenter_follow_message" onClick={(e) => ChangeList(e, 3)}><img src={messageimg} alt="message"/>我的消息</div>
                     </div>
                     <div className="personalcenter_follow_content">
                         <div className="personalcenter_following_box">
@@ -300,14 +310,15 @@ const PersonalCenter = () => {
                                     following.map(item => {
                                         for (var i = 0; i < userList.length; i++) {
                                             if (item == userList[i].user_id) {
-                                                return <Link to={{ pathname: '/designer', search: userList[i].user_id }} target='_blank' className="personalcenter_follow_user" key={userList[i].user_id}>
+                                                return <div className="personalcenter_follow_user_outside" key={userList[i].user_id}><Link to={{ pathname: '/designer', search: JSON.stringify(userList[i].user_id) }} target='_blank' className="personalcenter_follow_user" >
                                                     <div className="personalcenter_follow_headimg"><img src={'https://api.qasdwer.xyz:2019/headPortrait/' + userList[i].user_head_portrait} /></div>
                                                     <div className="personalcenter_follow_intro">
                                                         <div>{userList[i].user_name}</div>
                                                         <div>{userList[i].user_introduction}</div>
                                                     </div>
-                                                    <div className="personalcenter_follow_cancel" onClick={() => StopFollowing(userList[i])}>取消关注</div>
                                                 </Link>
+                                                <div className="personalcenter_follow_cancel" onClick={() => StopFollowing(userList[i])}>取消关注</div>
+                                                </div>
                                             }
                                         }
                                     })
@@ -324,14 +335,13 @@ const PersonalCenter = () => {
                                 followed.map(item => {
                                     for (var i = 0; i < userList.length; i++) {
                                         if (item == userList[i].user_id) {
-                                            return <Link to={{ pathname: '/designer', search: userList[i].user_id }} target='_blank' className="personalcenter_follow_user" key={userList[i].user_id}>
+                                            return <div className="personalcenter_follow_user_outside"><Link to={{ pathname: '/designer', search: JSON.stringify(userList[i].user_id) }} target='_blank' className="personalcenter_follow_user" key={userList[i].user_id}>
                                                 <div className="personalcenter_follow_headimg"><img src={'https://api.qasdwer.xyz:2019/headPortrait/' + userList[i].user_head_portrait} /></div>
                                                 <div className="personalcenter_follow_intro">
                                                     <div>{userList[i].user_name}</div>
                                                     <div>{userList[i].user_introduction}</div>
                                                 </div>
-                                                <div className="personalcenter_follow_cancel" onClick={() => StopFollowed(userList[i])}>移除</div>
-                                            </Link>
+                                            </Link><div className="personalcenter_follow_cancel" onClick={() => StopFollowed(userList[i])}>移除</div></div>
                                         }
                                     }
                                 }):
