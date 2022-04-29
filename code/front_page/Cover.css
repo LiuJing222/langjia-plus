@@ -15,7 +15,7 @@
     /* float: left; */
     position: absolute;
     top: 0;
-    left: 50px;
+    left: 100px;
 }
 
 .cover_nav_txt2 {
@@ -45,7 +45,7 @@
     line-height: 45px;
     position: absolute;
     top: 0;
-    right: 90px;
+    right: 100px;
 }
 
 .cover_video {

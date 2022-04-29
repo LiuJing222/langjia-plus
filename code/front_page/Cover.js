@@ -116,7 +116,7 @@ const Cover = () => {
                 {
                 localStorage.getItem("email") ?
                     <Link to="personalcenter" className='cover_nav_txt2' ><span>个人中心</span></Link>
-                    : <Link to="/login"><div className="cover_nav_txt2"><span>登录|注册</span></div></Link>
+                    : <Link to="/login"><div className="cover_nav_txt2"><span>登录</span></div></Link>
                 }
                 {/* <Link to='/login'><div className='cover_nav_txt2'>登录</div></Link> */}
                 <div className='cover_nav_line'>|</div>

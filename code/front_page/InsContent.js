@@ -178,7 +178,9 @@ const InsContent = (props) => {
                 {
                     user.map(item=>{
                         if(item.user_id == data.user_id){
-                            return <img src={`https://api.qasdwer.xyz:2019/headPortrait/${item.user_head_portrait}`} className='inscon_designer' />
+                            return <Link to={{pathname:'/designer',search:JSON.stringify(item.user_id)}} target='_blank'>
+                                <img src={`https://api.qasdwer.xyz:2019/headPortrait/${item.user_head_portrait}`} className='inscon_designer' />
+                            </Link>
                         }
                     })
                 }
