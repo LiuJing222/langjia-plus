@@ -185,8 +185,6 @@ body,html{
 }
 .personalcenter_data>ul>li{
     list-style: none;
-    display: flex;
-    flex-direction: row;
 }
 .personalcenter_data>ul>li:nth-child(1){
     border-bottom: 2px solid #0A97FC;
@@ -202,6 +200,14 @@ body,html{
 }
 .personalcenter_data>ul>li:nth-child(5){
     border-bottom: 2px solid #a908DC;
+}
+.personalcenter_data>ul>li>a{
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color:black;
+    display: flex;
+    flex-direction: row;
 }
 .personalcenter_data_left_box{
     width:80%
@@ -251,18 +257,11 @@ body,html{
     line-height: 70px;
     transition: background-color 0.3s;
 }
-.personalcenter_nav div:nth-child(1){
-    background-color:white;
-}
 .personalcenter_nav a{
     color:white;
     font-size: 26px;
     text-decoration: none;
     transition: color 0.5s;
-}
-.personalcenter_nav div:nth-child(1) a{
-    color:rgb(2,43,99);
-    font-weight: bold;
 }
 .personalcenter_collect_overline{
     border-top:1px solid #ccc;
@@ -438,7 +437,19 @@ body,html{
     text-align: center;
 
 }
-
+.blank_follow{
+    height: 570px;
+    position: relative;
+}
+.blank_follow>div{
+    position: absolute;
+    left: 46%;
+    top: 45%;
+    font-weight: 400;
+    font-size: 25px;
+    color: #77abda;
+    font-family: cursive;
+}
 .personalcenter_follow_content::-webkit-scrollbar {
     width: 5px;
 }

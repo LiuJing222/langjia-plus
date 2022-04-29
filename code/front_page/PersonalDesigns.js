@@ -9,23 +9,30 @@ import hand from './images/hand.gif'
 const PersonalDesigns = () => {
     const [topList, setTopList] = useState([]);
     const [normalList, setNormalList] = useState([]);
+    const [recomList,setRecomList] = useState([]);
 
     const history = useHistory();
     var email = localStorage.getItem('email');
     useEffect(() => {
-        fetch('https://api.qasdwer.xyz:2019/getuserdesign/:id')
+        fetch('https://api.qasdwer.xyz:2019/getuserdesign/'+email)
             .then(res => res.json())
             .then(res => {
                 var newList = res.filter(item => item.user_id === email)
                 var topl = [];
                 var underl = [];
+                var recom = []
+                console.log(newList)
                 newList.map(item => {
                     if (item.istopping) {
                         topl.push(item);
                     } else {
                         underl.push(item);
                     }
+                    if(item.is_recom===1){
+                        recom.push(item)
+                    }
                 })
+                setRecomList(recom);
                 setTopList(topl);
                 setNormalList(underl);
             })
@@ -132,6 +139,28 @@ const PersonalDesigns = () => {
                     :
                     <div className="personalcenter_design_box">
                         <div>
+                            <p className="personalcenter_design_titles">已被推荐</p>
+                            {
+                                recomList.map(item => {
+                                    return (
+                                        <div key={item.design_id} className="personalcenter_design_top_item">
+                                            <div><img src={item.imgpath} className="personalcenter_design_img" /></div>
+                                            <div><img src={top} alt="" className="personalcenter_design_top_icon" /></div>
+                                            <div className="personalcenter_design_top_insidebox">
+                                                <div className="personalcenter_design_title">{item.design_name}</div>
+                                                <div className="personalcenter_design_time">{item.create_time}</div>
+                                                <div className="personalcenter_design_buttons">
+                                                    <div className="personalcenter_design_edit" onClick={() => intomydesign(item)}>编辑</div>
+                                                    <div className="personalcenter_design_delete" onClick={() => del(item)}>删除</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
+                        <div>
+                            <p className="personalcenter_design_titles">我的置顶</p>
                             {
                                 topList.map(item => {
                                     return (
@@ -153,6 +182,7 @@ const PersonalDesigns = () => {
                             }
                         </div>
                         <div>
+                            <p className="personalcenter_design_titles">设计</p>
                             {
                                 normalList.map(item => {
                                     return (

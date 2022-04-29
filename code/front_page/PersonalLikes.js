@@ -5,9 +5,10 @@ import blank from "./images/blank3.png"
 import hand from './images/hand.gif'
 import backline from './images/backline.jpg'
 
-const PersonalLikes = () => {
+const PersonalLikes = (props) => {
+    const userlist = props.location.state.userlist;
     var num = 0;
-    const [message, setMessage] = useState([]);
+    const [message, setMessage] = useState(userlist);
     var [collectList, setCollectList] = useState([]);
     var email = localStorage.getItem('email');
     useEffect(() => {
@@ -21,12 +22,6 @@ const PersonalLikes = () => {
                     }
                 })
                 setCollectList(arr);
-            })
-            .catch(err => console.log(err.message));
-        fetch('https://api.qasdwer.xyz:2019/')
-            .then(res => res.json())
-            .then(res => {
-                setMessage(res);
             })
             .catch(err => console.log(err.message));
     }, []);
@@ -81,7 +76,7 @@ const PersonalLikes = () => {
 
                             </div>)
                         }
-                        <div class="blank"></div>
+                        <div className="blank"></div>
                     </div>
             }
         </div>

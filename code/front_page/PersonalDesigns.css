@@ -22,8 +22,12 @@
 .personalcenter_design_box>div:nth-child(1){
     /* border-bottom: 1px solid #ccc; */
     margin-bottom: 60px;
-    background-color: #eee;
+    background-color: #f7f7f7;
     padding-bottom: 20px;
+}
+.personalcenter_design_box>div:nth-child(2){
+    margin-bottom: 60px;
+    background-color: #f7f7f7;
 }
 
 .personalcenter_design_top_item{
@@ -115,6 +119,15 @@
     position: absolute;
     bottom: 0px;
     color: white;
+}
+.personalcenter_design_titles{
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 40px;
+    padding-left: 20px;
+    border-bottom: 1px solid #ccc;
 }
 
 .personalcenter_design_box::-webkit-scrollbar {

@@ -5,18 +5,20 @@ import blank from "./images/blank3.png"
 import hand from './images/hand.gif'
 import backline from './images/backline.jpg'
 
-const PersonalCollects = () => {
+const PersonalCollects = (props) => {
+    const userlist = props.location.state.userlist;
+    const collist = props.location.state.collectlist;
     var num = 0;
-    var [collectList, setCollectList] = useState([]);
+    var [collectList, setCollectList] = useState(collist);
     var email = localStorage.getItem('email');
-    useEffect(() => {
-        fetch('https://api.qasdwer.xyz:2019/getcollection/' + email)
-            .then(res => res.json())
-            .then(res => {
-                setCollectList(res);
-            })
-            .catch(err => console.log(err.message));
-    }, [])
+    // useEffect(() => {
+    //     fetch('https://api.qasdwer.xyz:2019/getcollection/' + email)
+    //         .then(res => res.json())
+    //         .then(res => {
+    //             setCollectList(res);
+    //         })
+    //         .catch(err => console.log(err.message));
+    // }, [])
     const Collect = (item) => {
         var isdel = window.confirm(`确定取消 ${item.title} 的收藏吗？`);
         var inspireid = item.inspire_id;
@@ -60,7 +62,7 @@ const PersonalCollects = () => {
                                 <div>
                                     <div>{item.title.length > 6 ? item.title.slice(0, 6) + '...' : item.title}</div>
                                     <div>{item.create_time}</div>
-                                    <div>作者：{item.designer}</div>
+                                    <div>作者：{userlist.map(it => { if (it.user_id === item.user_id) { return it.user_name } })}</div>
                                     <div>{item.detail.slice(0, 10) + '...'}</div>
                                     <div onClick={() => { Collect(item) }}>移除</div>
                                 </div>

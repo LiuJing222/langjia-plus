@@ -8,6 +8,7 @@ import SetPassword from './SetPassword'
 import ChangeEmail from './ChangeEmail'
 
 const PersonalSetting = (props) => {
+    console.log(props)
     var history = useHistory();
     useEffect(()=>{
         var nodelists = document.getElementsByClassName('personalcenter_setting_inside_nav')[0].childNodes;
