@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
+import { createBrowserHistory } from 'history'
 
 import HomeBelong from './HomeBelong'
 import HomeBg from './images/homeBg.jpg'
@@ -24,6 +25,10 @@ import StartBubble from './images/SBubble.png'
 
 import './HomeContent.css'
 
+const history = createBrowserHistory({
+    basename: '',             //基链接
+    forceRefresh: true        //是否强制刷新
+});
 
 const HomeTop = () => {
     return (
@@ -43,9 +48,16 @@ const HomeTop = () => {
     )
 }
 const Btns = () => {
+    const go = () => {
+        var isGo = window.confirm("登陆之后才能开始创建哦，要去登陆吗？")
+        isGo ? history.push("/login") : history.push("/home")
+    }
     return (
         <div className="home_btns">
-            <Link to="/create"><button><img src={DoIcon}></img><span>开始创建</span></button></Link>
+            {localStorage.getItem("email") ?
+                <Link to="/create"><button><img src={DoIcon}></img><span>开始创建</span></button></Link>
+                : <button onClick={() => go()}><img src={DoIcon}></img><span>开始创建</span></button>
+            }
             <Link to="/home"><button><img src={RmdIcon}></img><span>逛逛推荐</span></button></Link>
             <Link to="/Ins"><button><img src={InsptIcon}></img><span>寻找灵感</span></button></Link>
             <Link to="/rec"><button><img src={StarIcon}></img><span>大咖秀</span></button></Link>

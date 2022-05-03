@@ -3,9 +3,9 @@ import { Link, NavLink } from 'react-router-dom';
 import { useHistory } from 'react-router'
 
 import defaultimg from './images/tree.png'
-import './HomeHeader.css'
 import HomeLogo from './images/bluetlogo.png'
 
+import './HomeHeader.css'
 
 const HomeHeader = () => {
     const [pathname, setPathname] = useState("")
@@ -54,7 +54,7 @@ const HomeHeader = () => {
             <NavLink to='/home' ><div className="home_nav_logo">朗家</div></NavLink>
             <NavLink to='/home' className={pathname == "/home" ? "home_head_active" : "home_nav_item"}>
                 <span>首页</span></NavLink>
-            <NavLink to='/home' className={pathname == "/home" ? "home_head_active" : "home_nav_item"}>
+            <NavLink to='/highquality' className={pathname == "/highquality" ? "home_head_active" : "home_nav_item"}>
                 <span>推荐</span></NavLink>
             <NavLink to='/Ins' className={pathname == "/Ins" ? "home_head_active" : "home_nav_item"} >
                 <span>灵感</span></NavLink>
@@ -72,13 +72,14 @@ const HomeHeader = () => {
                         </img>
                         <Link to="/create" className="home_header_start"><span>开始设计</span></Link>
                     </Link>
-                    : <Link to="/login"><div className="home_nav_item" style={{ marginLeft: '500px' }}><span style={{ fontWeight: "bold" ,color:"#111"}}>登录|注册</span></div></Link>
+                    : <Link to="/login"><div className="home_nav_item" style={{ marginLeft: '500px' }}><span style={{ fontWeight: "bold", color: "#111" }}>登录|注册</span></div></Link>
             }
             <div id="home_header_user_portrait_hover">
-                <p style={{ fontWeight: "600" }}>昵称：{msg.user_name}</p>
+                <p>{msg.user_name}</p>
                 <Link to="/personalcenter/collects" className="home_header_user_portrait_hover_span"><span>我的收藏</span></Link>
                 <Link to="/personalcenter/likes" className="home_header_user_portrait_hover_span"><span>我的点赞</span></Link>
                 <Link to="/personalcenter/designs" className="home_header_user_portrait_hover_span"><span>我的设计</span></Link>
+                {/* <hr style={{ height: "2px", marginTop: "10px", color: "rgba(2,43,99,0.3)", backgroundColor: "rgba(2,43,99,0.5)" }} /> */}
                 <div className="home_header_user_portrait_hover_exit" onClick={() => ExitProcess()}><span>退出登录</span></div>
             </div>
         </div>

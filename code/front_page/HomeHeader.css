@@ -43,8 +43,8 @@
     text-align: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: 400;
-    font-size: 16px;
-    color: #666;
+    font-size: 15px;
+    color: #444;
     position: absolute;
     top: 7px;
 }
@@ -64,7 +64,7 @@
     text-align: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 15px;
     color: rgb(2, 43, 99);
     transform: scale(1.1);
     position: absolute;
@@ -81,24 +81,25 @@
 
 #home_header_user_portrait_hover {
     width: auto;
-    height: 190px;
+    height: auto;
     border-radius: 20px;
     box-shadow: 4px 4px 4px rgba(200, 200, 200, 0.5);
     background-color: rgb(255, 255, 255);
     position: absolute;
     top: 40px;
-    left: 1260px;
+    left: 1250px;
     z-index: 5;
     display: none;
     flex-direction: column;
 }
 
 #home_header_user_portrait_hover p {
-    color: rgb(2, 43, 99);
-    width: 160px;
+    text-decoration: none;
+    width: 100px;
     height: auto;
-    margin-top: 18px;
-    margin-left: 20px;
+    margin-left: 45px;
+    margin-top: 10px;
+    font-weight: bold;
 }
 
 .home_header_user_portrait_hover_span {
@@ -111,7 +112,6 @@
 
 .home_header_user_portrait_hover_span span {
     color: rgb(2, 43, 99);
-
 }
 
 .home_header_user_portrait_hover_span:hover {
@@ -128,39 +128,55 @@
     width: 100px;
     height: auto;
     margin-left: 40px;
-    margin-top: 20px;
-}
-.home_header_user_portrait_hover_exit span{
-    font-weight: 600;
-    color:#666
+    margin-top: 15px;
+    margin-bottom: 10px;
 }
 
-.home_header_user_portrait_hover_exit span:hover{
+.home_header_user_portrait_hover_exit span {
+    font-weight: 600;
+    color: #666
+}
+
+.home_header_user_portrait_hover_exit span:hover {
     width: 100px;
     height: auto;
     margin-top: 10px;
     font-weight: 600;
-    color:red
+    color: red
 }
+
 /* 开始设计 */
 .home_header_start span {
-    width: 100px;
-    height: 30px;
-    color: rgb(2, 43, 99);
-    line-height: 30px;
-    background-color: rgb(255, 255, 255);
-    /* border: 1px solid rgb(190, 190, 190); */
-    box-shadow: 2px 2px 2px #666;
-    margin-left: 8px;
+    width: 95px;
+    height: 32px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    border-radius: 10px;
+    line-height: 32px;
+    background-color: rgb(27, 125, 248);
+    box-shadow: 2px 2px 2px rgb(169, 198, 255);
+    margin-left: 20px;
 }
 
 .home_header_start:hover span {
-    width: 100px;
-    height: 30px;
-    color: #ffffff;
-    line-height: 30px;
-    font-weight: 600;
-    background-color: rgb(2, 43, 99);
-    border: 1px solid rgb(190, 190, 190);
-    margin-left: 8px;
+    width: 95px;
+    height: 32px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    border-radius: 10px;
+    line-height: 32px;
+    background-color: rgba(27, 125, 248,0.8);
+    box-shadow: 2px 2px 2px rgb(169, 198, 255);
+    margin-left: 20px;
 }
+
+/* .home_header_start {
+    width: auto;
+    height: auto;
+    margin-left: 20px;
+}
+
+.home_header_start img {
+    width: 30px;
+    height: 30px;
+} */
