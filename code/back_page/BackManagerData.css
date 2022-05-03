@@ -1,0 +1,214 @@
+.back_user_data {
+    display: flex;
+    flex-direction: row;
+}
+
+.manage_data_con {
+    width: 1200px;
+    height: auto;
+    margin-left: 250px;
+}
+
+.manager_datas {
+    width: 1200px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.manager_data {
+    width: 1200px;
+    height: 60px;
+    background-color: rgb(236, 255, 255);
+    box-shadow: 5px 5px 5px #e3ede0;
+    margin-top: 15px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.manager_email {
+    width: 200px;
+}
+
+.manager_name {
+    width: 100px;
+}
+
+.manager_phone {
+    width: 200px;
+}
+
+.manager_op {
+    width: 200px;
+}
+
+#delMger {
+    width: 90px;
+    height: 30px;
+    background-color: rgb(235, 152, 152);
+    border: none;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+#delMger:hover {
+    background-color: rgb(255, 40, 40);
+    box-shadow: 2px 2px 2px rgb(255, 0, 0);
+    color: #fff;
+}
+
+#chgMger {
+    width: 90px;
+    height: 30px;
+    margin-left: 10px;
+    background-color: rgb(149, 192, 255);
+    border: none;
+    border-radius: 5px;
+}
+
+/* rgb(103, 161, 247) */
+
+#chgMger:hover {
+    background-color: rgb(0, 110, 255);
+    box-shadow: 2px 2px 2px rgb(170, 239, 255);
+    color: #fff;
+}
+
+.delM_confirm_mask {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(255, 226, 226, 0.703);
+}
+
+.delM_confirm_con {
+    width: 400px;
+    height: 220px;
+    background-color: rgb(255, 67, 67);
+    border-radius: 20px;
+    box-shadow: 3px 3px 3px rgba(205, 108, 108, 0.584);
+    position: absolute;
+    top: 30%;
+    left: 40%;
+}
+
+.delM_confirm_con p {
+    color: #fff;
+    margin-top: 30px;
+    margin-left: 40px;
+}
+
+.delM_btns {
+    position: absolute;
+    right: 10px;
+    bottom: 20px;
+}
+
+.delM_btns button {
+    width: 70px;
+    height: 30px;
+    margin-left: 20px;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 10px;
+}
+
+.delM_btns button:nth-child(1):hover {
+    background-color: rgb(212, 33, 33);
+    color: #fff;
+}
+
+.delM_btns button:nth-child(2):hover {
+    background-color: rgb(178, 255, 163);
+    color: #fff;
+}
+
+/* 添加管理员 */
+.addAdmin {
+    width: 140px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: rgb(82, 255, 197);
+    box-shadow: 2px 2px 2px rgb(22, 153, 107);
+    margin-top: 20px;
+    margin-left: 40%;
+}
+
+.addAdmin img {
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+}
+
+.addAdmin span {
+    line-height: 30px;
+    /* margin-top: 30px; */
+    position: relative;
+    top: -20px;
+}
+
+.addAdmin:hover {
+    background-color: rgb(1, 255, 103);
+    box-shadow: 2px 2px 2px rgb(0, 187, 12);
+}
+
+.addAdmin_mask {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(180, 255, 186, 0.5);
+}
+
+.addAdmin_con {
+    width: 390px;
+    height: 250px;
+    color: #fff;
+    background-color: rgb(70, 188, 76);
+    box-shadow: 5px 5px 5px rgb(82, 156, 105);
+    padding: 30px;
+    border-radius: 20px;
+    position: absolute;
+    top: 20%;
+    left: 40%;
+}
+
+.addAdmin_con_input {
+    margin: 10px;
+}
+
+.adAdmin_btns {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.changeAdmin_mask {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(171, 209, 255, 0.703);
+}
+
+.changeAdmin_con {
+    width: 390px;
+    height: 250px;
+    color: #fff;
+    background-color: rgb(91, 156, 209);
+    box-shadow: 5px 5px 5px rgb(116, 186, 244);
+    padding: 30px;
+    border-radius: 20px;
+    position: absolute;
+    top: 20%;
+    left: 40%;
+}
+
+/* rgb(26, 138, 43) */

@@ -1,0 +1,85 @@
+.back_user_design_con {
+    width: 1200px;
+    height: auto;
+    margin-left: 250px;
+    background-color: rgb(250, 253, 255);
+    position: absolute;
+}
+
+.back_user_design_con_div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.user_design_con {
+    width: 540px;
+    height: 540px;
+    background-color: rgb(221, 255, 232);
+    /* border: 1px solid red; */
+    margin-left: 20px;
+    margin-top: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.user_design_user_protrait {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    box-shadow: 2px 2px 2px 2px rgb(165, 255, 204);
+}
+
+.user_design_user_name {
+    width: auto;
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.user_designs {
+    width: 530px;
+    height: 530px;
+    background-color: rgb(216, 247, 255);
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    transition: all 0.5s linear;
+    overflow: auto;
+}
+
+.user_designs button {
+    width: 70px;
+    height: 24px;
+    font-size: 10px;
+    margin-left: 3px;
+    margin-bottom: 10px;
+    background-color: #caffeb;
+    border: 1px solid #cfd9ff;
+    box-shadow: 1px 1px 1px #cfd9ff;
+}
+
+.user_designs::-webkit-scrollbar {
+    width: 7px;
+}
+
+.user_designs::-webkit-scrollbar-track {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+.user_designs::-webkit-scrollbar-thumb {
+    background: #caffeb;
+    border-radius: 10px;
+}
+
+.isDel_con_dgn_confirm {
+    margin-top: 40px;
+    margin-left: 30px;
+}

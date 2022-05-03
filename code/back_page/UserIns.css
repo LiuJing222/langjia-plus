@@ -1,19 +1,34 @@
-.back_user_ins{
+.back_user_ins {
     display: flex;
     flex-direction: row;
 }
-.back_user_con{
+
+.back_user_ins_con {
     width: 1200px;
     height: auto;
     margin-left: 250px;
-    border: 1px solid red;
 }
-.user_manage_user_open_ins{
+
+
+.user_manage_user_con {
+    width: 1200px;
+    height: 50px;
+}
+
+.user_manage_user_map {
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    background-color: rgb(211, 212, 255);
+}
+
+.user_manage_user_open_ins {
     width: 100px;
     height: 100px;
 }
-.user_manage_user_open_ins img{
+
+.user_manage_user_open_ins img {
     width: 20px;
     height: 20px;
-    margin-top:20px
+    margin-top: 20px
 }

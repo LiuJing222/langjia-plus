@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import BackLeftNav from './BackLeftNav'
-import "./BackInsManage.css"
+import "./BackUserManage.css"
 import defaultimg from './images/tree.png'
 
 const BackUserManage = () => {
@@ -37,7 +37,7 @@ const BackUserManage = () => {
     }
     const delUserCancel = () => {
         setIsDelEmail("")
-        console.log("delUserCancel")
+        // console.log("delUserCancel")
     }
     return (
         <div className='back_user_manage'>
