@@ -101,7 +101,6 @@ const PersonalCenter = () => {
         fetch('https://api.qasdwer.xyz:2019/admindata')
             .then(res => res.json())
             .then(res => {
-                console.log(res)
                 setAdminList(res)
             })
     }, []);

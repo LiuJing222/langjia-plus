@@ -29,7 +29,6 @@ const AddIns = () => {
             message: values.message,
             vedio: values.vedio
         }
-        console.log(data);
         fetch('https://api.qasdwer.xyz:2019/addinspiration/' + email, {
             method: 'post',
             body: JSON.stringify(data),
@@ -38,7 +37,6 @@ const AddIns = () => {
             }
 
         }).then(dat => {
-            console.log(dat);
             window.location.reload();
         })
     }

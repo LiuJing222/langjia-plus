@@ -149,7 +149,18 @@
     left: 550px;
     z-index: 100;
 }
-.designer_detail_design_title{
+.designer_detail_design_title1{
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 40px;
+    margin-left: 15px;
+    margin-top: 20px;
+    color: #448CEF;
+    float: left;
+    margin-right: 10px;
+    transition: color 0.3s;
+}
+.designer_detail_design_title2{
     font-size: 25px;
     font-weight: 600;
     line-height: 40px;
@@ -157,12 +168,26 @@
     margin-top: 20px;
     color: #fff;
     float: left;
+    margin-right: 10px;
+    transition: color 0.3s;
 }
-.designer_detail_design_num{
+.designer_detail_design_num1{
+    font-size: 30px;
+    margin-top: 20px;
+    color: #448CEF;
+    float: left;
+    font-weight: bold;
+    margin-right: 20px;
+    transition: color 0.3s;
+}
+.designer_detail_design_num2{
     font-size: 30px;
     margin-top: 20px;
     color: #fff;
     float: left;
+    font-weight: bold;
+    margin-right: 20px;
+    transition: color 0.3s;
 }
 .designer_detail_none{
     width: 500px;
@@ -173,7 +198,7 @@
 .designer_works{
     width: 880px;
     height: 490px;
-    margin-top: 80px;
+    margin-top: 40px;
     overflow: auto;
 }
 .designer_works::-webkit-scrollbar{
@@ -251,4 +276,61 @@
     height: 5px;
     background-color: #448CEF;
     margin-top: 560px;
+}
+.designer_detail_design_content{
+    /* display: none; */
+}
+.designer_detail_ins_content{
+    width: 900px;
+    height: 550px;
+    overflow-y: scroll;
+    display: none;
+}
+.designer_detail_ins_content::-webkit-scrollbar{
+    width: 7px;
+}
+.designer_detail_ins_content::-webkit-scrollbar-track {
+    background-color: #eee;
+    border-radius: 10px;
+}
+.designer_detail_ins_content::-webkit-scrollbar-thumb {
+    background:#448CEF;
+    border-radius: 10px;
+}
+.designer_addIns{
+    width: 250px;
+    height: 220px;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin:15px;
+}
+.designer_page_addIns_outside{
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 800px;
+    background-color: rgba(0,0,0,0.5);
+    left:0;
+    top:0;
+    z-index: 999;
+}
+.designer_work_delIns{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    z-index: 998;
+    bottom:10px;
+    right: 10px;
+    border-radius: 10px;
+}
+.designer_work_delIns:hover{
+    background-color: #448CEF;
+}
+.designer_work_delIns>img{
+    width: 100%;
+    height: 100%;
 }
