@@ -1,0 +1,274 @@
+.realRec_all{
+    background-color: rgb(237, 243, 252);
+    height: 100%;
+}
+.realRec_box{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+@keyframes three-D0 {
+    /* 停留2秒 */
+    0%,27%{
+      transform: translateX(-450.3px) scale(0.8);
+      z-index: 1;
+    }
+    /* 过渡时间为 0.5s */
+    34%,61%{
+      transform: translateX(450.7px) scale(0.8);
+      z-index: 1;
+    }
+    /* 过渡时间为 0.5s */
+    68% ,95%{
+      transform: translateX(-10.9px) scale(1);
+      z-index: 2;
+    }
+    /* 过渡时间为 0.5s */
+    100% {
+      transform: translateX(-450.3px) scale(0.8);
+      z-index: 1;
+    }
+  }
+  @keyframes three-D1 {
+    /* 停留2秒 */
+    0%,27%{
+      transform: translateX(900.3px) scale(0.8);
+      z-index: 1;
+    }
+    /* 过渡时间为 0.5s */
+    34%,61%{
+      transform: translateX(450.7px) scale(1);
+      z-index: 2;
+    }
+    /* 过渡时间为 0.5s */
+    68% ,95%{
+      transform: translateX(-10.9px) scale(0.8);
+      z-index: 1;
+    }
+    /* 过渡时间为 0.5s */
+    100% {
+      transform: translateX(900.3px) scale(0.8);
+      z-index: 1;
+    }
+  }
+  @keyframes three-D2 {
+    /* 停留2秒 */
+    0%,27%{
+      transform: translateX(-450.3px) scale(1);
+      z-index: 2;
+    }
+    /* 过渡时间为 0.5s */
+    34%,61%{
+      transform: translateX(-900.7px) scale(0.8);
+      z-index: 1;
+    }
+    /* 过渡时间为 0.5s */
+    68% ,95%{
+      transform: translateX(-10.9px) scale(0.8);
+      z-index: 1;
+    }
+    /* 过渡时间为 0.5s */
+    100% {
+      transform: translateX(-450.3px) scale(1);
+      z-index: 1;
+    }
+  }
+  
+#realRec_three_item0{
+    width: 520px;
+    height: 350px;
+    position: absolute;
+    left: 500px;
+    top:30px;
+    box-shadow: 1px 1px 5px slategray;  
+    animation: three-D0 7.5s ease -5s infinite;  
+}
+#realRec_three_item1{
+    width: 520px;
+    height: 350px;
+    position: absolute;
+    left: 50px;
+    top:30px;
+    animation: three-D1 7.5s ease -5s infinite;
+}
+#realRec_three_item2{
+    width: 520px;
+    height: 350px;
+    position: absolute;
+    right: 50px;
+    top:30px;
+    animation: three-D2 7.5s ease -5s infinite;
+    /* animation: three-D0 5s infinite;  */
+}
+
+.realRec_three{
+    width: 100%;
+    height: 420px;
+    position: relative;
+}
+.realRec_three_img{
+    width: 520px;
+    height: 350px;
+    /* overflow: hidden; */
+}
+.realRec_three_img_box0{
+    width: 520px;
+    height: 350px;
+    overflow: hidden;
+}
+.realRec_three_img_box1{
+    width: 520px;
+    height: 350px;
+    overflow: hidden;
+}
+.realRec_three_img_box2{
+    width: 520px;
+    height: 350px;
+    overflow: hidden;
+}
+.realRec_three_img0{
+    width: 520px;
+    height: 350px;
+}
+
+.realRec_three_praise{
+    width: 70px;
+    height: 35px;
+    background-color: rgba(255,255,255,0.7);
+    border-radius: 45px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+#realRec_three_praise0{
+    position: absolute;
+    top: 305px;
+    left: 84%;
+}
+.realRec_three_praise_img{
+    width: 30px;
+    height: 30px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 2px;
+}
+.realRec_three_num{
+    font-size: 20px;
+    color:#448CEF;
+    font-weight: 600;
+    line-height: 35px;
+    margin-left: 5px;
+    float: left;
+}
+.realRec_three_name{
+    font-size: 18px;
+    font-weight: 600;
+    background-color:rgb(2,43,99) ;
+    color:#fff;
+    border-radius: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+    height: 30px;
+    position: absolute;
+    top:0;
+}
+
+.high_txt{
+    width: 700px;
+    height: 200px;
+    margin: 0 auto;
+}
+.high_txt_item{
+    font-size: 30px;
+    font-weight: 600;
+    color: rgb(2,43,99);
+    /* margin-left: 200px; */
+    margin-top: 50px;
+    margin-left: 30px;
+    float: left;
+}
+
+.high_txt_box{
+    float: left;
+}
+.high_txt_img{
+    width: 150px;
+    height: 150px;
+    /* margin-left: 250px; */
+    float: left;
+}
+.high_content{
+    width: 100%;
+    height: 100%;
+    clear: both;
+    /* background-color:rgb(237, 243, 252); */
+    /* height: 500px; */
+}
+.high_content_item{
+    width: 45%;
+    height: 100%;
+    margin-left: 3%;
+    margin-bottom: 20px;
+    /* box-shadow: 1px 1px 3px slategrey; */
+    background-color: #fff;
+    padding-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+}
+.high_content_item_img{
+    width: 400px;
+    object-fit: contain;
+    float: left;
+}
+.high_content_item_box{
+    
+    float: left;
+    padding-left: 20px;
+}
+.high_content_item_txt1{
+    font-size: 26px;
+    font-weight: 600;
+    color: rgb(2,43,99);
+}
+.high_content_item_praise{
+    width: 40px;
+    height: 40px;
+    float: left;
+}
+
+.high_content_item_txt2 span{
+    /* float: left; */
+    line-height: 40px;
+    margin-left: 10px;
+}
+.high_content_item_txt3{
+    margin-top: 10px;
+    color: rgb(97, 96, 96);
+}
+.high_content_item_txt{
+    margin-top: 15px;
+    font-size: 18px;
+    
+}
+.high_content_item_txt2{
+    margin-top: 10px;
+}
+.high_more{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.high_more_img{
+    width: 160px;
+    height: 160px;
+    float: left;
+}
+.high_more_txt{
+    font-size: 26px;
+    /* font-weight: 600; */
+    color: rgb(87, 88, 88);
+}
