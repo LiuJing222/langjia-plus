@@ -12,9 +12,10 @@
     border-radius: 15px;
 }
 .personalcenter_setting_inside_title{
-    width: 93%;
-    height: 10%;
-    padding: 15px;
+    width: 96%;
+    height: 15%;
+    padding: 20px;
+    padding-bottom: 10px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -28,7 +29,7 @@
     align-items: center;
 }
 .personalcenter_setting_inside_title>div>img{
-    height: 50%;
+    height: 20px;
     margin-left: 20px;
 }
 .personalcenter_setting_inside_title>div>div{
@@ -41,10 +42,10 @@
     height: 100%;
     display: flex;
     flex-direction: row-reverse;
-    align-items: center;
+    align-items: end;
 }
 .personalcenter_setting_inside_title>a>img{
-    height: 50%;
+    height: 25px;
 }
 .personalcenter_setting_inside_nav{
     display: flex;

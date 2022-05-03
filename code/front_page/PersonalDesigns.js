@@ -22,6 +22,7 @@ const PersonalDesigns = () => {
                 var topl = [];
                 var underl = [];
                 var recom = [];
+                console.log(newList)
                 newList.map(item => {
                     if (item.istopping) {
                         topl.push(item);

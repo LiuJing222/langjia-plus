@@ -63,7 +63,7 @@ const PersonalCollects = (props) => {
                     <div className="personalcenter_collect_items_box" style={{ backgroundImage: `url(${backline})` }}>
                         {
                             collectList.map(item => <div className={num++ % 2 == 0 ? "personalcenter_collect_left_item" : "personalcenter_collect_right_item"} key={item.inspire_id}>
-                                <Link to={{ pathname: '/InsCon', state: { id: item.inspire_id } }}><img src={JSON.parse(item.message)[0].imgpath} className="mycol_img" /></Link>
+                                <Link to={{ pathname: '/inscon', state: { id: item.inspire_id } }}><img src={JSON.parse(item.message)[0].imgpath} className="mycol_img" /></Link>
                                 <span></span>
                                 <div>
                                     <div>{item.title.length > 6 ? item.title.slice(0, 6) + '...' : item.title}</div>
