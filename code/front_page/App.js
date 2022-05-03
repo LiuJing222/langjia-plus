@@ -19,6 +19,7 @@ import Search from './Search';
 import Designsort from './Designsort'
 import CreatePage from './CreatePage';
 import DesingnerPage from './DesingnerPage';
+import Rec from './Rec'
 
 const App = () => {
   return (
@@ -29,8 +30,8 @@ const App = () => {
             <Route exact path="/" component={Cover}></Route>
             <Route path="/login" component={Login}></Route>
             <Route path="/home" component={Home}></Route>
-            <Route path="/Ins" component={Inspiration}></Route>
-            <Route path="/InsCon" component={InsContent}></Route>
+            <Route path="/ins" component={Inspiration}></Route>
+            <Route path="/inscon" component={InsContent}></Route>
           <Route path="/livingtip" component={LivingTip}></Route>
           <Route path="/kitchentip" component={KitchenTip}></Route>
           <Route path="/washroomtip" component={WashRoomTip}></Route>
@@ -44,6 +45,7 @@ const App = () => {
           <Route path="/des/:t" component={Designsort}></Route>
           <Route path='/create' component={CreatePage}></Route>
           <Route path="/designer" component={DesingnerPage}></Route>
+          <Route path="/highquality" component={Rec}></Route>
           </Switch>
         </Router>
       
