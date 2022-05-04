@@ -14,39 +14,46 @@
     height: 240px;
     background-color: #f8f9fb;
     width: 55px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
 }
 .createSiderIcon{
     width: 45px;
     display: flex;
     justify-content: center;
-    padding: 4px;
+    padding: 2px;
     height: 40px;
     background-color: #f8f9fb;
+    margin-top: 7px;
 }
 .createSiderIcon img{
     width: 35px;
-    /* margin-top: 15px; */
 }
 .createSider_over{
     display: inline-block;
     /* flex-direction: column; */
     position: relative;
     top: -240px;
-    left: 68px;
+    left: 55px;
     /* left: 69px; */
     background-color: #f8f9fb;
     z-index: 30;
+    height: 240px;
     
 
 }
+
 .create_over_text {
     width: 77px;
-    padding: 4px;
+    /* padding: 4px; */
     height: 40px;
     /* text-align: center; */
     line-height: 40px;
     padding-left: 5px;
     z-index: 999;
+    font-size: 14px;
+    margin-top: 7px;
 }
 /* .create_over_text:hover{
     color: '#448cef';

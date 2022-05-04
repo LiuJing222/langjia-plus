@@ -1,0 +1,69 @@
+/* 进度条组件 */
+.create_processbar {
+    width: 240px;
+    height: 30px;
+    border: 1px solid red;
+    display: flex;
+    justify-items: center;
+    position: relative;
+  }
+  
+  #create_sizebar_con {
+    width: 190px;
+    height: 28px;
+    border-radius: 5px;
+    position: relative;
+  }
+  
+  #create_sizebar_bg {
+    width: 180px;
+    height: 5px;
+    border-radius: 5px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    margin-top: 8px;
+    position: absolute;
+  }
+  
+  #create_sizebar_dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 5px;
+    border: 3px solid rgb(68, 140, 239);
+    background-color: rgb(68, 140, 239);
+    position: absolute;
+    top: -3px;
+  }
+  
+  #size_text{
+    width:30px;
+    height: 28px;
+    border: 1px solid #ccc;
+  }
+  
+  #create_scalebar_con {
+    width: 190px;
+    height: 28px;
+    border-radius: 5px;
+    position: relative;
+  }
+  
+  #create_scalebar_bg {
+    width: 180px;
+    height: 5px;
+    border-radius: 5px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    margin-top: 8px;
+    position: absolute;
+  }
+  
+  #create_scalebar_dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 5px;
+    border: 3px solid rgb(68, 140, 239);
+    background-color: rgb(68, 140, 239);
+    position: absolute;
+    top: -3px;
+  }

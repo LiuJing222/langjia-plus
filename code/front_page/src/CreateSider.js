@@ -140,6 +140,7 @@ const CreateSider = () => {
     const housePoints = JSON.parse(item.points);
     localStorage.removeItem('furniture');
     localStorage.setItem('points',JSON.stringify(housePoints));
+    localStorage.removeItem('pointerArray')
     window.location.reload();
 }
  const getdesignmodel = (id)=>{

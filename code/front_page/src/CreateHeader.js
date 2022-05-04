@@ -74,23 +74,23 @@ const CreateHeader = () => {
         // }
         
     }
-    const fallback = () => {
-        if (JSON.parse(localStorage.getItem('points'))) {
-            const pointers = JSON.parse(localStorage.getItem('points'));
-            console.log(pointers)
-            const length = pointers.length;
-            if ((pointers[length - 1].x === pointers[length - 2].x && pointers[length - 1].y === pointers[length - 2].y
-                && pointers[length - 1].z === pointers[length - 2].z) || length === 2) {
-                pointers.splice(length - 2, 2)
-            } else {
-                pointers.pop();
-            }
-            console.log(pointers);
-            localStorage.setItem('points', JSON.stringify(pointers));
-            window.location.reload();
-        }
+    // const fallback = () => {
+    //     if (JSON.parse(localStorage.getItem('points'))) {
+    //         const pointers = JSON.parse(localStorage.getItem('points'));
+    //         console.log(pointers)
+    //         const length = pointers.length;
+    //         if ((pointers[length - 1].x === pointers[length - 2].x && pointers[length - 1].y === pointers[length - 2].y
+    //             && pointers[length - 1].z === pointers[length - 2].z) || length === 2) {
+    //             pointers.splice(length - 2, 2)
+    //         } else {
+    //             pointers.pop();
+    //         }
+    //         console.log(pointers);
+    //         localStorage.setItem('points', JSON.stringify(pointers));
+    //         window.location.reload();
+    //     }
 
-    }
+    // }
     return (
         <div className="createHeaderBox">
             <img className='create_logo' src={logo} alt="" />
@@ -98,7 +98,7 @@ const CreateHeader = () => {
             {/* <img src={logo} className="createHeaderLogo" onClick={removeall} /> */}
             {/* <div className="createHeaderNavItem createHeaderNavItem1" onClick={fallback}><img src={backlogo} className="createHeaderLogo1" /><span>回退</span></div> */}
             <div className="createHeaderNavItem" onClick={storageAll}><img src={storagelogo} className="createHeaderLogo2" />保存</div>
-            <div className="createHeaderNavItem" onClick={fallback}><img src={backlogo} className="createHeaderLogo1" />回退</div>
+            <div className="createHeaderNavItem"><img src={backlogo} className="createHeaderLogo1" />回退</div>
             <div className="createHeaderNavItem" onClick={clearfurn}><img src={clearlogo} className="createHeaderLogo4" />清空家具</div>
             <div className="createHeaderNavItem" onClick={clearAll}><img src={emptylogo} className="createHeaderLogo3" />清空全部</div>
             <div className='userData'>

@@ -10,7 +10,7 @@ const CreateContent = () => {
     const [buttonColor,setButtonColor] = useState({btn_2d:'rgba(68,146,239,0.6)',btn_3d:'rgba(68,146,239)'})
     const [left,setLeft] = useState({left2:370,left3:420})
     useEffect(()=>{
-        if(JSON.parse(localStorage.getItem('dis2D')).display == 'flex'){
+        if(JSON.parse(localStorage.getItem('dis2D'))?.display == 'flex'){
             setButtonColor({btn_2d:'rgba(68,146,239)',btn_3d:'rgba(68,146,239,0.6)'})
         }else{
             setButtonColor({btn_2d:'rgba(68,146,239,0.6)',btn_3d:'rgba(68,146,239)'})

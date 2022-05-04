@@ -4,6 +4,7 @@ import CreateHeader from './CreateHeader'
 import CreateContent from './CreateContent'
 import './CreatePage.css'
 import {LoadingOutlined} from '@ant-design/icons';
+import CreateRight from './CreateRight.js'
 
 const CreatePage = () => {
     // if (localStorage.getItem('tip') === 'false') {
@@ -32,7 +33,8 @@ const CreatePage = () => {
                             <CreateHeader></CreateHeader>
                             <div className='create_content'>
                                 <CreateSider></CreateSider> 
-                                <CreateContent></CreateContent>                             
+                                <CreateContent></CreateContent>     
+                                <CreateRight></CreateRight>
                             </div>
                             
                         </div>
