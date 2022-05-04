@@ -94,6 +94,12 @@
     height: 70px;
     border: none;
     border-radius: 40px;
+    font-size: 40px;
+    font-weight: 700;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(2, 43, 99);
+    line-height: 70px;
+    padding-left: 40px;
     background-color: rgb(255, 255, 255);
     box-shadow: 1px 1px 8px #fff;
     animation: btntspt 2s 0s infinite;
@@ -101,17 +107,6 @@
     position: absolute;
     top: 70%;
     left: 15%;
-}
-.home_start span{
-    width: 240px;
-    height: 70px;
-    font-size: 40px;
-    font-weight: 700;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: rgb(2, 43, 99);
-    position: absolute;
-    left: 40px;
-    top: 6px;
 }
 
 .home_start:hover {
