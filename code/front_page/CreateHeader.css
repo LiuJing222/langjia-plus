@@ -1,9 +1,19 @@
 .createHeaderBox{
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 6.5vh;
+    width: 100%;
+    background-color:#f8f9fb;
+    z-index: 2;
 }
 .createHeaderBox div{
-    width: 120px;
+    width: 140px;
+}
+.create_logo{
+    position: absolute;
+    width: 40px;
+    left: 100px;
 }
 .createHeaderNavItem{
     display: flex;
@@ -18,8 +28,18 @@
 .userData{
     position: absolute;
     right: 0px;
+    display: flex;
+    /* flex-direction: row; */
+    justify-content:center;
 }
 .userData img{
-    width: 40px;
+    width: 35px;
+    height: 35px;
     border-radius: 20px;
+}
+.userData .help{
+    width:40px;
+}
+.userData .help img{
+    width:37px;
 }

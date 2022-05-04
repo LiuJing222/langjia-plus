@@ -1,0 +1,86 @@
+body {
+    user-select: none;
+}
+*{
+    padding: 0;
+    margin: 0;
+}
+.content_outer{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+#content3D{
+    width: 100%;
+    height: 665px;
+    /* overflow: scroll; */
+    float: right;
+}
+#content2D{
+    width: 100%;
+    height: 665px;
+    /* overflow: scroll; */
+    float: right;
+}
+.btn_2D{
+ position: absolute;
+ bottom: 25px;
+ left: 370px;
+ background-color: rgba(68,146,239);
+ border: none;
+ width: 60px;
+ height: 36px;
+ /* box-shadow: 0 0 5px lightgray; */
+ color: white;
+ font-size: 16px;
+ border-radius: 20px 0 0 20px;
+
+}
+.btn_3D{
+    position: absolute;
+    bottom: 25px;
+    left: 420px;
+    background-color: rgba(68,146,239);
+ border: none;
+ width: 60px;
+ height: 36px;
+ /* box-shadow: 0 0 5px lightgray; */
+ color: white;
+ font-size: 16px;
+ border-radius: 0 20px 20px 0;
+}
+.top_ruler1{
+    width:32%;
+    height: 20px;
+    position: absolute;
+    top:55px;
+    left:4%
+}
+.top_ruler2{
+    width:32%;
+    height: 20px;
+    position: absolute;
+    top:55px;
+    left:36%
+}
+.top_ruler3{
+    width:32%;
+    height: 20px;
+    position: absolute;
+    top:55px;
+    left:68%
+}
+.top_ruler4{
+    height: 480px;
+    width: 20px;
+    position: absolute;
+    left:4%;
+    top:55px;
+}
+.top_ruler5{
+    height: 185px;
+    width: 20px;
+    position: absolute;
+    left:4%;
+    top:533px;
+}

@@ -1,0 +1,325 @@
+.createSiderBox{
+    width: 55px;
+    height: 93vh;
+    background-color:#f8f9fb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* position: absolute;
+    top: 0;
+    left: 0; */
+    /* z-index: -1; */
+}
+.createSiderContainer{
+    height: 240px;
+    background-color: #f8f9fb;
+    width: 55px;
+}
+.createSiderIcon{
+    width: 45px;
+    display: flex;
+    justify-content: center;
+    padding: 4px;
+    height: 40px;
+    background-color: #f8f9fb;
+}
+.createSiderIcon img{
+    width: 35px;
+    /* margin-top: 15px; */
+}
+.createSider_over{
+    display: inline-block;
+    /* flex-direction: column; */
+    position: relative;
+    top: -240px;
+    left: 68px;
+    /* left: 69px; */
+    background-color: #f8f9fb;
+    z-index: 30;
+    
+
+}
+.create_over_text {
+    width: 77px;
+    padding: 4px;
+    height: 40px;
+    /* text-align: center; */
+    line-height: 40px;
+    padding-left: 5px;
+    z-index: 999;
+}
+/* .create_over_text:hover{
+    color: '#448cef';
+} */
+.createSiderDetail_outer{
+    position: absolute;
+    width: 320px;
+    left: 3.46%;
+    pointer-events: auto;
+}
+.createSiderDetail_bottom::before{
+    content: '<';
+    width: 40px;
+    height: 50px;
+    position: absolute;
+    left: 272px;
+    top: 50%;
+    background-color: rgba(242, 242, 242, 0.6);
+    transform: translateY(-50%);
+    cursor: pointer;
+    pointer-events: auto;
+    border-radius: 50px/15px;
+    line-height: 50px;
+    text-align: right;
+    margin-right: 4px;
+    padding-right: 8px;
+    z-index: 30;
+}
+.createSiderDetail_bottom{
+    z-index: 1;
+}
+.createSiderDetail{
+    display: flex;
+    /* flex-wrap: wrap; */
+    
+    width: 300px;
+    height: 93vh;
+    
+    /* position: absolute;
+    left: 4%; */
+    
+    /* overflow: scroll; */
+    
+    /* z-index: 1; */
+    /* pointer-events: none; */
+    /* top: -218px;s */
+    /* left: 348%;
+    z-index: 999; */
+}
+.createSiderDetail_top{
+    width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: white;
+    overflow: auto;
+    z-index: 10;
+    box-shadow: 0px 10px 5px lightgray;
+}
+
+.createSiderDetail_top::-webkit-scrollbar{
+    width: 7px;
+}
+.createSiderDetail_top::-webkit-scrollbar-track {
+    background-color: white;
+    border-radius: 10px;
+}
+.createSiderDetail_top::-webkit-scrollbar-thumb {
+    background:#eee;
+    border-radius: 10px;
+}
+.createSiderDetail_li{
+    padding-top: 8px;
+    /* min-height: 100px; */
+}
+.createSiderDetail_li img{
+    width: 120px;
+    height: 120px;
+}
+/* .createSiderDetail::after{
+    content: '';
+    width: 17px;
+    height: 50px;
+    position: relative;
+    z-index: 3;
+    left: 300px;
+    background-color: aqua;
+} */
+/* .siderDetailAway{
+    width: 17px;
+    height: 50px;
+    background-color: rgba(255,255,255,0.4);
+    position: relative;
+    left: 400px;
+} */
+/* .siderDetailAwayInner{
+    width: 17px;
+    height: 50px;
+    background-color: rgba(255,255,255,0.4);
+    position: relative;
+    left: 358px;
+} */
+.createSider_ins_text{
+    position: relative;
+    top: -50px;
+    height: 0;
+    color: white;
+    left: 30px;
+}
+.createSider_ins_title{
+    font-weight: bolder;
+    font-style: oblique;
+    font-size: 17px;
+}
+.createSider_ins_tag{
+    font-size: 14px;
+    margin-top: 8px;
+    margin-left: 6px;
+}
+.slideshow{
+    width: 550px;
+    height: 365px;
+    background-color: white;
+    margin-top: 100px;
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+    align-items: center;
+    /* padding: 20px; */
+    box-shadow: 0 0 5px lightgrey;
+    border-radius: 0 15px 15px 0;
+}
+.slideshow_top{
+    width: 550px;
+    height: 24px;
+    background-color: rgb(248, 246, 246);
+    border-radius: 0 15px 0 0;
+}
+.slideshow_top span{
+    float: right;
+    margin-right: 10px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.slideshow_top span:hover{
+    background-color: #baadad;
+}
+
+
+
+
+
+
+
+.slideshow111{
+    width: 550px;
+    height: 310px;
+}
+
+
+
+
+
+/* //轮播图下方dot样式 */
+.slick-dots1
+{
+  position: absolute;
+  bottom: 10px;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+}
+.slick-dots1 li
+{
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 0 5px;
+  padding: 0;
+  cursor: pointer;
+}
+.slick-dots1 li button
+{
+  font-size: 0;
+  line-height: 0;
+  display: block;
+  width: 10px;
+  height: 10px;
+  padding: 5px;
+  cursor: pointer;
+  color: transparent;
+  border: 0;
+  outline: none;
+  background: transparent;
+}
+.slick-dots1 li button:hover,
+.slick-dots1 li button:focus
+{
+  outline: none;
+}
+.slick-dots1 li button:hover:before,
+.slick-dots1 li button:focus:before
+{
+  opacity: 1;
+}
+/* //未选中时的样式 */
+.slick-dots1 li button:before
+{
+  font-family: 'slick';
+  font-size: 8px;
+  line-height: 8px;
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  content: '•';
+  text-align: center;
+  /* //opacity: .25; */
+  color: rgba(255, 255, 255, 0.3);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* //选中的样式 */
+.slick-dots1 li.slick-active button:before
+{
+  /* //opacity: .75; */
+  color: #2183E2;
+  /* background-color: #2183E2; */
+  border-radius: 4px;
+}
+.slick-slider .slick-prev{
+    left: 15px;
+    z-index: 10;
+}
+.slick-slider .slick-next {
+    right: 15px;
+}
+.slide_place{
+    position: relative;
+    left: 15px;
+    top: -30px;
+    color: white;
+    font-size: 18px;
+}
+.slide_bottom{
+    width: 550px;
+    height: 70px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bolder;
+    color: #333;
+}
+.house_tag{
+    display:flex;
+    justify-content: space-around;
+    font-size: 15px;
+    font-weight: bold;
+    width:88%;
+    height: 30px;
+    align-items: center;
+    margin-top:10px;
+}
+.createSiderDetail_li .createSiderDetail_recom_img{
+    width: 280px;
+    height: 170px;
+}

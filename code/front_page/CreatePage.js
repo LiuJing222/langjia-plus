@@ -30,9 +30,9 @@ const CreatePage = () => {
                     <div>
                         <div className='createpage' style={{opacity:1}}>
                             <CreateHeader></CreateHeader>
-                            <div>
-                                <CreateContent></CreateContent>
+                            <div className='create_content'>
                                 <CreateSider></CreateSider> 
+                                <CreateContent></CreateContent>                             
                             </div>
                             
                         </div>

@@ -54,7 +54,7 @@ const Login = () => {
         if(res instanceof Array){
             localStorage.setItem('email',res[0].user_id)
             // dispatch({type:"set_login_info",value:res[0]})
-            history.replace('/');
+            history.replace('/home');
         }else{
             alert(res.message)
             
@@ -75,8 +75,9 @@ const Login = () => {
     })
     .then(res => res.text())
     .then(res => {
-        if (res==='ok') {
-            history.replace('/login');
+        if (res=='ok') {
+            alert('请查看邮箱！')
+            setDiaplsy({ login: 'block', forget: 'none', register: 'none' });
         } else {
             alert(res);
             console.log(res)
@@ -98,7 +99,7 @@ const Login = () => {
     .then(res => res.text())
     .then(res => {
         if (res==='ok') {
-            history.replace('/login');
+            setDiaplsy({ login: 'block', forget: 'none', register: 'none' })
         } else {
             alert(res);
         }
