@@ -10,41 +10,25 @@ const Slid = () => {
     var sizeCon = document.getElementById("create_sizebar_con")
     var sizeBg = document.getElementById("create_sizebar_bg")
     var sizeDot = document.getElementById("create_sizebar_dot")
-    sizeDot.style.left = 90 + "px"
-    sizeCon.addEventListener("mousedown", (e) => {
-      if (e.x > 220) {
-        var leftValue = 155 + "px"
-      } else if (e.x < 55) {
-        var leftValue = 0 + "px"
-      } else {
-        var leftValue = e.x - 40 + "px"
-      }
-      sizeDot.style.left = leftValue
-      sizeDot.style.transition = "all"
-      sizeDot.style.transitionDuration = "0.2s"
-      sizeDot.style.transitionTimingFunction = "linear"
-      var size1 = parseInt((e.x - 130) / 4.2)
-      if (size1 > 20) {
-        setSize(20)
-      } else if (size1 < -20) {
-        setSize(-20)
-      } else {
-        setSize(size1)
-      }
-    })
+    sizeDot.style.left = 85 + "px"
+
     sizeCon.addEventListener("mouseup", (e) => {
-      if (e.x > 230) {
-        var leftValue = 155 + "px"
-      } else if (e.x < 55) {
-        var leftValue = 0 + "px"
+      // console.log("sizeBg.getBoundingClientRect().left", sizeBg.getBoundingClientRect().left)
+      var sizeBgLeftValue = sizeBg.getBoundingClientRect().left;
+      // console.log(e.x)
+      if (e.x > 170 + sizeBgLeftValue) {
+        var leftValue = 170
+      } else if (e.x < sizeBgLeftValue) {
+        var leftValue = 0
       } else {
-        var leftValue = e.x - 40 + "px"
+        var leftValue = e.x - sizeBgLeftValue
       }
-      sizeDot.style.left = leftValue
+      // console.log("leftValue", leftValue)
+      sizeDot.style.left = leftValue + "px"
       sizeDot.style.transition = "all"
       sizeDot.style.transitionDuration = "0.2s"
       sizeDot.style.transitionTimingFunction = "linear"
-      var size1 = parseInt((e.x - 130) / 4.2)
+      var size1 = parseInt((leftValue - 85) / 4.25)
       if (size1 > 20) {
         setSize(20)
       } else if (size1 < -20) {
@@ -57,41 +41,24 @@ const Slid = () => {
     var sclaeCon = document.getElementById("create_scalebar_con")
     var scaleBg = document.getElementById("create_scalebar_bg")
     var scaleDot = document.getElementById("create_scalebar_dot")
-    scaleDot.style.left = 90 + "px"
-    sclaeCon.addEventListener("mousedown", (e) => {
-      if (e.x > 230) {
-        var leftValue = 140 + "px"
-      } else if (e.x < 55) {
-        var leftValue = 0 + "px"
-      } else {
-        var leftValue = e.x - 40 + "px"
-      }
-      scaleDot.style.left = leftValue
-      scaleDot.style.transition = "all"
-      scaleDot.style.transitionDuration = "0.2s"
-      scaleDot.style.transitionTimingFunction = "linear"
-      var deg1 = ((e.x - 130) / 43).toFixed(2)
-      if (deg1 > 2) {
-        setDeg(2)
-      } else if (deg1 < -2) {
-        setDeg(-2)
-      } else {
-        setDeg(deg1)
-      }
-    })
+    scaleDot.style.left = 85 + "px"
+
     sclaeCon.addEventListener("mouseup", (e) => {
-      if (e.x > 230) {
-        var leftValue = 140 + "px"
-      } else if (e.x < 55) {
-        var leftValue = 0 + "px"
+      // console.log("scaleBg.getBoundingClientRect().left", scaleBg.getBoundingClientRect().left)
+      var scaleBgLeftValue = sizeBg.getBoundingClientRect().left;
+      // console.log(e.x)
+      if (e.x > 170 + scaleBgLeftValue) {
+        var leftValue = 170
+      } else if (e.x < scaleBgLeftValue) {
+        var leftValue = 0
       } else {
-        var leftValue = e.x - 40 + "px"
+        var leftValue = e.x - scaleBgLeftValue
       }
-      scaleDot.style.left = leftValue
+      scaleDot.style.left = leftValue + "px"
       scaleDot.style.transition = "all"
       scaleDot.style.transitionDuration = "0.2s"
       scaleDot.style.transitionTimingFunction = "linear"
-      var deg1 = ((e.x - 130) / 43).toFixed(2)
+      var deg1 = ((leftValue - 85) / 42.5).toFixed(2)
       if (deg1 > 2) {
         setDeg(2)
       } else if (deg1 < -2) {
