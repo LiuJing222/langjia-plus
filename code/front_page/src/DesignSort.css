@@ -23,11 +23,13 @@
     font-size: 105%;
     color: black;
     padding-top: 5px;
+    font-size: 17px;
 }
 .des_select_row_text{
     color: #222;
     padding: 5px 10px;
     border-radius: 6px;
+    font-size: 14px;
 }
 .des_select_row_text:hover{
     color: rgb(26, 122, 248);
