@@ -3,7 +3,7 @@ import Slid from './Slid';
 
 const CreateRight = () => {
   return (
-    <div>
+    <div className='createSiderBox' style={{width:300}}>
         <Slid></Slid>
     </div>
   )

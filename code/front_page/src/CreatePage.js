@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import CreateSider from './CreateSider.js'
 import CreateHeader from './CreateHeader'
 import CreateContent from './CreateContent'
@@ -7,10 +7,10 @@ import {LoadingOutlined} from '@ant-design/icons';
 import CreateRight from './CreateRight.js'
 
 const CreatePage = () => {
-    // if (localStorage.getItem('tip') === 'false') {
-    //     localStorage.setItem('tip', true);
-    //     window.location.reload();
-    // }
+    if (localStorage.getItem('tip') === 'false') {
+        localStorage.setItem('tip', true);
+        window.location.reload();
+    }
     return (
         <div>
             {/* {

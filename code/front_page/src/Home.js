@@ -4,6 +4,7 @@ import HomeContent from './HomeContent'
 import './Home.css'
 
 const Home = () => {
+    localStorage.setItem('tip',false);
     return (
         <div className="home">
             <HomeHeader></HomeHeader>

@@ -65,13 +65,21 @@ const CreateHeader = () => {
         window.location.reload();
     }
     const removeall = () => {
-        // const isclear = window.confirm('回到首页将会清空所有，你确定返回吗？');
+        // const points = localStorage.getItem('points');
+        // const pointerArray = localStorage.getItem('pointerArray');
+        // const furniture = localStorage.getItem('furniture');
+        // if(points||pointerArray||furniture){
+        //     const isclear = window.confirm('回到首页将会清空所有，你确定返回吗？');
         // if(isclear){
         //     localStorage.removeItem('points');
         //     localStorage.removeItem('pointerArray');
         //     localStorage.removeItem('furniture');
-        //     history.replace('/');
+        //     history.replace('/home');
         // }
+        // }else{
+        //     history.replace('/home');
+        // }
+        
         
     }
     // const fallback = () => {
@@ -93,7 +101,7 @@ const CreateHeader = () => {
     // }
     return (
         <div className="createHeaderBox">
-            <img className='create_logo' src={logo} alt="" />
+            <img className='create_logo' src={logo}  onClick={removeall} alt="" />
             {/* <Link to='/' onClick={removeall}><img src={logo} className="createHeaderLogo" /></Link> */}
             {/* <img src={logo} className="createHeaderLogo" onClick={removeall} /> */}
             {/* <div className="createHeaderNavItem createHeaderNavItem1" onClick={fallback}><img src={backlogo} className="createHeaderLogo1" /><span>回退</span></div> */}
