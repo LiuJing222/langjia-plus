@@ -29,7 +29,10 @@ const history = createBrowserHistory({
     basename: '',             //基链接
     forceRefresh: true        //是否强制刷新
 });
-
+const go = () => {
+    var isGo = window.confirm("登陆之后才能开始创建哦，要去登陆吗？")
+    isGo ? history.push("/login") : history.push("/home")
+}
 const HomeTop = () => {
     return (
         <div className="home_top">
@@ -42,16 +45,16 @@ const HomeTop = () => {
                 <div className="home_character"><img src={HomeIcon} className="home_icon"></img><span className="home_top_text">家装</span></div>
                 <div className="home_character"><img src={DesignIcon} className="home_icon"></img><span className="home_top_text">设计</span></div>
             </div>
-            <Link to="/create" class="home_start">
-                <span>快速开始</span></Link>
+            {localStorage.getItem("email") ?
+                <Link to="/create" class="home_start">
+                    快速开始</Link>
+                : <div onClick={() => go()} class="home_start">快速开始</div>
+            }
         </div>
     )
 }
 const Btns = () => {
-    const go = () => {
-        var isGo = window.confirm("登陆之后才能开始创建哦，要去登陆吗？")
-        isGo ? history.push("/login") : history.push("/home")
-    }
+
     return (
         <div className="home_btns">
             {localStorage.getItem("email") ?
