@@ -5,12 +5,20 @@ import CreateContent from './CreateContent'
 import './CreatePage.css'
 import {LoadingOutlined} from '@ant-design/icons';
 import CreateRight from './CreateRight.js'
+import IntroJs from 'intro.js'
+import 'intro.js/introjs.css';
 
 const CreatePage = () => {
     if (localStorage.getItem('tip') === 'false') {
         localStorage.setItem('tip', true);
         window.location.reload();
     }
+    useEffect(()=>{
+        if(!localStorage.getItem('intro')){
+            IntroJs().start();
+            localStorage.setItem('intro',true);
+        }
+    },[])
     return (
         <div>
             {/* {

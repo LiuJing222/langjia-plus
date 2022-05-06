@@ -15,6 +15,8 @@ import { CloseOutline } from 'antd-mobile-icons'
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import IntroJs from 'intro.js'
+import 'intro.js/introjs.css';
 
 const CreateSider = () => {
   const [display_text, setDisplay_text] = useState('none');
@@ -169,20 +171,20 @@ const CreateSider = () => {
 
   return (
     <div className='createSiderBox'>
-      <div className='createSiderContainer' onMouseOver={() => setDisplay_text('inline-block')} onMouseOut={() => setDisplay_text('none')}>
-        <div className='createSiderIcon' style={{ backgroundColor: click_background.module }} onClick={() => iconClick('module')} onMouseOver={() => { setImg_color({ ...img_color, module: module_blue }); setText_color({ ...text_color, module: '#448cef' }) }} onMouseOut={() => { setImg_color({ ...img_color, module: module_gray }); setText_color({ ...text_color, module: '#707070' }) }}>
+      <div  data-step="3" data-title="工具栏" data-intro="获得家具及灵感" className='createSiderContainer' onMouseOver={() => setDisplay_text('inline-block')} onMouseOut={() => setDisplay_text('none')}>
+        <div data-step="4" data-title="户型" data-intro="挑选心仪的户型练手"  className='createSiderIcon' style={{ backgroundColor: click_background.module }} onClick={() => iconClick('module')} onMouseOver={() => { setImg_color({ ...img_color, module: module_blue }); setText_color({ ...text_color, module: '#448cef' }) }} onMouseOut={() => { setImg_color({ ...img_color, module: module_gray }); setText_color({ ...text_color, module: '#707070' }) }}>
           <img src={click_img_color.module == '' ? module_blue : img_color.module} alt="" />
         </div>
-        <div className='createSiderIcon' style={{ backgroundColor: click_background.furniture }} onClick={() => iconClick('furniture')} onMouseOver={() => { setImg_color({ ...img_color, furniture: furniture_blue }); setText_color({ ...text_color, furniture: '#448cef' }) }} onMouseOut={() => { setImg_color({ ...img_color, furniture: furniture_gray }); setText_color({ ...text_color, furniture: '#707070' }) }}>
+        <div  data-step="5" data-title="家具" data-intro="在此选择家具进行装饰" className='createSiderIcon'  className='createSiderIcon' style={{ backgroundColor: click_background.furniture }} onClick={() => iconClick('furniture')} onMouseOver={() => { setImg_color({ ...img_color, furniture: furniture_blue }); setText_color({ ...text_color, furniture: '#448cef' }) }} onMouseOut={() => { setImg_color({ ...img_color, furniture: furniture_gray }); setText_color({ ...text_color, furniture: '#707070' }) }}>
           <img src={click_img_color.furniture == '' ? furniture_blue : img_color.furniture} alt="" />
         </div>
-        <div className='createSiderIcon' style={{ backgroundColor: click_background.recommend }} onClick={() => iconClick('recommend')} onMouseOver={() => { setImg_color({ ...img_color, recommend: recommend_blue }); setText_color({ ...text_color, recommend: '#448cef' }) }} onMouseOut={() => { setImg_color({ ...img_color, recommend: recommend_gray }); setText_color({ ...text_color, recommend: '#707070' }) }}>
+        <div data-step="6" data-title="推荐" data-intro="随时查看其他人的优秀设计" className='createSiderIcon' style={{ backgroundColor: click_background.recommend }} onClick={() => iconClick('recommend')} onMouseOver={() => { setImg_color({ ...img_color, recommend: recommend_blue }); setText_color({ ...text_color, recommend: '#448cef' }) }} onMouseOut={() => { setImg_color({ ...img_color, recommend: recommend_gray }); setText_color({ ...text_color, recommend: '#707070' }) }}>
           <img src={click_img_color.recommend == '' ? recommend_blue : img_color.recommend} alt="" />
         </div>
-        <div className='createSiderIcon' style={{ backgroundColor: click_background.show }} onClick={() => iconClick('show')} onMouseOver={() => { setImg_color({ ...img_color, show: show_blue }); setText_color({ ...text_color, show: '#448cef' }) }} onMouseOut={() => { setImg_color({ ...img_color, show: show_gray }); setText_color({ ...text_color, show: '#707070' }) }}>
+        <div data-step="7" data-title="大咖秀" data-intro="不一样的视野，更好的设计" className='createSiderIcon' style={{ backgroundColor: click_background.show }} onClick={() => iconClick('show')} onMouseOver={() => { setImg_color({ ...img_color, show: show_blue }); setText_color({ ...text_color, show: '#448cef' }) }} onMouseOut={() => { setImg_color({ ...img_color, show: show_gray }); setText_color({ ...text_color, show: '#707070' }) }}>
           <img src={click_img_color.show == '' ? show_blue : img_color.show} alt="" />
         </div>
-        <div className='createSiderIcon' style={{ backgroundColor: click_background.inspiration }} onClick={() => iconClick('inspiration')} onMouseOver={() => { setImg_color({ ...img_color, inspiration: inspiration_blue }); setText_color({ ...text_color, inspiration: '#448cef' }) }} onMouseOut={() => { setImg_color({ ...img_color, inspiration: inspiration_gray }); setText_color({ ...text_color, inspiration: '#707070' }) }}>
+        <div data-step="8" data-title="灵感" data-intro="灵感带给你新思路" className='createSiderIcon' style={{ backgroundColor: click_background.inspiration }} onClick={() => iconClick('inspiration')} onMouseOver={() => { setImg_color({ ...img_color, inspiration: inspiration_blue }); setText_color({ ...text_color, inspiration: '#448cef' }) }} onMouseOut={() => { setImg_color({ ...img_color, inspiration: inspiration_gray }); setText_color({ ...text_color, inspiration: '#707070' }) }}>
           <img src={click_img_color.inspiration == '' ? inspiration_blue : img_color.inspiration} alt="" />
         </div>
       </div>

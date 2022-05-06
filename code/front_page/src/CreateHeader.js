@@ -99,8 +99,17 @@ const CreateHeader = () => {
     //     }
 
     // }
+    const toNew = ()=>{
+        localStorage.removeItem('intro');
+        window.location.reload();
+    }
+    const showHelp = ()=>{
+        document.getElementsByClassName('createHeaderHelpBox')[0].style.display === 'none' ? 
+        document.getElementsByClassName('createHeaderHelpBox')[0].style.display = 'flex':
+        document.getElementsByClassName('createHeaderHelpBox')[0].style.display = 'none';
+    }
     return (
-        <div className="createHeaderBox">
+        <div className="createHeaderBox" data-step="1" data-title="基本操作" data-intro="实现操作过程中的后退清空与保存">
             <img className='create_logo' src={logo}  onClick={removeall} alt="" />
             {/* <Link to='/' onClick={removeall}><img src={logo} className="createHeaderLogo" /></Link> */}
             {/* <img src={logo} className="createHeaderLogo" onClick={removeall} /> */}
@@ -110,8 +119,22 @@ const CreateHeader = () => {
             <div className="createHeaderNavItem" onClick={clearfurn}><img src={clearlogo} className="createHeaderLogo4" />清空家具</div>
             <div className="createHeaderNavItem" onClick={clearAll}><img src={emptylogo} className="createHeaderLogo3" />清空全部</div>
             <div className='userData'>
-                <div className='help'>
-                    <img src={help} alt="" />
+                <div className='help'  data-step="2" data-title="帮助中心" data-intro="查看用法，快速上手" >
+                    <img src={help} alt="" onClick={()=>showHelp()}/>
+                    <span className="createHeaderHelpBox">
+                        <span onClick={()=>toNew()} className="helpbox_toNew">新手指导</span>
+                        <span><strong style={{fontSize:'15px'}}>户型</strong> <p>可在2D页面手绘户型或直接在户型库挑选心仪的户型</p></span>
+                        <span><strong style={{fontSize:'15px'}}>家具</strong> <p>家居库</p></span>
+                        <span><strong style={{fontSize:'15px'}}>推荐</strong> <p>随时查看其他人的优秀设计</p></span>
+                        <span><strong style={{fontSize:'15px'}}>大咖秀&灵感</strong> <p>给您提供创作灵感</p></span>
+                        <span className="helpobox_key">
+                            <strong style={{fontSize:'15px'}}>快捷键</strong>
+                            <p>w——放大</p>
+                            <p>s——缩小</p>
+                            <p>a——左旋</p>
+                            <p>d——右旋</p>
+                        </span>
+                    </span>
                 </div>
                 
                 <img src={'https://api.qasdwer.xyz:2019/headPortrait/'+userdata.user_head_portrait} alt="" />

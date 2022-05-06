@@ -39,7 +39,37 @@
 }
 .userData .help{
     width:40px;
+    position: relative;
 }
 .userData .help img{
     width:37px;
+}
+.help:hover .createHeaderHelpBox{
+    display: flex;
+}
+.createHeaderHelpBox>span{
+    display: block;
+    width:220px;
+    margin-top: 20px;
+    font-size: 14px;
+}
+.createHeaderHelpBox{
+    display: none;
+    position: absolute;
+    width:260px;
+    height: 500px;
+    background-color: rgba(0,0,0,0.8);
+    right:20px;
+    top:20px;
+    z-index: 999;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    border-radius:15px;
+}
+.helpbox_toNew{
+    color: white;
+}
+.helpobox_key>p{
+    padding-left: 20px;
 }
