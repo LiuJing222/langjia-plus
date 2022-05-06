@@ -1,11 +1,12 @@
 .createHeaderBox{
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     height: 6.5vh;
     width: 100%;
     background-color:#f8f9fb;
     z-index: 2;
+    padding-left: 15%;
 }
 .createHeaderBox div{
     width: 140px;
@@ -22,7 +23,7 @@
     font-size: 13px;
 }
 .createHeaderNavItem img{
-    width: 24px;
+    width: 20px;
     margin-bottom: 3px;
 }
 .userData{
@@ -43,9 +44,6 @@
 }
 .userData .help img{
     width:37px;
-}
-.help:hover .createHeaderHelpBox{
-    display: flex;
 }
 .createHeaderHelpBox>span{
     display: block;
@@ -69,6 +67,18 @@
 }
 .helpbox_toNew{
     color: white;
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+    transition: font-size 0.2s;
+}
+.helpbox_toNew:hover{
+    color:#2183E2;
+    font-size: 16px;
+}
+.helpbox_title{
+    display: flex;
+    align-items: center;
 }
 .helpobox_key>p{
     padding-left: 20px;

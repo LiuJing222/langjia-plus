@@ -28,7 +28,8 @@
     margin-top: 7px;
 }
 .createSiderIcon img{
-    width: 35px;
+    width: 30px;
+    height: 30px;
 }
 .createSider_over{
     display: inline-block;

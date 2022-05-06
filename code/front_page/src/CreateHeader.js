@@ -10,6 +10,12 @@ import help from './images/help.svg'
 import logo from './images/bluetlogo.png'
 import { useHistory } from 'react-router';
 
+import module_gray from './images/create_module_gray.svg'
+import furniture_gray from './images/create_forniture_gray.svg'
+import recommend_gray from './images/create_recommend_gray.svg'
+import show_gray from './images/create_show_gray.svg'
+import inspiration_gray from './images/create_inspiration_gray.svg'
+
 const CreateHeader = () => {
     const [userdata,setUserdata] = useState({});
     const history = useHistory();
@@ -122,11 +128,11 @@ const CreateHeader = () => {
                 <div className='help'  data-step="2" data-title="帮助中心" data-intro="查看用法，快速上手" >
                     <img src={help} alt="" onClick={()=>showHelp()}/>
                     <span className="createHeaderHelpBox">
-                        <span onClick={()=>toNew()} className="helpbox_toNew">新手指导</span>
-                        <span><strong style={{fontSize:'15px'}}>户型</strong> <p>可在2D页面手绘户型或直接在户型库挑选心仪的户型</p></span>
-                        <span><strong style={{fontSize:'15px'}}>家具</strong> <p>家居库</p></span>
-                        <span><strong style={{fontSize:'15px'}}>推荐</strong> <p>随时查看其他人的优秀设计</p></span>
-                        <span><strong style={{fontSize:'15px'}}>大咖秀&灵感</strong> <p>给您提供创作灵感</p></span>
+                        <span onClick={()=>toNew()} className="helpbox_toNew">重启新手指导</span>
+                        <span><strong className="helpbox_title" style={{fontSize:'15px'}}><img src={module_gray}/> 户型</strong> <p>可在2D页面手绘户型或直接在户型库挑选心仪的户型</p></span>
+                        <span><strong className="helpbox_title" style={{fontSize:'15px'}}><img src={furniture_gray}/> 家具</strong> <p>家居库</p></span>
+                        <span><strong className="helpbox_title" style={{fontSize:'15px'}}><img src={recommend_gray}/> 推荐</strong> <p>随时查看其他人的优秀设计</p></span>
+                        <span><strong className="helpbox_title" style={{fontSize:'15px'}}><img src={show_gray}/> 大咖秀&灵感</strong> <p>给您提供创作灵感</p></span>
                         <span className="helpobox_key">
                             <strong style={{fontSize:'15px'}}>快捷键</strong>
                             <p>w——放大</p>
