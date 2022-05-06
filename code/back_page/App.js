@@ -16,7 +16,7 @@ const App = () => {
 
       <Router>
         <Switch>
-          <Route exact path="/" component={BackHome}></Route>
+          <Route exact path="/" component={BackLogin}></Route>
           {/* <Route exact path="/" component={BackLogin}></Route> */}
           <Route exact path="/backusermanage" component={BackUserManage}></Route>
 
