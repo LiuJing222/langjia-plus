@@ -2,37 +2,80 @@
     width: 100%;
     height: 100%;
     /* background-color: rgba(162, 187, 255, 0.638); */
-    background-image: url("./images/back_login.jpg");
+    background-image: url("./images/BingWallpaper2.jpg");
     background-size: cover;
     background-position: center;
+    
     position: absolute;
     top: 0px;
     left: 0px;
 }
+.back_login_title{
+    font-size: 28px;
+    font-weight: 600;
+}
 
 .back_login_con {
-    width: 500px;
-    height: 300px;
-    box-shadow: 5px 5px 5px rgb(255, 255, 255);
-    background-color: rgb(255, 255, 255);
+    width: 600px;
+    height: 350px;
+    margin: 0 auto;
+    margin-top: 10%;
+    box-shadow: 1px 1px 5px rgb(78, 78, 78);
+    background-color: rgb(255, 255, 255,0.8);
     border-radius: 20px;
     padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    /* position: absolute;
     top: 20%;
-    left: 35%;
+    left: 35%; */
 }
 
 .back_login_email {
-    width: 300px;
+    /* width: 300px; */
     height: 40px;
-    border: 1px solid red;
+    margin-top: 30px;
+    /* border: 1px solid red; */
 }
-.back_login_psd {
-    width: 300px;
+.back_login_input_txt{
+    font-size: 20px;
+    font-weight: 600;
+    color: rgb(2,43,99);
+    line-height: 40px;
+    float: left;
+}
+.back_login_input{
+    width: 280px;
+    height: 35px;
+    border-radius: 35px;
+    padding-left: 10px;
+    border: 1px solid gray;
+    float: left;
+}
+.back_login_psd {   
     height: 40px;
-    border: 1px solid red;
+    margin-top: 30px;
+}
+.back_login_btn{
+    width: 294px;
+    height: 40px;
+    margin-top: 30px;
+    /* font-weight: 600; */
+    font-size: 20px;
+    border-radius: 40px;
+    background-color:#448CEF;
+    border: none;
+    color: #fff;
+    transform: all 0.6s;
+}
+.back_login_btn:hover{
+    background-color: rgb(2,43,99);
+}
+.ant-form-item-explain div{
+    color: red;
+    font-size: 13px;
+    margin-left: 10px;
+
 }
