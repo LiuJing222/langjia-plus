@@ -12,8 +12,32 @@ const Furniture = () => {
                 setFs(res)
             })
     }, [])
+    // ==========================删除家具============================
     const delF = (f) => {
         setDelf(f)
+        console.log(f)
+    }
+
+    const delFSure = (id) => {
+        fetch('https://api.qasdwer.xyz:2019/delfurniture/' + id, {
+            method: 'DELETE',
+            headers: {
+                "content-type": "application/json;charset=utf-8;"
+            }
+        })
+            .then(res => res.json())
+            .then(json => {
+                json.sort(function (x, y) { return x.furniture_id - y.furniture_id });
+                json && setFs(json)
+                console.log(fs)
+                alert('删除成功！')
+            }).catch(err => {
+                alert('删除失败！', err);
+            })
+        setDelf({})
+    }
+    const delFCancel = () => {
+        setDelf({})
     }
     return (
         <div className='back_furniture'>
@@ -37,6 +61,17 @@ const Furniture = () => {
                     </div>
                 })}
             </div>
+            {delf.furniture_id ? <div className='del_fur_mask'>
+                <div className='del_fur_confirm'>
+                    <div className='del_text'>确定删除家具{delf.furniture_id}吗？</div>
+                    <img src={"https://api.qasdwer.xyz:2019/getDesignDatas/image/" + delf.imgname} />
+                    <div className='del_fur_btns'>
+                        <button onClick={() => { delFSure(delf.furniture_id) }}>确定删除</button>
+                        <button onClick={() => { delFCancel() }}>不删了</button>
+                    </div>
+                </div>
+            </div>
+                : <div></div>}
         </div >
     )
 }

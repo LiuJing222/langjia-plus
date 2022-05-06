@@ -1,75 +1,157 @@
 /* 进度条组件 */
-/* .create_size{
-  width: 240px;
-  height:30px;
-  border: 1px solid green;
-  background-color: aqua;
-} */
+
+.create_wall_height {
+  width: auto;
+  height: 35px;
+  padding-left: 5px;
+  position: relative;
+}
+
+.create_wall_height_span {
+  width: 70px;
+  font-size: 13px;
+  display: inline-block;
+  text-align: center;
+}
+
+.create_wall_height input {
+  width: 50px;
+  height: 20px;
+  margin-top: 3px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.create_wall_height_per {
+  display: inline-block;
+  width: 30px;
+  text-align: center;
+}
+
+#create_wall_height_p {
+  position: absolute;
+  bottom: 0px;
+  font-size: 1px;
+  color: #888;
+  padding-left: 30px;
+}
+
 .create_processbar {
-    width: 240px;
-    height: 30px;
-    /* border: 1px solid red; */
-    display: flex;
-    justify-items: center;
-    position: relative;
-  }
-  
-  #create_sizebar_con {
-    width: 190px;
-    height: 28px;
-    border-radius: 5px;
-    position: relative;
-  }
-  
-  #create_sizebar_bg {
-    width: 180px;
-    height: 5px;
-    border-radius: 5px;
-    background-color: #eee;
-    border: 1px solid #ccc;
-    margin-top: 8px;
-    position: absolute;
-  }
-  
-  #create_sizebar_dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 4px;
-    border: 3px solid rgb(68, 140, 239);
-    background-color: rgb(68, 140, 239);
-    position: absolute;
-    top: -2px;
-  }
-  
-  #size_text{
-    width:30px;
-    height: 28px;
-    border: 1px solid #ccc;
-  }
-  
-  #create_scalebar_con {
-    width: 190px;
-    height: 28px;
-    border-radius: 5px;
-    position: relative;
-  }
-  
-  #create_scalebar_bg {
-    width: 180px;
-    height: 5px;
-    border-radius: 5px;
-    background-color: #eee;
-    border: 1px solid #ccc;
-    margin-top: 8px;
-    position: absolute;
-  }
-  
-  #create_scalebar_dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 4px;
-    border: 3px solid rgb(68, 140, 239);
-    background-color: rgb(68, 140, 239);
-    position: absolute;
-    top: -2px;
-  }
+  width: 300px;
+  height: 35px;
+  padding-left: 5px;
+  /* border: 1px solid #ccc; */
+  display: flex;
+  justify-items: center;
+  position: relative;
+}
+
+.create_processbar span {
+  width: 70px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.create_processbar input {
+  width: 35px;
+  height: 20px;
+  margin-top: 3px;
+  margin-left: -10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.create_processbar p {
+  position: absolute;
+  bottom: 0px;
+  font-size: 1px;
+  color: #888;
+  padding-left: 90px;
+}
+
+
+#create_sizebar_con {
+  width: 190px;
+  height: 28px;
+  border-radius: 5px;
+  position: relative;
+}
+
+#create_sizebar_bg {
+  width: 160px;
+  height: 5px;
+  border-radius: 5px;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  margin-top: 8px;
+  margin-left: 5px;
+  position: absolute;
+}
+
+#create_sizebar_dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  border: 3px solid rgb(68, 140, 239);
+  background-color: rgb(68, 140, 239);
+  position: absolute;
+  top: -2px;
+}
+
+/* scale */
+#create_scalebar_con {
+  width: 190px;
+  height: 28px;
+  border-radius: 5px;
+  position: relative;
+}
+
+#create_scalebar_bg {
+  width: 160px;
+  height: 5px;
+  border-radius: 5px;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  margin-top: 8px;
+  margin-left: 5px;
+  position: absolute;
+}
+
+#create_scalebar_dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  border: 3px solid rgb(68, 140, 239);
+  background-color: rgb(68, 140, 239);
+  position: absolute;
+  top: -2px;
+}
+
+/* height */
+#create_heightbar_con {
+  width: 190px;
+  height: 28px;
+  border-radius: 5px;
+  position: relative;
+}
+
+#create_heightbar_bg {
+  width: 160px;
+  height: 5px;
+  border-radius: 5px;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  margin-top: 8px;
+  margin-left: 5px;
+  position: absolute;
+}
+
+#create_heightbar_dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  border: 3px solid rgb(68, 140, 239);
+  background-color: rgb(68, 140, 239);
+  position: absolute;
+  top: -2px;
+}

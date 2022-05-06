@@ -3,6 +3,17 @@ import BackLeftNav from './BackLeftNav'
 import "./BackUserManage.css"
 import defaultimg from './images/tree.png'
 
+
+
+// 网页可见区域宽：document.body.clientWidth
+
+// 网页可见区域高：document.body.clientHeight
+
+// 网页可见区域宽：document.body.offsetWidth(包括边线的宽)
+// 网页可见区域高：document.body.offsetHeight(包括边线的宽)
+// 网页正文全文宽：document.body.scrollWidth
+// 网页正文全文高：document.body.scrollHeight
+
 const BackUserManage = () => {
     const [users, setUsers] = useState([])
     const [isDelEmail, setIsDelEmail] = useState("")

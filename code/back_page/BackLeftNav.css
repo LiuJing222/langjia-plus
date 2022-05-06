@@ -1,14 +1,15 @@
 .back_home_leftnav {
   width: 120px;
-  height: 600px;
+  height: auto;
   border-radius: 5px;
+  padding-bottom: 20px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background-color: rgb(28, 28, 30);
+  background-color: rgba(116, 167, 255, 0.567);
   position: absolute;
   left: 0px;
-  top: 0px;
+  top: 20px;
 }
 
 .back_home_leftnav_nav {
@@ -94,6 +95,6 @@
 } */
 
 /* 悬浮 */
-.backuser_nav_navlink:hover{
+.backuser_nav_navlink:hover {
   background-color: rgb(240, 243, 255);
 }

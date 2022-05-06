@@ -1,6 +1,102 @@
-.back_ins_manage_con{
+.back_ins_manage_con {
     width: 1200px;
     height: 100px;
     margin-left: 250px;
-    background-color: antiquewhite;
+    /* background-color: antiquewhite; */
+}
+
+.back_ins_con {
+    width: 1200px;
+    height: auto;
+    /* background-color: aqua; */
+}
+
+.ins_con {
+    width: 1200px;
+    height: 80px;
+    margin-top: 10px;
+    background-color: rgb(247, 255, 201);
+    border: 1px solid rgb(232, 255, 104);
+    box-shadow: 3px 3px 3px rgb(194, 194, 114);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.ins_con_id {
+    width: 100px;
+    height: 80px;
+    line-height: 80px;
+}
+
+.ins_con_title {
+    width: 200px;
+    height: 80px;
+    line-height: 80px;
+}
+
+.ins_con_type {
+    width: 200px;
+    height: 80px;
+    line-height: 80px;
+}
+
+.ins_con_tag {
+    width: 200px;
+    height: 80px;
+    line-height: 80px;
+}
+
+.ins_con_op {
+    width: 200px;
+    height: 80px;
+    line-height: 80px;
+}
+
+.ins_con_op button {
+    width: 60px;
+    height: 30px;
+    margin-left: 10px;
+    border-radius: 15px;
+    border: none;
+}
+
+.ins_con_op button:nth-child(1) {
+    background-color: rgb(255, 255, 102);
+    box-shadow: 2px 2px 2px rgb(211, 211, 0);
+    border: 1px solid rgb(219, 219, 0);
+}
+
+.ins_con_op button:nth-child(2) {
+    background-color: rgb(255, 108, 108);
+    box-shadow: 2px 2px 2px rgb(209, 70, 70);
+    border: 1px solid rgb(198, 43, 43);
+}
+
+.ins_con_op button:nth-child(1):hover {
+    background-color: rgb(215, 215, 29);
+    box-shadow: 2px 2px 2px rgb(159, 159, 0);
+    border: 1px solid rgb(170, 170, 0);
+    color: #fff;
+}
+
+.ins_con_op button:nth-child(2):hover {
+    background-color: rgb(253, 34, 34);
+    box-shadow: 2px 2px 2px rgb(195, 30, 30);
+    border: 1px solid rgb(188, 22, 22);
+    color: #fff;
+}
+
+/* 灵感详细信息 */
+.ins_detail_mask{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 101, 0.678);
+}
+
+.ins_detail_con{
+    width: 400px;
+    height: 280px;
+    background-color: rgb(177, 177, 19);
+    color: #fff;
 }
