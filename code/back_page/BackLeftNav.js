@@ -48,9 +48,9 @@ const BackLeftNav = () => {
                 className={pathname === "/backinsmanage" ? 'back_home_leftnav_active_nav' : 'back_home_leftnav_nav'}
             ><span>灵感管理</span></Link>
             {/* 增删 */}
-            <Link  to="/backfurniture" className='back_home_leftnav_nav'><span>家具素材</span></Link>
+            <Link to="/backfurniture" className='back_home_leftnav_nav'><span>家具素材</span></Link>
             {/* 增删改 */}
-            <Link className='back_home_leftnav_nav'><span>户型素材</span></Link>
+            <Link to="/backhousetype" className='back_home_leftnav_nav'><span>户型素材</span></Link>
             {/* 增删改 */}
             <Link to="/backmanagerdata"
                 className={pathname === "/backmanagerdata" ? 'back_home_leftnav_active_nav' : 'back_home_leftnav_nav'}

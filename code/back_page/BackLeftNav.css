@@ -2,7 +2,6 @@
   width: 120px;
   height: auto;
   border-radius: 5px;
-  padding-bottom: 20px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -14,8 +13,8 @@
 
 .back_home_leftnav_nav {
   text-decoration: none;
-  width: 85px;
-  height: 30px;
+  width: 120px;
+  height: 50px;
   font-size: 13px;
   border-radius: 5px;
   padding-left: 35px;
@@ -28,8 +27,8 @@
 
 .back_home_leftnav_nav:hover {
   text-decoration: none;
-  width: 85px;
-  height: 30px;
+  width: 120px;
+  height: 50px;
   font-size: 13px;
   border-radius: 5px;
   padding-left: 35px;
@@ -37,15 +36,15 @@
   background-color: rgb(232, 255, 142);
 }
 
-.back_home_leftnav_nav:hover .back_home_leftnav_nav span {
+/* .back_home_leftnav_nav:hover .back_home_leftnav_nav span {
   color: rgb(203, 45, 45);
-}
+} */
 
 /* 路由对应时 */
 .back_home_leftnav_active_nav {
   text-decoration: none;
-  width: 85px;
-  height: 30px;
+  width: 120px;
+  height: 50px;
   font-size: 13px;
   border-radius: 5px;
   padding-left: 35px;
@@ -73,14 +72,18 @@
 .backuser_nav_navlink {
   text-decoration: none;
   width: 130px;
-  height: 30px;
+  height: 40px;
   border-radius: 5px;
   font-size: 13px;
-  padding-top: 20px;
+  padding-top: 10px;
   background-color: rgb(165, 213, 255);
+  border: 1px solid rgb(162, 162, 199);
+  /* margin-top: 3px;; */
 }
 
 .backuser_nav_navlink span {
+  width: 130px;
+  height: 40px;
   margin-left: 10px;
   color: #555;
   text-align: center;

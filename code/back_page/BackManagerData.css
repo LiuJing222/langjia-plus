@@ -92,7 +92,7 @@
     background-color: rgb(255, 67, 67);
     border-radius: 20px;
     box-shadow: 3px 3px 3px rgba(205, 108, 108, 0.584);
-    position: absolute;
+    position: fixed;
     top: 30%;
     left: 40%;
 }

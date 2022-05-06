@@ -1,0 +1,56 @@
+.back_home_con {
+    width: 1200px;
+    height: auto;
+    margin-left: 250px;
+    position: relative;
+}
+
+.add_housetype_button {
+    position: absolute;
+    top: 10px;
+    right: 0px;
+}
+
+.back_home_list {
+    width: 1200px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.back_housetype_item {
+    width: 1200px;
+    height: 150px;
+    /* border: 1px solid red; */
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: rgb(250, 244, 255);
+    box-shadow: 3px 3px 3px rgb(255, 218, 255);
+
+}
+
+.back_housetype_item_id {
+    width: 100px;
+    height: 150px;
+    /* border: 1px solid red; */
+
+}
+
+.back_housetype_item_name {
+    width: 100px;
+    height: 150px;
+    /* border: 1px solid red; */
+
+}
+
+.back_housetype_item_2d {
+    width: 200px;
+    height: 150px;
+}
+
+.back_housetype_item_3d {
+    width: 300px;
+    height: 150px;
+}

@@ -10,6 +10,7 @@ import BackInsManage from './BackInsManage';
 import UserDesign from './UserDesign';
 import Furniture from './Furniture';
 import BackManagerData from './BackManagerData';
+import BackHouseType from './BackHouseType';
 const App = () => {
   return (
     <div>
@@ -25,6 +26,7 @@ const App = () => {
           <Route exact path="/backuser/design" component={UserDesign}></Route>
           <Route exact path="/backinsmanage" component={BackInsManage}></Route>
           <Route exact path="/backfurniture" component={Furniture}></Route>
+          <Route exact path="/backhousetype" component={BackHouseType}></Route>
           <Route exact path="/backmanagerdata" component={BackManagerData}></Route>
 
 
