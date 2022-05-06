@@ -2,7 +2,6 @@ import React from 'react'
 import "./BackLogin.css"
 import { useHistory } from 'react-router';
 import { Form, Input, Button, Checkbox } from 'antd';
-import { MailOutline, KeyOutline } from 'antd-mobile-icons'
 
 const BackLogin = () => {
   const history = useHistory();
