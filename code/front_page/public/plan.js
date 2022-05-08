@@ -14,6 +14,7 @@ if (document.getElementById('content2D')) {
     //canvas的宽度、高度
     ctx.canvas.width = innerWidth;
     ctx.canvas.height = innerHeight;
+    console.log('canvas')
 
     // 复制
     function saveData() {
@@ -49,6 +50,39 @@ if (document.getElementById('content2D')) {
             }
         }
         ctx.lineTo(currentPoint.x, currentPoint.y);
+        console.log(points);
+        if (points) {
+            for (var i = 1; i < points.length; i++) {
+                if (points[i - 1].x == points[i].x && points[i - 1].y == points[i].y) {
+                    i = i + 1;
+                }else{
+                var d = ((Math.sqrt((points[i].x - points[i - 1].x) * (points[i].x - points[i - 1].x) + (points[i].y - points[i - 1].y) * (points[i].y - points[i - 1].y)))/70).toFixed(2);
+                var x = (points[i].x + points[i - 1].x) / 2;
+                var y = (points[i].y + points[i - 1].y) / 2;
+                console.log(d, x, y)
+                ctx.font = "20px Arial";
+                ctx.fillText(d, x, y);
+                }
+
+            }
+            if(points.length == 1){
+                var d = ((Math.sqrt((currentPoint.x - points[points.length - 1].x) * (currentPoint.x- points[points.length - 1].x) + (currentPoint.y - points[points.length - 1].y) * (currentPoint.y - points[points.length - 1].y)))/70).toFixed(2);
+                var x = (currentPoint.x + points[points.length - 1].x) / 2;
+                var y = (currentPoint.y + points[points.length - 1].y) / 2;
+                ctx.font = "20px Arial";
+                ctx.fillText(d, x, y);
+            }else{
+                if(points[points.length - 1].x !== points[points.length - 2].x && points[points.length - 1].y !== points[points.length - 2].y){
+                    var d = ((Math.sqrt((currentPoint.x - points[points.length - 1].x) * (currentPoint.x- points[points.length - 1].x) + (currentPoint.y - points[points.length - 1].y) * (currentPoint.y - points[points.length - 1].y)))/70).toFixed(2); 
+                var x = (currentPoint.x + points[points.length - 1].x) / 2;
+                var y = (currentPoint.y + points[points.length - 1].y) / 2;
+                ctx.font = "20px Arial";
+                ctx.fillText(d, x, y);
+                }
+            }
+            
+            
+        }
         ctx.stroke();
     }
     // 当本地存储了户型点后画户型图
@@ -67,8 +101,24 @@ if (document.getElementById('content2D')) {
                 }
             }
 
+
             ctx.stroke();
         }
+
+        // for (var i = 1; i < pointerArray.length; i++) {
+        //     if (pointerArray[i - 1].x == pointerArray[i].x && pointerArray[i - 1].y == pointerArray[i].y) {
+        //         i = i + 1;
+        //     }else{
+        //         var d = ((Math.sqrt((pointerArray[i].x - pointerArray[i - 1].x) * (pointerArray[i].x - pointerArray[i - 1].x) + (pointerArray[i].y - pointerArray[i - 1].y) * (pointerArray[i].y - pointerArray[i - 1].y)))/70).toFixed(2);
+        //         var x = (pointerArray[i].x + pointerArray[i - 1].x) / 2;
+        //         var y = (pointerArray[i].y + pointerArray[i - 1].y) / 2;
+        //         console.log(d, x, y)
+        //         ctx.font = "20px Arial";
+        //         ctx.fillText(d, x, y);
+
+        //     }
+
+        // }
     }
     //本地存储了每次的线（双击结束就是一个数组） 用来实现页面转3d和回退后继续绘制2d图像 
     function drawShape3() {
@@ -92,6 +142,21 @@ if (document.getElementById('content2D')) {
             }
         }
         ctx.lineTo(currentPoint.x, currentPoint.y);
+        if (points) {
+            for (var i = 1; i < points.length; i++) {
+                if (points[i - 1].x == points[i].x && points[i - 1].y == points[i].y) {
+                    i = i + 1;
+                }else{
+                var d = ((Math.sqrt((points[i].x - points[i - 1].x) * (points[i].x - points[i - 1].x) + (points[i].y - points[i - 1].y) * (points[i].y - points[i - 1].y)))/70).toFixed(2);
+                var x = (points[i].x + points[i - 1].x) / 2;
+                var y = (points[i].y + points[i - 1].y) / 2;
+                console.log(d, x, y)
+                ctx.font = "20px Arial";
+                ctx.fillText(d, x, y);
+                }
+
+            }
+        }
         ctx.stroke();
 
     }
@@ -104,7 +169,6 @@ if (document.getElementById('content2D')) {
     //鼠标点击down的瞬间
     function onPointerDown(e) {
         var location = unifyCoordinates(e.clientX, e.clientY);
-        console.log(pointerArray);
         setPointerArray(location);
         currentPoint = location;
         points.push(currentPoint);
