@@ -3,14 +3,11 @@ import "./Slid.css"
 
 const Slid = () => {
 
-  const [wallHeight, setWallHeight] = useState(2)
   const [size, setSize] = useState(0)
   const [deg, setDeg] = useState(0)
   const [height, setHeight] = useState(0)
   useEffect(() => {
-    var wallHeightP = document.getElementById("create_wall_height_p")
-    wallHeightP.style.display = "block"
-
+  
     // -----------------------------------------缩放------------------------------------------
     var sizeCon = document.getElementById("create_sizebar_con")
     var sizeBg = document.getElementById("create_sizebar_bg")
@@ -112,23 +109,7 @@ const Slid = () => {
     })
 
   }, [])
-  // -============================================墙高==============================================
-  var wallHeightP = document.getElementById("create_wall_height_p")
-  const changeWallHeight = (e) => {
-    var v = e.target.value
-    if (v > 10) {
-      setWallHeight(10)
-      console.log(">10")
-      // wallHeightP.style.display = "block"
-    } else if (v < 0) {
-      setWallHeight(0)
-      // wallHeightP.style.display = "block"
-    } else {
-      setWallHeight(v)
-    }
-    wallHeightP.style.display = "none"
-  }
-
+ 
   // ===================================手动更改size数据=================================================
   var sizeDot = document.getElementById("create_sizebar_dot")
   var sizep = document.getElementById("create_sizebar_p")
@@ -208,16 +189,10 @@ const Slid = () => {
 
   //缩放数据:-2π ~ 2π
   console.log("size&&deg&&height", size, deg, height)
-  console.log("wallHeight", wallHeight)
 
   return (
     <div style={{ width: "300px" }}>
-      <div className="create_wall_height" >
-        <span className="create_wall_height_span" >墙高</span>
-        <input id="create_wall_height_input" value={wallHeight} onChange={(e) => { changeWallHeight(e) }} />
-        <span className="create_wall_height_per">米</span>
-        <p id="create_wall_height_p">墙高范围是0~10米</p>
-      </div>
+     
       <div className="create_processbar">
         <span>缩放</span>
         <div id="create_sizebar_con">
