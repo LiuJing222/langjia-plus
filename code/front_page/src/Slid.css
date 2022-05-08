@@ -1,7 +1,7 @@
 /* 进度条组件 */
 
 .create_wall_height {
-  width: auto;
+  width:300px ;
   height: 45px;
   padding-left: 5px;
   position: relative;
