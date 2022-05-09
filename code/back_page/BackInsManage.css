@@ -145,3 +145,36 @@
     top:0;
     left:0;
 }
+.ins_del_box{
+    width: 500px;
+    height: 300px;
+    background-color: #fff;
+    box-shadow: 1px 1px 5px rgb(169, 169, 169);
+    position: fixed;
+    top:20%;
+    left: 37%;
+}
+.ins_del_title{
+    margin-left: 40px;
+    margin-top: 60px;
+}
+.ins_del_desc{
+    margin-left: 40px;
+    font-size: 15px;
+}
+.ins_del_btns{
+    margin-top: 27%;
+    margin-left: 60%;
+}
+.ins_del_btn{
+    width: 80px;
+    height: 30px;
+    background-color: rgb(255, 108, 108);
+    box-shadow: 2px 2px 2px rgb(209, 70, 70);
+    border: 1px solid rgb(198, 43, 43);
+    border-radius: 10px;
+    margin-right: 10px;
+}
+.ins_del_btn:hover{
+    background-color: rgba(253, 180, 180, 0.7);
+}
