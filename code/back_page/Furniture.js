@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import BackLeftNav from './BackLeftNav'
+import axios from 'axios'
+import { useHistory } from 'react-router'
 import './Furniture.css'
 const Furniture = () => {
     const [fs, setFs] = useState([])
     const [delf, setDelf] = useState({})
+    const [addf,setAddf] = useState(false)
+    const history = useHistory();
+    const size = React.createRef();
+    const fileInput = React.createRef();
     useEffect(() => {
         fetch("https://api.qasdwer.xyz:2019/getDesignDatas")
             .then(res => res.json())
@@ -39,6 +45,34 @@ const Furniture = () => {
     const delFCancel = () => {
         setDelf({})
     }
+    const handleSubmit = (event) =>{
+        event.preventDefault();
+        if ((fileInput.current.files).length !== 3) {
+            alert('请检查上传文件数量！')
+            return;
+        }
+        let oFd = new FormData();
+        oFd.append('upfile0',fileInput.current.files[0]);
+        oFd.append('upfile1',fileInput.current.files[1]);
+        oFd.append('upfile2',fileInput.current.files[2]);
+        oFd.append('size',size.current.value)
+
+        axios.post('https://api.qasdwer.xyz:2019/addfurniture', oFd, {
+            headers: { 'content-type': 'text/plain;charset=utf-8' },
+            responseType: 'text'
+        }).then(dat => {
+            alert('上传成功！',dat);
+            window.location.reload()
+        }).catch(err=>{
+            alert('上传失败！',err)
+        })
+        // history.replace('/home/backFurniture')
+    }
+
+    const cancelUpload = ()=>{
+        setAddf(false)
+        history.replace('/backfurniture')
+    }
     return (
         <div className='back_furniture'>
             <div className='back_home_leftnav'>
@@ -46,6 +80,7 @@ const Furniture = () => {
             </div>
             <div className='back_furniture_con'>
                 <h3>家具素材</h3>
+                <div className='back_add_fbtn' onClick={()=>setAddf(true)}>新增家具</div>
                 <div className='back_f'>
                     <div className='back_f_id'>家具id</div>
                     <div>家具缩略图</div>
@@ -70,8 +105,35 @@ const Furniture = () => {
                         <button onClick={() => { delFCancel() }}>不删了</button>
                     </div>
                 </div>
-            </div>
-                : <div></div>}
+                </div>
+                : 
+                <div></div>
+            }
+            {
+                addf?
+                <div className='add_fur_mask'>
+                    <div className="add_fur_box">
+                    <form onSubmit={handleSubmit} className="add_fur_form">
+                        <h3 className="add_fur_tip">请完善上传家具的内容</h3>
+                        <label>
+                            <div className='add_fur_title'>初始大小</div>
+                            <input type="text" ref={size} className="add_fur_input_title"></input>
+                        </label>
+                        <label>
+                            <div className='add_fur_title'>上传obj,mtl及图片文件</div>
+                            <input type="file" accept='image/*' multiple ref={fileInput} className='add_fur_choose'></input>
+                        </label>
+                        <br />
+                        <div className="add_fur_btns">
+                            <button className="sub_btn" onClick={cancelUpload}>取消上传</button>
+                            <button type="submit" className="sub_btn">确认上传</button>
+                        </div>
+                    </form>
+                </div>
+                </div>
+                :
+                <div></div>
+            }
         </div >
     )
 }

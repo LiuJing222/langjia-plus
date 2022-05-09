@@ -9,6 +9,15 @@
     position: absolute;
     top: 10px;
     right: 0px;
+    width: 90px;
+    height: 35px;
+    border:none;
+    background-color: rgb(244, 206, 252);
+    border-radius: 20px;
+}
+.add_housetype_button:hover{
+    background-color: rgb(233, 159, 248);
+    color: #fff;
 }
 
 .back_home_list {
@@ -32,25 +41,146 @@
 }
 
 .back_housetype_item_id {
+    text-align: center;
     width: 100px;
     height: 150px;
-    /* border: 1px solid red; */
-
+    /* line-height: 150px; */
+    /* font-size: 20px; */
 }
 
 .back_housetype_item_name {
     width: 100px;
     height: 150px;
-    /* border: 1px solid red; */
-
+    text-align: center;
+    /* line-height: 150px; */
+    /* font-size: 13px; */
 }
 
 .back_housetype_item_2d {
     width: 200px;
     height: 150px;
+    text-align: center;
 }
 
 .back_housetype_item_3d {
     width: 300px;
     height: 150px;
+    text-align: center;
+}
+.back_housetype_item_del{
+    width: 200px;
+    height: 150px;
+    text-align: center;
+}
+.back_housetype_item_delbtn{
+    width: 80px;
+    height: 30px;
+    margin-top: 60px;
+    color: #fff;
+    background-color: rgb(255, 108, 108);
+    box-shadow: 2px 2px 2px rgb(209, 70, 70);
+    border: 1px solid rgb(198, 43, 43);
+}
+.back_housetype_item_delbtn:hover{
+    background-color: rgb(249, 197, 197);
+    color: black;
+}
+.back_addhouse_mask{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(241, 215, 247, 0.7);
+    position: fixed;
+    top:0;
+    left: 0;
+}
+.back_addhouse_con{
+    width: 550px;
+    height: 350px;
+    background-color: #fff;
+    box-shadow: 1px 1px 4px rgb(159, 158, 158);
+    position: fixed;
+    top:20%;
+    left: 37%;
+}
+.back_addhouse_con h3{
+    margin-left: 30px;
+}
+.add_housetype_title{
+    margin-left: 30px;
+}
+.add_housetype_title input{
+    margin-left: 10px;
+}
+.add_housetype_data{
+    margin-left: 30px;
+    margin-top: 20px;
+}
+.add_housetype_upimg{
+    margin-left: 30px;
+    margin-top: 20px;
+}
+.add_housetype_btns{
+    margin-left: 66%;
+    margin-top: 15px;
+}
+.add_housetype_sure{
+    width: 80px;
+    height: 30px;
+    margin-right: 5px;
+    border: none;
+    background-color: rgba(247, 228, 251, 0.7);
+}
+.add_housetype_sure:hover{
+    background-color: rgba(246, 212, 253, 0.7);
+}
+.add_housetype_cancel{
+    width: 80px;
+    height: 30px;
+    border: none;
+    background-color: rgba(247, 228, 251, 0.7);
+}
+.add_housetype_cancel:hover{
+    background-color: rgba(246, 212, 253, 0.7);
+}
+.del_housetype_mask{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 92, 92, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.del_housetype_box{
+    width: 350px;
+    height: 220px;
+    background-color: #fff;
+    position: fixed;
+    top:20%;
+    left: 37%;
+    box-shadow: 1px 1px 4px rgb(159, 158, 158);
+}
+.del_housetype_title{
+    margin-left: 30px;
+    margin-top: 30px;
+}
+.del_housetype_desc{
+    margin-left: 30px;
+    font-size: 15px;
+}
+.del_housetype_btns{
+    margin-left: 45%;
+    margin-top: 85px;
+}
+.del_housetype_btns button{
+    width: 80px;
+    height: 30px;
+    background-color: rgb(255, 108, 108);
+    box-shadow: 2px 2px 2px rgb(209, 70, 70);
+    border: 1px solid rgb(198, 43, 43);
+}
+.del_housetype_btns button:hover{
+    background-color: rgba(246, 212, 253, 0.7);
+}
+.del_housetype_cancelbtn{
+    margin-right: 10px;
 }
