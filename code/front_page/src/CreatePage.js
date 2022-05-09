@@ -4,21 +4,25 @@ import CreateHeader from './CreateHeader'
 import CreateContent from './CreateContent'
 import './CreatePage.css'
 import {LoadingOutlined} from '@ant-design/icons';
-import CreateRight from './CreateRight.js'
+
 import IntroJs from 'intro.js'
 import 'intro.js/introjs.css';
 
 const CreatePage = () => {
-    if (localStorage.getItem('tip') === 'false') {
-        localStorage.setItem('tip', true);
-        window.location.reload();
-    }
-    useEffect(()=>{
-        if(!localStorage.getItem('intro')){
+
+    
+    useEffect(async ()=>{
+if(!localStorage.getItem('intro')){
             IntroJs().start();
             localStorage.setItem('intro',true);
+
         }
     },[])
+    
+    // if (localStorage.getItem('tip') === 'false'&&localStorage.getItem('intro')) {
+    //     localStorage.setItem('tip', true);
+    //     window.location.reload();
+    // }
     return (
         <div>
             {/* {
@@ -42,7 +46,7 @@ const CreatePage = () => {
                             <div className='create_content'>
                                 <CreateSider></CreateSider> 
                                 <CreateContent></CreateContent>     
-                                <CreateRight></CreateRight>
+                                
                             </div>
                             
                         </div>

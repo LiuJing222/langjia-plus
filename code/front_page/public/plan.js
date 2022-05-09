@@ -12,7 +12,7 @@ if (document.getElementById('content2D')) {
     var imgData = null,
         dragging = false;
     //canvas的宽度、高度
-    ctx.canvas.width = innerWidth;
+    ctx.canvas.width = 1700;
     ctx.canvas.height = innerHeight;
     console.log('canvas')
 

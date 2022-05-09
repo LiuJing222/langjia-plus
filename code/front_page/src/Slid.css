@@ -1,8 +1,8 @@
 /* 进度条组件 */
 
 .create_wall_height {
-  width:300px ;
-  height: 45px;
+  width: auto;
+  height: 35px;
   padding-left: 5px;
   position: relative;
 }
@@ -56,7 +56,7 @@
   width: 35px;
   height: 20px;
   margin-top: 3px;
-  margin-left: -10px;
+  margin-left: 25px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
@@ -71,7 +71,7 @@
 
 
 #create_sizebar_con {
-  width: 190px;
+  width: 160px;
   height: 28px;
   border-radius: 5px;
   position: relative;
@@ -100,7 +100,7 @@
 
 /* scale */
 #create_scalebar_con {
-  width: 190px;
+  width: 160px;
   height: 28px;
   border-radius: 5px;
   position: relative;
@@ -129,7 +129,7 @@
 
 /* height */
 #create_heightbar_con {
-  width: 190px;
+  width: 160px;
   height: 28px;
   border-radius: 5px;
   position: relative;

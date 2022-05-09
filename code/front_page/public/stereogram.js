@@ -306,6 +306,8 @@ function stere() {
         const scaleCon = document.getElementById("create_scalebar_con");
         const scale = document.getElementById('create_scalebar_input');
         const height1 = document.getElementById('create_heightbar_input');
+        var heightCon = document.getElementById("create_heightbar_con")
+        var heightDot = document.getElementById("create_heightbar_dot")
         var raycaster = new THREE.Raycaster();
         var mouse = new THREE.Vector2();
         content.addEventListener('mousedown', onDocumentMouseDown, false);
@@ -316,6 +318,7 @@ function stere() {
             raycaster.setFromCamera(mouse, camera);
             var intersects = raycaster.intersectObjects(clickObjects);
             if (intersects.length > 0) {
+                localStorage.setItem('furnheight',(intersects[0].object.position.y/70).toFixed(2));
                 var a = intersects[0].object.scale.x;
                 var y = intersects[0].object.rotation.y;
                 sizeCon.addEventListener("mouseup", (e) => {
@@ -346,10 +349,19 @@ function stere() {
                     intersects[0].object.rotation.y = m;
                     changeFurn(intersects[0])
                 }
-                // height1.oninput = ()=>{
-                //     intersects[0].object.translateZ = height1.value;
-                //     changeFurn(intersects[0])
-                // }
+                heightCon.addEventListener('mouseup',(e)=>{
+                    // intersects[0].object.translateY(height1.value)
+                    console.log(intersects[0].object.position,height1.value);
+                    intersects[0].object.position.y = Number(height1.value*70);
+                    changeFurn(intersects[0])
+                })
+                height1.oninput = ()=>{
+                    console.log(111)
+                    console.log(intersects[0].object.position);
+                    intersects[0].object.position.y = 0;
+                    // intersects[0].object.translateY(height1.value)
+                    // changeFurn(intersects[0])
+                }
                 document.onkeydown = function (event) {
                     var e = event || window.event || arguments.callee.caller.arguments[0];
                     if (e && e.keyCode == 87) { // W键
@@ -397,10 +409,21 @@ function stere() {
         // 拖拽结束
         dragControls.addEventListener('dragend', function (event) {
             controls.enabled = true;
+            // localStorage.setItem('furnheight',(event.object.position.y/70).toFixed(2))
             changeFurn(event)
         });
         // 获取家具的位置
         function changeFurn(event) {
+            height1.value = (event.object.position.y/70).toFixed(2);
+            if((event.object.position.y/70).toFixed(2)<0){
+                heightDot.style.left = 0 + "px"
+            }else if((event.object.position.y/70).toFixed(2) > 10){
+                heightDot.style.left = 10 * 15 + "px"
+            }else{
+                heightDot.style.left = (event.object.position.y/70).toFixed(2) * 15 + "px"
+            }
+            
+            localStorage.setItem('furnheight',(event.object.position.y/70).toFixed(2));
             for (var i = 0; i < furniture.length; i++) {
                 if (event.object.name === furniture[i].furniture_id) {
                     furniture[i].position = event.object.position
