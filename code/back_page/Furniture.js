@@ -10,6 +10,10 @@ const Furniture = () => {
     const history = useHistory();
     const size = React.createRef();
     const fileInput = React.createRef();
+    const type = React.createRef();
+    const rotatex = React.createRef();
+    const rotatey = React.createRef();
+    const rotatez = React.createRef();
     useEffect(() => {
         fetch("https://api.qasdwer.xyz:2019/getDesignDatas")
             .then(res => res.json())
@@ -45,18 +49,29 @@ const Furniture = () => {
     const delFCancel = () => {
         setDelf({})
     }
+
+
     const handleSubmit = (event) =>{
         event.preventDefault();
         if ((fileInput.current.files).length !== 3) {
             alert('请检查上传文件数量！')
             return;
         }
+        
         let oFd = new FormData();
         oFd.append('upfile0',fileInput.current.files[0]);
         oFd.append('upfile1',fileInput.current.files[1]);
         oFd.append('upfile2',fileInput.current.files[2]);
-        oFd.append('size',size.current.value)
+        oFd.append('size',size.current.value);
+        oFd.append('type',type.current.value);
+        oFd.append('rotatex',rotatex.current.value);
+        oFd.append('rotatey',rotatey.current.value);
+        oFd.append('rotatez',rotatez.current.value);
+        for(var i of oFd){
+            console.log(i)
+        }
 
+        
         axios.post('https://api.qasdwer.xyz:2019/addfurniture', oFd, {
             headers: { 'content-type': 'text/plain;charset=utf-8' },
             responseType: 'text'
@@ -83,16 +98,19 @@ const Furniture = () => {
                 <div className='back_add_fbtn' onClick={()=>setAddf(true)}>新增家具</div>
                 <div className='back_f'>
                     <div className='back_f_id'>家具id</div>
+                    <div className='back_f_type'>家具类型</div>
                     <div>家具缩略图</div>
-                    <div>操作</div>
+                    <div>操作</div>  
                 </div>
                 {fs.map(f => {
                     return <div className='back_f'>
                         <div className='back_f_id'>{f.furniture_id}</div>
-                        <img src={"https://api.qasdwer.xyz:2019/getDesignDatas/image/" + f.imgname} />
-                        {/* <div>{f.size}</div> */}
-                        {/* <div>{f.rotate}</div> */}
-                        <button className='back_f_del' onClick={() => { delF(f) }}>移除</button>
+                        <div className='back_f_type'>{f.type}</div>
+                        <img src={"https://api.qasdwer.xyz:2019/getDesignDatas/image/" + f.imgname} style={{width:250,height:100,objectFit:'contain'}}/>               
+                        <div style={{width:250,height:100}}>
+                            <button className='back_f_del' onClick={() => { delF(f) }}>移除</button>
+                        </div>
+                        
                     </div>
                 })}
             </div>
@@ -118,6 +136,20 @@ const Furniture = () => {
                         <label>
                             <div className='add_fur_title'>初始大小</div>
                             <input type="text" ref={size} className="add_fur_input_title"></input>
+                        </label>
+                        <label>
+                            <div>家具类型</div>
+                            <input type="text" ref={type}/>
+                        </label>
+                        <label>
+                            <div>旋转角</div>
+                            <div>
+                                <span>x轴</span><input type="text" ref={rotatex}/>
+                                <br />
+                                <span>y轴</span><input type="text" ref={rotatey}/>
+                                <br />
+                                <span>z轴</span><input type="text" ref={rotatez}/>
+                            </div>
                         </label>
                         <label>
                             <div className='add_fur_title'>上传obj,mtl及图片文件</div>

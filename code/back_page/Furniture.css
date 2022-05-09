@@ -17,6 +17,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    
 }
 .back_add_fbtn{
     /* float: left; */
@@ -38,6 +39,8 @@
 }
 
 .back_f div{
+    width: 250px;
+    text-align: center;
     line-height: 100px;
     font-size: 14px;
 }
@@ -61,10 +64,11 @@
 .del_fur_mask {
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: fixed;
     top: 0px;
     left: 0px;
     background-color: rgba(255, 142, 142, 0.507);
+
 }
 
 .del_fur_confirm {
@@ -106,7 +110,7 @@
     background-color: #fff;
 }
 .del_fur_btns button:nth-child(1):hover{
-    background-color: rgb(204, 30, 30);
+    background-color: rgb(221, 50, 50);
     color: #fff;
     box-shadow: 2px 2px 2px rgb(205, 34, 34);
 }
@@ -126,7 +130,7 @@
 }
 .add_fur_box{
     width: 500px;
-    height: 300px;
+    height: 400px;
     background-color: #fff;
     box-shadow: 1px 1px 4px rgb(156, 155, 155);
     position: fixed;
@@ -153,7 +157,7 @@
 }
 .add_fur_btns{
     margin-left: 58%;
-    margin-top: 17%;
+    margin-top: 14%;
 }
 .sub_btn{
     width: 80px;

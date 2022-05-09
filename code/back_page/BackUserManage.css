@@ -1,116 +1,122 @@
 .back_user_manage {
-    display: flex;
-  }
-  
-  .back_user_manage_con {
-    width: 1200px;
-    height: auto;
-    margin-left: 250px;
-  }
-  
-  .user_manage_user {
-    width: 1200px;
-    height: 60px;
-    border-radius: 10px;
-    box-shadow: 3px 2px 2px rgb(214, 230, 245);
-    margin-top: 10px;
-    background-color: aliceblue;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-  
-  }
-  
-  .user_manage_user_protrait {
-    width: 50px;
-    height: 50px;
-    border-radius: 25px;
-    margin-top: 5px;
-  }
-  
-  .user_manage_user_title_portrait {
-    width: 50px;
-    height: 50px;
-    line-height: 60px;
-  }
-  
-  .user_manage_user__title_remove {
-    width: 50px;
-    height: 50px;
-    line-height: 60px;
-  }
-  
-  .user_manage_user_name {
-    width: 130px;
-    height: 50px;
-    line-height: 60px;
-  }
-  
-  .user_manage_user_email {
-    width: 200px;
-    height: 50px;
-    line-height: 60px;
-  }
-  
-  .user_manage_user_remove {
-    display: inline-block;
-    width: 100px;
-    height: 30px;
-    margin-top: 15px;
-    background-color: rgb(255, 130, 130);
-    border: 1px solid rgb(241, 218, 218);
-    border-radius: 20px;
-    color: #000;
-    font-weight: bold;
-  }
-  
-  .user_manage_user_remove:hover {
-    box-shadow: 1px 4px 2px red;
-    background-color: rgb(255, 62, 62);
-    color:#fff;
-  }
-  
-  .isDel_mask {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 92, 92, 0.4);
-    position: absolute;
-  }
-  
-  .isDel_con {
-    width: 400px;
-    height: 220px;
-    color:#fff;
-    border-radius: 20px;
-    background-color: rgb(199, 88, 88);
-    box-shadow: 5px 5px 5px rgb(255, 139, 115);
-    position: fixed;
-    top: 24%;
-    left: 40%;
-  }
-  
-  .isDel_con_confirm {
-    position: absolute;
-    top: 50px;
-    left: 40px
-  }
-  
-  .isDel_con_btns {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-  }
-  
-  .isDel_con_btns button {
-    width: 80px;
-    height: 30px;
-    margin-left:10px;
-    background-color: rgb(255, 255, 255);
-    border: 1px solid #eee;
-    border-radius: 20px;
-  }
+  display: flex;
+}
 
-  .isDel_con_btns button:nth-child(1):hover{
-    background-color: rgb(200, 36, 36);
-    color: #fff;
-  }
+.back_user_manage_con {
+  width: 1200px;
+  height: auto;
+  margin-left: 250px;
+}
+
+.user_manage_user {
+  width: 1200px;
+  height: 60px;
+  border-radius: 10px;
+  box-shadow: 3px 2px 2px rgb(246, 251, 255);
+  margin-top: 10px;
+  background-color: rgb(229, 243, 255);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+}
+
+.user_manage_user_protrait {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  margin-top: 5px;
+}
+
+.user_manage_user_title_portrait {
+  width: 50px;
+  height: 50px;
+  line-height: 60px;
+}
+
+.user_manage_user__title_remove {
+  width: 50px;
+  height: 50px;
+  line-height: 60px;
+}
+
+.user_manage_user_name {
+  width: 130px;
+  height: 50px;
+  line-height: 60px;
+}
+
+.user_manage_user_email {
+  width: 200px;
+  height: 50px;
+  line-height: 60px;
+}
+
+.user_manage_user_remove {
+  display: inline-block;
+  width: 90px;
+  height: 30px;
+  margin-top: 15px;
+  background-color: rgb(255, 169, 169);
+  border: none;
+  border-radius: 20px;
+  color: #000;
+  font-weight: bold;
+}
+
+.user_manage_user_remove:hover {
+  box-shadow: 1px 4px 2px rgb(255, 156, 156);
+  background-color: rgb(255, 91, 91);
+  color: #fff;
+}
+
+.isDel_mask {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 190, 190, 0.4);
+  position: fixed;
+}
+
+.isDel_con {
+  width: 400px;
+  height: 220px;
+  color: #fff;
+  border-radius: 20px;
+  background-color: #e75757;
+  box-shadow: 5px 5px 5px rgb(234, 86, 86);
+  position: fixed;
+  top: 24%;
+  left: 40%;
+}
+
+.isDel_con_confirm {
+  position: absolute;
+  top: 50px;
+  left: 40px
+}
+
+.isDel_con_btns {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+.isDel_con_btns button {
+  width: 70px;
+  height: 30px;
+  margin-left: 10px;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 10px;
+}
+
+.isDel_con_btns button:nth-child(1):hover {
+  background-color: rgb(228, 65, 65);
+  border: red;
+  color: #fff;
+}
+.isDel_con_btns button:nth-child(2):hover {
+  background-color: rgb(255, 203, 203);
+  border: red;
+  color: #fff;
+}

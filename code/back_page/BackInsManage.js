@@ -105,7 +105,7 @@ const BackInsManage = () => {
                 <h3>灵感管理</h3>
                 <div className='add_ins_button' onClick={() => pushIns()}>添加灵感</div>
                 <div className='back_ins_con'>
-                    <div className='ins_con'>
+                    <div className='ins_con' style={{marginTop:30}}>
                         <div className='ins_con_id' style={{ fontWeight: "bold" }}>灵感id</div>
                         <div className='ins_con_owner' style={{ fontWeight: "bold" }}>灵感发布者</div>
                         <div className='ins_con_title' style={{ fontWeight: "bold" }}>灵感标题</div>
@@ -114,7 +114,7 @@ const BackInsManage = () => {
                         <div className='ins_con_op' style={{ fontWeight: "bold" }}>操作</div>
                     </div>
                     {inss[0] ? inss.map(token => {
-                        return <div className='ins_con'>
+                        return <div className='ins_con' key={token.inspire_id}>
                             <div className='ins_con_id'>{token.inspire_id}</div>
                             <div className='ins_con_owner'>{token.user_id}</div>
                             <div className='ins_con_title'>{token.title}</div>

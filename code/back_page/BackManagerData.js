@@ -140,7 +140,9 @@ const BackManagerData = () => {
                     delM.admin_email ?
                         <div className='delM_confirm_mask'>
                             <div className='delM_confirm_con'>
-                                <p>确定删除管理员<br />管理员：{delM.admin_name}<br />邮箱：{delM.admin_email}吗？</p>
+                                <h3>确定删除管理员</h3>
+                                <div className='delM_confirm_detail'>管理员：{delM.admin_name}</div>
+                                <div className='delM_confirm_detail'>邮箱：{delM.admin_email}吗？</div>
                                 <div className='delM_btns'>
                                     <button onClick={() => { delMSure(delM.admin_email) }}>删！</button>
                                     <button onClick={() => { delMCancel() }}>算了！</button>
@@ -153,14 +155,14 @@ const BackManagerData = () => {
                 {addM ?
                     <div className='addAdmin_mask'>
                         <div className='addAdmin_con'>
-                            <div className='addAdmin_con_input'>邮箱：<input id="addMEmail" placeholder='请输入邮箱' /></div>
-                            <div className='addAdmin_con_input'>名字：<input id="addMName" placeholder='请输入名字' /></div>
-                            <div className='addAdmin_con_input'>密码：<input id="addMPsd" placeholder='请输入密码' /></div>
-                            <div className='addAdmin_con_input'>电话：<input id="addMPhone" placeholder='请输入电话' /></div>
-                            <div className='addAdmin_con_input'>职位：<input id="addMJob" placeholder='请输入职位' /></div>
+                            <div className='addAdmin_con_input'>邮箱：<input className='addAdmin_con_innerinput' id="addMEmail" placeholder='请输入邮箱' /></div>
+                            <div className='addAdmin_con_input'>名字：<input className='addAdmin_con_innerinput' id="addMName" placeholder='请输入名字' /></div>
+                            <div className='addAdmin_con_input'>密码：<input className='addAdmin_con_innerinput' id="addMPsd" placeholder='请输入密码' /></div>
+                            <div className='addAdmin_con_input'>电话：<input className='addAdmin_con_innerinput' id="addMPhone" placeholder='请输入电话' /></div>
+                            <div className='addAdmin_con_input'>职位：<input className='addAdmin_con_innerinput' id="addMJob" placeholder='请输入职位' /></div>
                             <div className='adAdmin_btns'>
-                                <button onClick={() => addMSure()}>添加</button>
-                                <button onClick={() => addMCancel()}>取消</button>
+                                <button className='adAdmin_btn' onClick={() => addMSure()}>添加</button>
+                                <button className='adAdmin_btn' onClick={() => addMCancel()}>取消</button>
                             </div>
                         </div>
                     </div> :
@@ -168,14 +170,15 @@ const BackManagerData = () => {
                 {changeM ?
                     <div className='changeAdmin_mask'>
                         <div className='changeAdmin_con'>
-                            <div className='addAdmin_con_input'>你要修改的管理员为：{changeM}</div>
-                            <div className='addAdmin_con_input'>名字：<input id="addMName" placeholder='请输入名字' /></div>
-                            <div className='addAdmin_con_input'>密码：<input id="addMPsd" placeholder='请输入密码' /></div>
-                            <div className='addAdmin_con_input'>电话：<input id="addMPhone" placeholder='请输入电话' /></div>
-                            <div className='addAdmin_con_input'>职位：<input id="addMJob" placeholder='请输入职位' /></div>
-                            <div className='adAdmin_btns'>
-                                <button onClick={() => changeMSure()}>确认修改信息</button>
-                                <button onClick={() => changeMCancel()}>取消</button>
+                            <h3 className='changeAdmin_con_input'>您要修改的管理员为：{changeM}</h3>
+                            <div className='changeAdmin_con_input'>名字：<input className='changeAdmin_con_innerinput' id="addMName" placeholder='请输入名字' /></div>
+                            <div className='changeAdmin_con_input'>密码：<input className='changeAdmin_con_innerinput' id="addMPsd" placeholder='请输入密码' /></div>
+                            <div className='changeAdmin_con_input'>电话：<input className='changeAdmin_con_innerinput' id="addMPhone" placeholder='请输入电话' /></div>
+                            <div className='changeAdmin_con_input'>职位：<input className='changeAdmin_con_innerinput' id="addMJob" placeholder='请输入职位' /></div>
+                            <div className='changeAdmin_btns'>
+                                <button className='changeAdmin_btn' onClick={() => changeMSure()}>确认修改信息</button>
+                                <br />
+                                <button className='changeAdmin_btn' onClick={() => changeMCancel()}>取消</button>
                             </div>
                         </div>
                     </div> :

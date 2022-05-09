@@ -57,7 +57,7 @@ const BackUserManage = () => {
             </div>
             <div className='back_user_manage_con'>
                 <h3>用户管理</h3>
-                <div className='user_manage_user'>
+                <div className='user_manage_user' style={{ fontWeight: "bold" }}>
                     <div className='user_manage_user_title_portrait'>头像</div>
                     <div className='user_manage_user_name' >昵称</div>
                     <div className='user_manage_user_email' >邮箱</div>
@@ -68,7 +68,7 @@ const BackUserManage = () => {
                         var userName = token.user_name;
                         var userPortrait = token.user_head_portrait;
                         var userEmail = token.user_id;
-                        return <div className='user_manage_user'>
+                        return <div className='user_manage_user' key={userEmail}>
                             <img className='user_manage_user_protrait' src={userPortrait ? 'https://api.qasdwer.xyz:2019/headPortrait/' + userPortrait : defaultimg} alt="头像"></img>
                             <div className='user_manage_user_name' >{userName}</div>
                             <div className='user_manage_user_email' >{userEmail}</div>

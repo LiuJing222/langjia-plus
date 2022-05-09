@@ -12,12 +12,13 @@
 
 .add_ins_button {
     width: 100px;
-    height: 30px;
-    border-radius: 20px;
+    height: 32px;
+    border-radius: 15px;
     text-align: center;
+    line-height: 32px;
     font-size: 14px;
-    padding-top: 3px;
     background-color: rgb(146, 203, 4);
+    box-shadow: 2px 2px 2px rgb(128, 174, 13);
     position: absolute;
     right: 0;
     top: 0;
