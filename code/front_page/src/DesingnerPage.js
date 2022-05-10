@@ -56,7 +56,7 @@ const DesingnerPage = (props) => {
     }
     var count = 0;
     const addIns = () => {
-        document.getElementsByClassName('designer_page_addIns_outside')[0].style.display = 'inline-block';
+        document.getElementsByClassName('designer_page_addIns_outside')[0].style.display = 'block';
     }
     const delIns = (id, name) => {
         var isdel = window.confirm(`确定删除灵感 ${name} 吗？`);
@@ -74,7 +74,7 @@ const DesingnerPage = (props) => {
         document.getElementsByClassName('designer_detail_design_num1')[0].style.color = '#448CEF';
         document.getElementsByClassName('designer_detail_design_title2')[0].style.color = '#fff';
         document.getElementsByClassName('designer_detail_design_num2')[0].style.color = '#fff';
-        document.getElementsByClassName('designer_detail_design_content')[0].style.display = 'inline-block';
+        document.getElementsByClassName('designer_detail_design_content')[0].style.display = 'block';
         document.getElementsByClassName('designer_detail_ins_content')[0].style.display = 'none';
     }
     const toIns = () => {
@@ -83,7 +83,7 @@ const DesingnerPage = (props) => {
         document.getElementsByClassName('designer_detail_design_title1')[0].style.color = '#fff';
         document.getElementsByClassName('designer_detail_design_num1')[0].style.color = '#fff';
         document.getElementsByClassName('designer_detail_design_content')[0].style.display = 'none';
-        document.getElementsByClassName('designer_detail_ins_content')[0].style.display = 'inline-block';
+        document.getElementsByClassName('designer_detail_ins_content')[0].style.display = 'block';
     }
     return (
         <div className='designer_box' style={{ height: h }}>
