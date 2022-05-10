@@ -2,8 +2,8 @@
 
 **HTML5与移动互联网开发方向**
 
-本仓库为《朗家》2.0版本；
-如想查看《朗家》1.0版本，请移步https://gitee.com/liu-jing222/langJia；
+本仓库为《朗家》2.0.0版本；
+如想查看《朗家》1.0.0版本，请移步https://gitee.com/liu-jing222/langJia；
 
 **项目介绍：**
 
