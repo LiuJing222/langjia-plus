@@ -131,12 +131,22 @@
     width: 800px;
     height: auto;
     border-radius:20px;
-    background-color: rgb(232,241,56);
+    background-color: rgb(170, 176, 41);
     color: #fff;
     padding:20px;
     position: fixed;
     top: 20%;
     left:30%;
+}
+.ins_detail_con p{
+    margin-left: 30px;
+}
+.ins_detail_con img{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top:10px;
+    right:20px;
 }
 .back_addIns{
     width:100%;
@@ -145,6 +155,14 @@
     position: fixed;
     top:0;
     left:0;
+}
+.ins_del_mask{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(249, 176, 176, 0.7);
+    position: fixed;
+    top:0;
+    left: 0;
 }
 .ins_del_box{
     width: 500px;

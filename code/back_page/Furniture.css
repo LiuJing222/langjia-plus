@@ -138,7 +138,7 @@
     left: 37%;
 }
 .add_fur_form{
-    margin-left: 30px;
+    margin-left: 40px;
     margin-top: 20px;
 }
 .add_fur_title{
@@ -151,13 +151,18 @@
     height: 23px;
     margin-top: 10px;
 }
+.add_fur_rotate_input{
+    width: 200px;
+    height: 23px;
+    margin-top: 5px;
+}
 .add_fur_choose{
     margin-top: 10px;
     
 }
 .add_fur_btns{
-    margin-left: 58%;
-    margin-top: 14%;
+    margin-left: 55%;
+    margin-top: 2%;
 }
 .sub_btn{
     width: 80px;

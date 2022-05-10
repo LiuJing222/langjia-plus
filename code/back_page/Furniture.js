@@ -138,17 +138,17 @@ const Furniture = () => {
                             <input type="text" ref={size} className="add_fur_input_title"></input>
                         </label>
                         <label>
-                            <div>家具类型</div>
+                            <div className='add_fur_title'>家具类型</div>
                             <input type="text" ref={type}/>
                         </label>
                         <label>
-                            <div>旋转角</div>
+                            <div className='add_fur_title'>旋转角</div>
                             <div>
-                                <span>x轴</span><input type="text" ref={rotatex}/>
+                                <span>x轴</span><input type="text" ref={rotatex} className="add_fur_rotate_input"/>
                                 <br />
-                                <span>y轴</span><input type="text" ref={rotatey}/>
+                                <span>y轴</span><input type="text" ref={rotatey} className="add_fur_rotate_input"/>
                                 <br />
-                                <span>z轴</span><input type="text" ref={rotatez}/>
+                                <span>z轴</span><input type="text" ref={rotatez} className="add_fur_rotate_input"/>
                             </div>
                         </label>
                         <label>

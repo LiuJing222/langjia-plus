@@ -130,6 +130,11 @@ const BackInsManage = () => {
                     {insDetail.inspire_id ?
                         <div className='ins_detail_mask'>
                             <div className='ins_detail_con'>
+                                {/* <button onClick={() => setInsDetail({})}>关闭</button> */}
+                                <div onClick={() => setInsDetail({})}>
+                                    <img src={returnicon} alt="close"/>
+                                </div>
+                                
                                 <p>{insDetail.inspire_id}</p>
                                 <p>{insDetail.title}</p>
                                 <p>{insDetail.create}</p>
@@ -138,7 +143,7 @@ const BackInsManage = () => {
                                 <p>{insDetail.area}</p>
                                 <p>{insDetail.message}</p>
                                 <p>{insDetail.vedio}</p>
-                                <button onClick={() => setInsDetail({})}>关闭</button>
+                                {/* <button onClick={() => setInsDetail({})}>关闭</button> */}
                             </div>
                         </div>
                         : <div></div>}
