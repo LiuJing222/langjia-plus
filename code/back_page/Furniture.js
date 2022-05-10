@@ -5,7 +5,7 @@ import { useHistory } from 'react-router'
 import './Furniture.css'
 const Furniture = () => {
     const [fs, setFs] = useState([])
-    const [delf, setDelf] = useState({})
+    const [delf, setDelf] = useState('')
     const [addf,setAddf] = useState(false)
     const history = useHistory();
     const size = React.createRef();
@@ -23,13 +23,13 @@ const Furniture = () => {
             })
     }, [])
     // ==========================删除家具============================
-    const delF = (f) => {
-        setDelf(f)
-        console.log(f)
+    const delF = (id) => {
+        setDelf(id)
+        console.log(id)
     }
 
-    const delFSure = (id) => {
-        fetch('https://api.qasdwer.xyz:2019/delfurniture/' + id, {
+    const delFSure = () => {
+        fetch('https://api.qasdwer.xyz:2019/delfurniture/' + delf, {
             method: 'DELETE',
             headers: {
                 "content-type": "application/json;charset=utf-8;"
@@ -44,10 +44,10 @@ const Furniture = () => {
             }).catch(err => {
                 alert('删除失败！', err);
             })
-        setDelf({})
+        setDelf('')
     }
     const delFCancel = () => {
-        setDelf({})
+        setDelf('')
     }
 
 
@@ -97,10 +97,10 @@ const Furniture = () => {
                 <h3>家具素材</h3>
                 <div className='back_add_fbtn' onClick={()=>setAddf(true)}>新增家具</div>
                 <div className='back_f'>
-                    <div className='back_f_id'>家具id</div>
-                    <div className='back_f_type'>家具类型</div>
-                    <div>家具缩略图</div>
-                    <div>操作</div>  
+                    <div className='back_f_id' style={{fontWeight:600}}>家具id</div>
+                    <div className='back_f_type' style={{fontWeight:600}}>家具类型</div>
+                    <div style={{fontWeight:600}}>家具缩略图</div>
+                    <div style={{fontWeight:600}}>操作</div>  
                 </div>
                 {fs.map(f => {
                     return <div className='back_f'>
@@ -108,19 +108,19 @@ const Furniture = () => {
                         <div className='back_f_type'>{f.type}</div>
                         <img src={"https://api.qasdwer.xyz:2019/getDesignDatas/image/" + f.imgname} style={{width:250,height:100,objectFit:'contain'}}/>               
                         <div style={{width:250,height:100}}>
-                            <button className='back_f_del' onClick={() => { delF(f) }}>移除</button>
+                            <button className='back_f_del' onClick={() => delF(f.furniture_id) }>移除</button>
                         </div>
                         
                     </div>
                 })}
             </div>
-            {delf.furniture_id ? <div className='del_fur_mask'>
+            {delf ? <div className='del_fur_mask'>
                 <div className='del_fur_confirm'>
                     <div className='del_text'>确定删除家具{delf.furniture_id}吗？</div>
                     <img src={"https://api.qasdwer.xyz:2019/getDesignDatas/image/" + delf.imgname} />
                     <div className='del_fur_btns'>
-                        <button onClick={() => { delFSure(delf.furniture_id) }}>确定删除</button>
-                        <button onClick={() => { delFCancel() }}>不删了</button>
+                        <button onClick={() => delFSure() }>确定删除</button>
+                        <button onClick={() => delFCancel() }>不删了</button>
                     </div>
                 </div>
                 </div>

@@ -80,11 +80,11 @@ const BackHouseType = () => {
                 <button className='add_housetype_button' onClick={() => addHouse()}>新增户型</button>
                 <div className='back_home_list'>
                     <div className='back_housetype_item' style={{ height: 60 }}>
-                        <div className='back_housetype_item_id' style={{ paddingTop: 20}}>户型id</div>
-                        <div className='back_housetype_item_name' style={{ paddingTop: 20}}>户型名称</div>
-                        <div className='back_housetype_item_2d' style={{ paddingTop: 20 }}>户型2D图</div>
-                        <div className='back_housetype_item_3d' style={{ paddingTop: 20 }}>户型3D图</div>
-                        <div className='back_housetype_item_del' style={{ paddingTop: 20 }}>操作</div>
+                        <div className='back_housetype_item_id' style={{ paddingTop: 20,fontWeight:600}}>户型id</div>
+                        <div className='back_housetype_item_name' style={{ paddingTop: 20,fontWeight:600}}>户型名称</div>
+                        <div className='back_housetype_item_2d' style={{ paddingTop: 20,fontWeight:600 }}>户型2D图</div>
+                        <div className='back_housetype_item_3d' style={{ paddingTop: 20 ,fontWeight:600}}>户型3D图</div>
+                        <div className='back_housetype_item_del' style={{ paddingTop: 20 ,fontWeight:600}}>操作</div>
                     </div>
                     {houseList[0] ? houseList.map(token => {
                         return <div className='back_housetype_item' >
