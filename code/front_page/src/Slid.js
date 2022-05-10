@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Slid.css"
+import d from './images/furn_default.gif'
 
 const Slid = () => {
 
@@ -11,6 +12,8 @@ const Slid = () => {
     
   // }, [])
   useEffect(() => {
+    localStorage.removeItem('furnheight')
+    setHeight(0);
     var wallHeightP = document.getElementById("create_wall_height_p")
     wallHeightP.style.display = "block"
 
@@ -97,8 +100,14 @@ const Slid = () => {
     var heightBg = document.getElementById("create_heightbar_bg")
     var heightDot = document.getElementById("create_heightbar_dot")
     var heightp = document.getElementById("create_heightbar_p")
+    if(height<0){
+      heightDot.style.left = 0 * 15 + "px"
+    }else if(height>10){
+      heightDot.style.left = 10 * 15 + "px"
+    }else{
+      heightDot.style.left = height * 15 + "px"
+    }
     
-    heightDot.style.left = height * 15 + "px"
     heightp.style.display = "none"
     heightCon.addEventListener("mouseup", (e) => {
       // console.log("sizeBg.getBoundingClientRect().left", sizeBg.getBoundingClientRect().left)
@@ -228,11 +237,20 @@ const Slid = () => {
 
   return (
     <div style={{ width: "300px" }}>
+      <h3 className="house_intro">户型信息</h3>
       <div className="create_wall_height" >
         <span className="create_wall_height_span" >墙高</span>
         <input id="create_wall_height_input" value={wallHeight} onChange={(e) => { changeWallHeight(e) }} />
         <span className="create_wall_height_per">米</span>
         <p id="create_wall_height_p">墙高范围是0~10米</p>
+      </div>
+      <div className="furn_intro">
+        <h3>家具信息</h3>
+        <div className="furn_name">
+            <img id="furn_img" src={d} alt="" />
+            <span>家具名称</span>
+            <span id="furnName"></span>
+        </div>
       </div>
       <div className="create_processbar">
         <span>缩放</span>

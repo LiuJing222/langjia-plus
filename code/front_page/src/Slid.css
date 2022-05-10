@@ -44,6 +44,7 @@
   display: flex;
   justify-items: center;
   position: relative;
+  margin-top: 6px;
 }
 
 .create_processbar span {
@@ -72,7 +73,7 @@
 
 #create_sizebar_con {
   width: 160px;
-  height: 28px;
+  height: 10px;
   border-radius: 5px;
   position: relative;
 }
@@ -154,4 +155,37 @@
   background-color: rgb(68, 140, 239);
   position: absolute;
   top: -2px;
+}
+.furn_intro{
+  margin-top: 10px;
+  padding-left: 10px;
+  height: 110px;
+}
+.furn_name{
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-left: 5px;
+}
+#furnName{
+  width: 60px;
+  height: 23px;
+  border: 1px solid #ccc;
+  display: inline-block;
+  margin-left: 8px;
+  text-align: center;
+  line-height: 23px;
+  border-radius: 5px;
+  background-color: white;
+
+
+}
+#furn_img{
+  width:70px;
+  height: 70px;
+  margin-right: 20px;
+}
+.house_intro{
+  padding-left: 10px;
+  margin-bottom: 5px;
 }
