@@ -1,3 +1,4 @@
+
 function stere() {
     if (document.getElementById('content3D') && localStorage.getItem('points')) {
         var content = document.getElementById('content3D');
@@ -38,11 +39,11 @@ function stere() {
         var group = new THREE.Group();
 
         /*---------------------------------------------绘制点并拉伸成墙体----------------------------------------------*/
-   
+
         var inp = document.getElementById('create_wall_height_input');
-        inp.oninput = (e)=>{
+        inp.oninput = (e) => {
             const n = group.children.length;
-            for(var i=0;i<n;i++){
+            for (var i = 0; i < n; i++) {
                 group.remove(group.children[0]);
             }
             for (var i = 1; i < allPoints.length; i++) {
@@ -55,7 +56,7 @@ function stere() {
                     shape.lineTo(allPoints[i].x - 20, allPoints[i].y - 20);
                     shape.lineTo(allPoints[i - 1].x - 20, allPoints[i - 1].y - 20);
                     shape.moveTo(allPoints[i - 1].x, allPoints[i - 1].y);
-    
+
                     // var curve = new THREE.SplineCurve3([
                     //     new THREE.Vector3(X, YallPoints[0].y,0 ),
                     //     new THREE.Vector3(X, allPoints[0].y,200 )
@@ -65,30 +66,30 @@ function stere() {
                         shape,//二维轮廓
                         //拉伸参数
                         {
-                            amount: e.target.value*70,
+                            amount: e.target.value * 70,
                             bevelEnabled: false,//无倒角
                             steps: 50,//扫描方向细分数
-    
+
                         }
                     );
-                    
-    
+
+
                     var material = new THREE.MeshBasicMaterial({
                         color: 0xf4f4f4,
                         overdraw: true,
                         // size: 5.0,//点对象像素尺寸
                         side: THREE.BackSide
                     });//材质对象
-    
+
                     var mesh = new THREE.Mesh(geometry, material);//点模型对象
                     mesh.translateX(-X);
                     mesh.translateZ(-Y);
-                    mesh.translateY(e.target.value*70);
+                    mesh.translateY(e.target.value * 70);
                     mesh.rotation.x = Math.PI / 2;
                     group.add(mesh)
-    
+
                 }
-    
+
             }
         }
         for (var i = 1; i < allPoints.length; i++) {
@@ -111,13 +112,13 @@ function stere() {
                     shape,//二维轮廓
                     //拉伸参数
                     {
-                        amount: localStorage.getItem('wallHeight')*70,
+                        amount: localStorage.getItem('wallHeight') * 70,
                         bevelEnabled: false,//无倒角
                         steps: 50,//扫描方向细分数
 
                     }
                 );
-                
+
 
                 var material = new THREE.MeshBasicMaterial({
                     color: 0xf4f4f4,
@@ -129,7 +130,7 @@ function stere() {
                 var mesh = new THREE.Mesh(geometry, material);//点模型对象
                 mesh.translateX(-X);
                 mesh.translateZ(-Y);
-                mesh.translateY(localStorage.getItem('wallHeight')*70);
+                mesh.translateY(localStorage.getItem('wallHeight') * 70);
                 mesh.rotation.x = Math.PI / 2;
                 group.add(mesh)
 
@@ -214,11 +215,16 @@ function stere() {
         var height = window.innerHeight; //窗口高度
         var k = width / height; //窗口宽高比
         var s = 700; //三维场景显示范围控制系数，系数越大，显示的范围越大
+        var s2 = 900;
 
         //相机
         var camera = new THREE.OrthographicCamera(-s * k, s * k, s, -s, 1, 3000);
         camera.position.set(700, 400, 700); //设置相机位置
         camera.lookAt(scene.position); //设置相机方向(指向的场景对象)
+
+        var camera2 = new THREE.OrthographicCamera(-s2 * k * 1 / 3, s2 * k * 2 / 5, s2, -s2 / 2, 1, 3000);
+        camera2.position.set(300, 600, 1200); //设置相机位置
+
 
         //渲染
         var renderer = new THREE.WebGLRenderer();
@@ -228,6 +234,13 @@ function stere() {
         renderer.domElement.id = "container";
         renderer.render(scene, camera);
 
+        var renderer2 = new THREE.WebGLRenderer();
+        renderer2.setSize(270, 270); //设置渲染区域尺寸
+        renderer2.setClearColor(0xffffff, 1); //设置背景颜色
+        document.getElementById('copyid').appendChild(renderer2.domElement);
+        renderer2.domElement.id = "container2";
+        renderer2.render(scene, camera2);
+
         //三维坐标轴
         // var axisHelper1 = new THREE.AxisHelper(700);
         // scene.add(axisHelper1);
@@ -235,10 +248,178 @@ function stere() {
         //鼠标拖转
         function render() {
             renderer.render(scene, camera); //执行渲染操作
+            renderer2.render(scene, camera2);
             requestAnimationFrame(render); //请求再次执行渲染函数render
         }
         render();
         var controls = new THREE.OrbitControls(camera, renderer.domElement); //创建控件对象
+
+
+        /*------------------------------- */
+
+        var range = document.getElementById('range');
+        var range2 = document.getElementById('range2');
+        range.oninput = () => {
+            value = document.getElementById('range').value;
+            document.getElementById('value').innerHTML = value + '°';
+            camera2.position.set(Math.sin(2 * Math.PI / 360 * value) * 300, value2, Math.cos(2 * Math.PI / 360 * value) * 300);
+            camera2.lookAt(scene.position);
+        };
+        range.onchange = () => {
+            value = document.getElementById('range').value;
+            document.getElementById('value').innerHTML = value + '°';
+            camera2.position.set(Math.sin(2 * Math.PI / 360 * value) * 300, value2, Math.cos(2 * Math.PI / 360 * value) * 300);
+            camera2.lookAt(scene.position);
+        };
+        range2.oninput = () => {
+            value2 = document.getElementById('range2').value;
+            document.getElementById('value2').innerHTML = value2;
+            camera2.position.set(Math.sin(2 * Math.PI / 360 * value) * 300, value2, Math.cos(2 * Math.PI / 360 * value) * 300);
+            camera2.lookAt(scene.position);
+        }
+        range2.onchange = () => {
+            value2 = document.getElementById('range2').value;
+            document.getElementById('value2').innerHTML = value2;
+            camera2.position.set(Math.sin(2 * Math.PI / 360 * value) * 300, value2, Math.cos(2 * Math.PI / 360 * value) * 300);
+            camera2.lookAt(scene.position);
+        };
+
+        var value = 0;
+        var value2 = 300;
+        var time = setInterval(function () {
+            if (value >= 0 && value < 90) { //4
+                camera2.position.set(Math.sin(2 * Math.PI / 360 * value) * 300, value2, Math.cos(2 * Math.PI / 360 * value) * 300);
+                value++;
+            } else if (value >= 90 && value < 180) {//1
+                camera2.position.set(Math.sin(2 * Math.PI / 360 * value) * 300, value2, Math.cos(2 * Math.PI / 360 * value) * 300);
+                value++;
+            } else if (value >= 180 && value < 270) {//2
+                camera2.position.set(Math.sin(2 * Math.PI / 360 * value) * 300, value2, Math.cos(2 * Math.PI / 360 * value) * 300);
+                value++;
+            } else if (value >= 270 && value < 360) {//3
+                camera2.position.set(Math.sin(2 * Math.PI / 360 * value) * 300, value2, Math.cos(2 * Math.PI / 360 * value) * 300);
+                value++;
+            } else {
+                value = 0;
+            }
+            camera2.lookAt(scene.position);
+        }, 15);
+
+        var btn = document.createElement('div');
+        btn.innerText = '停止';
+        btn.style.position = 'absolute';
+        btn.style.bottom = '10px';
+        btn.style.left = '5px';
+        btn.style.width = '50px';
+        btn.style.height = '25px';
+        btn.style.backgroundColor = 'gray';
+        btn.style.color = 'white';
+        btn.style.lineHeight = '25px';
+        btn.style.textAlign = 'center';
+        btn.style.borderRadius = '5px';
+        document.getElementById('copyid').appendChild(btn);
+        var move = true;
+        btn.onclick = () => {
+            if (move) {
+                btn.innerText = '运动';
+                clearInterval(time);
+                move = false;
+            } else {
+                btn.innerText = '停止';
+                time = setInterval(function () {
+                    if (value >= 0 && value < 90) { //4
+                        camera2.position.set(Math.sin(2 * Math.PI / 360 * value) * 300, value2, Math.cos(2 * Math.PI / 360 * value) * 300);
+                        value++;
+                    } else if (value >= 90 && value < 180) {//1
+                        camera2.position.set(Math.sin(2 * Math.PI / 360 * value) * 300, value2, Math.cos(2 * Math.PI / 360 * value) * 300);
+                        value++;
+                    } else if (value >= 180 && value < 270) {//2
+                        camera2.position.set(Math.sin(2 * Math.PI / 360 * value) * 300, value2, Math.cos(2 * Math.PI / 360 * value) * 300);
+                        value++;
+                    } else if (value >= 270 && value < 360) {//3
+                        camera2.position.set(Math.sin(2 * Math.PI / 360 * value) * 300, value2, Math.cos(2 * Math.PI / 360 * value) * 300);
+                        value++;
+                    } else {
+                        value = 0;
+                    }
+                    camera2.lookAt(scene.position);
+                }, 15);
+                move = true;
+            }
+        }
+
+        var btn2 = document.createElement('div');
+        btn2.innerText = '室内';
+        btn2.style.position = 'absolute';
+        btn2.style.bottom = '10px';
+        btn2.style.left = '60px';
+        btn2.style.width = '50px';
+        btn2.style.height = '25px';
+        btn2.style.backgroundColor = 'gray';
+        btn2.style.color = 'white';
+        btn2.style.lineHeight = '25px';
+        btn2.style.textAlign = 'center';
+        btn2.style.borderRadius = '5px';
+        document.getElementById('copyid').appendChild(btn2);
+
+        var all = true;
+        btn2.onclick = () => {
+            console.log(all)
+            if (all) {
+                all = false;
+                btn2.innerText = '室外';
+                camera = new THREE.PerspectiveCamera(60, width / height, 1, 5000);
+                camera.position.set(300, 120, 0);
+                camera.lookAt(scene.position);
+                renderer.render(scene, camera);
+                controls = new THREE.OrbitControls(camera, renderer.domElement)
+
+                document.onkeydown = function (event) {
+                    var e = event || window.event || arguments.callee.caller.arguments[0];
+                    switch (event.keyCode) {
+                        case 70:
+                            console.log('f')
+                    }
+                }
+
+                document.onkeydown = function (event) {
+                    switch (event.keyCode) {
+                        case 38: // up
+                        case 70: // f
+                            camera.position.set(camera.position.x - 4, camera.position.y, camera.position.z);
+                            camera.lookAt(new THREE.Vector3(-300, 120, -300));
+                            break
+
+                        case 37: // left
+                        case 90: // z
+                            camera.position.set(camera.position.x, camera.position.y, camera.position.z + 4);
+                            camera.lookAt(new THREE.Vector3(-300, 120, -300));
+                            break
+
+                        case 40: // down
+                        case 88: // x
+                            camera.position.set(camera.position.x + 4, camera.position.y, camera.position.z);
+                            camera.lookAt(new THREE.Vector3(-300, 120, -300));
+                            break
+
+                        case 39: // right
+                        case 86: // v
+                            camera.position.set(camera.position.x, camera.position.y, camera.position.z - 4);
+                            camera.lookAt(new THREE.Vector3(-300, 120, -300));
+                            break
+                    }
+                }
+            }
+            else {
+                all = true;
+                btn2.innerText = '室内';
+                camera = new THREE.OrthographicCamera(-s * k, s * k, s, -s, 1, 3000);
+                camera.position.set(700, 400, 700); //设置相机位置
+                camera.lookAt(scene.position); //设置相机方向(指向的场景对象)
+                controls = new THREE.OrbitControls(camera, renderer.domElement);
+            }
+        }
+
 
         /*-------------------------------------------------合并group中mesh  实现所有家具渲染---------------------------------------------------- */
 
@@ -318,25 +499,24 @@ function stere() {
             raycaster.setFromCamera(mouse, camera);
             var intersects = raycaster.intersectObjects(clickObjects);
             if (intersects.length > 0) {
-                localStorage.setItem('furnheight',(intersects[0].object.position.y/70).toFixed(2));
+                localStorage.setItem('furnheight', (intersects[0].object.position.y / 70).toFixed(2));
                 var a = intersects[0].object.scale.x;
                 var y = intersects[0].object.rotation.y;
                 sizeCon.addEventListener("mouseup", (e) => {
-                    console.log(size.value)
                     // a = a + a * 0.1 * size.value;
-                    const x = a + size.value*0.05*a;
-                    if(x>0){
+                    const x = a + size.value * 0.05 * a;
+                    if (x > 0) {
                         intersects[0].object.scale.set(x, x, x);
                     }
-                    
+
                     changeFurn(intersects[0])
                 })
-                size.oninput = ()=>{
-                    const x = a + size.value*0.05*a;
-                    if(x>0){
-                       intersects[0].object.scale.set(x, x, x); 
+                size.oninput = () => {
+                    const x = a + size.value * 0.05 * a;
+                    if (x > 0) {
+                        intersects[0].object.scale.set(x, x, x);
                     }
-                    
+
                     changeFurn(intersects[0])
                 }
                 scaleCon.addEventListener("mouseup", (e) => {
@@ -344,20 +524,17 @@ function stere() {
                     intersects[0].object.rotation.y = m;
                     changeFurn(intersects[0])
                 })
-                scale.oninput = ()=>{
+                scale.oninput = () => {
                     const m = y + Number(scale.value);
                     intersects[0].object.rotation.y = m;
                     changeFurn(intersects[0])
                 }
-                heightCon.addEventListener('mouseup',(e)=>{
+                heightCon.addEventListener('mouseup', (e) => {
                     // intersects[0].object.translateY(height1.value)
-                    console.log(intersects[0].object.position,height1.value);
-                    intersects[0].object.position.y = Number(height1.value*70);
+                    intersects[0].object.position.y = Number(height1.value * 70);
                     changeFurn(intersects[0])
                 })
-                height1.oninput = ()=>{
-                    console.log(111)
-                    console.log(intersects[0].object.position);
+                height1.oninput = () => {
                     intersects[0].object.position.y = 0;
                     // intersects[0].object.translateY(height1.value)
                     // changeFurn(intersects[0])
@@ -414,16 +591,16 @@ function stere() {
         });
         // 获取家具的位置
         function changeFurn(event) {
-            height1.value = (event.object.position.y/70).toFixed(2);
-            if((event.object.position.y/70).toFixed(2)<0){
+            height1.value = (event.object.position.y / 70).toFixed(2);
+            if ((event.object.position.y / 70).toFixed(2) < 0) {
                 heightDot.style.left = 0 + "px"
-            }else if((event.object.position.y/70).toFixed(2) > 10){
+            } else if ((event.object.position.y / 70).toFixed(2) > 10) {
                 heightDot.style.left = 10 * 15 + "px"
-            }else{
-                heightDot.style.left = (event.object.position.y/70).toFixed(2) * 15 + "px"
+            } else {
+                heightDot.style.left = (event.object.position.y / 70).toFixed(2) * 15 + "px"
             }
-            
-            localStorage.setItem('furnheight',(event.object.position.y/70).toFixed(2));
+
+            localStorage.setItem('furnheight', (event.object.position.y / 70).toFixed(2));
             for (var i = 0; i < furniture.length; i++) {
                 if (event.object.name === furniture[i].furniture_id) {
                     furniture[i].position = event.object.position
