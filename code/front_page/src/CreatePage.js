@@ -25,13 +25,17 @@ if(!localStorage.getItem('intro')){
     // }
     return (
         <div>
-            {/* {
+            {
                 localStorage.getItem('furniture') ?
                     <div>
-                        <div className='createpage'>
+                        <div className='createpage' style={{opacity:1}}>
                             <CreateHeader></CreateHeader>
-                            <CreateContent></CreateContent>
-                            <CreateSider></CreateSider>
+                            <div className='create_content'>
+                                <CreateSider></CreateSider> 
+                                <CreateContent></CreateContent>     
+                                
+                            </div>
+                            
                         </div>
                         <div id="loading">
                             <LoadingOutlined style={{fontSize:20,marginRight:4}}/>
@@ -39,7 +43,7 @@ if(!localStorage.getItem('intro')){
                         </div>
                     </div>
 
-                    : */}
+                    :
                     <div>
                         <div className='createpage' style={{opacity:1}}>
                             <CreateHeader></CreateHeader>
@@ -51,7 +55,7 @@ if(!localStorage.getItem('intro')){
                             
                         </div>
                     </div>
-            {/* } */}
+            }
         </div>
 
     )

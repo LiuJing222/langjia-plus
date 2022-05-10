@@ -478,7 +478,31 @@ function stere() {
                     mesh_2.translateZ(furn.position?.z || 0)
                     mesh_2.scale.set(Number(furn.size), Number(furn.size), Number(furn.size));
                     mesh_2.rotation.y = furn.rotate || 0;
-                    mesh_2.name = furn.furniture_id;
+                    mesh_2.id = furn.furniture_id;
+                    mesh_2.img = furn.imgname;
+                    if(furn.type == 'sofa'){
+                        mesh_2.name = '沙发';
+                    }else if(furn.type == 'cabinet'){
+                        mesh_2.name = '柜子';
+                    }else if(furn.type == 'chair'){
+                        mesh_2.name = '椅子';
+                    }else if(furn.type == 'decoration'){
+                        mesh_2.name = '装饰';
+                    }else if(furn.type == 'door'){
+                        mesh_2.name = '门';
+                    }else if(furn.type == 'kitchen'){
+                        mesh_2.name = '厨具';
+                    }else if(furn.type == 'light'){
+                        mesh_2.name = '灯';
+                    }else if(furn.type == 'table'){
+                        mesh_2.name = '桌子';
+                    }else if(furn.type == 'bed'){
+                        mesh_2.name = '床';
+                    }else if(furn.type == 'toilet'){
+                        mesh_2.name = '卫生用具';
+                    }else if(furn.type == 'window'){
+                        mesh_2.name = '窗';
+                    }
 
 
                     scene.add(mesh_2);
@@ -504,6 +528,8 @@ function stere() {
         const height1 = document.getElementById('create_heightbar_input');
         var heightCon = document.getElementById("create_heightbar_con")
         var heightDot = document.getElementById("create_heightbar_dot")
+        const furnName = document.getElementById('furnName');
+        const furnImg = document.getElementById('furn_img');
         var raycaster = new THREE.Raycaster();
         var mouse = new THREE.Vector2();
         content.addEventListener('mousedown', onDocumentMouseDown, false);
@@ -514,24 +540,27 @@ function stere() {
             raycaster.setFromCamera(mouse, camera);
             var intersects = raycaster.intersectObjects(clickObjects);
             if (intersects.length > 0) {
-                localStorage.setItem('furnheight', (intersects[0].object.position.y / 70).toFixed(2));
+                furnName.innerText = intersects[0].object.name;
+                furnImg.src = 'https://api.qasdwer.xyz:2019/getDesignDatas/image/'+intersects[0].object.img;
+                localStorage.setItem('furnheight',(intersects[0].object.position.y/70).toFixed(2));
                 var a = intersects[0].object.scale.x;
                 var y = intersects[0].object.rotation.y;
                 sizeCon.addEventListener("mouseup", (e) => {
+                    console.log(size.value)
                     // a = a + a * 0.1 * size.value;
-                    const x = a + size.value * 0.05 * a;
-                    if (x > 0) {
+                    const x = a + size.value*0.05*a;
+                    if(x>0){
                         intersects[0].object.scale.set(x, x, x);
                     }
-
+                    
                     changeFurn(intersects[0])
                 })
-                size.oninput = () => {
-                    const x = a + size.value * 0.05 * a;
-                    if (x > 0) {
-                        intersects[0].object.scale.set(x, x, x);
+                size.oninput = ()=>{
+                    const x = a + size.value*0.05*a;
+                    if(x>0){
+                       intersects[0].object.scale.set(x, x, x); 
                     }
-
+                    
                     changeFurn(intersects[0])
                 }
                 scaleCon.addEventListener("mouseup", (e) => {
@@ -539,20 +568,18 @@ function stere() {
                     intersects[0].object.rotation.y = m;
                     changeFurn(intersects[0])
                 })
-                scale.oninput = () => {
+                scale.oninput = ()=>{
                     const m = y + Number(scale.value);
                     intersects[0].object.rotation.y = m;
                     changeFurn(intersects[0])
                 }
-                heightCon.addEventListener('mouseup', (e) => {
-                    // intersects[0].object.translateY(height1.value)
-                    intersects[0].object.position.y = Number(height1.value * 70);
+                heightCon.addEventListener('mouseup',(e)=>{
+                    intersects[0].object.position.y = Number(height1.value*70);
                     changeFurn(intersects[0])
                 })
-                height1.oninput = () => {
-                    intersects[0].object.position.y = 0;
-                    // intersects[0].object.translateY(height1.value)
-                    // changeFurn(intersects[0])
+                height1.oninput = ()=>{
+                    intersects[0].object.position.y = Number(height1.value*70);
+                    changeFurn(intersects[0])
                 }
                 document.onkeydown = function (event) {
                     var e = event || window.event || arguments.callee.caller.arguments[0];
@@ -606,16 +633,16 @@ function stere() {
         });
         // 获取家具的位置
         function changeFurn(event) {
-            height1.value = (event.object.position.y / 70).toFixed(2);
-            if ((event.object.position.y / 70).toFixed(2) < 0) {
+            height1.value = (event.object.position.y/70).toFixed(2);
+            if((event.object.position.y/70).toFixed(2)<0){
                 heightDot.style.left = 0 + "px"
-            } else if ((event.object.position.y / 70).toFixed(2) > 10) {
+            }else if((event.object.position.y/70).toFixed(2) > 10){
                 heightDot.style.left = 10 * 15 + "px"
-            } else {
-                heightDot.style.left = (event.object.position.y / 70).toFixed(2) * 15 + "px"
+            }else{
+                heightDot.style.left = (event.object.position.y/70).toFixed(2) * 15 + "px"
             }
-
-            localStorage.setItem('furnheight', (event.object.position.y / 70).toFixed(2));
+            
+            localStorage.setItem('furnheight',(event.object.position.y/70).toFixed(2));
             for (var i = 0; i < furniture.length; i++) {
                 if (event.object.name === furniture[i].furniture_id) {
                     furniture[i].position = event.object.position

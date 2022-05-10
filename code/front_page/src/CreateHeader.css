@@ -1,85 +1,217 @@
-.createHeaderBox{
+.createHeaderBox {
     display: flex;
     /* justify-content: center; */
     align-items: center;
     height: 6.5vh;
     width: 100%;
-    background-color:#f8f9fb;
+    background-color: #f8f9fb;
     z-index: 2;
     padding-left: 15%;
 }
-.createHeaderBox div{
+
+.createHeaderBox div {
     width: 140px;
 }
-.create_logo{
+
+.create_logo {
     position: absolute;
     width: 40px;
     left: 100px;
 }
-.createHeaderNavItem{
+
+.createHeaderNavItem {
     display: flex;
     flex-direction: column;
     align-items: center;
     font-size: 13px;
 }
-.createHeaderNavItem img{
+
+.createHeaderNavItem img {
     width: 20px;
     margin-bottom: 3px;
 }
-.userData{
+
+.userData {
     position: absolute;
     right: 0px;
     display: flex;
     /* flex-direction: row; */
-    justify-content:center;
+    justify-content: center;
 }
-.userData img{
+
+.userData img {
     width: 35px;
     height: 35px;
     border-radius: 20px;
 }
-.userData .help{
-    width:40px;
+
+.userData .help {
+    width: 40px;
     position: relative;
 }
-.userData .help img{
-    width:37px;
+
+.userData .help img {
+    width: 37px;
 }
-.createHeaderHelpBox>span{
+
+.createHeaderHelpBox>span {
     display: block;
-    width:220px;
+    width: 220px;
     margin-top: 20px;
     font-size: 14px;
 }
-.createHeaderHelpBox{
+
+.createHeaderHelpBox {
     display: none;
     position: absolute;
-    width:260px;
+    width: 260px;
     height: 500px;
-    background-color: rgba(0,0,0,0.8);
-    right:20px;
-    top:20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    right: 20px;
+    top: 20px;
     z-index: 999;
     flex-direction: column;
     align-items: center;
     color: white;
-    border-radius:15px;
+    border-radius: 15px;
 }
-.helpbox_toNew{
+
+.helpbox_toNew {
     color: white;
     font-weight: bold;
     height: 30px;
     line-height: 30px;
     transition: font-size 0.2s;
 }
-.helpbox_toNew:hover{
-    color:#2183E2;
+
+.helpbox_toNew:hover {
+    color: #2183E2;
     font-size: 16px;
 }
-.helpbox_title{
+
+.helpbox_title {
     display: flex;
     align-items: center;
 }
-.helpobox_key>p{
+
+.helpobox_key>p {
     padding-left: 20px;
 }
+
+.createHeaderBox .storageBoxOuter {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.storageBoxOuter .storageBoxInner {
+    /* position: relative; */
+    /* top: 0;
+    left: 0; */
+    width: 500px;
+    height: 500px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.storageBoxOuter .storageBoxInner .storage_top {
+    width: 100%;
+    height: 32px;
+    border-radius: 10px;
+}
+
+.storageBoxOuter .storageBoxInner .storage_top svg:hover {
+    background-color: #eee;
+}
+
+.storageBoxOuter .storageBoxInner .storage_design_name {
+    padding-left: 80px;
+    padding-top: 10px;
+    font-size: 14px;
+    width: 100%;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    margin-top: 6px;
+}
+
+.storageBoxOuter .storageBoxInner .storage_design_name input {
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-left: 8px;
+}
+
+.storageBoxOuter .storageBoxInner .storage_design_prt {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-left: 80px;
+    padding-top: 10px;
+    font-size: 14px;
+}
+
+.storage_btn1 {
+    /* background-color: rgba(68, 146, 239); */
+    border: none;
+    width: 110px;
+    height: 35px;
+    box-shadow: 0 0 5px lavender;
+    /* color: white; */
+    font-size: 15px;
+    border-radius: 10px;
+
+}
+.storageBoxOuter .storageBoxInner .storage_design_prt_show{
+    margin-left: 80px;
+    margin-top: 10px;
+    width: 320px;
+    height: 260px;
+    /* background-color: #2183E2; */
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.storageBoxOuter .storageBoxInner .storage_design_bottom{
+    width: 100%;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.storageBoxOuter .storageBoxInner .storage_design_bottom button{
+    width: 100px;
+    height: 30px;
+    font-size: 16px;
+    margin: 20px;
+}
+
+/* padding-top: 40px;
+font-size: 20px;
+    font-weight: 700;
+    font-family: '黑体';
+
+.storageBoxOuter .storageBoxInner .storage_all_btn {
+    display: flex;
+    justify-content: center;
+}
+
+.storage_btn2{
+    width: 40px;
+    height: 40px;
+    border: none;
+    font-size: 14px;
+    color: #777;
+    background-color: white;
+} */

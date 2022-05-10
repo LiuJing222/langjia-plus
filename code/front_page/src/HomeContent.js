@@ -61,7 +61,7 @@ const Btns = () => {
                 <Link to="/create"><button><img src={DoIcon}></img><span>开始创建</span></button></Link>
                 : <button onClick={() => go()}><img src={DoIcon}></img><span>开始创建</span></button>
             }
-            <Link to="/home"><button><img src={RmdIcon}></img><span>逛逛推荐</span></button></Link>
+            <Link to="/highquality"><button><img src={RmdIcon}></img><span>逛逛推荐</span></button></Link>
             <Link to="/Ins"><button><img src={InsptIcon}></img><span>寻找灵感</span></button></Link>
             <Link to="/rec"><button><img src={StarIcon}></img><span>大咖秀</span></button></Link>
         </div>
