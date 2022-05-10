@@ -142,7 +142,7 @@ const CreateHeader = () => {
             immediately: true,
             needDownload: false,
             endCB(e) { //截图成功回调
-                setStorageDis('flex');
+                // setStorageDis('flex');
                 console.log(111)
                 showPic(e, "image1")
             },

@@ -227,14 +227,14 @@ function stere() {
 
 
         //渲染
-        var renderer = new THREE.WebGLRenderer();
+        var renderer = new THREE.WebGLRenderer({preserveDrawingBuffer: true});
         renderer.setSize(width, height); //设置渲染区域尺寸
         renderer.setClearColor(0xffffff, 1); //设置背景颜色
         content.appendChild(renderer.domElement); //id为content元素中插入canvas对象
         renderer.domElement.id = "container";
         renderer.render(scene, camera);
 
-        var renderer2 = new THREE.WebGLRenderer();
+        var renderer2 = new THREE.WebGLRenderer({preserveDrawingBuffer: true});
         renderer2.setSize(270, 270); //设置渲染区域尺寸
         renderer2.setClearColor(0xffffff, 1); //设置背景颜色
         document.getElementById('copyid').appendChild(renderer2.domElement);

@@ -34,8 +34,8 @@ body {
 }
 .btn_2D{
  position: absolute;
- bottom: 25px;
- left: 370px;
+ bottom: 27px;
+ left: 1090px;
  background-color: rgba(68,146,239);
  border: none;
  width: 60px;
@@ -48,8 +48,8 @@ body {
 }
 .btn_3D{
     position: absolute;
-    bottom: 25px;
-    left: 420px;
+    bottom: 27px;
+    left: 1140px;
     background-color: rgba(68,146,239);
  border: none;
  width: 60px;
