@@ -97,7 +97,7 @@ const Rec = () => {
             </div>
             
             <div className='high_txt_item'>优秀设计推荐</div>
-            <img src={line} alt="line" style={{width:'100%'}} />
+            <img src={line} alt="line" style={{width:'100%',marginTop:-20}} />
             {/* 所有 */}
             <div className='high_content'>
                 {
