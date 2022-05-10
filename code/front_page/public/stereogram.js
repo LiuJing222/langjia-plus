@@ -241,9 +241,6 @@ function stere() {
         renderer2.domElement.id = "container2";
         renderer2.render(scene, camera2);
 
-        //三维坐标轴
-        // var axisHelper1 = new THREE.AxisHelper(700);
-        // scene.add(axisHelper1);
 
         //鼠标拖转
         function render() {
@@ -363,14 +360,23 @@ function stere() {
         document.getElementById('copyid').appendChild(btn2);
 
         var all = true;
+        var axisHelper1 = new THREE.AxisHelper(700);
         btn2.onclick = () => {
             console.log(all)
+            var ro = 0;
+            // setInterval(()=>{
+            //     scene.rotation.y = Math.PI/360*ro++;
+            // },10)            
+            
             if (all) {
                 all = false;
                 btn2.innerText = '室外';
+                //三维坐标轴
+                scene.add(axisHelper1);
+                console.log(axisHelper1.parent)
                 camera = new THREE.PerspectiveCamera(60, width / height, 1, 5000);
                 camera.position.set(300, 120, 0);
-                camera.lookAt(scene.position);
+                camera.lookAt(new THREE.Vector3(0, 120, 0));
                 renderer.render(scene, camera);
                 controls = new THREE.OrbitControls(camera, renderer.domElement)
 
@@ -387,25 +393,33 @@ function stere() {
                         case 38: // up
                         case 70: // f
                             camera.position.set(camera.position.x - 4, camera.position.y, camera.position.z);
-                            camera.lookAt(new THREE.Vector3(-300, 120, -300));
+                            camera.lookAt(new THREE.Vector3(0, 0, 0));
                             break
 
                         case 37: // left
                         case 90: // z
                             camera.position.set(camera.position.x, camera.position.y, camera.position.z + 4);
-                            camera.lookAt(new THREE.Vector3(-300, 120, -300));
+                            camera.lookAt(new THREE.Vector3(0, 0, 0));
                             break
 
                         case 40: // down
                         case 88: // x
                             camera.position.set(camera.position.x + 4, camera.position.y, camera.position.z);
-                            camera.lookAt(new THREE.Vector3(-300, 120, -300));
+                            camera.lookAt(new THREE.Vector3(0, 0, 0));
                             break
 
                         case 39: // right
                         case 86: // v
                             camera.position.set(camera.position.x, camera.position.y, camera.position.z - 4);
-                            camera.lookAt(new THREE.Vector3(-300, 120, -300));
+                            camera.lookAt(new THREE.Vector3(0, 0, 0));
+                            break
+                        case 82://r
+                            ro = ro + 5;
+                            scene.rotation.y = Math.PI / 360 * ro;
+                            break
+                        case 81://q
+                            ro = ro - 5;
+                            scene.rotation.y = Math.PI / 360 * ro;
                             break
                     }
                 }
@@ -413,6 +427,7 @@ function stere() {
             else {
                 all = true;
                 btn2.innerText = '室内';
+                axisHelper1.parent.remove(axisHelper1);
                 camera = new THREE.OrthographicCamera(-s * k, s * k, s, -s, 1, 3000);
                 camera.position.set(700, 400, 700); //设置相机位置
                 camera.lookAt(scene.position); //设置相机方向(指向的场景对象)
