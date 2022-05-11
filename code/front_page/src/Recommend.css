@@ -410,11 +410,15 @@ position: relative;
 .rec_play_div3{
     bottom: 111px;
 }
+.rec_li_div3{
+    position: relative;
+    bottom: 43px;
+}
 .rec_li_div3 span{
     display: block;
     /* width: 440px; */
     height: 19px;
-    /* margin-bottom: 16px; */
+    
     padding: 20px;
     background-color: rgba(255,255,255,0.6);
 }
