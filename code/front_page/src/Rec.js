@@ -102,6 +102,7 @@ const Rec = () => {
             <div className='high_content'>
                 {
                     recs.map(item=>{
+                        
                         return <div className='high_content_item'>
                             <div className='high_content_item_imgbox'>
                                 <img src={item.imgpath} alt="con" className='high_content_item_img'/>
