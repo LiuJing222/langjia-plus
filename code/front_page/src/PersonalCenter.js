@@ -192,7 +192,7 @@ const PersonalCenter = () => {
                 <NavLink to='/home' ><div className="home_nav_logo">朗家</div></NavLink>
                 <NavLink to='/home' className={pathname == "/home" ? "home_head_active" : "home_nav_item"}>
                     <span>首页</span></NavLink>
-                <NavLink to='/rec' className={pathname == "/rec" ? "home_head_active" : "home_nav_item"}>
+                <NavLink to='/highquality' className={pathname == "/highquality" ? "home_head_active" : "home_nav_item"}>
                     <span>推荐</span></NavLink>
                 <NavLink to='/Ins' className={pathname == "/Ins" ? "home_head_active" : "home_nav_item"} >
                     <span>灵感</span></NavLink>

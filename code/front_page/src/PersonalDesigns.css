@@ -150,3 +150,13 @@
     background:rgb(2,43,99);
     border-radius: 10px;
 }
+.personalcenter_design_tocreate{
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+.personalcenter_design_tocreate img{
+    height: 20px;
+}

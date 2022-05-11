@@ -6,6 +6,7 @@ import top from './images/personal_top.png'
 import blank from "./images/blank3.png"
 import hand from './images/hand.gif'
 import praise_quantity from './images/praise_quantity.png'
+import pen from './images/pen.png'
 
 const PersonalDesigns = () => {
     const [topList, setTopList] = useState([]);
@@ -135,10 +136,11 @@ const PersonalDesigns = () => {
                     <div className="personalcenter_collect_blank_box" style={{ backgroundImage: `url(${blank})` }}>
                         <div>您还没有创作过，和我一起试试吧！</div>
                         <div><img src={hand} /></div>
-                        <div><Link to="/home">去创作</Link></div>
+                        <div><Link to="/create">去创作</Link></div>
                     </div>
                     :
                     <div className="personalcenter_design_box">
+                        <div><Link to="/create" className="personalcenter_design_tocreate"><img src={pen}/><sapn className="toCreate">去创作 >>></sapn></Link></div>
                         <div>
                             <p className="personalcenter_design_titles">已被推荐</p>
                             {
@@ -197,7 +199,7 @@ const PersonalDesigns = () => {
                                                 <div className="personalcenter_design_buttons">
                                                     <div className="personalcenter_design_edit" onClick={() => intomydesign(item)}>编辑</div>
                                                     <div className="personalcenter_design_delete" onClick={() => del(item)}>删除</div>
-                                                    <div className="personalcenter_design_cancel" onClick={() => cancelTop(item)}>置顶</div>
+                                                    <div className="personalcenter_design_cancel" onClick={() => toTop(item)}>置顶</div>
                                                     <div className="praise_quantity"><img src={praise_quantity}/>{item.praise_quantity}</div>
                                                 </div>
                                             </div>
