@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import BackLeftNav from './BackLeftNav'
-import returnicon from './images/back_close.png'
+import returnicon_black from './images/back_close_black.png'
+import returnicon_white from './images/back_close.png'
 import {
     Form,
     Input,
@@ -134,7 +135,7 @@ const BackInsManage = () => {
                             <div className='ins_detail_con'>
                                 {/* <button onClick={() => setInsDetail({})}>关闭</button> */}
                                 <div onClick={() => setInsDetail({})}>
-                                    <img src={returnicon} alt="close"/>
+                                    <img src={returnicon_white} alt="close"/>
                                 </div>
                                 
                                 <p>{insDetail.inspire_id}</p>
@@ -156,7 +157,7 @@ const BackInsManage = () => {
                     <div className="back_addIns">
                         <div className="designer_page_addIns_box">
                             <div className="designer_page_addIns_title">灵感发布</div>
-                            <div className="designer_page_addIns_close"><img onClick={() => cancelAdd()} src={returnicon} /><div className="close_tag">关闭</div></div>
+                            <div className="designer_page_addIns_close"><img onClick={() => cancelAdd()} src={returnicon_black} /><div className="close_tag">关闭</div></div>
                             {/* inspire_id  title  create-time  type  tag  detail  area  message vedio */}
                             <div className="designer_page_addIns_content">
                                 <div className="designer_page_addIns_text">请完善灵感内容</div>
