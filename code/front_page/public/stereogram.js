@@ -227,14 +227,14 @@ function stere() {
 
 
         //渲染
-        var renderer = new THREE.WebGLRenderer({preserveDrawingBuffer: true});
+        var renderer = new THREE.WebGLRenderer({ preserveDrawingBuffer: true });
         renderer.setSize(width, height); //设置渲染区域尺寸
         renderer.setClearColor(0xffffff, 1); //设置背景颜色
         content.appendChild(renderer.domElement); //id为content元素中插入canvas对象
         renderer.domElement.id = "container";
         renderer.render(scene, camera);
 
-        var renderer2 = new THREE.WebGLRenderer({preserveDrawingBuffer: true});
+        var renderer2 = new THREE.WebGLRenderer({ preserveDrawingBuffer: true });
         renderer2.setSize(270, 270); //设置渲染区域尺寸
         renderer2.setClearColor(0xffffff, 1); //设置背景颜色
         document.getElementById('copyid').appendChild(renderer2.domElement);
@@ -367,7 +367,7 @@ function stere() {
             // setInterval(()=>{
             //     scene.rotation.y = Math.PI/360*ro++;
             // },10)            
-            
+
             if (all) {
                 all = false;
                 btn2.innerText = '室外';
@@ -478,33 +478,34 @@ function stere() {
                     mesh_2.translateZ(furn.position?.z || 0)
                     mesh_2.scale.set(Number(furn.size), Number(furn.size), Number(furn.size));
                     mesh_2.rotation.y = furn.rotate || 0;
-                    mesh_2.id = furn.furniture_id;
+                    mesh_2.furnid = furn.furniture_id;
                     mesh_2.img = furn.imgname;
-                    if(furn.type == 'sofa'){
+                    if (furn.type == 'sofa') {
                         mesh_2.name = '沙发';
-                    }else if(furn.type == 'cabinet'){
+                    } else if (furn.type == 'cabinet') {
                         mesh_2.name = '柜子';
-                    }else if(furn.type == 'chair'){
+                    } else if (furn.type == 'chair') {
                         mesh_2.name = '椅子';
-                    }else if(furn.type == 'decoration'){
+                    } else if (furn.type == 'decoration') {
                         mesh_2.name = '装饰';
-                    }else if(furn.type == 'door'){
+                    } else if (furn.type == 'door') {
                         mesh_2.name = '门';
-                    }else if(furn.type == 'kitchen'){
+                    } else if (furn.type == 'kitchen') {
                         mesh_2.name = '厨具';
-                    }else if(furn.type == 'light'){
+                    } else if (furn.type == 'light') {
                         mesh_2.name = '灯';
-                    }else if(furn.type == 'table'){
+                    } else if (furn.type == 'table') {
                         mesh_2.name = '桌子';
-                    }else if(furn.type == 'bed'){
+                    } else if (furn.type == 'bed') {
                         mesh_2.name = '床';
-                    }else if(furn.type == 'toilet'){
+                    } else if (furn.type == 'toilet') {
                         mesh_2.name = '卫生用具';
-                    }else if(furn.type == 'window'){
+                    } else if (furn.type == 'window') {
                         mesh_2.name = '窗';
                     }
 
 
+                    // console.log(mesh_2,mesh_2.furnid);
                     scene.add(mesh_2);
                     clickObjects.push(mesh_2);
                     objects.push(mesh_2);
@@ -541,26 +542,26 @@ function stere() {
             var intersects = raycaster.intersectObjects(clickObjects);
             if (intersects.length > 0) {
                 furnName.innerText = intersects[0].object.name;
-                furnImg.src = 'https://api.qasdwer.xyz:2019/getDesignDatas/image/'+intersects[0].object.img;
-                localStorage.setItem('furnheight',(intersects[0].object.position.y/70).toFixed(2));
+                furnImg.src = 'https://api.qasdwer.xyz:2019/getDesignDatas/image/' + intersects[0].object.img;
+                localStorage.setItem('furnheight', (intersects[0].object.position.y / 70).toFixed(2));
                 var a = intersects[0].object.scale.x;
                 var y = intersects[0].object.rotation.y;
                 sizeCon.addEventListener("mouseup", (e) => {
                     console.log(size.value)
                     // a = a + a * 0.1 * size.value;
-                    const x = a + size.value*0.05*a;
-                    if(x>0){
+                    const x = a + size.value * 0.05 * a;
+                    if (x > 0) {
                         intersects[0].object.scale.set(x, x, x);
                     }
-                    
+
                     changeFurn(intersects[0])
                 })
-                size.oninput = ()=>{
-                    const x = a + size.value*0.05*a;
-                    if(x>0){
-                       intersects[0].object.scale.set(x, x, x); 
+                size.oninput = () => {
+                    const x = a + size.value * 0.05 * a;
+                    if (x > 0) {
+                        intersects[0].object.scale.set(x, x, x);
                     }
-                    
+
                     changeFurn(intersects[0])
                 }
                 scaleCon.addEventListener("mouseup", (e) => {
@@ -568,17 +569,17 @@ function stere() {
                     intersects[0].object.rotation.y = m;
                     changeFurn(intersects[0])
                 })
-                scale.oninput = ()=>{
+                scale.oninput = () => {
                     const m = y + Number(scale.value);
                     intersects[0].object.rotation.y = m;
                     changeFurn(intersects[0])
                 }
-                heightCon.addEventListener('mouseup',(e)=>{
-                    intersects[0].object.position.y = Number(height1.value*70);
+                heightCon.addEventListener('mouseup', (e) => {
+                    intersects[0].object.position.y = Number(height1.value * 70);
                     changeFurn(intersects[0])
                 })
-                height1.oninput = ()=>{
-                    intersects[0].object.position.y = Number(height1.value*70);
+                height1.oninput = () => {
+                    intersects[0].object.position.y = Number(height1.value * 70);
                     changeFurn(intersects[0])
                 }
                 document.onkeydown = function (event) {
@@ -591,17 +592,17 @@ function stere() {
                         a = a - a * 0.1;
                         intersects[0].object.scale.set(a, a, a);
                         changeFurn(intersects[0])
-                    } else if (e && e.keyCode == 65) {
+                    } else if (e && e.keyCode == 65) { //A键
                         y = y + 0.05;
                         intersects[0].object.rotation.y = y;
                         changeFurn(intersects[0])
-                    } else if (e && e.keyCode == 68) {
+                    } else if (e && e.keyCode == 68) { //D键
                         y = y - 0.05;
                         intersects[0].object.rotation.y = y;
                         changeFurn(intersects[0])
-                    } else if (e && e.keyCode == 46) {
+                    } else if (e && e.keyCode == 46) { //delete键
                         scene.remove(intersects[0].object)
-                        var newFurn = furniture.filter((item, index) => item.furniture_id !== intersects[0].object.name);
+                        var newFurn = furniture.filter((item, index) => item.furniture_id !== intersects[0].object.furnid);
                         localStorage.setItem('furniture', JSON.stringify(newFurn))
                     }
                 };
@@ -633,18 +634,20 @@ function stere() {
         });
         // 获取家具的位置
         function changeFurn(event) {
-            height1.value = (event.object.position.y/70).toFixed(2);
-            if((event.object.position.y/70).toFixed(2)<0){
+            console.log('changefurn----------------------')
+            height1.value = (event.object.position.y / 70).toFixed(2);
+            if ((event.object.position.y / 70).toFixed(2) < 0) {
                 heightDot.style.left = 0 + "px"
-            }else if((event.object.position.y/70).toFixed(2) > 10){
+            } else if ((event.object.position.y / 70).toFixed(2) > 10) {
                 heightDot.style.left = 10 * 15 + "px"
-            }else{
-                heightDot.style.left = (event.object.position.y/70).toFixed(2) * 15 + "px"
+            } else {
+                heightDot.style.left = (event.object.position.y / 70).toFixed(2) * 15 + "px"
             }
-            
-            localStorage.setItem('furnheight',(event.object.position.y/70).toFixed(2));
+
+            localStorage.setItem('furnheight', (event.object.position.y / 70).toFixed(2));
             for (var i = 0; i < furniture.length; i++) {
-                if (event.object.name === furniture[i].furniture_id) {
+                if (event.object.furnid === furniture[i].furniture_id) {
+                    console.log('storage');
                     furniture[i].position = event.object.position
                     furniture[i].rotate = event.object.rotation.y
                     furniture[i].size = event.object.scale.x
