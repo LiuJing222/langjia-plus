@@ -5,6 +5,8 @@ import blank from "./images/blank3.png"
 import hand from './images/hand.gif'
 import backline from './images/backline.jpg'
 
+import { Dialog, Toast, } from 'antd-mobile'
+
 const PersonalCollects = (props) => {
     // const userlist = props.location.state.userlist;
     // const collist = props.location.state.collectlist;
@@ -25,17 +27,44 @@ const PersonalCollects = (props) => {
                 setUserList(res);
             })
     }, [])
-    const Collect = (item) => {
-        var isdel = window.confirm(`确定取消 ${item.title} 的收藏吗？`);
+    // const Collect = (item) => {
+    //     var isdel = window.confirm(`确定取消 ${item.title} 的收藏吗？`);
+    //     var inspireid = item.inspire_id;
+    //     if (isdel) {
+    //         fetch('https://api.qasdwer.xyz:2019/addcollection/' + inspireid + '/' + email, {
+    //             method: 'post',
+    //         })
+    //             .then(res => res.json())
+    //             .then(res => {
+    //                 if (res.message) {
+    //                     alert(res.message)
+    //                 } else {
+    //                     var newlist = [];
+    //                     for (var i = 0; i < res.length; i++) {
+    //                         if (res[i].is_collect) {
+    //                             newlist.push(res[i])
+    //                         }
+    //                     }
+    //                     setCollectList(newlist);
+    //                 }
+
+    //             })
+    //             .catch(err => console.log(err))
+    //     }
+    // }
+    const Collect = async (item) => {
         var inspireid = item.inspire_id;
-        if (isdel) {
+        const result = await Dialog.confirm({
+            content: `确定取消 ${item.title} 的收藏吗？`,
+        })
+        if (result) {
             fetch('https://api.qasdwer.xyz:2019/addcollection/' + inspireid + '/' + email, {
                 method: 'post',
             })
                 .then(res => res.json())
                 .then(res => {
                     if (res.message) {
-                        alert(res.message)
+                        Toast.show({ content: '取消失败：'+res.message, position: 'bottom' })
                     } else {
                         var newlist = [];
                         for (var i = 0; i < res.length; i++) {
@@ -43,11 +72,14 @@ const PersonalCollects = (props) => {
                                 newlist.push(res[i])
                             }
                         }
+                        Toast.show({ content: '已取消收藏', position: 'bottom' })
                         setCollectList(newlist);
                     }
 
                 })
                 .catch(err => console.log(err))
+        } else {
+            Toast.show({ content: '已取消', position: 'bottom' })
         }
     }
     return (
