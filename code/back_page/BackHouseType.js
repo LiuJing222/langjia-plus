@@ -115,6 +115,7 @@ const BackHouseType = () => {
                             </div>
                             <div className='add_housetype_data'>
                                 <span>点数据/字符串格式</span>
+                                <br />
                                 <textarea id='add_housetype_data' cols="30" rows="10"></textarea>
                             </div>
                             <div className='add_housetype_upimg'>
