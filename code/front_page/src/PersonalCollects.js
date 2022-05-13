@@ -77,7 +77,7 @@ const PersonalCollects = (props) => {
                     }
 
                 })
-                .catch(err => console.log(err))
+                .catch(err => Toast.show({ content: '取消失败'+err, position: 'bottom' }))
         } else {
             Toast.show({ content: '已取消', position: 'bottom' })
         }
