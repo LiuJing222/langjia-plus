@@ -51,13 +51,18 @@ const PersonalDesigns = () => {
                 size: furn[i].size,
                 objname: furn[i].objname,
                 mtlname: furn[i].mtlname,
-                imgname: furn[i].imgname
+                imgname: furn[i].imgname,
+                type:furn[i].type,
             };
             arr.push(obj);
         }
         localStorage.setItem('furniture', JSON.stringify(arr));
-        localStorage.setItem('points', item.design_point)
-        history.push('/createpage');
+        localStorage.setItem('points', item.design_point);
+        localStorage.setItem('dis3D','{"display":"flex"}');
+        localStorage.setItem('dis2D','{"display":"none"}');
+        localStorage.setItem('disStart','{"display":"none"}');
+        localStorage.setItem('intro',true);
+        history.push('/create');
     }
     const del = (item) => {
         var isdel = window.confirm(`确定删除${item.design_name}吗？`);
@@ -128,7 +133,6 @@ const PersonalDesigns = () => {
                 })
         }
     }
-
     return (
         <div>
             {
@@ -140,7 +144,7 @@ const PersonalDesigns = () => {
                     </div>
                     :
                     <div className="personalcenter_design_box">
-                        <div><Link to="/create" className="personalcenter_design_tocreate"><img src={pen}/><sapn className="toCreate">去创作 >>></sapn></Link></div>
+                        <div><Link to="/create" className="personalcenter_design_tocreate"><img src={pen} /><sapn className="toCreate">去创作 >>></sapn></Link></div>
                         <div>
                             <p className="personalcenter_design_titles">已被推荐</p>
                             {
@@ -155,7 +159,7 @@ const PersonalDesigns = () => {
                                                 <div className="personalcenter_design_buttons">
                                                     <div className="personalcenter_design_edit" onClick={() => intomydesign(item)}>编辑</div>
                                                     <div className="personalcenter_design_delete" onClick={() => del(item)}>删除</div>
-                                                    <div className="praise_quantity"><img src={praise_quantity}/>{item.praise_quantity}</div>
+                                                    <div className="praise_quantity"><img src={praise_quantity} />{item.praise_quantity}</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -178,7 +182,7 @@ const PersonalDesigns = () => {
                                                     <div className="personalcenter_design_edit" onClick={() => intomydesign(item)}>编辑</div>
                                                     <div className="personalcenter_design_delete" onClick={() => del(item)}>删除</div>
                                                     <div className="personalcenter_design_cancel" onClick={() => cancelTop(item)}>取消置顶</div>
-                                                    <div className="praise_quantity"><img src={praise_quantity}/>{item.praise_quantity}</div>
+                                                    <div className="praise_quantity"><img src={praise_quantity} />{item.praise_quantity}</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -200,7 +204,7 @@ const PersonalDesigns = () => {
                                                     <div className="personalcenter_design_edit" onClick={() => intomydesign(item)}>编辑</div>
                                                     <div className="personalcenter_design_delete" onClick={() => del(item)}>删除</div>
                                                     <div className="personalcenter_design_cancel" onClick={() => toTop(item)}>置顶</div>
-                                                    <div className="praise_quantity"><img src={praise_quantity}/>{item.praise_quantity}</div>
+                                                    <div className="praise_quantity"><img src={praise_quantity} />{item.praise_quantity}</div>
                                                 </div>
                                             </div>
                                         </div>
