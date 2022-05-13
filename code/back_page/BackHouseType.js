@@ -86,6 +86,7 @@ const BackHouseType = () => {
                         <div className='back_housetype_item_3d' style={{ paddingTop: 20 ,fontWeight:600}}>户型3D图</div>
                         <div className='back_housetype_item_del' style={{ paddingTop: 20 ,fontWeight:600}}>操作</div>
                     </div>
+                    <div className='back_housetype_item_box'>
                     {houseList[0] ? houseList.map(token => {
                         return <div className='back_housetype_item' >
                             <div className='back_housetype_item_id' style={{marginTop:70}}>{token.house_id}</div>
@@ -99,6 +100,7 @@ const BackHouseType = () => {
                         </div>
                     })
                         : <div></div>}
+                    </div>
                 </div>
 
             </div>

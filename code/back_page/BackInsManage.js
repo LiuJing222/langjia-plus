@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import BackLeftNav from './BackLeftNav'
-import returnicon from './images/returnicon.png'
+import returnicon from './images/back_close.png'
 import {
     Form,
     Input,
@@ -113,6 +113,7 @@ const BackInsManage = () => {
                         <div className='ins_con_tag' style={{ fontWeight: "bold" }}>灵感所带标签</div>
                         <div className='ins_con_op' style={{ fontWeight: "bold" }}>操作</div>
                     </div>
+                    <div className='ins_con_box'>  
                     {inss[0] ? inss.map(token => {
                         return <div className='ins_con' key={token.inspire_id}>
                             <div className='ins_con_id'>{token.inspire_id}</div>
@@ -127,6 +128,7 @@ const BackInsManage = () => {
                         </div>
                     })
                         : <div></div>}
+                    </div>
                     {insDetail.inspire_id ?
                         <div className='ins_detail_mask'>
                             <div className='ins_detail_con'>

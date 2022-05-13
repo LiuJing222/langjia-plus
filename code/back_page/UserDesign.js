@@ -68,12 +68,12 @@ const UserDesign = () => {
         setIsDelDgn([])
     }
     return (
-        <div>
+        <div className='back_user_design'>
             <div className='back_home_leftnav'>
                 <BackLeftNav></BackLeftNav>
             </div>
             <div className='back_user_design_con'>
-                <h3>用户设计信息页</h3>
+                <h3 style={{marginLeft:20}}>用户设计信息页</h3>
                 <hr />
                 <div className='back_user_design_con_div'>
                     {
@@ -88,7 +88,7 @@ const UserDesign = () => {
                                     {
                                         dgn.map(e => {
                                             if (e.user_id === userEmail) {
-                                                return <div style={{ width: "165px", height: "200px", position: "relative", margin: "3px", boxShadow: '2px 2px 2px rgb(191, 230, 255)', backgroundColor: "rgb(226, 243, 255)" }} >
+                                                return <div style={{ width: "165px", height: "200px", position: "relative", margin: "3px", boxShadow: '2px 2px 2px rgb(214, 233, 253)', backgroundColor: "rgb(226, 243, 255)" }} >
                                                     <img src={e.imgpath} style={{ width: "99%", height: "60%" }} />
                                                     <p style={{ fontSize: "10px" }}>{e.design_name}</p>
                                                     {

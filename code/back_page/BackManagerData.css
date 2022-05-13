@@ -1,6 +1,16 @@
+html,body{
+    height: 100%;
+    margin: 0;
+}
 .back_user_data {
     display: flex;
     flex-direction: row;
+    width: 100%;
+    height:100vh;
+    background-image: url('./images/back_bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 .manage_data_con {
@@ -19,8 +29,8 @@
 .manager_data {
     width: 1200px;
     height: 60px;
-    background-color: rgb(236, 255, 255);
-    box-shadow: 5px 5px 5px #e3ede0;
+    background-color: rgb(240, 247, 254);
+    /* box-shadow: 5px 5px 5px #e3ede0; */
     margin-top: 15px;
     position: relative;
     display: flex;
@@ -64,7 +74,7 @@
     width: 90px;
     height: 30px;
     margin-left: 10px;
-    background-color: rgb(149, 192, 255);
+    background-color: rgb(190, 222, 254);
     border: none;
     border-radius: 5px;
 }
@@ -72,7 +82,7 @@
 /* rgb(103, 161, 247) */
 
 #chgMger:hover {
-    background-color: rgb(0, 110, 255);
+    background-color: rgb(87, 169, 251);
     box-shadow: 2px 2px 2px rgb(170, 239, 255);
     color: #fff;
 }
@@ -140,8 +150,8 @@
     width: 140px;
     height: 50px;
     border-radius: 10px;
-    background-color: rgb(124, 247, 179);
-    box-shadow: 2px 2px 2px rgb(22, 153, 107);
+    background-color: rgb(215, 233, 250);
+    box-shadow: 2px 2px 2px rgb(194, 224, 254);
     margin-top: 20px;
     margin-left: 40%;
 }
@@ -160,8 +170,8 @@
 }
 
 .addAdmin:hover {
-    background-color: rgb(57, 254, 146);
-    box-shadow: 2px 2px 2px rgb(0, 187, 12);
+    background-color: rgb(194, 224, 254);
+    box-shadow: 2px 2px 2px rgb(155, 203, 251);
 }
 
 .addAdmin_mask {
@@ -221,14 +231,14 @@
     position: absolute;
     top: 0px;
     left: 0px;
-    background-color: rgba(171, 209, 255, 0.703);
+    background-color: rgba(224, 239, 253, 0.5);
 }
 
 .changeAdmin_con {
     width: 450px;
     height: 335px;
     color: #fff;
-    background-color: rgb(91, 156, 209);
+    background-color: rgb(2, 43, 99);
     box-shadow: 5px 5px 5px rgb(116, 186, 244);
     padding: 30px;
     border-radius: 20px;

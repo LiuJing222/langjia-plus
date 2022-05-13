@@ -102,6 +102,7 @@ const Furniture = () => {
                     <div style={{fontWeight:600}}>家具缩略图</div>
                     <div style={{fontWeight:600}}>操作</div>  
                 </div>
+                <div className='back_f_box'>
                 {fs.map(f => {
                     return <div className='back_f'>
                         <div className='back_f_id'>{f.furniture_id}</div>
@@ -113,6 +114,7 @@ const Furniture = () => {
                         
                     </div>
                 })}
+                </div>
             </div>
             {delf ? <div className='del_fur_mask'>
                 <div className='del_fur_confirm'>

@@ -1,10 +1,34 @@
+.back_ins_manage{
+    width: 100%;
+    height: 100vh;
+    padding-top: 10px;
+    background-image: url('./images/back_bg.jpg');
+    background-position: center;
+    background-size: cover;
+}
 .back_ins_manage_con {
     width: 1200px;
     height: 100px;
     margin-left: 250px;
     position: relative;
 }
+.ins_con_box{
+    width: 1220px;
+    height: 545px;
+    overflow: auto;
+}
 
+.ins_con_box::-webkit-scrollbar{
+    width: 7px;
+}
+.ins_con_box::-webkit-scrollbar-track {
+    background-color: #eee;
+    border-radius: 10px;
+}
+.ins_con_box::-webkit-scrollbar-thumb {
+    background:#9bc3fa;
+    border-radius: 10px;
+}
 .back_ins_con {
     width: 1200px;
     height: auto;
@@ -17,15 +41,15 @@
     text-align: center;
     line-height: 32px;
     font-size: 14px;
-    background-color: rgb(146, 203, 4);
-    box-shadow: 2px 2px 2px rgb(128, 174, 13);
+    background-color: rgb(192, 224, 255);
+    box-shadow: 2px 2px 2px rgb(118, 189, 255);
     position: absolute;
     right: 0;
     top: 0;
 }
 
 .add_ins_button:hover {
-    background-color: yellowgreen;
+    background-color: rgb(118, 189, 255);
     color: #fff;
 }
 
@@ -33,9 +57,9 @@
     width: 1200px;
     height: 80px;
     margin-top: 10px;
-    background-color: rgb(247, 255, 201);
-    border: 1px solid rgb(232, 255, 104);
-    box-shadow: 3px 3px 3px rgb(194, 194, 114);
+    background-color: rgb(240, 247, 254);
+    /* border: 1px solid rgb(232, 255, 104); */
+    /* box-shadow: 3px 3px 3px rgb(194, 194, 114); */
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -92,28 +116,28 @@
 }
 
 .ins_con_op button:nth-child(1) {
-    background-color: rgb(255, 255, 102);
-    box-shadow: 2px 2px 2px rgb(211, 211, 0);
-    border: 1px solid rgb(219, 219, 0);
+    background-color: rgb(202, 228, 253);
+    box-shadow: 2px 2px 2px rgb(118, 189, 255);
+    /* border: 1px solid rgb(219, 219, 0); */
 }
 
 .ins_con_op button:nth-child(2) {
-    background-color: rgb(255, 108, 108);
+    background-color: rgb(251, 194, 194);
     box-shadow: 2px 2px 2px rgb(209, 70, 70);
-    border: 1px solid rgb(198, 43, 43);
+    /* border: 1px solid rgb(198, 43, 43); */
 }
 
 .ins_con_op button:nth-child(1):hover {
-    background-color: rgb(215, 215, 29);
-    box-shadow: 2px 2px 2px rgb(159, 159, 0);
-    border: 1px solid rgb(170, 170, 0);
+    background-color: rgb(137, 196, 251);
+    box-shadow: 2px 2px 2px rgb(95, 177, 253);
+    /* border: 1px solid rgb(170, 170, 0); */
     color: #fff;
 }
 
 .ins_con_op button:nth-child(2):hover {
     background-color: rgb(253, 34, 34);
     box-shadow: 2px 2px 2px rgb(195, 30, 30);
-    border: 1px solid rgb(188, 22, 22);
+    /* border: 1px solid rgb(188, 22, 22); */
     color: #fff;
 }
 
@@ -121,7 +145,7 @@
 .ins_detail_mask {
     width: 100%;
     height: 100%;
-    background-color: rgba(239,254,179, 0.678);
+    background-color: rgba(240, 247, 254,0.5);
     position: fixed;
     top: 0px;
     left: 0px;
@@ -131,12 +155,12 @@
     width: 800px;
     height: auto;
     border-radius:20px;
-    background-color: rgb(170, 176, 41);
+    background-color: rgb(2,43,99);
     color: #fff;
     padding:20px;
     position: fixed;
     top: 20%;
-    left:30%;
+    left:25%;
 }
 .ins_detail_con p{
     margin-left: 30px;
@@ -145,7 +169,7 @@
     width: 30px;
     height: 30px;
     position: absolute;
-    top:10px;
+    top:15px;
     right:20px;
 }
 .back_addIns{
@@ -159,7 +183,7 @@
 .ins_del_mask{
     width: 100%;
     height: 100%;
-    background-color: rgba(249, 176, 176, 0.7);
+    background-color: rgba(252, 188, 188, 0.5);
     position: fixed;
     top:0;
     left: 0;

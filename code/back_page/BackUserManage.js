@@ -63,6 +63,8 @@ const BackUserManage = () => {
                     <div className='user_manage_user_email' >邮箱</div>
                     <div className='user_manage_user__title_remove' >操作</div>
                 </div>
+                <div className='user_manage_user_box'>
+                
                 {
                     users.map(token => {
                         var userName = token.user_name;
@@ -76,6 +78,7 @@ const BackUserManage = () => {
                         </div>
                     })
                 }
+                </div>
             </div>
             {
                 isDelEmail ? <div className='isDel_mask'>
