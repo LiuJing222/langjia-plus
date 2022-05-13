@@ -22,7 +22,7 @@ const BackLogin = () => {
     .then(res=>{
       console.log(res)
       if(res == 'ok'){
-        history.replace('/backinsmanage')
+        history.replace('/backusermanage')
       }else{
         alert('账户名或密码错误！')
       }
