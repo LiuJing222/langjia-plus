@@ -17,6 +17,8 @@ import show_gray from './images/create_show_gray.svg'
 import inspiration_gray from './images/create_inspiration_gray.svg'
 import kscreenshot from 'kscreenshot'
 
+import { Dialog, Toast, } from 'antd-mobile'
+
 const CreateHeader = () => {
     const [userdata, setUserdata] = useState({});
     const [storageDis, setStorageDis] = useState('none');
@@ -76,13 +78,15 @@ const CreateHeader = () => {
         localStorage.removeItem('furniture');
         window.location.reload();
     }
-    const removeall = () => {
+    const removeall = async () => {
         const points = localStorage.getItem('points');
         const pointerArray = localStorage.getItem('pointerArray');
         const furniture = localStorage.getItem('furniture');
         if (points || pointerArray || furniture) {
-            const isclear = window.confirm('回到首页将会清空所有，你确定返回吗？');
-            if (isclear) {
+             const result = await Dialog.confirm({
+            content: '回到首页将会清空所有，你确定返回吗？',
+        })
+            if (result) {
                 localStorage.removeItem('points');
                 localStorage.removeItem('pointerArray');
                 localStorage.removeItem('furniture');

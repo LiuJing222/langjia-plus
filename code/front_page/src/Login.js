@@ -6,6 +6,9 @@ import side from "./images/login_side_img.jpg";
 import { Form, Input, Button, Checkbox } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { MailOutline, KeyOutline } from 'antd-mobile-icons'
+
+import { Dialog, Toast, } from 'antd-mobile'
+
 const formItemLayout = {
   labelCol: {
     xs: {
@@ -76,11 +79,10 @@ const Login = () => {
     .then(res => res.text())
     .then(res => {
         if (res=='ok') {
-            alert('请查看邮箱！')
+            Toast.show({ content: '请查看邮箱！', position: 'bottom' })
             setDiaplsy({ login: 'block', forget: 'none', register: 'none' });
         } else {
-            alert(res);
-            console.log(res)
+            Toast.show({ content: '发送邮件失败，请重新尝试：'+res, position: 'bottom' })
         }
     })
     .catch(err => {
@@ -101,11 +103,11 @@ const Login = () => {
         if (res==='ok') {
             setDiaplsy({ login: 'block', forget: 'none', register: 'none' })
         } else {
-            alert(res);
+            Toast.show({ content: '注册失败，请重新尝试：'+res, position: 'bottom' })
         }
     })
     .catch(err => {
-        alert(err.message);
+        Toast.show({ content: '注册失败，请重新尝试：'+err, position: 'bottom' })
     })
 
   }
