@@ -8,6 +8,8 @@ import hand from './images/hand.gif'
 import praise_quantity from './images/praise_quantity.png'
 import pen from './images/pen.png'
 
+import { Dialog, Toast, } from 'antd-mobile'
+
 const PersonalDesigns = () => {
     const [topList, setTopList] = useState([]);
     const [normalList, setNormalList] = useState([]);
@@ -52,21 +54,23 @@ const PersonalDesigns = () => {
                 objname: furn[i].objname,
                 mtlname: furn[i].mtlname,
                 imgname: furn[i].imgname,
-                type:furn[i].type,
+                type: furn[i].type,
             };
             arr.push(obj);
         }
         localStorage.setItem('furniture', JSON.stringify(arr));
         localStorage.setItem('points', item.design_point);
-        localStorage.setItem('dis3D','{"display":"flex"}');
-        localStorage.setItem('dis2D','{"display":"none"}');
-        localStorage.setItem('disStart','{"display":"none"}');
-        localStorage.setItem('intro',true);
+        localStorage.setItem('dis3D', '{"display":"flex"}');
+        localStorage.setItem('dis2D', '{"display":"none"}');
+        localStorage.setItem('disStart', '{"display":"none"}');
+        localStorage.setItem('intro', true);
         history.push('/create');
     }
-    const del = (item) => {
-        var isdel = window.confirm(`确定删除${item.design_name}吗？`);
-        if (isdel) {
+    const del = async (item) => {
+        const result = await Dialog.confirm({
+            content: `确定删除${item.design_name}吗？`,
+        })
+        if (result) {
             fetch('https://api.qasdwer.xyz:2019/deluserdesign/' + item.design_id + '/' + item.user_id)
                 .then(res => res.json())
                 .then(res => {
@@ -79,17 +83,23 @@ const PersonalDesigns = () => {
                             underl.push(item);
                         }
                     })
+                    Toast.show({ content: '删除成功', position: 'bottom' })
                     setTopList(topl);
                     setNormalList(underl);
                 })
                 .catch(err => {
-                    console.log(err);
+                    Toast.show({ content: '删除失败：' + err, position: 'bottom' })
                 })
         }
+        else {
+            Toast.show({ content: '已取消', position: 'bottom' })
+        }
     }
-    const cancelTop = (item) => {
-        var isdel = window.confirm(`确定取消 ${item.design_name} 的置顶吗？`);
-        if (isdel) {
+    const cancelTop = async (item) => {
+        const result = await Dialog.confirm({
+            content: `确定取消 ${item.design_name} 的置顶吗？`,
+        })
+        if (result) {
             fetch('https://api.qasdwer.xyz:2019/settopping/' + item.design_id + '/' + item.user_id)
                 .then(res => res.json())
                 .then(res => {
@@ -102,17 +112,43 @@ const PersonalDesigns = () => {
                             underl.push(item);
                         }
                     })
+                    Toast.show({ content: '已取消置顶', position: 'bottom' })
                     setTopList(topl);
                     setNormalList(underl);
                 })
                 .catch(err => {
-                    console.log(err);
+                    Toast.show({ content: '取消失败：' + err, position: 'bottom' })
                 })
+        } else {
+            Toast.show({ content: '已取消', position: 'bottom' })
         }
+        // var isdel = window.confirm(`确定取消 ${item.design_name} 的置顶吗？`);
+        // if (isdel) {
+        //     fetch('https://api.qasdwer.xyz:2019/settopping/' + item.design_id + '/' + item.user_id)
+        //         .then(res => res.json())
+        //         .then(res => {
+        //             var topl = [];
+        //             var underl = [];
+        //             res.map(item => {
+        //                 if (item.istopping) {
+        //                     topl.push(item);
+        //                 } else {
+        //                     underl.push(item);
+        //                 }
+        //             })
+        //             setTopList(topl);
+        //             setNormalList(underl);
+        //         })
+        //         .catch(err => {
+        //             console.log(err);
+        //         })
+        // }
     }
-    const toTop = (item) => {
-        var isdel = window.confirm(`确定将 ${item.design_name} 的置顶吗？`);
-        if (isdel) {
+    const toTop = async (item) => {
+        const result = await Dialog.confirm({
+            content: `确定将 ${item.design_name} 的置顶吗？`,
+        })
+        if (result) {
             fetch('https://api.qasdwer.xyz:2019/settopping/' + item.design_id + '/' + item.user_id)
                 .then(res => res.json())
                 .then(res => {
@@ -125,12 +161,15 @@ const PersonalDesigns = () => {
                             underl.push(item);
                         }
                     })
+                    Toast.show({ content: '已置顶', position: 'bottom' })
                     setTopList(topl);
                     setNormalList(underl);
                 })
                 .catch(err => {
-                    console.log(err);
+                    Toast.show({ content: '置顶失败：' + err, position: 'bottom' })
                 })
+        } else {
+            Toast.show({ content: '已取消', position: 'bottom' })
         }
     }
     return (

@@ -5,18 +5,18 @@
     overflow-x: hidden;
 }
 .personalcenter_design_box>div{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: start;
+    width:100%;
 }
 .personalcenter_design_box>div>div{
+    display: inline-block;
     width:30%;
     height: 280px;
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 5px 5px 10px 0px #ccc;
     margin:15px auto;
+    margin-right: 2%;
+    margin-left: 1%; 
 }
 
 .personalcenter_design_box>div:nth-child(1){
