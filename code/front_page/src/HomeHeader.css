@@ -10,7 +10,10 @@
     flex-direction: row;
     justify-content: flex-start;
     background-color: #fff;
-    box-shadow: 1px 1px 1px #ccc;
+    width:100%;
+    position: fixed;
+    z-index: 999;
+    top: 0;
 }
 
 .home_logo {

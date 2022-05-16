@@ -36,7 +36,7 @@ const go = () => {
 const HomeTop = () => {
     return (
         <div className="home_top">
-            <img src={HomeBg} className="home_top_bg"></img>
+            <img src='https://qhrenderpicoss.kujiale.com/r/2022/05/11/L3D206S41ENDP5SICZQUWFVDYLUF3P3XI888_2560x1440.jpg?x-oss-process=image/resize,m_mfit,w_1440,h_810/format,webp' className="home_top_bg"></img>
             <p className="fp">设计你的房间</p>
             <p className="sp">实现你的设计梦</p>
             <div className="home_characters">

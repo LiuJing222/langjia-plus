@@ -34,6 +34,7 @@ const Cover = () => {
         let scrollY = window.scrollY;
         console.log(scrollY)
         // 动画
+
         if(scrollY>=156){
             item1.style.display='block';
             item2.style.display='block';
@@ -107,6 +108,7 @@ const Cover = () => {
     const goTop = () =>{
         document.body.scrollTop = document.documentElement.scrollTop = 0;
     }
+
    
     return (
         <div className='cover_box'>

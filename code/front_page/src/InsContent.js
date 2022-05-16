@@ -131,8 +131,8 @@ const InsContent = (props) => {
     // console.log(ins[que])
   return (
     <div className='inscon_box'>
-        {/* 导航栏 */}
-        <HomeHeader></HomeHeader>
+        {/* 导航栏
+        <HomeHeader></HomeHeader> */}
         {/* 标题 */}
         <div className='inscon_title'>
             {data.title}

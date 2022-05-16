@@ -12,7 +12,9 @@ const HomeHeader = () => {
     const [msg, setMsg] = useState({})
 
     const history = useHistory();
+
     var email = localStorage.getItem('email');
+
     useEffect(() => {
         const urlParams = new URL(window.location.href);
         const pathname = urlParams?.pathname;
@@ -41,7 +43,24 @@ const HomeHeader = () => {
                 portrait_hover.style.display = "none"
             })
         }
+        window.addEventListener("scroll", handleScroll);
+        handleScroll();
+        return () => {
+            window.removeEventListener("scroll", handleScroll)
+        }
     }, [])
+    var handleScroll = () => {
+        if (history.location.pathname === '/home') {
+            let scrollY = window.scrollY;
+            // 动画
+            console.log(scrollY)
+            if (scrollY >= 600) {
+                document.getElementsByClassName('home_header')[0].style.backgroundColor = 'rgb(255,255,255)';
+            } else {
+                document.getElementsByClassName('home_header')[0].style.backgroundColor = 'rgba(255,255,255,0.3)';
+            }
+        }
+    };
     var portrait_hover = document.getElementById("home_header_user_portrait_hover")
     const ExitProcess = () => {
         localStorage.removeItem('email');
