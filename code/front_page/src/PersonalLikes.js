@@ -5,8 +5,6 @@ import blank from "./images/blank3.png"
 import hand from './images/hand.gif'
 import backline from './images/backline.jpg'
 
-import { Dialog, Toast, } from 'antd-mobile'
-
 const PersonalLikes = (props) => {
     // const userlist = props.location.state.userlist;
     var num = 0;
@@ -34,12 +32,10 @@ const PersonalLikes = (props) => {
             })
     }, []);
 
-    const Collect = async (item) => {
+    const Collect = (item) => {
+        var isdel = window.confirm(`确定取消 ${item.design_name} 的收藏吗？`);
         var designid = item.design_id;
-        const result = await Dialog.confirm({
-            content: `确定取消 ${item.design_name} 的收藏吗？`,
-        })
-        if (result) {
+        if (isdel) {
             fetch('https://api.qasdwer.xyz:2019/addfavordesign/' + designid + '/' + email, {
                 method: 'post',
             })
@@ -54,14 +50,11 @@ const PersonalLikes = (props) => {
                                 newlist.push(res[i])
                             }
                         }
-                        Toast.show({ content: '已取消收藏', position: 'bottom' })
                         setCollectList(newlist);
                     }
 
                 })
-                .catch(err => Toast.show({ content: '取消失败'+err, position: 'bottom' }))
-        }else {
-            Toast.show({ content: '已取消', position: 'bottom' })
+                .catch(err => console.log(err))
         }
     }
     return (
@@ -71,7 +64,7 @@ const PersonalLikes = (props) => {
                     <div className="personalcenter_collect_blank_box" style={{ backgroundImage: `url(${blank})` }}>
                         <div>您还没有点赞的设计，快去推荐逛逛吧！</div>
                         <div><img src={hand} /></div>
-                        <div><Link to="/highquality">推荐</Link></div>
+                        <div><Link to="/Ins">推荐</Link></div>
                     </div>
                     :
                     <div className="personalcenter_collect_items_box" style={{ backgroundImage: `url(${backline})` }}>

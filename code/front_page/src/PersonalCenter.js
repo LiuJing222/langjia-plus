@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Route, Switch, Redirect, Link, NavLink } from 'react-router-dom';
 import { useHistory } from 'react-router'
 import './PersonalCenter.css'
@@ -22,8 +22,6 @@ import PersonalDesigns from './PersonalDesigns'
 import PersonalCollects from './PersonalCollects'
 import PersonalSetting from './PersonalSetting'
 import HomeBelong from './HomeBelong'
-
-import { Button, Dialog, Toast, } from 'antd-mobile'
 
 const PersonalCenter = () => {
     const [message, setMessage] = useState({});
@@ -169,51 +167,24 @@ const PersonalCenter = () => {
         list[i - 1].style.display = 'block';
 
     }
-    const StopFollowing = async (item) => {
-        const result = await Dialog.confirm({
-            content: `确定取消对 ${item.user_name} 的关注吗？`,
-        })
-        if (result) {
+    const StopFollowing = (item) => {
+        var isStop = window.confirm(`确定取消对 ${item.user_name} 的关注吗？`);
+        if (isStop) {
             fetch('https://api.qasdwer.xyz:2019/cancelfollowing/' + email + '/' + item.user_id)
                 .then(res => {
-                    Toast.show({ content: '已取关', position: 'bottom' })
                     window.location.reload();
                 })
-        } else {
-            Toast.show({ content: '已取消', position: 'bottom' })
         }
     }
-    // var isStop = window.confirm(`确定取消对 ${item.user_name} 的关注吗？`);
-    // if (isStop) {
-    //     fetch('https://api.qasdwer.xyz:2019/cancelfollowing/' + email + '/' + item.user_id)
-    //         .then(res => {
-    //             window.location.reload();
-    //         })
-    // }
-
-    const StopFollowed = async (item) => {
-        const result = await Dialog.confirm({
-            content: `确定移除粉丝 ${item.user_name} 吗？`,
-        })
-        if (result) {
+    const StopFollowed = (item) => {
+        var isStop = window.confirm(`确定移除粉丝 ${item.user_name} 吗？`);
+        if (isStop) {
             fetch('https://api.qasdwer.xyz:2019/cancelfollowing/' + item.user_id + '/' + email)
                 .then(res => {
-                    Toast.show({ content: '已移除', position: 'bottom' })
                     window.location.reload();
                 })
-        } else {
-            Toast.show({ content: '已取消', position: 'bottom' })
         }
     }
-    // const StopFollowed = (item) => {
-    //     var isStop = window.confirm(`确定移除粉丝 ${item.user_name} 吗？`);
-    //     if (isStop) {
-    //         fetch('https://api.qasdwer.xyz:2019/cancelfollowing/' + item.user_id + '/' + email)
-    //             .then(res => {
-    //                 window.location.reload();
-    //             })
-    //     }
-    // }
     return (
         <div className="personalcenter_box" style={{ backgroundImage: `url(${back})` }}>
             <div className="home_header" style={{ backgroundColor: 'white' }}>
@@ -221,7 +192,7 @@ const PersonalCenter = () => {
                 <NavLink to='/home' ><div className="home_nav_logo">朗家</div></NavLink>
                 <NavLink to='/home' className={pathname == "/home" ? "home_head_active" : "home_nav_item"}>
                     <span>首页</span></NavLink>
-                <NavLink to='/highquality' className={pathname == "/highquality" ? "home_head_active" : "home_nav_item"}>
+                <NavLink to='/rec' className={pathname == "/rec" ? "home_head_active" : "home_nav_item"}>
                     <span>推荐</span></NavLink>
                 <NavLink to='/Ins' className={pathname == "/Ins" ? "home_head_active" : "home_nav_item"} >
                     <span>灵感</span></NavLink>
@@ -230,29 +201,7 @@ const PersonalCenter = () => {
                 <NavLink to='/help' className={pathname == "/help" ? "home_head_active" : "home_nav_item"} >
                     <span>帮助中心</span></NavLink>
             </div>
-
-            <div className="logout">
-                <Button
-                    block
-                    onClick={async () => {
-                        const result = await Dialog.confirm({
-                            content: '是否确认退出登录',
-                        })
-                        if (result) {
-                            Toast.show({ content: '已退出', position: 'bottom' })
-                            localStorage.removeItem('email');
-                            history.push('/');
-                        } else {
-                            Toast.show({ content: '已取消', position: 'bottom' })
-                        }
-                    }}
-                >
-                    <img src={exit} />
-                </Button>
-
-                <div className="exit_message">退出登录</div>
-            </div>
-
+            <div className="logout" onClick={() => ExitProcess()}><img src={exit} /><span className="exit_message">退出登录</span></div>
             <div className="personalcenter_titleinside">
                 <div>
                     <img src={text1} />
@@ -302,14 +251,14 @@ const PersonalCenter = () => {
                         })
                     }
                     {
-                        count === adminList.length ? <li onClick={() => toContent()}><Link to="/personalcenter/collects">
+                        count === adminList.length?<li onClick={() => toContent()}><Link to="/personalcenter/collects">
                             <div className="personalcenter_data_left_box">
                                 <div>灵感收藏</div>
                                 <div>积少成多，好作品都是攒出来的</div>
                             </div>
                             <div className="personalcenter_data_right_box">{collectList.length}</div>
                         </Link>
-                        </li> : ''
+                        </li>:''
 
                     }
 

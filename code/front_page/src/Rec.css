@@ -193,7 +193,6 @@
     clear: both;
     margin: 0 auto;
     margin-top: 50px;
-    clear: both;
     /* background-color:rgb(237, 243, 252); */
     /* height: 500px; */
 }
@@ -205,24 +204,21 @@
     margin-bottom: 20px;
     background-color: #fff;
     padding-right: 10px;
-    float:left;
+    float: left;
     position: relative;
     overflow: hidden;
-    display: inline;
 }
 .high_content_item:hover .high_content_item_img{
     transform: scale(1.2,1.2);
 }
 .high_content_item_imgbox{
     width: 400px;
-    height: 100%;
     object-fit: contain;
     overflow: hidden;
 }
 .high_content_item_img{
     width: 400px;
-    height: 300px;
-    object-fit: cover;
+    object-fit: contain;
     transition: all 0.6s;
     /* float: left; */
 }
@@ -231,7 +227,7 @@
     height: 100px;
     border-radius: 100px;
     position: absolute;
-    bottom: 20px;
+    top:220px;
     left: 30px;
 }
 .high_content_item_box{
@@ -250,7 +246,7 @@
     border-radius: 40px 0 0 0;
     background-color: rgba(255,255,255,0.6);
     position: absolute;
-    bottom: 60px;
+    top:235px;
     left: 140px;
 }
 .high_content_item_praise{
@@ -272,13 +268,10 @@
     color: rgb(97, 96, 96);
 }
 .high_content_item_txt{
-    /* margin-top: 55px; */
+    margin-top: 15px;
     font-size: 15px;
-    /* margin-left: 120px; */
-    /* float: left; */
-    position: absolute;
-    bottom: 30px;
-    right: 90px;
+    margin-left: 120px;
+    
 }
 .high_content_item_txt2{
     margin-top: 10px;
