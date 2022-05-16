@@ -1,100 +1,512 @@
-body {
+body,html{
+    margin: 0;
+    padding: 0;
     user-select: none;
 }
-*{
-    padding: 0;
-    margin: 0;
-}
-.content_outer{
+.personalcenter_box{
     width: 100%;
-    height: 100%;
-    overflow: hidden;
+    height: 2150px;
+    background-repeat:no-repeat;
+    background-size: contain;
+    /* background-position: center;  */
+    position: relative; 
+    background-color: rgb(2,43,99);  
 }
-#content3D{
+.personalcenter_titlebar{
     width: 100%;
-    height: 665px;
-    /* overflow: scroll; */
-    float: right;
-}
-#content2D{
-    width: 100%;
-    height: 665px;
-    /* overflow: scroll; */
-    float: right;
-}
-.create_start_page{
-    position: absolute;
-    /* left: 18%;
-    top: 14%; */
-    
-}
-.create_start_page img{
-    width: 1100px;
-    height: 670px;
-}
-.btn_2D{
- position: absolute;
- bottom: 27px;
- left: 1090px;
- background-color: rgba(68,146,239);
- border: none;
- width: 60px;
- height: 36px;
- /* box-shadow: 0 0 5px lightgray; */
- color: white;
- font-size: 16px;
- border-radius: 20px 0 0 20px;
+    background-color: white;
+    height: 45px;
+    display: flex;
+    flex-direction: row;
 
 }
-.btn_3D{
-    position: absolute;
-    bottom: 27px;
-    left: 1140px;
-    background-color: rgba(68,146,239);
- border: none;
- width: 60px;
- height: 36px;
- /* box-shadow: 0 0 5px lightgray; */
- color: white;
- font-size: 16px;
- border-radius: 0 20px 20px 0;
+.personalcenter_titlebar img{
+    height: 40px;
+    width: 40px;
+    margin: 2px;
+    margin-left: 5%;
+    display: inline-block;
 }
-.top_ruler1{
-    width:32%;
+.langjiaText{
+    display: inline-block;
+    width: 150px;
+    height: 45px;
+    font-size: 30px;
+    font-weight: 600;
+    color: rgb(2,43,99);
+    line-height: 45px;
+    text-decoration: none;
+}
+.personalcenter_link{
+    width:150px;
+    height: 45px;
+    line-height: 45px;
+    text-decoration: none;
+    color:rgb(2,43,99);
+    font-size: 18px;
+    text-align: center;
+}
+.personalcenter_titleinside{
+    margin: 0 auto;
+    width: 85%;
+    height: 80px;
+    color:white;
+    display: flex;
+    flex-direction: row;  
+    margin-top: 50px;
+    justify-content: space-between;
+    align-items: center;
+}
+.personalcenter_titleinside>div{
+    width:400px;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+}
+.personalcenter_titleinside>div>img {
+    width:180px;
+    height: 70px;
+}
+.personalcenter_titleinside>a{
+    width:80px;
+    height: 30px;
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255,255,255);
+    border: none;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.5);
+    text-decoration: none;
+    color:rgb(2,43,99); 
+}
+.personalcenter_titleinside>a>img{
+    width:18px;
+    height: 18px;
+}
+.personalcenter_titleinside>div>div{
+    width: 180px;
+    height: 60px;
+    display: flex;
+    flex-direction: column-reverse;
+    font-family: '方正粗黑宋简体';
+    font-style: italic;
+}
+
+.personalcenter_data{
+    margin: 0 auto;
+    width: 85%;
+    height: 260px;
+    background-color: rgba(255,255,255,0.85);
+    padding:10px;
+    border-radius: 10px;
+}
+.personalcenter_header{
+    margin-top: 30px;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+.personalcenter_header>div:nth-child(1){
+    width:100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: rgb(2,43,99);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.personalcenter_header>div>img{
+    width:90px;
+    height: 90px;
+    border-radius: 50%;
+}
+
+.personalcenter_header>div:nth-child(2){
+    height: 100px;
+    margin-left: 30px;
+}
+.personalcenter_header>div:nth-child(2) div:nth-child(1){
+    height: 30px;
+    font-size: 28px;
+    font-weight: 700;
+    color:rgb(2,43,99)
+}
+.personalcenter_header>div:nth-child(2) div:nth-child(2){
+    margin-top:10px;
+    background-color: rgb(2,43,99);
+    height: 20px;
+    width:60px;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 10px;
+    color: white;
+    position: relative;
+}
+.personalcenter_header>div:nth-child(2) div:nth-child(3){
+    margin-top: 10px;
+    height: 20px;
+    font-size: 15px;
+    font-weight: 100;
+    color: rgb(2,43,99);
+}
+.personalcenter_header_hidden_tip{
+    display: none;
+    position: absolute;
+    left:100%;
+    top:-90%;
+    width:200px;
+    height: 25px;
+    line-height: 25px;
+    border: 1px solid white;
+    background-color:rgba(255,255,255,0.5);
+    color:rgb(2,43,99);
+    border-radius:13px ;
+    
+}
+.personalcenter_header>div:nth-child(2) div:nth-child(2):hover .personalcenter_header_hidden_tip{
+    display: inline-block;
+}
+
+.personalcenter_data>ul{
+    padding: 0 20px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.personalcenter_data>ul>li{
+    width:18%;
+    height: 80px;
+}
+.personalcenter_data>ul>li{
+    list-style: none;
+}
+.personalcenter_data>ul>li:nth-child(1){
+    border-bottom: 2px solid #0A97FC;
+}
+.personalcenter_data>ul>li:nth-child(2){
+    border-bottom: 2px solid #0D09F4;
+}
+.personalcenter_data>ul>li:nth-child(3){
+    border-bottom: 2px solid #2406AA;
+}
+.personalcenter_data>ul>li:nth-child(4){
+    border-bottom: 2px solid #7908DC;
+}
+.personalcenter_data>ul>li:nth-child(5){
+    border-bottom: 2px solid #a908DC;
+}
+.personalcenter_data>ul>li>a{
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color:black;
+    display: flex;
+    flex-direction: row;
+}
+.personalcenter_data_left_box{
+    width:80%
+}
+.personalcenter_data_left_box>div:nth-child(1){
+    font-size: 20px;
+    font-weight: 550;
+}
+.personalcenter_data_left_box>div:nth-child(2){
+    font-size: 12px;
+    margin-top: 10px;
+}
+.personalcenter_data_left_box>div:nth-child(2)>img{
     height: 20px;
     position: absolute;
-    top:55px;
-    left:4%
 }
-.top_ruler2{
-    width:32%;
-    height: 20px;
+.personalcenter_data_right_box{
+    width:20%
+}
+.personalcenter_data_right_box{
+    font-size: 34px;
+    font-weight: 500;
+}
+.personalcenter_content{
+    width: 100%;
+    background-color: white;
+    height: 800px;
+    margin-top: 80px;
+    position: relative;
+}
+.personalcenter_content_insidebox{
+    width:85%;
+    margin: 0 auto;
+}
+.personalcenter_nav{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top:-50px;
+}
+.personalcenter_nav div{
+    width:200px;
+    height: 70px;
+    background-color: rgb(2,43,99);
+    border-radius: 15px;
+    text-align: center;
+    line-height: 70px;
+    transition: background-color 0.3s;
+}
+.personalcenter_nav a{
+    color:white;
+    font-size: 26px;
+    text-decoration: none;
+    transition: color 0.5s;
+}
+.personalcenter_collect_overline{
+    border-top:1px solid #ccc;
+    width: 100%;
+    height: 10px;
+}
+.personalcenter_bottom{
+    width:100%;
+    height: 365px;
     position: absolute;
-    top:55px;
-    left:36%
+    bottom: 0;
+    background-color: rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
-.top_ruler3{
-    width:32%;
-    height: 20px;
+.personalcenter_setting_box{
+    width: 100%;
+    position: fixed;
+    top:0;
+    left: 0;
+}
+
+.personalcenter_bottom>div{
+    width:25%;
+    height: 200px;
+    color:white;
+    margin-right: 20px;
+    padding: 20px;
+}
+.personalcenter_bottom>div>p{
+    font-size: 16px;
+}
+.personalcenter_bottom>div:nth-child(1){
+    margin-left: 10%;
+}
+.personalcenter_bottom>div:nth-child(1)>p:nth-child(2n) {
+    margin-left: 20px;
+}
+.personalcenter_bottom>div:nth-child(2){
+    display: flex;
+    flex-direction: column;
+}
+.personalcenter_bottom>div:nth-child(2) a{
+    margin-left: 20px;
+    color:white;
+    text-decoration: none;
+}
+.personalcenter_bottom>div:nth-child(2) a:hover{
+    color:wheat;
+}
+.logout{
+    width: 60px;
+    right: 200px;
+    border-radius: 10px;
+    line-height: 30px;
+    text-align: center;
+    height: 40px;
     position: absolute;
-    top:55px;
-    left:68%
+    top: 25px;
+    height: 30px;
 }
-.top_ruler4{
-    height: 480px;
-    width: 20px;
+.logout>Button{
+    width: 100%;
+    height: 100%;
+}
+.logout>Button>img{
+    height: 30px;
+    margin-top: -7px;
+}
+.exit_message{
+    display: none;
+    font-weight: bold;
+    font-size: 16px;
+    /* color:rgb(2,43,99); */
+    color: #fff;
+    width: 80px;
     position: absolute;
-    left:4%;
-    top:55px;
+    bottom: -30px;
+    right: -10px;
 }
-.top_ruler5{
-    height: 185px;
-    width: 20px;
-    position: absolute;
-    left:4%;
-    top:533px;
+.logout:hover .exit_message{
+    display: inline-block;
 }
-.create_right{
+
+.personalcenter_follow{
+    width:100%;
+    margin: 0 auto;
+    height: 750px;
+    display: flex;
+    flex-direction: row;
+    background-color: #f7f7f7;
+}
+.personalcenter_follow_box{
+    width: 85%;
+    height: 650px;
+    margin: 0 auto;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.personalcenter_follow_beside{
+    width:19%;
+    height: 300px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+}
+.personalcenter_follow_beside>div{
+    width: 100%;
+    height: 80px;
+    text-align: center;
+    line-height: 80px;
+    color:black;
+    font-size: 20px;
+    border-radius: 10px;
+    transition: background-color 0.2s;
+}
+.personalcenter_following{
+    background-color: rgba(2,43,99,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.personalcenter_followed{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.personalcenter_follow_message{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.personalcenter_follow_beside>div:hover {
+    color: rgb(2,43,99);
+    font-size: 22px;
+}
+
+.personalcenter_follow_content{
+    width: 80%;
+    height: 650px;
+    overflow-y: scroll;
+    background-color: white;
+    border-radius: 10px;
+}
+.personalcenter_following_box{
+    padding: 20px;
+}
+.personalcenter_followed_box{
+    padding: 20px;
+    display: none;
+}
+.personalcenter_message_box{
+    padding: 20px;
+    display: none;
+}
+.personalcenter_follow_box_title{
+    height: 40px;
+    font-weight: bold;
+    font-size: 18px;
+}
+.personalcenter_follow_user{
+    width:100%;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+    color: black;
+}
+.personalcenter_follow_headimg{
+    width:10%;
+}
+.personalcenter_follow_headimg>img{
+    height: 70px;
+    width: 70px;
+    border-radius: 35px;
+}
+.personalcenter_follow_intro{
+    width:80%;
+    height: 70%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.personalcenter_follow_intro>div:nth-child(1){
+    font-size: 18px;
+}
+.personalcenter_follow_intro>div:nth-child(2){
+    font-size: 14px;
+    color:#888;
+}
+.personalcenter_follow_user_outside{
+    position: relative;
+    width: 100%;
+    height: 80px;
+}
+.personalcenter_follow_cancel{
     position: absolute;
     right: 0;
+    top:35px;
+    width:80px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+    line-height: 30px;
+    text-align: center;
+    transition: box-shadow 0.2s
+}
+.personalcenter_follow_cancel:hover{
+    box-shadow: 2px 5px 10px 1px #ddd;
+    color:rgb(2,43,99)
+}
+.blank_follow{
+    height: 570px;
+    position: relative;
+}
+.blank_follow>div{
+    position: absolute;
+    left: 46%;
+    top: 45%;
+    font-weight: 400;
+    font-size: 25px;
+    color: #77abda;
+    font-family: cursive;
+}
+.personalcenter_follow_beside>div>img{
+    width:30px;
+    height: 30px;
+}
+.personalcenter_follow_content::-webkit-scrollbar {
+    width: 5px;
+}
+
+.personalcenter_follow_content::-webkit-scrollbar-track {
+    background-color: #eee;
+}
+
+.personalcenter_follow_content::-webkit-scrollbar-thumb {
+    background:rgb(2,43,99);
+    border-radius: 10px;
 }
