@@ -17,7 +17,7 @@ const Help = () => {
     setVal(e.target.value)
   }
   useEffect(()=>{
-    console.log('ok')
+    // console.log('ok')
   },[])
   
   return (
