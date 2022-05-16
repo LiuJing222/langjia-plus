@@ -110,13 +110,14 @@
     font-size: 25px;
     color: white;
     border-radius: 5px;
-    box-shadow: 1px 1px 8px rgb(211, 211, 211);
+    /* box-shadow: 1px 1px 8px rgb(211 211 211); */
     border: none;
     outline: none;
     background-color: #448CEF;
     position: absolute;
     top: 430px;
     left: 370px;
+    transition: box-shadow 0.5s;
 }
 
 .cover_img_btn:hover {

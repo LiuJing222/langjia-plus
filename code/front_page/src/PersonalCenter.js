@@ -231,27 +231,6 @@ const PersonalCenter = () => {
                     <span>帮助中心</span></NavLink>
             </div>
 
-            <div className="logout">
-                <Button
-                    block
-                    onClick={async () => {
-                        const result = await Dialog.confirm({
-                            content: '是否确认退出登录',
-                        })
-                        if (result) {
-                            Toast.show({ content: '已退出', position: 'bottom' })
-                            localStorage.removeItem('email');
-                            history.push('/');
-                        } else {
-                            Toast.show({ content: '已取消', position: 'bottom' })
-                        }
-                    }}
-                >
-                    <img src={exit} />
-                </Button>
-
-                <div className="exit_message">退出登录</div>
-            </div>
 
             <div className="personalcenter_titleinside">
                 <div>
@@ -259,6 +238,27 @@ const PersonalCenter = () => {
                     <div>打造我的专属style</div>
                 </div>
                 <Link to={{ pathname: '/personalcenter/setting', state: "message" }}><img src={set} />设置</Link>
+                <span className="logout">
+                    <Button
+                        block
+                        onClick={async () => {
+                            const result = await Dialog.confirm({
+                                content: '是否确认退出登录',
+                            })
+                            if (result) {
+                                Toast.show({ content: '已退出', position: 'bottom' })
+                                localStorage.removeItem('email');
+                                history.push('/');
+                            } else {
+                                Toast.show({ content: '已取消', position: 'bottom' })
+                            }
+                        }}
+                    >
+                        <img src={exit} />
+                    </Button>
+
+                    <div className="exit_message">退出登录</div>
+                </span>
             </div>
             <div className="personalcenter_data">
                 <div className="personalcenter_header">

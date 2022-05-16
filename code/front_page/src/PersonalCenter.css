@@ -314,14 +314,15 @@ body,html{
     color:wheat;
 }
 .logout{
-    width:80px;
-    right: 120px;
+    width: 60px;
+    right: 200px;
     border-radius: 10px;
     line-height: 30px;
     text-align: center;
     height: 40px;
     position: absolute;
-    top: 2px;
+    top: 25px;
+    height: 30px;
 }
 .logout>Button{
     width: 100%;
@@ -329,15 +330,18 @@ body,html{
 }
 .logout>Button>img{
     height: 30px;
+    margin-top: -7px;
 }
 .exit_message{
     display: none;
     font-weight: bold;
     font-size: 16px;
-    color:rgb(2,43,99);
+    /* color:rgb(2,43,99); */
+    color: #fff;
+    width: 80px;
     position: absolute;
-    bottom: 0px;
-    right: -50px;
+    bottom: -30px;
+    right: -10px;
 }
 .logout:hover .exit_message{
     display: inline-block;
