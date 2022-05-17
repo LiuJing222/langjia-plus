@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './CreateContent.css'
 import createStart from './images/createStart.jpg'
 import CreateRight from './CreateRight.js'
+import Flower from './Flower'
 // import ruler from './images/刻度.png'
 // import ruler2 from './images/刻度2.png'
 // import ruler3 from './images/刻度3.png'
@@ -81,7 +82,8 @@ const CreateContent = () => {
                 <button className='btn_2D' onClick={get2D} style={{ backgroundColor: buttonColor.btn_2d }}>2D</button>
             </div>
             <div className='create_start_page' style={showStart} onClick={change}>
-                <img src={createStart} alt="" />
+                {/* <img src={createStart} alt="" /> */}
+                <Flower></Flower>
             </div>
             {/* <img src={ruler} className="top_ruler1"/>
             <img src={ruler} className="top_ruler2"/>
