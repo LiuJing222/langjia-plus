@@ -98,11 +98,13 @@
 .helpobox_key>p {
     padding-left: 20px;
 }
-.storageBoxOuter{
+
+.storageBoxOuter {
     position: absolute;
     top: 80px;
     left: 500px;
 }
+
 .createHeaderBox .storageBoxOuter {
     display: flex;
     width: 100%;
@@ -175,7 +177,8 @@
     border-radius: 10px;
 
 }
-.storageBoxOuter .storageBoxInner .storage_design_prt_show{
+
+.storageBoxOuter .storageBoxInner .storage_design_prt_show {
     margin-left: 80px;
     margin-top: 10px;
     width: 320px;
@@ -186,14 +189,16 @@
     justify-content: center;
     align-items: center;
 }
-.storageBoxOuter .storageBoxInner .storage_design_bottom{
+
+.storageBoxOuter .storageBoxInner .storage_design_bottom {
     width: 100%;
     height: 120px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.storageBoxOuter .storageBoxInner .storage_design_bottom button{
+
+.storageBoxOuter .storageBoxInner .storage_design_bottom button {
     width: 100px;
     height: 30px;
     font-size: 16px;
@@ -218,3 +223,26 @@ font-size: 20px;
     color: #777;
     background-color: white;
 } */
+.alertConfirm {
+    width: 300px;
+    height: 160px;
+    border-radius: 10px;
+    padding: 30px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 3px 3px 3px #ddd;
+    border: 2px;
+    position: fixed;
+    top: 30%;
+    left: 40%;
+}
+
+.alertConfirm button {
+    width: 70px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    border: #333 1px solid;
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+}

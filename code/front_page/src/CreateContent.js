@@ -12,6 +12,7 @@ const CreateContent = () => {
     const [showStart, setShowStart] = useState(JSON.parse(localStorage.getItem('disStart')))
     const [buttonColor, setButtonColor] = useState({ btn_2d: 'rgba(68,146,239,0.6)', btn_3d: 'rgba(68,146,239)' })
     // const [left, setLeft] = useState({ left2: 370, left3: 420 })
+    const [c, setC] = useState("")
 
     useEffect(() => {
         if (JSON.parse(localStorage.getItem('dis2D'))?.display == 'flex') {
@@ -32,6 +33,10 @@ const CreateContent = () => {
         // }else{
         //     localStorage.setItem('disStart',JSON.stringify({display:'none'}));
         // }
+
+        setInterval(() => {
+            setC(localStorage.getItem("cutDis"))
+        }, 2000)
     }, [])
     const get2D = () => {
 
@@ -84,7 +89,7 @@ const CreateContent = () => {
             <img src={ruler2} className="top_ruler4"/>
             <img src={ruler3} className="top_ruler5"/> */}
             <div className='create_right' style={show3d}>
-                <CreateRight></CreateRight>
+                {c == "flex" ? <div></div> : <CreateRight></CreateRight>}
             </div>
 
 
