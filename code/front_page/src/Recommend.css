@@ -145,13 +145,10 @@
     border-radius: 16px;
     /* background-color: #1e4b7e; */
     height: 440px;
-    width: 900px;
     overflow: hidden;
-    position: relative;
 }
 .reactPlayer{
     box-shadow: 0px 0px 5px lightgray;
-    margin-top: -20px;
 }
 .player_topleft{
     width: 100px;
@@ -160,14 +157,14 @@
     border-radius: 10px;
     text-align: center;
     line-height: 30px;
-    position: absolute;
-    top: 25px;
+    position: relative;
+    top: -420px;
     left: 30px;
     color: white;
 }
 .player_bottomleft{
-    position: absolute;
-    bottom: 30px;
+    position: relative;
+    top:-105px;
     left: 30px;
 }
 .player_bottomleft div:nth-child(1){
@@ -188,9 +185,9 @@
     width: 80px;
     display: flex;
     align-items: center;
-    position: absolute;
-    bottom: 30px;
-    right: 30px;
+    position: relative;
+    top:-130px;
+    left: 780px;
     /* right:-200px */
     
 }
@@ -241,7 +238,6 @@
     /* background-color: #1e4b7e; */
     margin-right: 20px;
     box-shadow: 0 0 5px lightgray;
-    position: relative;
 }
 .reactPlayer2{
     margin-top: -20px;
@@ -253,14 +249,14 @@
     border-radius: 10px;
     text-align: center;
     line-height: 30px;
-    position: absolute;
-    top: 15px;
+    position: relative;
+    top: -380px;
     left: 30px;
     color: white;
 }
 .rec_player_bottomleft{
-    position: absolute;
-    bottom: 30px;
+    position: relative;
+    top:-130px;
     left: 28px;
     color: white;
 }
@@ -301,14 +297,9 @@
 }
 .rec_createCenter_div2{
     display: flex;
-    width: 410px;
-    /* flex-direction: row; */
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 22px;
-}
-.rec_look{
-    font-size: 15px;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    margin-top: 40px;
 }
 .rec_createCenter_div2 div:nth-child(1) p:nth-child(1){
     font-weight: 600;
@@ -422,8 +413,7 @@ position: relative;
 .rec_li_div3 span{
     display: block;
     /* width: 440px; */
-    height: 60px;
-    font-size: 16px;
+    height: 19px;
     /* margin-bottom: 16px; */
     padding: 20px;
     background-color: rgba(255,255,255,0.6);

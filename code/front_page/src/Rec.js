@@ -1,4 +1,5 @@
 import React,{useEffect,useState} from 'react'
+import {useHistory} from 'react-router'
 import HomeHeader from './HomeHeader'
 import './Rec.css'
 import praise from './images/rec_praise.png'
@@ -10,6 +11,7 @@ const Rec = () => {
     const [recs,setRecs] = useState([]);
     const [designer, setDesigner] = useState([]);
     const [favor,setFavor] = useState([]);
+    const history = useHistory();
     useEffect(()=>{
         fetch('https://api.qasdwer.xyz:2019/getuserdesign')
             .then(res => res.json())
@@ -34,6 +36,30 @@ const Rec = () => {
         
     },[])
     // console.log(recs)
+    const intomydesign = (item) => {
+        const furn = JSON.parse(item.design_furniture);
+        var arr = [];
+        for (var i = 0; i < furn.length; i++) {
+            var obj = {
+                furniture_id: furn[i].furniture,
+                position: furn[i].point,
+                rotate: furn[i].rotate,
+                size: furn[i].size,
+                objname: furn[i].objname,
+                mtlname: furn[i].mtlname,
+                imgname: furn[i].imgname,
+                type:furn[i].type,
+            };
+            arr.push(obj);
+        }
+        localStorage.setItem('furniture', JSON.stringify(arr));
+        localStorage.setItem('points', item.design_point);
+        localStorage.setItem('dis3D','{"display":"flex"}');
+        localStorage.setItem('dis2D','{"display":"none"}');
+        localStorage.setItem('disStart','{"display":"none"}');
+        localStorage.setItem('intro',true);
+        history.push('/create');
+    }
 
     const addPraise = (designid,userid)=>{
         fetch('https://api.qasdwer.xyz:2019/addfavordesign/'+ designid +'/' + userid,{
@@ -80,7 +106,7 @@ const Rec = () => {
                             // className={index==0?'realRec_three_item0':'realRec_three_item'}
                             return <div className='realRec_three_item' id={'realRec_three_item'+index}>
                                 <div className={'realRec_three_img_box'+index}>
-                                    <img src={item.imgpath} alt="rec" className={index == 0 ?'realRec_three_img0':'realRec_three_img'}/>
+                                    <img src={item.imgpath} alt="rec" className={index == 0 ?'realRec_three_img0':'realRec_three_img'} onClick={()=>intomydesign(item)}/>
                                 </div>
                                 
                                 <div id={'realRec_three_praise'+index} className='realRec_three_praise'>
@@ -102,9 +128,10 @@ const Rec = () => {
             <div className='high_content'>
                 {
                     recs.map(item=>{
+                        
                         return <div className='high_content_item'>
                             <div className='high_content_item_imgbox'>
-                                <img src={item.imgpath} alt="con" className='high_content_item_img'/>
+                                <img src={item.imgpath} alt="con" className='high_content_item_img'  onClick={()=>intomydesign(item)}/>
                             </div>
                             
                             <div className='high_content_item_box'>

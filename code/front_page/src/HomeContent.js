@@ -24,14 +24,17 @@ import RferBubble from './images/RBubble.png'
 import StartBubble from './images/SBubble.png'
 
 import './HomeContent.css'
+import { Dialog, Toast, } from 'antd-mobile'
 
 const history = createBrowserHistory({
     basename: '',             //基链接
     forceRefresh: true        //是否强制刷新
 });
-const go = () => {
-    var isGo = window.confirm("登陆之后才能开始创建哦，要去登陆吗？")
-    isGo ? history.push("/login") : history.push("/home")
+const go = async () => {
+    const result = await Dialog.confirm({
+            content: `登陆之后才能开始创建哦，要去登陆吗？`,
+        })
+    result ? history.push("/login") : history.push("/home")
 }
 const HomeTop = () => {
     return (

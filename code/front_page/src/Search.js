@@ -58,7 +58,7 @@ const Search = (props) => {
         let li1 = document.getElementsByClassName('search_nav_li1')
         let li2 = document.getElementsByClassName('search_nav_li2')
         // console.log(scrollY)
-        // console.log(li1)
+        console.log(li1)
         li1[0].onclick = () =>{
             document.body.scrollTop = document.documentElement.scrollTop = 0;
         }
@@ -137,7 +137,7 @@ const Search = (props) => {
         // 设计师规则
         if(scrollY>=3000 && scrollY<3340){
             li1[1].style.color = '#448CEF';
-            // console.log(li1[1].style.color)
+            console.log(li1[1].style.color)
         }else{
             li1[1].style.color = '#000';
         }

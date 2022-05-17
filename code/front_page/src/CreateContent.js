@@ -19,7 +19,6 @@ const CreateContent = () => {
         } else {
             setButtonColor({ btn_2d: 'rgba(68,146,239,0.6)', btn_3d: 'rgba(68,146,239)' })
         }
-        console.log(111, localStorage.getItem('detailDis'))
         // if (localStorage.getItem('detailDis') == '{"module":"none","furniture":"none","recommend":"none","show":"none","inspiration":"none"}') {
         //     console.log(111)
         //     setLeft({ left2: 70, left3: 120 })

@@ -22,7 +22,6 @@ const Recommend = () => {
         fetch('https://api.qasdwer.xyz:2019/getexcellenceworks')
             .then(res => res.json())
             .then(res => {
-                console.log(res)
                 setList(res);
             })
     }, [])
@@ -283,12 +282,10 @@ const Recommend = () => {
                     </div>
 
                 </div>
-                <Link to={{ pathname: '/InsCon', search: JSON.stringify(list[10]) }} target='_blank' rel="opener">
                 <div className="rec_player">
                     <ReactPlayer
                         className="reactPlayer"
-                        // url={rec_banner}
-                        url={list[10]?.vedio}
+                        url={rec_banner}
                         // url={'http://user-platform-oss.kujiale.com/design/video/perm/MJJCGGYKTFASIAABAAAAACA8.mp4'}
                         playing={true}
                         autoPlay={true}
@@ -296,7 +293,7 @@ const Recommend = () => {
                         loop={true}
                         //   controls
                         width='100%'
-                        height='540px'
+                        height='440px'
 
                     />
                     <div className='player_topleft'>视频动画</div>
@@ -309,7 +306,6 @@ const Recommend = () => {
                         <span>张伟</span>
                     </div>
                 </div>
-                </Link>
             </div>
             {/* <div className='middle_list_div'>
                 <ul className='middle_list'>
@@ -320,18 +316,16 @@ const Recommend = () => {
                 </ul>
             </div> */}
             <div className='all_recommend'>
-                <Link to={{ pathname: '/InsCon', search: JSON.stringify(list[11]) }} target='_blank' rel="opener">
                 <div className='rec_show_div'>
                     <ReactPlayer
                         className="reactPlayer2"
-                        // url={rec_show}
-                        url={list[11]?.vedio}
+                        url={rec_show}
                         playing={true}
                         autoPlay={true}
                         muted={true}
                         loop={true}
                         width='100%'
-                        height='450px'
+                        height='420px'
                     />
                     <div className='rec_player_topleft'>大咖秀</div>
                     <div className='rec_player_bottomleft'>
@@ -342,27 +336,21 @@ const Recommend = () => {
                         <div>现代简约风格120平3方1厅2卫</div>
                     </div>
                 </div>
-                </Link>
-                
                 <div className='rec_createCenter'>
-                <Link to='/uploadDes' target='_blank' rel="opener">
                     <div className='rec_createCenter_div1'>
                         <img src={create} alt="" />
                     </div>
-                    </Link>
                     <div className='rec_createCenter_div2'>
                         <div>
                             <p>创作者中心上线啦！</p>
                             <p>投稿作品管理 | 投稿记录查询 | 活动抢先看</p>
                         </div>
-                        <Link to='/uploadDes' target='_blank' rel="opener">
                         <div>
-                            <span className='rec_look'>点击查看</span>
+                            <span>点击查看</span>
                         </div>
-                        </Link>
                     </div>
                 </div>
-                
+
             </div>
             <div className='all_rec_div'>
                 <ul>

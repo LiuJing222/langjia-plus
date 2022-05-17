@@ -6,6 +6,9 @@ import top from './images/personal_top.png'
 import blank from "./images/blank3.png"
 import hand from './images/hand.gif'
 import praise_quantity from './images/praise_quantity.png'
+import pen from './images/pen.png'
+
+import { Dialog, Toast, } from 'antd-mobile'
 
 const PersonalDesigns = () => {
     const [topList, setTopList] = useState([]);
@@ -50,17 +53,24 @@ const PersonalDesigns = () => {
                 size: furn[i].size,
                 objname: furn[i].objname,
                 mtlname: furn[i].mtlname,
-                imgname: furn[i].imgname
+                imgname: furn[i].imgname,
+                type: furn[i].type,
             };
             arr.push(obj);
         }
         localStorage.setItem('furniture', JSON.stringify(arr));
-        localStorage.setItem('points', item.design_point)
-        history.push('/createpage');
+        localStorage.setItem('points', item.design_point);
+        localStorage.setItem('dis3D', '{"display":"flex"}');
+        localStorage.setItem('dis2D', '{"display":"none"}');
+        localStorage.setItem('disStart', '{"display":"none"}');
+        localStorage.setItem('intro', true);
+        history.push('/create');
     }
-    const del = (item) => {
-        var isdel = window.confirm(`确定删除${item.design_name}吗？`);
-        if (isdel) {
+    const del = async (item) => {
+        const result = await Dialog.confirm({
+            content: `确定删除${item.design_name}吗？`,
+        })
+        if (result) {
             fetch('https://api.qasdwer.xyz:2019/deluserdesign/' + item.design_id + '/' + item.user_id)
                 .then(res => res.json())
                 .then(res => {
@@ -73,17 +83,23 @@ const PersonalDesigns = () => {
                             underl.push(item);
                         }
                     })
+                    Toast.show({ content: '删除成功', position: 'bottom' })
                     setTopList(topl);
                     setNormalList(underl);
                 })
                 .catch(err => {
-                    console.log(err);
+                    Toast.show({ content: '删除失败：' + err, position: 'bottom' })
                 })
         }
+        else {
+            Toast.show({ content: '已取消', position: 'bottom' })
+        }
     }
-    const cancelTop = (item) => {
-        var isdel = window.confirm(`确定取消 ${item.design_name} 的置顶吗？`);
-        if (isdel) {
+    const cancelTop = async (item) => {
+        const result = await Dialog.confirm({
+            content: `确定取消 ${item.design_name} 的置顶吗？`,
+        })
+        if (result) {
             fetch('https://api.qasdwer.xyz:2019/settopping/' + item.design_id + '/' + item.user_id)
                 .then(res => res.json())
                 .then(res => {
@@ -96,17 +112,43 @@ const PersonalDesigns = () => {
                             underl.push(item);
                         }
                     })
+                    Toast.show({ content: '已取消置顶', position: 'bottom' })
                     setTopList(topl);
                     setNormalList(underl);
                 })
                 .catch(err => {
-                    console.log(err);
+                    Toast.show({ content: '取消失败：' + err, position: 'bottom' })
                 })
+        } else {
+            Toast.show({ content: '已取消', position: 'bottom' })
         }
+        // var isdel = window.confirm(`确定取消 ${item.design_name} 的置顶吗？`);
+        // if (isdel) {
+        //     fetch('https://api.qasdwer.xyz:2019/settopping/' + item.design_id + '/' + item.user_id)
+        //         .then(res => res.json())
+        //         .then(res => {
+        //             var topl = [];
+        //             var underl = [];
+        //             res.map(item => {
+        //                 if (item.istopping) {
+        //                     topl.push(item);
+        //                 } else {
+        //                     underl.push(item);
+        //                 }
+        //             })
+        //             setTopList(topl);
+        //             setNormalList(underl);
+        //         })
+        //         .catch(err => {
+        //             console.log(err);
+        //         })
+        // }
     }
-    const toTop = (item) => {
-        var isdel = window.confirm(`确定将 ${item.design_name} 的置顶吗？`);
-        if (isdel) {
+    const toTop = async (item) => {
+        const result = await Dialog.confirm({
+            content: `确定将 ${item.design_name} 的置顶吗？`,
+        })
+        if (result) {
             fetch('https://api.qasdwer.xyz:2019/settopping/' + item.design_id + '/' + item.user_id)
                 .then(res => res.json())
                 .then(res => {
@@ -119,15 +161,17 @@ const PersonalDesigns = () => {
                             underl.push(item);
                         }
                     })
+                    Toast.show({ content: '已置顶', position: 'bottom' })
                     setTopList(topl);
                     setNormalList(underl);
                 })
                 .catch(err => {
-                    console.log(err);
+                    Toast.show({ content: '置顶失败：' + err, position: 'bottom' })
                 })
+        } else {
+            Toast.show({ content: '已取消', position: 'bottom' })
         }
     }
-
     return (
         <div>
             {
@@ -135,10 +179,11 @@ const PersonalDesigns = () => {
                     <div className="personalcenter_collect_blank_box" style={{ backgroundImage: `url(${blank})` }}>
                         <div>您还没有创作过，和我一起试试吧！</div>
                         <div><img src={hand} /></div>
-                        <div><Link to="/home">去创作</Link></div>
+                        <div><Link to="/create">去创作</Link></div>
                     </div>
                     :
                     <div className="personalcenter_design_box">
+                        <div><Link to="/create" className="personalcenter_design_tocreate"><img src={pen} /><sapn className="toCreate">去创作 >>></sapn></Link></div>
                         <div>
                             <p className="personalcenter_design_titles">已被推荐</p>
                             {
@@ -153,7 +198,7 @@ const PersonalDesigns = () => {
                                                 <div className="personalcenter_design_buttons">
                                                     <div className="personalcenter_design_edit" onClick={() => intomydesign(item)}>编辑</div>
                                                     <div className="personalcenter_design_delete" onClick={() => del(item)}>删除</div>
-                                                    <div className="praise_quantity"><img src={praise_quantity}/>{item.praise_quantity}</div>
+                                                    <div className="praise_quantity"><img src={praise_quantity} />{item.praise_quantity}</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -176,7 +221,7 @@ const PersonalDesigns = () => {
                                                     <div className="personalcenter_design_edit" onClick={() => intomydesign(item)}>编辑</div>
                                                     <div className="personalcenter_design_delete" onClick={() => del(item)}>删除</div>
                                                     <div className="personalcenter_design_cancel" onClick={() => cancelTop(item)}>取消置顶</div>
-                                                    <div className="praise_quantity"><img src={praise_quantity}/>{item.praise_quantity}</div>
+                                                    <div className="praise_quantity"><img src={praise_quantity} />{item.praise_quantity}</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -197,8 +242,8 @@ const PersonalDesigns = () => {
                                                 <div className="personalcenter_design_buttons">
                                                     <div className="personalcenter_design_edit" onClick={() => intomydesign(item)}>编辑</div>
                                                     <div className="personalcenter_design_delete" onClick={() => del(item)}>删除</div>
-                                                    <div className="personalcenter_design_cancel" onClick={() => cancelTop(item)}>置顶</div>
-                                                    <div className="praise_quantity"><img src={praise_quantity}/>{item.praise_quantity}</div>
+                                                    <div className="personalcenter_design_cancel" onClick={() => toTop(item)}>置顶</div>
+                                                    <div className="praise_quantity"><img src={praise_quantity} />{item.praise_quantity}</div>
                                                 </div>
                                             </div>
                                         </div>

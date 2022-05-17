@@ -236,7 +236,7 @@ const Slid = () => {
   localStorage.setItem("wallHeight", wallHeight)
 
   return (
-    <div style={{ width: "300px" }}  data-step="9" data-title="配置栏" data-intro="方便操作，随时调整"  >
+    <div style={{ width: "300px" }}>
       <h3 className="house_intro">户型信息</h3>
       <div className="create_wall_height" >
         <span className="create_wall_height_span" >墙高</span>

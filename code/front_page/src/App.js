@@ -20,7 +20,6 @@ import Designsort from './Designsort'
 import CreatePage from './CreatePage';
 import DesingnerPage from './DesingnerPage';
 import Rec from './Rec'
-import Uploaddes from './Uploaddes';
 
 const App = () => {
   return (
@@ -47,8 +46,6 @@ const App = () => {
           <Route path='/create' component={CreatePage}></Route>
           <Route path="/designer" component={DesingnerPage}></Route>
           <Route path="/highquality" component={Rec}></Route>
-          <Route path="/uploaddes" component={Uploaddes}></Route>
-          
           </Switch>
         </Router>
       
