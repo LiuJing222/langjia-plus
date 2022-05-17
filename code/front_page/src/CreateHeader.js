@@ -14,16 +14,17 @@ import module_gray from './images/create_module_gray.svg'
 import furniture_gray from './images/create_forniture_gray.svg'
 import recommend_gray from './images/create_recommend_gray.svg'
 import show_gray from './images/create_show_gray.svg'
+import cut_img from './images/cutimg.svg'
+import create_cancel from './images/create_cancel.svg'
 import inspiration_gray from './images/create_inspiration_gray.svg'
 import kscreenshot from 'kscreenshot'
-
-import { Dialog, Toast, } from 'antd-mobile'
 
 const CreateHeader = () => {
     const [userdata, setUserdata] = useState({});
     const [storageDis, setStorageDis] = useState('none');
     const [value, setValue] = useState('')
     const history = useHistory();
+    const [cutDis,setCutDis] = useState('none');
     useEffect(() => {
         const email = localStorage.getItem('email');
         fetch('https://api.qasdwer.xyz:2019/isLogin/' + email)
@@ -78,15 +79,13 @@ const CreateHeader = () => {
         localStorage.removeItem('furniture');
         window.location.reload();
     }
-    const removeall = async () => {
+    const removeall = () => {
         const points = localStorage.getItem('points');
         const pointerArray = localStorage.getItem('pointerArray');
         const furniture = localStorage.getItem('furniture');
         if (points || pointerArray || furniture) {
-             const result = await Dialog.confirm({
-            content: '回到首页将会清空所有，你确定返回吗？',
-        })
-            if (result) {
+            const isclear = window.confirm('回到首页将会清空所有，你确定返回吗？');
+            if (isclear) {
                 localStorage.removeItem('points');
                 localStorage.removeItem('pointerArray');
                 localStorage.removeItem('furniture');
@@ -126,6 +125,7 @@ const CreateHeader = () => {
     }
     function showPic(imgStr, imgName) {
         setStorageDis('flex');
+        setCutDis('none');
         var result = document.getElementById("result")
         if (result.childElementCount) {
             var imgOld = document.getElementById("imgPrtSc")
@@ -140,7 +140,7 @@ const CreateHeader = () => {
         result.appendChild(imgNew)
     }
     const ocrPic = () => {
-        setStorageDis('none')
+        
         new kscreenshot({
             key: 65,
             immediately: true,
@@ -155,6 +155,14 @@ const CreateHeader = () => {
                 console.log("fail", e)
             }
         }).startScreenShot()
+    }
+    const cutImg = ()=>{
+        setStorageDis('none')
+        setCutDis('flex');
+    }
+    const cancelImg = ()=>{
+        setStorageDis('flex')
+        setCutDis('none');
     }
     const storageOk = () => {
         if (value) {
@@ -194,7 +202,8 @@ const CreateHeader = () => {
         }
     }
     return (
-        <div className="createHeaderBox" data-step="1" data-title="基本操作" data-intro="实现操作过程中的后退清空与保存">
+        <div data-step="1" data-title="基本操作" data-intro="实现操作过程中的后退清空与保存">
+            <div className="createHeaderBox"> 
             <img className='create_logo' src={logo} onClick={removeall} alt="" />
             {/* <Link to='/' onClick={removeall}><img src={logo} className="createHeaderLogo" /></Link> */}
             {/* <img src={logo} className="createHeaderLogo" onClick={removeall} /> */}
@@ -204,6 +213,12 @@ const CreateHeader = () => {
             <div className="createHeaderNavItem" onClick={clearfurn}><img src={clearlogo} className="createHeaderLogo4" />清空家具</div>
             <div className="createHeaderNavItem" onClick={clearAll}><img src={emptylogo} className="createHeaderLogo3" />清空全部</div>
             {/* <el-button type="warning" onClick={(e) => { ocrPic(e) }} icon="el-icon-camera">开始截图</el-button> */}
+            </div>
+            <div style={{position:'absolute',top:0,left:0,width:'100%',height:45,backgroundColor:'rgba(0,0,0,0.7)',zIndex: 10,display:cutDis,justifyContent:'center'}}>
+                <img style={{width:30,marginRight:60}} src={cut_img} alt="" onClick={()=>ocrPic()}/>
+                <img style={{width:28}} src={create_cancel} alt="" onClick={()=>cancelImg()}/>
+                
+            </div>
             <div className='userData'>
                 <div className='help' data-step="2" data-title="帮助中心" data-intro="查看用法，快速上手" >
                     <img src={help} alt="" onClick={() => showHelp()} />
@@ -239,7 +254,7 @@ const CreateHeader = () => {
                     <div className='storage_design_prt'>
                         <span>截图保存:</span>
 
-                        <button class='storage_btn1' onClick={(e) => { ocrPic(e) }}>开始截图</button>
+                        <button class='storage_btn1' onClick={() => { cutImg() }}>开始截图</button>
 
                     </div>
                     <div className='storage_design_prt_show' id='result' >
