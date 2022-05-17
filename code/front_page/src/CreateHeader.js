@@ -30,7 +30,6 @@ const CreateHeader = () => {
         fetch('https://api.qasdwer.xyz:2019/isLogin/' + email)
             .then(res => res.json())
             .then(res => {
-                console.log(res)
                 setUserdata(res);
             })
     }, [])
@@ -149,12 +148,10 @@ const CreateHeader = () => {
             needDownload: false,
             endCB(e) { //截图成功回调
                 // setStorageDis('flex');
-                console.log(111)
                 showPic(e, "image1")
             },
             cancelCB(e) {
-                console.log(222)
-                console.log("fail", e)
+                // console.log("fail", e)
             }
         }).startScreenShot()
     }
@@ -183,7 +180,6 @@ const CreateHeader = () => {
                         .then(res => res.text())
                         .then(res => {
                             if (res === 'ok') {
-                                console.log(111)
                                 history.replace('/personalcenter/designs');
                                 localStorage.removeItem('points');
                                 localStorage.removeItem('pointerArray');
