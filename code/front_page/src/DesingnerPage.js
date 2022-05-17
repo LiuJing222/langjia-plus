@@ -7,10 +7,11 @@ import followed from './images/designer_followed.png'
 import add from './images/add.png'
 import AddIns from './AddIns'
 import delicon from './images/delete.png'
+import goback from './images/designer_goback.svg'
 
 const DesingnerPage = (props) => {
     const user_email = localStorage.getItem('email');
-    const h = window.innerHeight;
+    const h = window.innerHeight - 1;
     const result = props.location.search;
     const que = result.slice(4, result.length - 3)
 
@@ -18,11 +19,34 @@ const DesingnerPage = (props) => {
     const [work, setWork] = useState([]);
     const [adminList, setAdminList] = useState([]);
     const [insList, setInsList] = useState([]);
-
+    const [sendDis, setSendDis] = useState('none');
+    const [val, setVal] = useState('');
+    const [message, setMessage] = useState([]);
+    const [meimg, setMeimg] = useState('');
+    const [youimg, setYouimg] = useState('');
+    const [timer, setTimer] = useState(null);
+    // setInterval(()=>{
+    //     const userid = localStorage.getItem('email');
+    //     fetch('https://api.qasdwer.xyz:2019/getmessage/'+userid)
+    //     .then(res=>res.json())
+    //     .then(res=>{
+    //         console.log(res);
+    //     })
+    // },5000)
     useEffect(() => {
+        var showContent = document.getElementsByClassName('all_message')[0];
+        showContent.scrollTop = showContent.scrollHeight;
         fetch('https://api.qasdwer.xyz:2019/')
             .then(res => res.json())
             .then(res => {
+                for (var i = 0; i < res.length; i++) {
+                    if (res[i].user_id == localStorage.getItem('email')) {
+                        setMeimg(res[i].user_head_portrait)
+                    }
+                    if (res[i].user_id == que) {
+                        setYouimg(res[i].user_head_portrait)
+                    }
+                }
                 setDesigner(res)
             })
         fetch('https://api.qasdwer.xyz:2019/getuserdesign')
@@ -41,6 +65,27 @@ const DesingnerPage = (props) => {
                 const newlist = res.filter(item => item.user_id === que)
                 setInsList(newlist);
             })
+        setTimer(setInterval(() => {
+            fetch('https://api.qasdwer.xyz:2019/echomessage/' + user_email + '/' + que)
+                .then(res => res.json())
+                .then(res => {
+                    console.log(res)
+                    console.log(JSON.parse(res[0].message));
+
+                    setMessage(JSON.parse(res[0].message));
+                })
+            var showContent = document.getElementsByClassName('all_message')[0];
+            showContent.scrollTop = showContent.scrollHeight;
+            
+        }, 5000))
+
+        return () => {
+            if (timer !== null) {
+                clearInterval(timer);
+            }
+
+        }
+
     }, [])
     const follow = () => {
         fetch('https://api.qasdwer.xyz:2019/cancelfollowing/' + user_email + '/' + que)
@@ -61,8 +106,8 @@ const DesingnerPage = (props) => {
     const delIns = (id, name) => {
         var isdel = window.confirm(`确定删除灵感 ${name} 吗？`);
         if (isdel) {
-            fetch('https://api.qasdwer.xyz:2019/delinspiration/' + id,{
-                method:'delete'
+            fetch('https://api.qasdwer.xyz:2019/delinspiration/' + id, {
+                method: 'delete'
             })
                 .then(res => {
                     window.location.reload()
@@ -84,6 +129,21 @@ const DesingnerPage = (props) => {
         document.getElementsByClassName('designer_detail_design_num1')[0].style.color = '#fff';
         document.getElementsByClassName('designer_detail_design_content')[0].style.display = 'none';
         document.getElementsByClassName('designer_detail_ins_content')[0].style.display = 'block';
+    }
+    const sendMes = () => {
+        setSendDis('flex');
+    }
+    const sendMessage = () => {
+        console.log(val)
+        const id = localStorage.getItem('email');
+        fetch('https://api.qasdwer.xyz:2019/sendmessage', {
+            method: 'post',
+            body: JSON.stringify({ sender_id: id, receiver_id: que, message: val })
+        })
+            .then((res) => {
+                console.log(res)
+            })
+        setVal('');
     }
     return (
         <div className='designer_box' style={{ height: h }}>
@@ -113,7 +173,7 @@ const DesingnerPage = (props) => {
                                                     <div className='designer_detail_followed'>
                                                         <img src={followed} alt="followed" className='designer_detail_followed_img' />
                                                         <div className='designer_detail_followed_txt'>粉丝：
-                                            {item.followed == "" ? 0 : JSON.parse(item.followed).length}
+                                                            {item.followed == "" ? 0 : JSON.parse(item.followed).length}
                                                         </div>
                                                     </div>
                                                     {/* 自我介绍 */}
@@ -132,9 +192,16 @@ const DesingnerPage = (props) => {
                                                             <div></div>
                                                             :
                                                             item.followed.includes(user_email) ?
-                                                                <div className='designer_detail_follow' onClick={() => follow()}>取消关注</div>
+                                                                <div className='designer_mes_fol'>
+                                                                    <div className='designer_send_message' onClick={() => sendMes()}>发送消息</div>
+                                                                    <div className='designer_detail_follow' onClick={() => follow()}>取消关注</div>
+                                                                </div>
                                                                 :
-                                                                <div className='designer_detail_follow' onClick={() => follow()}>关注</div>
+                                                                <div className='designer_mes_fol'>
+                                                                    <div className='designer_send_message' onClick={() => sendMes()}>发送消息</div>
+                                                                    <div className='designer_detail_follow' onClick={() => follow()}>关注</div>
+
+                                                                </div>
 
                                                     }
 
@@ -230,7 +297,7 @@ const DesingnerPage = (props) => {
                                             <div className='designer_detail_followed'>
                                                 <img src={followed} alt="followed" className='designer_detail_followed_img' />
                                                 <div className='designer_detail_followed_txt'>粉丝：
-                                    {item.followed == "" ? 0 : JSON.parse(item.followed).length}
+                                                    {item.followed == "" ? 0 : JSON.parse(item.followed).length}
                                                 </div>
                                             </div>
                                             {/* 自我介绍 */}
@@ -249,9 +316,16 @@ const DesingnerPage = (props) => {
                                                     <div></div>
                                                     :
                                                     item.followed.includes(user_email) ?
-                                                        <div className='designer_detail_follow' onClick={() => follow()}>取消关注</div>
+                                                        <div className='designer_mes_fol'>
+                                                            <div className='designer_send_message' onClick={() => sendMes()}>发送消息</div>
+                                                            <div className='designer_detail_follow' onClick={() => follow()}>取消关注</div>
+                                                        </div>
                                                         :
-                                                        <div className='designer_detail_follow' onClick={() => follow()}>关注</div>
+                                                        <div className='designer_mes_fol'>
+                                                            <div className='designer_send_message' onClick={() => sendMes()}>发送消息</div>
+                                                            <div className='designer_detail_follow' onClick={() => follow()}>关注</div>
+
+                                                        </div>
 
                                             }
 
@@ -293,6 +367,29 @@ const DesingnerPage = (props) => {
                 </div> : ''
             }
             <div className="designer_page_addIns_outside"><AddIns /></div>
+            <div className='designer_send_mes_page' style={{ display: sendDis }}>
+                <div className='designer_goback'>
+                    <img src={goback} alt="" onClick={() => setSendDis('none')} />
+                </div>
+                <div className='all_message'>
+                    {
+                        message.map(item => {
+                            return (
+                                <div className='one_message'>
+
+                                    <img className='sender_img' src={item.sender_id == localStorage.getItem('email') ? `https://api.qasdwer.xyz:2019/headPortrait/${meimg}` : `https://api.qasdwer.xyz:2019/headPortrait/${youimg}`} alt="" />
+
+                                    <div className='sender_message'>{item.message}</div>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+                <div className='designer_send_mes_form'>
+                    <input id="input" autocomplete="off" value={val} onChange={(e) => { setVal(e.target.value) }} /><button onClick={sendMessage}>Send</button>
+
+                </div>
+            </div>
         </div>
     )
 }

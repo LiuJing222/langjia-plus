@@ -37,14 +37,17 @@ const PersonalCenter = () => {
     const [userList, setUserList] = useState([]);
     const [adminList, setAdminList] = useState([]);
     const [totalNumber, setTotalNumber] = useState(0);
-
+    const [getMessage, setGetMessage] = useState([]);
+    const [timer, setTimer] = useState(null);
     const history = useHistory();
     const pathname = history.location.pathname;
 
     var email = localStorage.getItem('email');
     var count = 0;
-
     useEffect(() => {
+        if(timer!== null){
+            clearInterval(timer)
+        }
         fetch('https://api.qasdwer.xyz:2019/isLogin/' + email)
             .then(res => res.json())
             .then(res => {
@@ -105,8 +108,26 @@ const PersonalCenter = () => {
             .then(res => {
                 setAdminList(res)
             })
+        setTimer(setInterval(() => {
+            fetch('https://api.qasdwer.xyz:2019/getmessages/' + email)
+                .then(res => res.json())
+                .then(res => {
+                    setGetMessage(res);
+                })
+        }, 5000))
+
+        return () => {
+            if (timer !== null) {
+                clearInterval(timer);
+            }
+
+        }
+        
+
     }, []);
+
     useEffect(() => {
+
         var nodelists = document.getElementsByClassName('personalcenter_nav')[0].childNodes;
         for (var i = 0; i < nodelists.length; i++) {
             nodelists[i].style.backgroundColor = "rgb(2,43,99)";
@@ -130,6 +151,7 @@ const PersonalCenter = () => {
             nodelists[0].childNodes[0].style.color = "rgb(2,43,99)";
             nodelists[0].childNodes[0].style.fontWeight = "bold";
         }
+
     })
     const Changstyle = (e) => {
         for (var i = 0; i < e.target.parentElement.parentElement.childNodes.length; i++) {
@@ -316,7 +338,7 @@ const PersonalCenter = () => {
                     <li onClick={() => toFollow()}><Link to='/personalcenter'>
                         <div className="personalcenter_data_left_box">
                             <div>我的关注</div>
-                            <div>{message.following == '' ? <Link to='/Ins'>发现优质作者=></Link> : '跟着大佬走不会错的'}</div>
+                            <div>{message.following == '' ? <Link to='/Ins'>发现优质作者</Link> : '跟着大佬走不会错的'}</div>
                         </div>
                         <div className="personalcenter_data_right_box">{following.length == 0 ? '--' : following.length}</div>
                     </Link>
@@ -324,7 +346,7 @@ const PersonalCenter = () => {
                     <li onClick={() => toFollow()}><Link to='/personalcenter'>
                         <div className="personalcenter_data_left_box">
                             <div>我的粉丝</div>
-                            <div>{message.following == '' ? <Link to='/home'>优秀的作品吸引更多的小伙伴=></Link> : '没错大佬就是我'}</div>
+                            <div>{message.following == '' ? <Link to='/home'>优秀的作品吸引更多的小伙伴</Link> : '没错大佬就是我'}</div>
                         </div>
                         <div className="personalcenter_data_right_box">{followed.length == 0 ? '--' : followed.length}</div>
                     </Link>
@@ -424,12 +446,33 @@ const PersonalCenter = () => {
                                         }
                                     }) :
                                     <div className="blank_follow" style={{ backgroundImage: `url(${nothing})` }}>
-                                        <div>您还没有粉丝哦</div>
+                                        <div>您还没有关注哦</div>
                                     </div>
                             }
                         </div>
                         <div className="personalcenter_message_box">
                             <div className="personalcenter_follow_box_title">全部消息</div>
+                            {
+                                getMessage.length !== 0 ?
+                                    getMessage.map(item => {
+                                        for (var i = 0; i < userList.length; i++) {
+                                            if ((item.user_id_1 !== email && item.user_id_1 == userList[i].user_id) || (item.user_id_2 !== email && item.user_id_2 == userList[i].user_id)) {
+                                                return <div className="personalcenter_follow_user_outside"><Link to={{ pathname: '/designer', search: JSON.stringify(userList[i].user_id) }} target='_blank' className="personalcenter_follow_user" key={userList[i].user_id}>
+                                                    <div className="personalcenter_follow_headimg"><img src={'https://api.qasdwer.xyz:2019/headPortrait/' + userList[i].user_head_portrait} /></div>
+                                                    <div className="personalcenter_follow_intro">
+                                                        <div>{userList[i].user_name}</div>
+                                                        <div>{JSON.parse(item.message)[JSON.parse(item.message).length - 1].message}</div>
+                                                    </div>
+                                                </Link>
+                                                    {/* <div className="personalcenter_follow_cancel" onClick={() => StopFollowed(userList[i])}>移除</div> */}
+                                                </div>
+                                            }
+                                        }
+                                    }) :
+                                    <div className="blank_follow" style={{ backgroundImage: `url(${nothing})` }}>
+                                        <div>您还没有信息哦</div>
+                                    </div>
+                            }
                         </div>
                     </div>
                 </div>
