@@ -40,6 +40,12 @@
     margin-left: 16px;
     position: relative;
 }
+.home_nav_item :hover{
+    /* font-size: 16px; */
+    color: rgb(2, 43, 99);
+    transition: all 1s;
+    
+}
 
 .home_nav_item span {
     text-decoration: none;

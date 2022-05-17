@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { createBrowserHistory } from 'history'
-import { Carousel,Radio } from 'antd';
+import { Carousel, Radio } from 'antd';
 
 import HomeBelong from './HomeBelong'
 import HomeBg from './images/homeBg.jpg'
@@ -24,6 +24,7 @@ import FreeBubble from './images/FBubble.png'
 import RferBubble from './images/RBubble.png'
 import StartBubble from './images/SBubble.png'
 
+
 import './HomeContent.css'
 import { Dialog, Toast, } from 'antd-mobile'
 
@@ -32,15 +33,28 @@ const history = createBrowserHistory({
     forceRefresh: true        //是否强制刷新
 });
 const go = async () => {
-    const result = await Dialog.confirm({
-        content: `登陆之后才能开始创建哦，要去登陆吗？`,
-    })
-    result ? history.push("/login") : history.push("/home")
+    // const result = await Dialog.confirm({
+    //     content: '登陆之后才能开始创建哦，要去登陆吗？',
+    // })
+
+    // result ? history.push("/login") : history.push("/home")
+    var alert = document.querySelector('.alert_mask')
+    
+    alert.style.display = 'block';
+}
+const alertSure = ()=>{
+    history.push('/login')
+}
+const alertCancel = () =>{
+    var alert = document.querySelector('.alert_mask')
+    
+    alert.style.display = 'none';
+
 }
 const HomeTop = () => {
     return (
         <div className="home_top">
-            {/* <img src='https://qhrenderpicoss.kujiale.com/r/2022/05/11/L3D206S41ENDP5SICZQUWFVDYLUF3P3XI888_2560x1440.jpg?x-oss-process=image/resize,m_mfit,w_1440,h_810/format,webp' className="home_top_bg"></img> */}
+            {/* 轮播图 */}
             <Carousel autoplay>
                 <div>
                     {/* <h3>1</h3> */}
@@ -271,6 +285,15 @@ const HomeContent = () => {
             <hr className='home_hr'></hr>
             <Chater></Chater>
             <HomeBelong></HomeBelong>
+            <div className='alert_mask'>
+                <div className='alert_box'>
+                    <div className='alert_content'>登陆之后才能开始创建哦，要去登陆吗？</div>
+                    <div className='alert_btn' style={{marginLeft:90}} onClick={()=>alertSure()}>
+                        确认
+                    </div>
+                    <div className='alert_btn' onClick={()=>alertCancel()}>取消</div>
+                </div>
+            </div>
         </div>
     )
 }

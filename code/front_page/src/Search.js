@@ -17,7 +17,9 @@ const Search = (props) => {
     var result = props.location.search;
     var que = decodeURI(result).slice(2,decodeURI(result).length-1);
     
+    
     useEffect(()=>{   
+        var alert = document.querySelector('.search_alert');
         if(que.includes('新手') || que.includes('入门') || que.includes('使用') || que.includes('指南') || que.includes('操作') || que.includes('户型') || que.includes('绘制')){
             document.body.scrollTop = document.documentElement.scrollTop = 0;
         }
@@ -49,10 +51,23 @@ const Search = (props) => {
             document.body.scrollTop = document.documentElement.scrollTop = 5800;
         }
         else if(que == ''){
-            alert('检测到您未输入搜索内容，将为您呈现朗家帮助中心文档')
+            alert.style.display = 'block';
+            alert.innerHTML='检测到您未输入搜索内容<br/>将为您呈现朗家帮助中心文档';
+            setTimeout(()=>{
+                alert.style.display='none';
+                alert.style.transitionProperty='all'
+                alert.style.transitionDuration = '2s';
+                
+            },2000)
         }
         else{
-            alert('抱歉，未搜索到您所需的内容，将为您呈现朗家帮助中心文档')
+            alert.style.display = 'block';
+            alert.innerHTML='抱歉，未搜索到您所需的内容<br/>将为您呈现朗家帮助中心文档';
+            setTimeout(()=>{
+                alert.style.display='none';
+                alert.style.transitionProperty='all'
+                alert.style.transitionDuration = '2s';
+            },2000)
         }
         window.addEventListener("scroll",handleScroll);
         handleScroll();
@@ -226,6 +241,7 @@ const Search = (props) => {
 
             {/* 内容 */}
             <div className='search_content'>
+                <div className='search_alert'></div>
                 {/* 新手入门 */}
                 <div className='search_content_new'>
                     <div className='search_content_new_title'>新手入门</div>

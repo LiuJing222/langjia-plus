@@ -32,7 +32,7 @@ const Cover = () => {
         let topbtn = document.getElementsByClassName("cover_serve_item")
  
         let scrollY = window.scrollY;
-        console.log(scrollY)
+        // console.log(scrollY)
         // 动画
 
         if(scrollY>=156){
@@ -48,7 +48,7 @@ const Cover = () => {
         }
         if(scrollY>=300){
             item1.setAttribute("id","cover_intro_item1_move")
-            console.log('超过了')
+            // console.log('超过了')
                      
             item1.style.left='200px';
             item1.style.transitionProperty='all';

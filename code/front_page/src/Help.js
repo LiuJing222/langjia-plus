@@ -63,7 +63,7 @@ const Help = () => {
               </div>
               <div className='help_about_item'>
                 <img src={house2} />
-              <div>朗家1.1</div>
+              <div>朗家2.0</div>
             </div>
           </div>
         </Link>

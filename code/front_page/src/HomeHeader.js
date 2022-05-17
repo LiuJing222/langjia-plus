@@ -53,7 +53,7 @@ const HomeHeader = () => {
         if (history.location.pathname === '/home') {
             let scrollY = window.scrollY;
             // 动画
-            console.log(scrollY)
+            // console.log(scrollY)
             if (scrollY >= 600) {
                 document.getElementsByClassName('home_header')[0].style.backgroundColor = 'rgb(255,255,255)';
             } else {
