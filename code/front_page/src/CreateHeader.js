@@ -30,6 +30,7 @@ const CreateHeader = () => {
         fetch('https://api.qasdwer.xyz:2019/isLogin/' + email)
             .then(res => res.json())
             .then(res => {
+                console.log(res)
                 setUserdata(res);
             })
     }, [])
@@ -83,18 +84,16 @@ const CreateHeader = () => {
         const pointerArray = localStorage.getItem('pointerArray');
         const furniture = localStorage.getItem('furniture');
         if (points || pointerArray || furniture) {
-            const result = await Dialog.confirm({
-           content: '回到首页将会清空所有，你确定返回吗？',
-       })
-           if (result) {
-               localStorage.removeItem('points');
-               localStorage.removeItem('pointerArray');
-               localStorage.removeItem('furniture');
-               history.replace('/home');
-           }
-       } else {
-           history.replace('/home');
-       }
+            const isclear = window.confirm('回到首页将会清空所有，你确定返回吗？');
+            if (isclear) {
+                localStorage.removeItem('points');
+                localStorage.removeItem('pointerArray');
+                localStorage.removeItem('furniture');
+                history.replace('/home');
+            }
+        } else {
+            history.replace('/home');
+        }
 
 
     }
@@ -126,7 +125,7 @@ const CreateHeader = () => {
     }
     function showPic(imgStr, imgName) {
         setStorageDis('flex');
-        setCutDis('none');
+        setCutDis('flex');
         var result = document.getElementById("result")
         if (result.childElementCount) {
             var imgOld = document.getElementById("imgPrtSc")
@@ -141,27 +140,21 @@ const CreateHeader = () => {
         result.appendChild(imgNew)
     }
     const ocrPic = () => {
-        
+        setStorageDis('none')
         new kscreenshot({
             key: 65,
             immediately: true,
             needDownload: false,
             endCB(e) { //截图成功回调
                 // setStorageDis('flex');
+                console.log(111)
                 showPic(e, "image1")
             },
             cancelCB(e) {
-                // console.log("fail", e)
+                console.log(222)
+                console.log("fail", e)
             }
         }).startScreenShot()
-    }
-    const cutImg = ()=>{
-        setStorageDis('none')
-        setCutDis('flex');
-    }
-    const cancelImg = ()=>{
-        setStorageDis('flex')
-        setCutDis('none');
     }
     const storageOk = () => {
         if (value) {
@@ -180,6 +173,7 @@ const CreateHeader = () => {
                         .then(res => res.text())
                         .then(res => {
                             if (res === 'ok') {
+                                console.log(111)
                                 history.replace('/personalcenter/designs');
                                 localStorage.removeItem('points');
                                 localStorage.removeItem('pointerArray');
@@ -213,8 +207,8 @@ const CreateHeader = () => {
             {/* <el-button type="warning" onClick={(e) => { ocrPic(e) }} icon="el-icon-camera">开始截图</el-button> */}
             </div>
             <div style={{position:'absolute',top:0,left:0,width:'100%',height:45,backgroundColor:'rgba(0,0,0,0.7)',zIndex: 10,display:cutDis,justifyContent:'center'}}>
-                <img style={{width:30,marginRight:60}} src={cut_img} alt="" onClick={()=>ocrPic()}/>
-                <img style={{width:28}} src={create_cancel} alt="" onClick={()=>cancelImg()}/>
+                <img style={{width:30,marginRight:60}} src={cut_img} alt="" />
+                <img style={{width:28}} src={create_cancel} alt="" />
                 
             </div>
             <div className='userData'>
@@ -252,7 +246,7 @@ const CreateHeader = () => {
                     <div className='storage_design_prt'>
                         <span>截图保存:</span>
 
-                        <button class='storage_btn1' onClick={() => { cutImg() }}>开始截图</button>
+                        <button class='storage_btn1' onClick={(e) => { ocrPic(e) }}>开始截图</button>
 
                     </div>
                     <div className='storage_design_prt_show' id='result' >

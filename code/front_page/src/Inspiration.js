@@ -30,13 +30,14 @@ const Inspiration = () => {
         <HomeHeader></HomeHeader>
         {/* 背景图 */}
         <div className='ins_bg'>
-            <img src={bg2} className="ins_bg_img" />
+            <img src="https://qhrenderpicoss.kujiale.com/r/2022/02/20/L3D206S21ENDP4HRN5IUWFDVMLUF3P3WA888_2560x1440.jpg?x-oss-process=image/resize,m_mfit,w_1440,h_810/format,webp" className="ins_bg_img" />
             <div className='ins_bg_box'>
                 <div className='ins_bg_txt'>思维的碰撞激起灵感的火花</div>
                 <img src={topline} className='ins_bg_line1' />
                 <img src={downline} className='ins_bg_line2' />
             </div>
         </div>
+        <div className='ins_title'>— 为您精选{state.length}套方案 —</div>
         {/* 内容 */}
         <div className='ins_content'>
             {

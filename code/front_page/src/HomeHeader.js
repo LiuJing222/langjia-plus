@@ -57,7 +57,7 @@ const HomeHeader = () => {
             if (scrollY >= 600) {
                 document.getElementsByClassName('home_header')[0].style.backgroundColor = 'rgb(255,255,255)';
             } else {
-                document.getElementsByClassName('home_header')[0].style.backgroundColor = 'rgba(255,255,255,0.3)';
+                document.getElementsByClassName('home_header')[0].style.backgroundColor = 'rgba(255,255,255,0.2)';
             }
         }
     };

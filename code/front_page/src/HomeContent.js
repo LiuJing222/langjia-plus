@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { createBrowserHistory } from 'history'
+import { Carousel,Radio } from 'antd';
 
 import HomeBelong from './HomeBelong'
 import HomeBg from './images/homeBg.jpg'
@@ -32,14 +33,32 @@ const history = createBrowserHistory({
 });
 const go = async () => {
     const result = await Dialog.confirm({
-            content: `登陆之后才能开始创建哦，要去登陆吗？`,
-        })
+        content: `登陆之后才能开始创建哦，要去登陆吗？`,
+    })
     result ? history.push("/login") : history.push("/home")
 }
 const HomeTop = () => {
     return (
         <div className="home_top">
-            <img src='https://qhrenderpicoss.kujiale.com/r/2022/05/11/L3D206S41ENDP5SICZQUWFVDYLUF3P3XI888_2560x1440.jpg?x-oss-process=image/resize,m_mfit,w_1440,h_810/format,webp' className="home_top_bg"></img>
+            {/* <img src='https://qhrenderpicoss.kujiale.com/r/2022/05/11/L3D206S41ENDP5SICZQUWFVDYLUF3P3XI888_2560x1440.jpg?x-oss-process=image/resize,m_mfit,w_1440,h_810/format,webp' className="home_top_bg"></img> */}
+            <Carousel autoplay>
+                <div>
+                    {/* <h3>1</h3> */}
+                    <img src='https://qhrenderpicoss.kujiale.com/r/2022/05/11/L3D206S41ENDP5SICZQUWFVDYLUF3P3XI888_2560x1440.jpg?x-oss-process=image/resize,m_mfit,w_1440,h_810/format,webp' className="home_top_bg"></img>
+                </div>
+                <div>
+                    {/* <h3>2</h3> */}
+                    <img src='https://qhrenderpic-cos.kujiale.com/r/2022/01/23/L3D397S21ENDPTZJXLFSGEYGWLUF3P3XU888_3200x3200.jpg?x-oss-process=image/resize,m_mfit,w_1440,h_810/format,webp' className="home_top_bg"></img>
+                </div>
+                <div>
+                    {/* <h3>3</h3> */}
+                    <img src='https://qhrenderpic-cos.kujiale.com/r/2021/11/30/L3D186S21ENDPS5GCNNSGHIHOLUF3P3WE888_1920x1080.jpg?x-oss-process=image/resize,m_mfit,w_1440,h_810/format,webp' className="home_top_bg"></img>
+                </div>
+                <div>
+                    {/* <h3>4</h3> */}
+                    <img src='https://qhrenderpicoss.kujiale.com/r/2022/02/02/L3D336S62ENDPTTKG6AUWFOWILUF3P3UI888_7680x4320.jpg?x-oss-process=image/resize,m_mfit,w_1440,h_810/format,webp' className="home_top_bg"></img>
+                </div>
+            </Carousel>
             <p className="fp">设计你的房间</p>
             <p className="sp">实现你的设计梦</p>
             <div className="home_characters">
