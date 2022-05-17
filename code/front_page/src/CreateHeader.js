@@ -125,7 +125,7 @@ const CreateHeader = () => {
     }
     function showPic(imgStr, imgName) {
         setStorageDis('flex');
-        setCutDis('flex');
+        setCutDis('none');
         var result = document.getElementById("result")
         if (result.childElementCount) {
             var imgOld = document.getElementById("imgPrtSc")
@@ -140,7 +140,7 @@ const CreateHeader = () => {
         result.appendChild(imgNew)
     }
     const ocrPic = () => {
-        setStorageDis('none')
+        
         new kscreenshot({
             key: 65,
             immediately: true,
@@ -155,6 +155,14 @@ const CreateHeader = () => {
                 console.log("fail", e)
             }
         }).startScreenShot()
+    }
+    const cutImg = ()=>{
+        setStorageDis('none')
+        setCutDis('flex');
+    }
+    const cancelImg = ()=>{
+        setStorageDis('flex')
+        setCutDis('none');
     }
     const storageOk = () => {
         if (value) {
@@ -207,8 +215,8 @@ const CreateHeader = () => {
             {/* <el-button type="warning" onClick={(e) => { ocrPic(e) }} icon="el-icon-camera">开始截图</el-button> */}
             </div>
             <div style={{position:'absolute',top:0,left:0,width:'100%',height:45,backgroundColor:'rgba(0,0,0,0.7)',zIndex: 10,display:cutDis,justifyContent:'center'}}>
-                <img style={{width:30,marginRight:60}} src={cut_img} alt="" />
-                <img style={{width:28}} src={create_cancel} alt="" />
+                <img style={{width:30,marginRight:60}} src={cut_img} alt="" onClick={()=>ocrPic()}/>
+                <img style={{width:28}} src={create_cancel} alt="" onClick={()=>cancelImg()}/>
                 
             </div>
             <div className='userData'>
@@ -246,7 +254,7 @@ const CreateHeader = () => {
                     <div className='storage_design_prt'>
                         <span>截图保存:</span>
 
-                        <button class='storage_btn1' onClick={(e) => { ocrPic(e) }}>开始截图</button>
+                        <button class='storage_btn1' onClick={() => { cutImg() }}>开始截图</button>
 
                     </div>
                     <div className='storage_design_prt_show' id='result' >
