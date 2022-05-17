@@ -84,16 +84,18 @@ const CreateHeader = () => {
         const pointerArray = localStorage.getItem('pointerArray');
         const furniture = localStorage.getItem('furniture');
         if (points || pointerArray || furniture) {
-            const isclear = window.confirm('回到首页将会清空所有，你确定返回吗？');
-            if (isclear) {
-                localStorage.removeItem('points');
-                localStorage.removeItem('pointerArray');
-                localStorage.removeItem('furniture');
-                history.replace('/home');
-            }
-        } else {
-            history.replace('/home');
-        }
+            const result = await Dialog.confirm({
+           content: '回到首页将会清空所有，你确定返回吗？',
+       })
+           if (result) {
+               localStorage.removeItem('points');
+               localStorage.removeItem('pointerArray');
+               localStorage.removeItem('furniture');
+               history.replace('/home');
+           }
+       } else {
+           history.replace('/home');
+       }
 
 
     }
