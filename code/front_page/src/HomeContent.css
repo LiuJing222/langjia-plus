@@ -128,20 +128,20 @@
 /* 四个按钮 */
 .home_btns {
     width: 1220px;
-    height: 90px;
-    margin-left: 10%;
-    
+    height: 80px;
+    margin-left: 15%;
     display: flex;
-    justify-content: space-around;
+    justify-content: between-around;
     position: absolute;
     top: 600px;
 }
 
 .home_btns button {
-    width: 290px;
-    height: 110px;
+    width: 270px;
+    height: 100px;
     border: none;
     background-color: #fff;
+    margin-left: 10px;
     box-shadow: 1px 1px 5px #ccc;
     position: relative;
 }
@@ -151,13 +151,13 @@
     height: 50px;
     position: absolute;
     left: 40px;
-    top: 30px;
+    top: 20px;
 }
 
 .home_btns span {
     font-size: 30px;
     font-weight: bold;
-    line-height: 110px;
+    line-height: 95px;
     color: rgb(2, 43, 99);
     position: absolute;
     top: 2%;

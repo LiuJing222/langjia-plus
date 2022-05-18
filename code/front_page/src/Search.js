@@ -375,7 +375,8 @@ const Search = (props) => {
                     {/* 2022 */}
                     <div>
                         <div className='search_content_new_title2'>2022年——朗家2.0</div>
-                        <div className='search_content_txt'>2022年朗家进行了较大规模的调整。主色调变为蓝白，更显轻便快捷。在前端页面的设计上，增加动画效果及用户交互功能，并增设了“大咖秀”、“帮助中心”、“加入我们”板块。创建页面。。。</div>
+                        <div className='search_content_txt'>2022年朗家进行了较大规模的调整。主色调变为蓝白，更显轻便快捷。在前端页面的设计上，增加动画效果及用户交互功能，并增设了“大咖秀”、“帮助中心”、“加入我们”板块。创建页面增加了右侧功能栏，主要功能有：全方位选择视图、室内室外视角转换、家具详细信息以及家具调整按钮，为您提供更方便的操作。</div>
+                        
                         {/* <img src={demo} className='search_content_img'/> */}
                         <ReactPlayer
                         className="search_content_img"

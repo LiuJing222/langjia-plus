@@ -34,7 +34,7 @@ const Recommend = () => {
         }   
     }
     return (
-        <div>
+        <div className='recommend_box'>
             <HomeHeader></HomeHeader>
             <div className='select_top'>
                 <div className='selector'>
