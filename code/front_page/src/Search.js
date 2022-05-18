@@ -257,7 +257,7 @@ const Search = (props) => {
                             
                             <ReactPlayer
                         className="search_content_img"
-                        url={test}
+                        url='https://langjia-1307125305.cos.ap-beijing.myqcloud.com/langjiaMP4/paint.mp4'
                         playing={true}
                         autoPlay={true}
                         muted={true}
@@ -275,7 +275,7 @@ const Search = (props) => {
                             {/* <img src={demo} className='search_content_img'/> */}
                             <ReactPlayer
                         className="search_content_img"
-                        url={to3d}
+                        url='https://langjia-1307125305.cos.ap-beijing.myqcloud.com/langjiaMP4/to3d.mp4'
                         playing={true}
                         autoPlay={true}
                         muted={true}
@@ -293,7 +293,7 @@ const Search = (props) => {
                             {/* <img src={demo} className='search_content_img'/> */}
                             <ReactPlayer
                         className="search_content_img"
-                        url={adjust}
+                        url='https://langjia-1307125305.cos.ap-beijing.myqcloud.com/langjiaMP4/adjust.mp4'
                         playing={true}
                         autoPlay={true}
                         muted={true}
@@ -312,7 +312,7 @@ const Search = (props) => {
                             {/* <img src={demo} className='search_content_img'/> */}
                             <ReactPlayer
                         className="search_content_img"
-                        url={save}
+                        url='https://langjia-1307125305.cos.ap-beijing.myqcloud.com/langjiaMP4/save.mp4'
                         playing={true}
                         autoPlay={true}
                         muted={true}
@@ -330,7 +330,7 @@ const Search = (props) => {
                             {/* <img src={demo} className='search_content_img'/> */}
                             <ReactPlayer
                         className="search_content_img"
-                        url={housetype}
+                        url='https://langjia-1307125305.cos.ap-beijing.myqcloud.com/langjiaMP4/type.mp4'
                         playing={true}
                         autoPlay={true}
                         muted={true}
@@ -380,7 +380,7 @@ const Search = (props) => {
                         {/* <img src={demo} className='search_content_img'/> */}
                         <ReactPlayer
                         className="search_content_img"
-                        url={fontpage}
+                        url='https://langjia-1307125305.cos.ap-beijing.myqcloud.com/langjiaMP4/fontpage.mp4'
                         playing={true}
                         autoPlay={true}
                         muted={true}
