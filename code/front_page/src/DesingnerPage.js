@@ -69,14 +69,14 @@ const DesingnerPage = (props) => {
             fetch('https://api.qasdwer.xyz:2019/echomessage/' + user_email + '/' + que)
                 .then(res => res.json())
                 .then(res => {
-                    console.log(res)
-                    console.log(JSON.parse(res[0].message));
-
-                    setMessage(JSON.parse(res[0].message));
+                    if (res.message != 'no message') {
+                        // console.log(JSON.parse(res[0].message));
+                        setMessage(JSON.parse(res[0].message));
+                    }
                 })
             var showContent = document.getElementsByClassName('all_message')[0];
             showContent.scrollTop = showContent.scrollHeight;
-            
+
         }, 5000))
 
         return () => {
