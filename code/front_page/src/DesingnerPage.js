@@ -33,6 +33,7 @@ const DesingnerPage = (props) => {
     //         console.log(res);
     //     })
     // },5000)
+    var showContent = document.getElementsByClassName('all_message')[0];
     useEffect(() => {
         var showContent = document.getElementsByClassName('all_message')[0];
         showContent.scrollTop = showContent.scrollHeight;
@@ -59,25 +60,13 @@ const DesingnerPage = (props) => {
             .then(res => {
                 setAdminList(res)
             })
-        fetch('https://api.qasdwer.xyz:2019/inspiredatas')
+        
+            fetch('https://api.qasdwer.xyz:2019/inspiredatas')
             .then(res => res.json())
             .then(res => {
                 const newlist = res.filter(item => item.user_id === que)
                 setInsList(newlist);
             })
-        setTimer(setInterval(() => {
-            fetch('https://api.qasdwer.xyz:2019/echomessage/' + user_email + '/' + que)
-                .then(res => res.json())
-                .then(res => {
-                    if (res.message != 'no message') {
-                        // console.log(JSON.parse(res[0].message));
-                        setMessage(JSON.parse(res[0].message));
-                    }
-                })
-            var showContent = document.getElementsByClassName('all_message')[0];
-            showContent.scrollTop = showContent.scrollHeight;
-
-        }, 5000))
 
         return () => {
             if (timer !== null) {
@@ -102,6 +91,7 @@ const DesingnerPage = (props) => {
     var count = 0;
     const addIns = () => {
         document.getElementsByClassName('designer_page_addIns_outside')[0].style.display = 'block';
+        
     }
     const delIns = (id, name) => {
         var isdel = window.confirm(`确定删除灵感 ${name} 吗？`);
@@ -132,18 +122,40 @@ const DesingnerPage = (props) => {
     }
     const sendMes = () => {
         setSendDis('flex');
+        setTimer(setInterval(() => {
+            fetch('https://api.qasdwer.xyz:2019/echomessage/' + user_email + '/' + que)
+                .then(res => res.json())
+                .then(res => {
+                    console.log(res)
+                    console.log(JSON.parse(res[0].message));
+
+                    setMessage(JSON.parse(res[0].message));
+                })
+            // var showContent = document.getElementsByClassName('all_message')[0];
+            showContent.scrollTop = showContent.scrollHeight;
+            
+        }, 6000))
     }
     const sendMessage = () => {
         console.log(val)
         const id = localStorage.getItem('email');
+        setMessage([...message,{message: val,receiver_id: que,sender_id: id}])
+        
         fetch('https://api.qasdwer.xyz:2019/sendmessage', {
             method: 'post',
             body: JSON.stringify({ sender_id: id, receiver_id: que, message: val })
         })
-            .then((res) => {
-                console.log(res)
-            })
+        .then((res) => {
+            console.log(res)
+            showContent.scrollTop = showContent.scrollHeight;
+        })
         setVal('');
+        
+    }
+    const keyDown = (e)=>{
+        if(e.keyCode == 13){
+            sendMessage();
+        }
     }
     return (
         <div className='designer_box' style={{ height: h }}>
@@ -375,18 +387,27 @@ const DesingnerPage = (props) => {
                     {
                         message.map(item => {
                             return (
-                                <div className='one_message'>
-
-                                    <img className='sender_img' src={item.sender_id == localStorage.getItem('email') ? `https://api.qasdwer.xyz:2019/headPortrait/${meimg}` : `https://api.qasdwer.xyz:2019/headPortrait/${youimg}`} alt="" />
-
-                                    <div className='sender_message'>{item.message}</div>
+                                <div>
+                                    {
+                                        item.sender_id == localStorage.getItem('email') ?
+                                        <div className='one_message_1'>
+                                            <img className='sender_img' src={`https://api.qasdwer.xyz:2019/headPortrait/${meimg}`} alt="" />
+                                            <div className='sender_message'>{item.message}</div>
+                                        </div>    
+                                        :
+                                        <div className='one_message_2'>
+                                            <img className='sender_img' src={`https://api.qasdwer.xyz:2019/headPortrait/${youimg}`} alt="" />
+                                            <div className='sender_message'>{item.message}</div>
+                                        </div>
+                                    }
+                                    
                                 </div>
                             )
                         })
                     }
                 </div>
                 <div className='designer_send_mes_form'>
-                    <input id="input" autocomplete="off" value={val} onChange={(e) => { setVal(e.target.value) }} /><button onClick={sendMessage}>Send</button>
+                    <input id="input" autocomplete="off" value={val} onChange={(e) => { setVal(e.target.value) }} onKeyDown={(e)=>keyDown(e)}/><button onClick={sendMessage}>Send</button>
 
                 </div>
             </div>
