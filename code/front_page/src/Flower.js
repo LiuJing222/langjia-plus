@@ -15,9 +15,10 @@ const Flower = () => {
 			<div class="seven common"></div>
 			<div class="eight common"></div>
 		</div>
-		<div class="bar">
+		<div className='flower_click'>点击开始设计</div>
+		{/* <div class="bar">
 			<div class="progress"></div>
-		</div>
+		</div> */}
 	</div>
 </div>
   )
