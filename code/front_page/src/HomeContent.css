@@ -1,5 +1,6 @@
 .home_content {
     height: auto;
+    overflow: hidden;
 }
 
 .home_top {
@@ -258,6 +259,7 @@
     height: 340px;
     position: absolute;
     top: 0px;
+    left:0px;
     object-fit: cover;
 }
 
@@ -286,12 +288,12 @@
 @keyframes imgAmtr {
     0% {
         opacity: 0;
-        right: -340px;
+        right: -300px;
     }
 
     100% {
         opacity: 1;
-        right: 0px;
+        right: 290px;
     }
 }
 
@@ -303,7 +305,7 @@
 
     100% {
         opacity: 1;
-        right: 0px;
+        right: -320px;
     }
 }
 

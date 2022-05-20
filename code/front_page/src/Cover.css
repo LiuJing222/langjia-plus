@@ -1,3 +1,6 @@
+.cover_box{
+    overflow: hidden;
+}
 
 .cover_nav {
     width: 100%;
@@ -12,7 +15,8 @@
     color: white;
     height: 25px;
     line-height: 45px;
-    /* float: left; */
+    font-weight: 600;
+    font-size: 18px;
     position: absolute;
     top: 0;
     left: 100px;
@@ -122,9 +126,9 @@
 
 .cover_img_btn:hover {
     box-shadow: 0 0 5px #448CEF,
+              0 0 15px #448CEF,
               0 0 25px #448CEF,
-              0 0 50px #448CEF,
-              0 0 100px #448CEF;
+              0 0 50px #448CEF;
     /* box-shadow: 0 0 5px rgb(2,43,99),
         0 0 25px rgb(2,43,99),
         0 0 50px rgb(2,43,99),
@@ -300,4 +304,92 @@
 }
 a{
     text-decoration: none;
+}
+
+/* joinus */
+/* joinus */
+#joinus_mask {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(2, 43, 99, 0.7);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+}
+
+#joinus_con {
+    width: 600px;
+    height: 350px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    box-shadow: 3px 3px 5px rgb(115, 115, 115);
+    position: absolute;
+    top: 18%;
+    left: 30%;
+}
+
+.joinus_titlebar {
+    width: 100%;
+    height: 25px;
+}
+
+.joinus_close {
+    position: absolute;
+    right: 20px;
+    font-size: 30px;
+    color: #ccc;
+}
+
+.joinus_close:hover {
+    transform: scale(1.2);
+    color: #e00;
+}
+
+.joinus_content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.joinus_con_text {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+}
+
+.joinus_con_text span:nth-child(1) {
+    color: rgba(2, 43, 99);
+    font-size: 26px;
+    margin-left: 50px;
+    margin-bottom: 40px;
+}
+
+.joinus_con_text span:nth-child(2) {
+    font-size: 15px;
+    margin-left: 80px;
+    margin-bottom: 30px;
+}
+
+.joinus_con_text span:nth-child(3) {
+    font-size: 16px;
+    margin-left: 130px;
+    margin-bottom: 30px;
+}
+
+.joinus_con_text span:nth-child(4) {
+    font-size: 16px;
+    margin-left: 130px;
+    margin-bottom: 30px;
+}
+
+.joinus_con_text span:nth-child(5) {
+    color: orange;
+    font-size: 13px;
+    margin-top: 40px;
+    margin-left: 40px;
+    margin-bottom: 20px;
 }

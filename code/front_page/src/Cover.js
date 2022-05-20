@@ -1,4 +1,4 @@
-import React,{ useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Cover.css'
 import HomeBelong from './HomeBelong'
@@ -10,115 +10,121 @@ import intro3 from './images/intro3.png'
 import intro4 from './images/intro4.png'
 import email from './images/email.png'
 import top from './images/top.png'
+import Callme from './images/home_belong_call_me.png'
 
 import ReactPlayer from 'react-player'
 
 const Cover = () => {
-
+    const [flag, setFlag] = useState(false)
     // 滑进动画
-    useEffect(()=>{
-        window.addEventListener("scroll",handleScroll);
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
         handleScroll();
         return () => {
             window.removeEventListener("scroll", handleScroll)
         }
-    },[])
-    
-    const handleScroll = () =>{
+    }, [])
+
+    const handleScroll = () => {
         let item1 = document.querySelector(".cover_intro_item1")
         let item2 = document.querySelector(".cover_intro_item2")
         let item3 = document.querySelector(".cover_intro_item3")
         let item4 = document.querySelector(".cover_intro_item4")
         let topbtn = document.getElementsByClassName("cover_serve_item")
- 
+
         let scrollY = window.scrollY;
         // console.log(scrollY)
         // 动画
 
-        if(scrollY>=156){
-            item1.style.display='block';
-            item2.style.display='block';
-            item3.style.display='block';
-            item4.style.display='block';
-        }else{
-            item1.style.display='none';
-            item2.style.display='none';
-            item3.style.display='none';
-            item4.style.display='none';
+        if (scrollY >= 156) {
+            item1.style.display = 'block';
+            item2.style.display = 'block';
+            item3.style.display = 'block';
+            item4.style.display = 'block';
+        } else {
+            item1.style.display = 'none';
+            item2.style.display = 'none';
+            item3.style.display = 'none';
+            item4.style.display = 'none';
         }
-        if(scrollY>=300){
-            item1.setAttribute("id","cover_intro_item1_move")
+        if (scrollY >= 300) {
+            item1.setAttribute("id", "cover_intro_item1_move")
             // console.log('超过了')
-                     
-            item1.style.left='200px';
-            item1.style.transitionProperty='all';
+
+            item1.style.left = '200px';
+            item1.style.transitionProperty = 'all';
             item1.style.transitionDuration = '0.5s';
-            item1.style.transitionTimingFunction='ease'
-          
-            item2.style.right='200px';
-            item2.style.transitionProperty='all';
+            item1.style.transitionTimingFunction = 'ease'
+
+            item2.style.right = '200px';
+            item2.style.transitionProperty = 'all';
             item2.style.transitionDuration = '0.5s';
-            item2.style.transitionTimingFunction='ease'
-        }else{
-            
-            item1.style.left='-600px';
-            item1.style.transitionProperty='all';
+            item2.style.transitionTimingFunction = 'ease'
+        } else {
+
+            item1.style.left = '-600px';
+            item1.style.transitionProperty = 'all';
             item1.style.transitionDuration = '0.5s';
-            item1.style.transitionTimingFunction='ease'
-     
-            item2.style.right='-600px';
-            item2.style.transitionProperty='all';
+            item1.style.transitionTimingFunction = 'ease'
+
+            item2.style.right = '-600px';
+            item2.style.transitionProperty = 'all';
             item2.style.transitionDuration = '0.5s';
-            item2.style.transitionTimingFunction='ease'
+            item2.style.transitionTimingFunction = 'ease'
         }
-        if(scrollY>=540){
-            item1.setAttribute("id","cover_intro_item1_move")
-            console.log('超过了')
-            
-            item3.style.left='200px';
-            item3.style.transitionProperty='all';
+        if (scrollY >= 540) {
+            item1.setAttribute("id", "cover_intro_item1_move")
+            // console.log('超过了')
+
+            item3.style.left = '200px';
+            item3.style.transitionProperty = 'all';
             item3.style.transitionDuration = '0.5s';
-            item3.style.transitionTimingFunction='ease'
- 
-            item4.style.right='200px';
-            item4.style.transitionProperty='all';
+            item3.style.transitionTimingFunction = 'ease'
+
+            item4.style.right = '200px';
+            item4.style.transitionProperty = 'all';
             item4.style.transitionDuration = '0.5s';
-            item4.style.transitionTimingFunction='ease'
-        }else{           
-            item3.style.left='-600px';
-            item3.style.transitionProperty='all';
+            item4.style.transitionTimingFunction = 'ease'
+        } else {
+            item3.style.left = '-600px';
+            item3.style.transitionProperty = 'all';
             item3.style.transitionDuration = '0.5s';
-            item3.style.transitionTimingFunction='ease'
-         
-            item4.style.right='-600px';
-            item4.style.transitionProperty='all';
+            item3.style.transitionTimingFunction = 'ease'
+
+            item4.style.right = '-600px';
+            item4.style.transitionProperty = 'all';
             item4.style.transitionDuration = '0.5s';
-            item4.style.transitionTimingFunction='ease'
+            item4.style.transitionTimingFunction = 'ease'
         }
         // 置顶
-        if(scrollY > 500){
+        if (scrollY > 500) {
             topbtn[0].style.display = 'block';
             topbtn[1].style.display = 'block';
 
-        }else{
+        } else {
             topbtn[1].style.display = 'none';
         }
     }
 
-    const goTop = () =>{
+    const goTop = () => {
         document.body.scrollTop = document.documentElement.scrollTop = 0;
     }
-
-   
+    // 联系我们
+    const ShowJoinus = async () => {
+        setFlag(true)
+    }
+    const CloseJoinus = async (e) => {
+        setFlag(false)
+    }
     return (
         <div className='cover_box'>
             {/* 导航栏 */}
             <div className='cover_nav'>
                 <Link to='/home'><div className='cover_nav_txt1'>朗家首页</div></Link>
                 {
-                localStorage.getItem("email") ?
-                    <Link to="personalcenter" className='cover_nav_txt2' ><span>个人中心</span></Link>
-                    : <Link to="/login"><div className="cover_nav_txt2"><span>登录</span></div></Link>
+                    localStorage.getItem("email") ?
+                        <Link to="personalcenter" className='cover_nav_txt2' ><span style={{fontWeight:600}}>个人中心</span></Link>
+                        : <Link to="/login"><div className="cover_nav_txt2"><span>登录</span></div></Link>
                 }
                 {/* <Link to='/login'><div className='cover_nav_txt2'>登录</div></Link> */}
                 <div className='cover_nav_line'>|</div>
@@ -182,7 +188,7 @@ const Cover = () => {
                         <div className='cover_intro_item1_txt2'>没有灵感？不必担心，朗家为您提供多种风格的设计灵感，收藏之后更便于查看</div>
                     </div>
                 </div>
-                
+
             </div>
 
             {/* 声明 */}
@@ -215,16 +221,40 @@ const Cover = () => {
             {/* 客服 */}
             <div className='cover_serve'>
                 <Link to='/'>
-                    <div className='cover_serve_item'>
-                        <img src={email} className='cover_serve_img' alt='img'/>
+                    <div className='cover_serve_item'  onClick={() => ShowJoinus()}>
+                        <img src={email} className='cover_serve_img' alt='img' />
                         <div className='cover_serve_txt'>联系我们</div>
                     </div>
-                </Link>       
-                <div className='cover_serve_item' onClick={()=>goTop()}>
-                    <img src={top} className='cover_serve_img' alt='img'/>
+                </Link>
+                <div className='cover_serve_item' onClick={() => goTop()}>
+                    <img src={top} className='cover_serve_img' alt='img' />
                     <div className='cover_serve_txt'>TOP</div>
                 </div>
             </div>
+            {flag ?
+                <div id="joinus_mask" onClick={(e) => { CloseJoinus(e) }} >
+                    <div id="joinus_con" onClick={(e) => { e.stopPropagation() }}>
+                        <div className='joinus_titlebar'>
+                            <span className='joinus_close' onClick={(e) => CloseJoinus(e)}>×</span>
+                        </div>
+                        <div className='joinus_content'>
+                            <div className='joinus_con_text'>
+                                <span>联系我们</span>
+                                <span>您可以通过以下两种方式联系我们：</span>
+                                <span>联系电话：15176655211</span>
+                                <span>邮箱：2505469033@qq.com</span>
+                                <span>非常期待您的来电或致信哦☺</span>
+                            </div>
+
+                            <div className='home_con_icon'>
+                                <img src={Callme} />
+
+                            </div>
+                        </div>
+                    </div>
+                </div> :
+                <div></div>
+            }
         </div>
     )
 }

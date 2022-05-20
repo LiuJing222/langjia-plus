@@ -33,7 +33,7 @@
     margin-top: 9px;
 }
 
-/* 导航栏每一�?*/
+/* 导航栏每一 ?*/
 .home_nav_item {
     width: 90px;
     height: 40px;
@@ -59,7 +59,7 @@
     top: 7px;
 }
 
-/* 导航栏每一项的活跃状�?*/
+/* 导航栏每一项的活跃状 ?*/
 
 .home_head_active {
     width: 90px;
@@ -161,36 +161,24 @@
 
 /* 开始设计 */
 .home_header_start span {
-    width: 95px;
+    width: 90px;
     height: 32px;
     color: rgb(255, 255, 255);
     font-weight: bold;
     border-radius: 10px;
     line-height: 32px;
-    background-color: rgb(27, 125, 248);
-    box-shadow: 2px 2px 2px rgb(169, 198, 255);
-    margin-left: 20px;
+    margin-left:10px;
+    color:#000;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .home_header_start:hover span {
-    width: 95px;
+    width: 90px;
     height: 32px;
     color: rgb(255, 255, 255);
     font-weight: bold;
     border-radius: 10px;
     line-height: 32px;
-    background-color: rgba(27, 125, 248,0.8);
-    box-shadow: 2px 2px 2px rgb(169, 198, 255);
-    margin-left: 20px;
+    color:#fff;
+    background-color: rgb(2, 43, 99);
 }
-
-/* .home_header_start {
-    width: auto;
-    height: auto;
-    margin-left: 20px;
-}
-
-.home_header_start img {
-    width: 30px;
-    height: 30px;
-} */

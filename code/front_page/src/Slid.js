@@ -50,7 +50,7 @@ const Slid = () => {
         setSize(size1)
       }
       function rightCartData() {
-        console.log(111)
+        // console.log(111)
         var item = localStorage.getItem('furnheight')
         if (item) {
           setHeight(item);
@@ -142,7 +142,7 @@ const Slid = () => {
     var v = e.target.value
     if (v > 10) {
       setWallHeight(10)
-      console.log(">10")
+      // console.log(">10")
       // wallHeightP.style.display = "block"
     } else if (v < 0) {
       setWallHeight(0)
@@ -231,8 +231,8 @@ const Slid = () => {
   }
 
   //缩放数据:-2π ~ 2π
-  console.log("size&&deg&&height", size, deg, height)
-  console.log("wallHeight", wallHeight)
+  // console.log("size&&deg&&height", size, deg, height)
+  // console.log("wallHeight", wallHeight)
   localStorage.setItem("wallHeight", wallHeight)
 
   return (
