@@ -106,13 +106,22 @@
 }
 .createSiderDetail_top{
     width: 300px;
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-around; */
     background-color: white;
     overflow: auto;
     z-index: 10;
     box-shadow: 0px 10px 5px lightgray;
+}
+.createSiderDetail_top_inner_close{
+    height: 30px;
+    margin-top: 10px;
+}
+.createSiderDetail_top_inner{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
 .createSiderDetail_top::-webkit-scrollbar{
@@ -129,6 +138,11 @@
 .createSiderDetail_li{
     padding-top: 8px;
     /* min-height: 100px; */
+
+    /* width: 145px;
+    height: 130px;
+    display: flex;
+    justify-content: center; */
 }
 .createSiderDetail_li img{
     width: 120px;
@@ -330,4 +344,44 @@
 .createSiderDetail_li .createSiderDetail_recom_img{
     width: 280px;
     height: 170px;
+}
+.createSiderDetail_top .furniture_classify_title{
+    height: 60px;
+    text-align: center;
+    font-size: 18px;
+    margin-top: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.furniture_classify_title_inner{
+    width: 150px;
+    height: 30px;
+    /* border-left: 1px double #ccc;
+    border-right: 1px double #ccc; */
+    border-left-style: double;
+    border-left-color: #ccc;
+    border-right-style: double;
+    border-right-color: #ccc;
+}
+.furniture_classify_all{
+    margin-top: 10px;
+    display: flex;
+    /* width: 300px; */
+    flex-wrap: wrap;
+}
+.furniture_classify_item{
+    width: 95px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.furniture_classify_item img{
+    
+    width: 50px;
+}
+.furniture_classify_item span{
+    font-size: 13px;
+    margin-top: 8px;
 }

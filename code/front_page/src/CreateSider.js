@@ -17,6 +17,19 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import IntroJs from 'intro.js'
 import 'intro.js/introjs.css';
+import sofa from './images/create_sofa.svg'
+import cabinet from './images/create_cabinet.svg'
+import decoration from './images/create_decoration.svg'
+import door from './images/create_door.svg'
+import chair from './images/create_chair.svg'
+import kitchen from './images/create_kitchen.svg'
+import light from './images/create_light.svg'
+import table from './images/create_table.svg'
+import bed from './images/create_bed.svg'
+import toilet from './images/create_toilet.svg'
+import window from './images/create_window.svg'
+import right from './images/create_right.svg'
+import back from './images/create_back.svg'
 
 const CreateSider = () => {
   const [display_text, setDisplay_text] = useState('none');
@@ -32,6 +45,9 @@ const CreateSider = () => {
   const [slideDis, setSlideDis] = useState({ display: 'none', message: {}, img: [] });
   const [house, setHouse] = useState([]);
   const [designlist, setDesignlist] = useState([]);
+  const [showlist, setShowList] = useState([]);
+  const [display_furn, setDisplay_furn] = useState(JSON.parse(localStorage.getItem('display_furn'))||{ page1: 'flex', page2: 'none' })
+  const [show_furn, setShow_furn] = useState(localStorage.getItem('show_furn')||'');
   useEffect(() => {
     if (localStorage.getItem('detailDis')) {
       console.log(localStorage.getItem('detailDis'))
@@ -61,8 +77,43 @@ const CreateSider = () => {
     } else {
       localStorage.setItem('click_background', JSON.stringify(click_background));
     }
+    fetch('https://api.qasdwer.xyz:2019/getuserdesign')
+      .then(res => res.json())
+      .then(res => {
+        const newlist = [];
+        res.map((val) => {
+          if (val.is_recom === 1) {
+            newlist.push(val);
+          }
+        })
+        console.log(res)
+        res && setDesignlist(newlist);
+
+      })
+      .catch(err => {
+        console.error(err)
+      })
+      fetch('https://api.qasdwer.xyz:2019/getDesignDatas')
+      .then(res => res.json())
+      .then(res => {
+        console.log(res)
+        setFurniture_img(res);
+      })
+    if(localStorage.getItem('detailDis')){
+      const dis = JSON.parse(localStorage.getItem('detailDis'));
+      for(var key in dis){
+        if(dis[key] == 'flex'){
+          f(key);
+          break;
+        }
+      }
+    }
+   
+  }, [])
+  const f = (i)=>{
     const email = localStorage.getItem('email');
-    fetch('https://api.qasdwer.xyz:2019/gethousetype')
+    if(i == 'module'){
+      fetch('https://api.qasdwer.xyz:2019/gethousetype')
       .then(res => res.json())
       .then(res => {
         console.log(res);
@@ -71,38 +122,24 @@ const CreateSider = () => {
 
       }).catch(err => {
         console.error(err)
-      })
-      fetch('https://api.qasdwer.xyz:2019/getuserdesign')
-            .then(res => res.json())
-            .then(res => {
-                const newlist = [];
-                res.map((val) => {
-                    if (val.is_recom === 1) {
-                        newlist.push(val);
-                    }
-                })
-                console.log(res)
-                res && setDesignlist(newlist);
-                
-            })
-            .catch(err => {
-                console.error(err)
-            })
-
-    fetch('https://api.qasdwer.xyz:2019/getDesignDatas')
-      .then(res => res.json())
-      .then(res => {
-        console.log(res)
-        setFurniture_img(res);
-      })
-    fetch('https://api.qasdwer.xyz:2019/getinspiredatas/' + email)
+      }) 
+    }else if(i == 'inspiration'){
+      fetch('https://api.qasdwer.xyz:2019/getinspiredatas/' + email)
       .then(res => res.json())
       .then(res => {
         console.log(res)
         setInspiration(res);
 
       })
-  }, [])
+    }else if(i == 'show'){
+      fetch('https://api.qasdwer.xyz:2019/getexcellenceworks')
+      .then(res => res.json())
+      .then(res => {
+        console.log(res)
+        setShowList(res);
+      })
+    }
+  }
   const iconClick = (i) => {
     // console.log(this)
     setClick_img_color({ module: module_gray, furniture: furniture_gray, recommend: recommend_gray, show: show_gray, inspiration: inspiration_gray, [i]: '' })
@@ -115,19 +152,22 @@ const CreateSider = () => {
     localStorage.setItem('click_background', JSON.stringify({ module: '', furniture: '', recommend: '', show: '', inspiration: '', [i]: 'rgba(3,9,17,0.04)' }));
     localStorage.setItem('detailDis', JSON.stringify({ module: 'none', furniture: 'none', recommend: 'none', show: 'none', inspiration: 'none', [i]: 'flex' }));
     setSideDetail({ module: 'none', furniture: 'none', recommend: 'none', show: 'none', inspiration: 'none', [i]: 'flex' })
+    setSlideDis({ ...slideDis, display: 'none' })
+    f(i);
   }
   const divEmerge = (e) => {
     localStorage.setItem('detailDis', JSON.stringify({ module: 'none', furniture: 'none', recommend: 'none', show: 'none', inspiration: 'none' }))
     setSideDetail({ module: 'none', furniture: 'none', recommend: 'none', show: 'none', inspiration: 'none' });
     setClick_img_color({ module: module_gray, furniture: furniture_gray, recommend: recommend_gray, show: show_gray, inspiration: inspiration_gray })
-    localStorage.setItem('click_img_color', JSON.stringify({ module: module_gray, furniture: furniture_gray, recommend: recommend_gray, show: show_gray, inspiration: inspiration_gray}));
+    localStorage.setItem('click_img_color', JSON.stringify({ module: module_gray, furniture: furniture_gray, recommend: recommend_gray, show: show_gray, inspiration: inspiration_gray }));
     setClick_text_color({ module: '', furniture: '', recommend: '', show: '', inspiration: '' })
     localStorage.setItem('click_text_color', JSON.stringify({ module: '', furniture: '', recommend: '', show: '', inspiration: '' }))
-    setClick_text_weight({ module: 'normal', furniture: 'normal', recommend: 'normal', show: 'normal', inspiration: 'normal'})
-    localStorage.setItem('click_text_weight', JSON.stringify({ module: 'normal', furniture: 'normal', recommend: 'normal', show: 'normal', inspiration: 'normal'}));
-    setClick_background({ module: '', furniture: '', recommend: '', show: '', inspiration: ''});
-    localStorage.setItem('click_background', JSON.stringify({ module: '', furniture: '', recommend: '', show: '', inspiration: ''}));
+    setClick_text_weight({ module: 'normal', furniture: 'normal', recommend: 'normal', show: 'normal', inspiration: 'normal' })
+    localStorage.setItem('click_text_weight', JSON.stringify({ module: 'normal', furniture: 'normal', recommend: 'normal', show: 'normal', inspiration: 'normal' }));
+    setClick_background({ module: '', furniture: '', recommend: '', show: '', inspiration: '' });
+    localStorage.setItem('click_background', JSON.stringify({ module: '', furniture: '', recommend: '', show: '', inspiration: '' }));
     console.log(e.target)
+    // f(i);
   }
   // const slideShow = (item)=>{
   //   console.log(item)
@@ -138,44 +178,44 @@ const CreateSider = () => {
     localStorage.setItem('furniture', JSON.stringify(furniture));
     window.location.reload();
   }
-  const getHouseType = (item)=>{
+  const getHouseType = (item) => {
     const housePoints = JSON.parse(item.points);
     localStorage.removeItem('furniture');
-    localStorage.setItem('points',JSON.stringify(housePoints));
+    localStorage.setItem('points', JSON.stringify(housePoints));
     localStorage.removeItem('pointerArray')
     window.location.reload();
-}
- const getdesignmodel = (id)=>{
-        const furniturearr = [];
-        designlist.map(val=>{
-            if(val.design_id === id){
-                const furn = JSON.parse(val.design_furniture)
-                for(var i = 0;i<furn.length;i++){
-                    var obj = {
-                        furniture_id:furn[i].furniture,
-                        position:furn[i].point,
-                        rotate:furn[i].rotate,
-                        size:furn[i].size,
-                        objname:furn[i].objname,
-                        mtlname:furn[i].mtlname,
-                        imgname:furn[i].imgname
-                    };
-                    furniturearr.push(obj)
-                }
-                localStorage.setItem('points',val.design_point);
-            }
-        })
-        localStorage.setItem('furniture',JSON.stringify(furniturearr));
-        window.location.reload();
-    }
+  }
+  const getdesignmodel = (id) => {
+    const furniturearr = [];
+    designlist.map(val => {
+      if (val.design_id === id) {
+        const furn = JSON.parse(val.design_furniture)
+        for (var i = 0; i < furn.length; i++) {
+          var obj = {
+            furniture_id: furn[i].furniture,
+            position: furn[i].point,
+            rotate: furn[i].rotate,
+            size: furn[i].size,
+            objname: furn[i].objname,
+            mtlname: furn[i].mtlname,
+            imgname: furn[i].imgname
+          };
+          furniturearr.push(obj)
+        }
+        localStorage.setItem('points', val.design_point);
+      }
+    })
+    localStorage.setItem('furniture', JSON.stringify(furniturearr));
+    window.location.reload();
+  }
 
   return (
     <div className='createSiderBox'>
-      <div  data-step="3" data-title="工具栏" data-intro="获得家具及灵感" className='createSiderContainer' onMouseOver={() => setDisplay_text('inline-block')} onMouseOut={() => setDisplay_text('none')}>
-        <div data-step="4" data-title="户型" data-intro="挑选心仪的户型练手"  className='createSiderIcon' style={{ backgroundColor: click_background.module }} onClick={() => iconClick('module')} onMouseOver={() => { setImg_color({ ...img_color, module: module_blue }); setText_color({ ...text_color, module: '#448cef' }) }} onMouseOut={() => { setImg_color({ ...img_color, module: module_gray }); setText_color({ ...text_color, module: '#707070' }) }}>
+      <div data-step="3" data-title="工具栏" data-intro="获得家具及灵感" className='createSiderContainer' onMouseOver={() => setDisplay_text('inline-block')} onMouseOut={() => setDisplay_text('none')}>
+        <div data-step="4" data-title="户型" data-intro="挑选心仪的户型练手" className='createSiderIcon' style={{ backgroundColor: click_background.module }} onClick={() => iconClick('module')} onMouseOver={() => { setImg_color({ ...img_color, module: module_blue }); setText_color({ ...text_color, module: '#448cef' }) }} onMouseOut={() => { setImg_color({ ...img_color, module: module_gray }); setText_color({ ...text_color, module: '#707070' }) }}>
           <img src={click_img_color.module == '' ? module_blue : img_color.module} alt="" />
         </div>
-        <div  data-step="5" data-title="家具" data-intro="在此选择家具进行装饰" className='createSiderIcon'  className='createSiderIcon' style={{ backgroundColor: click_background.furniture }} onClick={() => iconClick('furniture')} onMouseOver={() => { setImg_color({ ...img_color, furniture: furniture_blue }); setText_color({ ...text_color, furniture: '#448cef' }) }} onMouseOut={() => { setImg_color({ ...img_color, furniture: furniture_gray }); setText_color({ ...text_color, furniture: '#707070' }) }}>
+        <div data-step="5" data-title="家具" data-intro="在此选择家具进行装饰" className='createSiderIcon' style={{ backgroundColor: click_background.furniture }} onClick={() => iconClick('furniture')} onMouseOver={() => { setImg_color({ ...img_color, furniture: furniture_blue }); setText_color({ ...text_color, furniture: '#448cef' }) }} onMouseOut={() => { setImg_color({ ...img_color, furniture: furniture_gray }); setText_color({ ...text_color, furniture: '#707070' }) }}>
           <img src={click_img_color.furniture == '' ? furniture_blue : img_color.furniture} alt="" />
         </div>
         <div data-step="6" data-title="推荐" data-intro="随时查看其他人的优秀设计" className='createSiderIcon' style={{ backgroundColor: click_background.recommend }} onClick={() => iconClick('recommend')} onMouseOver={() => { setImg_color({ ...img_color, recommend: recommend_blue }); setText_color({ ...text_color, recommend: '#448cef' }) }} onMouseOut={() => { setImg_color({ ...img_color, recommend: recommend_gray }); setText_color({ ...text_color, recommend: '#707070' }) }}>
@@ -230,7 +270,7 @@ const CreateSider = () => {
             {
               house.map((item) => {
                 return (
-                  <li key={item.house_id} className='createSiderDetail_li' onClick={()=>{getHouseType(item)}}>
+                  <li key={item.house_id} style={{display:'flex',justifyContent:'space-around'}} className='createSiderDetail_li' onClick={() => { getHouseType(item) }}>
                     <img src={"https://api.qasdwer.xyz:2019/gethousetype/" + JSON.parse(item.imgname)[0]} alt="" />
                     <img src={"https://api.qasdwer.xyz:2019/gethousetype/" + JSON.parse(item.imgname)[1]} alt="" />
                   </li>
@@ -245,15 +285,85 @@ const CreateSider = () => {
         {/* -------------------------家具-------------------- */}
         <div className='createSiderDetail' style={{ display: sideDetail.furniture }} >
           <div className='createSiderDetail_top'>
-            {
-              furniture_img.map((item, index) => {
-                return (
-                  <li key={item.furniture_id} className='createSiderDetail_li' onClick={() => storagef(item, index)}>
-                    <img src={'https://api.qasdwer.xyz:2019/getDesignDatas/image/' + item.imgname} alt="" />
-                  </li>
-                )
-              })
-            }
+            <div style={{ display: display_furn.page1, flexDirection: 'column' }}>
+              <div className='furniture_classify_title'>
+                <div className='furniture_classify_title_inner'>
+                  <span>家具榜单分类</span>
+                  <img style={{ width: 15, position: 'relative', top: 2 }} src={right} alt="" />
+                </div>
+              </div>
+              <div className='furniture_classify_all'>
+                <div className='furniture_classify_item' onClick={() => { setDisplay_furn({ page1: 'none', page2: 'flex' }); setShow_furn('sofa');localStorage.setItem('display_furn',JSON.stringify({ page1: 'none', page2: 'flex' }));localStorage.setItem('show_furn','sofa') }}>
+                  <img src={sofa} alt="" />
+                  <span>沙发</span>
+                </div>
+                <div className='furniture_classify_item' onClick={() => { setDisplay_furn({ page1: 'none', page2: 'flex' }); setShow_furn('cabinet');localStorage.setItem('display_furn',JSON.stringify({ page1: 'none', page2: 'flex' }));localStorage.setItem('show_furn','cabinet') }}>
+                  <img src={cabinet} alt="" />
+                  <span>柜子</span>
+                </div>
+                <div className='furniture_classify_item' onClick={() => { setDisplay_furn({ page1: 'none', page2: 'flex' }); setShow_furn('decoration');localStorage.setItem('display_furn',JSON.stringify({ page1: 'none', page2: 'flex' }));localStorage.setItem('show_furn','decoration') }}>
+                  <img src={decoration} alt="" />
+                  <span>装饰</span>
+                </div>
+                <div className='furniture_classify_item' onClick={() => { setDisplay_furn({ page1: 'none', page2: 'flex' }); setShow_furn('door');localStorage.setItem('display_furn',JSON.stringify({ page1: 'none', page2: 'flex' }));localStorage.setItem('show_furn','door') }}>
+                  <img src={door} alt="" />
+                  <span>门</span>
+                </div>
+                <div className='furniture_classify_item' onClick={() => { setDisplay_furn({ page1: 'none', page2: 'flex' }); setShow_furn('chair');localStorage.setItem('display_furn',JSON.stringify({ page1: 'none', page2: 'flex' }));localStorage.setItem('show_furn','chair') }}>
+                  <img src={chair} alt="" />
+                  <span>椅子</span>
+                </div>
+                <div className='furniture_classify_item' onClick={() => { setDisplay_furn({ page1: 'none', page2: 'flex' }); setShow_furn('kitchen');localStorage.setItem('display_furn',JSON.stringify({ page1: 'none', page2: 'flex' }));localStorage.setItem('show_furn','kitchen') }}>
+                  <img src={kitchen} alt="" />
+                  <span>厨具</span>
+                </div>
+                <div className='furniture_classify_item' onClick={() => { setDisplay_furn({ page1: 'none', page2: 'flex' }); setShow_furn('light');localStorage.setItem('display_furn',JSON.stringify({ page1: 'none', page2: 'flex' }));localStorage.setItem('show_furn','light') }}>
+                  <img src={light} alt="" />
+                  <span>灯</span>
+                </div>
+                <div className='furniture_classify_item' onClick={() => { setDisplay_furn({ page1: 'none', page2: 'flex' }); setShow_furn('table');localStorage.setItem('display_furn',JSON.stringify({ page1: 'none', page2: 'flex' }));localStorage.setItem('show_furn','table') }}>
+                  <img src={table} alt="" />
+                  <span>桌子</span>
+                </div>
+                <div className='furniture_classify_item' onClick={() => { setDisplay_furn({ page1: 'none', page2: 'flex' }); setShow_furn('bed');localStorage.setItem('display_furn',JSON.stringify({ page1: 'none', page2: 'flex' }));localStorage.setItem('show_furn','bed') }}>
+                  <img style={{ marginTop: 13 }} src={bed} alt="" />
+                  <span style={{ marginTop: 11 }}>床</span>
+                </div>
+                <div className='furniture_classify_item' onClick={() => { setDisplay_furn({ page1: 'none', page2: 'flex' }); setShow_furn('toilet');localStorage.setItem('display_furn',JSON.stringify({ page1: 'none', page2: 'flex' }));localStorage.setItem('show_furn','toilet') }}>
+                  <img src={toilet} alt="" />
+                  <span>马桶</span>
+                </div>
+                <div className='furniture_classify_item' onClick={() => { setDisplay_furn({ page1: 'none', page2: 'flex' }); setShow_furn('window');localStorage.setItem('display_furn',JSON.stringify({ page1: 'none', page2: 'flex' }));localStorage.setItem('show_furn','window') }}>
+                  <img src={window} alt="" />
+                  <span>窗</span>
+                </div>
+
+              </div>
+            </div>
+            <div style={{ display: display_furn.page2, flexDirection: 'column' }}>
+              <div className='createSiderDetail_top_inner_close'>
+                <div style={{ width: 25, height: 25,marginLeft:30 }} onClick={() => {setDisplay_furn({ page1: 'flex', page2: 'none' });localStorage.setItem('display_furn',JSON.stringify({ page1: 'flex', page2: 'none' }));localStorage.setItem('show_furn','')}}>
+                  <img src={back} style={{width:24}} alt="" />
+                </div>
+
+              </div>
+              <div className='createSiderDetail_top_inner'>
+
+
+                {
+                  furniture_img.map((item, index) => {
+                    if (item.type == show_furn) {
+                      return (
+                        <li key={item.furniture_id} style={{display:'flex',justifyContent:'center',width: 145,height: 130}}  className='createSiderDetail_li' onClick={() => storagef(item, index)}>
+                          <img src={'https://api.qasdwer.xyz:2019/getDesignDatas/image/' + item.imgname} alt="" />
+                        </li>
+                      )
+                    }
+
+                  })
+                }
+              </div>
+            </div>
           </div>
           <div className='createSiderDetail_bottom' onClick={(e) => divEmerge(e)}>
 
@@ -265,7 +375,7 @@ const CreateSider = () => {
             {
               designlist.map((item) => {
                 return (
-                  <li key={item.design_id} className='createSiderDetail_li' onClick={()=>getdesignmodel(item.design_id)}>
+                  <li key={item.design_id} style={{display:'flex',justifyContent:'center'}} className='createSiderDetail_li' onClick={() => getdesignmodel(item.design_id)}>
                     <img className='createSiderDetail_recom_img' src={item.imgpath} alt="" />
                   </li>
                 )
@@ -277,45 +387,34 @@ const CreateSider = () => {
           </div>
         </div>
         {/* ---------------------大咖秀------------------------- */}
-        <div className='createSiderDetail' style={{ display: sideDetail.show }}>
+        <div className='createSiderDetail' style={{ display: sideDetail.show, width: 900 }}>
           <div className='createSiderDetail_top'>
             {
-              furniture_img.map((item) => {
-                return (
-                  <li key={item.furniture_id} className='createSiderDetail_li'>
-                    <img src={'https://api.qasdwer.xyz:2019/getDesignDatas/image/' + item.imgname} alt="" />
-                  </li>
-                )
-              })
-            }
-          </div>
-          <div className='createSiderDetail_bottom' onClick={(e) => divEmerge(e)}>
+              showlist.map((item) => {
+                if (item.vedio) {
+                  return (
+                    <li key={item.work_id} style={{display:'flex',justifyContent:'center'}} className='createSiderDetail_li' onMouseOver={() => setSlideDis({ display: 'flex', message: item, img: JSON.parse(item.message) })}>
+                      <ReactPlayer
+                        url={item.vedio}
+                        playing={true}
+                        autoPlay={true}
+                        muted={true}
+                        loop={true}
+                        //   controls
+                        width='300px'
+                        height='150px'
+                      />
+                    </li>
+                  )
+                } else {
+                  return (
+                    <li key={item.work_id} style={{display:'flex',justifyContent:'center'}} className='createSiderDetail_li' onMouseOver={() => setSlideDis({ display: 'flex', message: item, img: JSON.parse(item.message) })}>
+                      <img src={item.cover_img} style={{ width: 266, height: 150 }} alt="" />
+                    </li>
+                  )
+                }
 
-          </div>
-        </div>
-        {/* ----------------------灵感---------------------------------- */}
-        <div className='createSiderDetail' style={{ display: sideDetail.inspiration, width: 900 }}>
-          <div className='createSiderDetail_top'>
-            {
-              inspiration.map(item => {
-                return (
-                  <li key={item.inspire_id} className='createSiderDetail_li' onMouseOver={() => setSlideDis({ display: 'flex', message: item, img: JSON.parse(item.message) })}>
-                    <ReactPlayer
-                      url={'http:' + item.vedio}
-                      playing={true}
-                      autoPlay={true}
-                      muted={true}
-                      loop={true}
-                      //   controls
-                      width='300px'
-                      height='150px'
-                    />
-                    <div className='createSider_ins_text'>
-                      <div className='createSider_ins_title'>{item.title}</div>
-                      <div className='createSider_ins_tag'>{item.tag}</div>
-                    </div>
-                  </li>
-                )
+
               })
             }
           </div>
@@ -364,7 +463,80 @@ const CreateSider = () => {
             </div>
           </div>
         </div>
+        {/* ----------------------灵感---------------------------------- */}
+        <div className='createSiderDetail' style={{ display: sideDetail.inspiration, width: 900 }}>
+          <div className='createSiderDetail_top'>
+            {
+              inspiration.map(item => {
+                return (
+                  <li key={item.inspire_id} className='createSiderDetail_li' onMouseOver={() => setSlideDis({ display: 'flex', message: item, img: JSON.parse(item.message) })}>
+                    <ReactPlayer
+                      url={'http:' + item.vedio}
+                      playing={true}
+                      autoPlay={true}
+                      muted={true}
+                      loop={true}
+                      //   controls
+                      width='300px'
+                      height='150px'
+                    />
+                    <div className='createSider_ins_text'>
+                      <div className='createSider_ins_title'>{item.title}</div>
+                      <div className='createSider_ins_tag'>{item.tag}</div>
+                    </div>
+                  </li>
+                )
+              })
+            }
+          </div>
+          <div className='createSiderDetail_bottom' onClick={(e) => divEmerge(e)}>
+          </div>
+          <div className="slideshow" style={{ display: slideDis.display }}>
+            <div className='slideshow_top'>
+              <span onClick={() => setSlideDis({ ...slideDis, display: 'none' })}>
+                <CloseOutline />
+              </span>
+            </div>
+            <div className='slideshow111'>
+              <div>
+                <Slider {...{
+                  //   dots: true,
+                  // dotsClass:'slick-dots1',//自定义指示器的样式
+                  infinite: true,
+                  speed: 500,
+                  slidesToShow: 1,
+                  slidesToScroll: 1,
+                  height: 310,
+                  auto:1000,
+                }}>
+                  {
+                    slideDis.img.map(item => {
+                      return (
+                        <li key={item.imgpath}>
+                          <img style={{ width: 550, height: 310 }} src={item.imgpath} alt="" />
+                          <div className='slide_place'>{item.place}</div>
+                        </li>
+                      )
+                    })
+                  }
+                </Slider>
+              </div>
+
+            </div>
+            <div className='slide_bottom'>
+              <div>
+                <span>面积:</span>
+                <span>{slideDis.message.area}</span>
+              </div>
+              <div>
+                <span>类型:</span>
+                <span>{slideDis.message.type}</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
       {/* <div className='siderDetailAway'>
         <div className='siderDetailAwayInner'></div>
       </div> */}
