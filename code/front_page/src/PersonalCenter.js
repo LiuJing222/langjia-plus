@@ -29,15 +29,19 @@ const PersonalCenter = () => {
     const [message, setMessage] = useState({});
     const [designRanking, setDesignRanking] = useState(0);
     const [inspireRanking, setInspireRanking] = useState(0);
-    const [collectList, setCollectList] = useState([]);
-    const [designList, setDesignList] = useState([]);
+    // const [collectList, setCollectList] = useState([]);
+    const [collength, setCollength] = useState(0);
+    // const [designList, setDesignList] = useState([]);
+    const [deslength, setDeslength] = useState(0);
     const [recom, setRecom] = useState(0);
     const [following, setFollowing] = useState([]);
     const [followed, setFollowed] = useState([]);
     const [userList, setUserList] = useState([]);
-    const [adminList, setAdminList] = useState([]);
+    // const [adminList, setAdminList] = useState([]);
+    const [isadmin, setIsadmin] = useState(0);
     const [totalNumber, setTotalNumber] = useState(0);
     const [getMessage, setGetMessage] = useState([]);
+    const [copyMessage, setCopyMessage] = useState([]);
     const [timer, setTimer] = useState(null);
     const history = useHistory();
     const pathname = history.location.pathname;
@@ -45,26 +49,30 @@ const PersonalCenter = () => {
     var email = localStorage.getItem('email');
     var count = 0;
     useEffect(() => {
-        if(timer!== null){
+        if (timer !== null) {
             clearInterval(timer)
         }
-        fetch('https://api.qasdwer.xyz:2019/isLogin/' + email)
-            .then(res => res.json())
-            .then(res => {
-                setMessage(res);
-                if (res.following != '') {
-                    const num = JSON.parse(res.following);
-                    setFollowing(num);
-                }
-                if (res.followed != '') {
-                    const num = JSON.parse(res.followed);
-                    setFollowed(num);
-                }
-            })
-            .catch(err => console.log(err.message));
+
         fetch('https://api.qasdwer.xyz:2019/')
             .then(res => res.json())
             .then(res => {
+                console.log(res);
+                const currentUser = res.filter(item => item.user_id === email);
+                console.log(currentUser[0]);
+                setMessage(currentUser[0]);
+                if (currentUser[0].following != '') {
+                    const num = JSON.parse(currentUser[0].following);
+                    setFollowing(num);
+                }
+                if (currentUser[0].followed != '') {
+                    const num = JSON.parse(currentUser[0].followed);
+                    setFollowed(num);
+                }
+                setCollength(currentUser[0].collect_num);
+                setDeslength(currentUser[0].design_number);
+                setTotalNumber(currentUser[0].praise_num);
+                setRecom(currentUser[0].rec_num);
+                setIsadmin(currentUser[0].is_admin);
                 const data1 = res.sort((a, b) => {
                     return a.design_number > b.design_number ? -1 : 1;
                 })
@@ -83,36 +91,52 @@ const PersonalCenter = () => {
                 }
                 setUserList(res);
             })
-        fetch('https://api.qasdwer.xyz:2019/getcollection/' + email)
-            .then(res => res.json())
-            .then(res => {
-                setCollectList(res);
-            })
-            .catch(err => console.log(err.message));
-        fetch('https://api.qasdwer.xyz:2019/getuserdesign/' + email)
-            .then(res => res.json())
-            .then(res => {
-                var newList = res.filter(item => item.user_id === email)
-                setDesignList(newList);
-                var number = 0;
-                newList.map(item => {
-                    number += item.praise_quantity;
-                })
-                setTotalNumber(number);
-                var recomnum = newList.filter(item => item.is_recom === 1);
-                setRecom(recomnum.length);
-            })
-            .catch(err => console.log(err.message));
-        fetch('https://api.qasdwer.xyz:2019/admindata')
-            .then(res => res.json())
-            .then(res => {
-                setAdminList(res)
-            })
+
+        // fetch('https://api.qasdwer.xyz:2019/isLogin/' + email)
+        //     .then(res => res.json())
+        //     .then(res => {
+        //         setMessage(res);
+        //         if (res.following != '') {
+        //             const num = JSON.parse(res.following);
+        //             setFollowing(num);
+        //         }
+        //         if (res.followed != '') {
+        //             const num = JSON.parse(res.followed);
+        //             setFollowed(num);
+        //         }
+        //     })
+        //     .catch(err => console.log(err.message));
+        // fetch('https://api.qasdwer.xyz:2019/getcollection/' + email)
+        //     .then(res => res.json())
+        //     .then(res => {
+        //         setCollectList(res);
+        //     })
+        //     .catch(err => console.log(err.message));
+        // fetch('https://api.qasdwer.xyz:2019/getuserdesign/' + email)
+        //     .then(res => res.json())
+        //     .then(res => {
+        //         var newList = res.filter(item => item.user_id === email)
+        //         setDesignList(newList);
+        //         var number = 0;
+        //         newList.map(item => {
+        //             number += item.praise_quantity;
+        //         })
+        //         setTotalNumber(number);
+        //         var recomnum = newList.filter(item => item.is_recom === 1);
+        //         setRecom(recomnum.length);
+        //     })
+        //     .catch(err => console.log(err.message));
+        // fetch('https://api.qasdwer.xyz:2019/admindata')
+        //     .then(res => res.json())
+        //     .then(res => {
+        //         setAdminList(res)
+        //     })
         setTimer(setInterval(() => {
             fetch('https://api.qasdwer.xyz:2019/getmessages/' + email)
                 .then(res => res.json())
                 .then(res => {
                     setGetMessage(res);
+                    console.log(res)
                 })
         }, 5000))
 
@@ -122,7 +146,7 @@ const PersonalCenter = () => {
             }
 
         }
-        
+
 
     }, []);
 
@@ -236,6 +260,19 @@ const PersonalCenter = () => {
     //             })
     //     }
     // }
+    const Videos = () => {
+        const v = [
+            'http://user-platform-oss.kujiale.com/design/video/perm/MIUGZJYKTEFXCAABAAAAADQ8.mp4',
+            'http://user-platform-oss.kujiale.com/design/video/perm/MITKI4QKTEDRSAABAAAAABQ8.mp4',
+            'http://user-platform-oss.kujiale.com/design/video/perm/MJKD6LIKTEM2KAABAAAAADA8.mp4',
+            'http://user-platform-oss.kujiale.com/design/video/perm/MJZI5VQKTEZTGAABAAAAACA8.mp4',
+            'http://user-platform-oss.kujiale.com/design/video/perm/23a90231c85b08a2-1641540035905-1.mp4',
+            'http://user-platform-oss.kujiale.com/design/video/perm/974c5e60ff842436-1644978620754-1.mp4',
+            'http://user-platform-oss.kujiale.com/design/video/perm/d10c46e6a00dc877-1641540656791-1.mp4',
+            'http://user-platform-oss.kujiale.com/design/video/perm/MJMZMKIKTEZTGAABAAAAACY8.mp4'
+        ]
+        return v[parseInt(Math.random() * v.length)]
+    }
     return (
         <div className="personalcenter_box" style={{ backgroundImage: `url(${back})` }}>
             <div className="home_header" style={{ backgroundColor: 'white' }}>
@@ -287,7 +324,7 @@ const PersonalCenter = () => {
                     <div><img src={message.user_head_portrait ? 'https://api.qasdwer.xyz:2019/headPortrait/' + message.user_head_portrait : defaultimg} alt="头像" /></div>
                     <div>
                         <div>{message.user_name}</div>
-                        <div>{designList.length < 10 ? '新手小白' : designList.length < 30 ? '贡献者' : designList.length < 50 ? '设计家' : '设计师'}<span className="personalcenter_header_hidden_tip">发布的设计越多等级越高喔㋡</span></div>
+                        <div>{deslength < 10 ? '新手小白' : deslength < 30 ? '贡献者' : deslength < 50 ? '设计家' : '设计师'}<span className="personalcenter_header_hidden_tip">发布的设计越多等级越高喔㋡</span></div>
                         <div>{message.user_introduction}</div>
                     </div>
                 </div>
@@ -309,29 +346,23 @@ const PersonalCenter = () => {
                     </Link>
                     </li>
                     {
-                        adminList.map(item => {
-                            if (item.admin_email === email) {
-                                return <li key={item.admin_email}><Link target='_blank' to={{ pathname: '/designer', search: JSON.stringify(email) }}>
-                                    <div className="personalcenter_data_left_box">
-                                        <div>我的灵感</div>
-                                        <div>累计排名第{inspireRanking}名{inspireRanking == 1 ? <img src={gold} /> : inspireRanking == 2 ? <img src={silver} /> : inspireRanking == 3 ? <img src={bronze} /> : ''}</div>
-                                    </div>
-                                    <div className="personalcenter_data_right_box">{message.inspire_number == 0 ? '--' : message.inspire_number}</div>
-                                </Link>
-                                </li>
-                            }
-                            count++;
-                        })
-                    }
-                    {
-                        count === adminList.length ? <li onClick={() => toContent()}><Link to="/personalcenter/collects">
+                        isadmin ? <li key={Math.random()}><Link target='_blank' to={{ pathname: '/designer', search: JSON.stringify(email) }}>
                             <div className="personalcenter_data_left_box">
-                                <div>灵感收藏</div>
-                                <div>积少成多，好作品都是攒出来的</div>
+                                <div>我的灵感</div>
+                                <div>累计排名第{inspireRanking}名{inspireRanking == 1 ? <img src={gold} /> : inspireRanking == 2 ? <img src={silver} /> : inspireRanking == 3 ? <img src={bronze} /> : ''}</div>
                             </div>
-                            <div className="personalcenter_data_right_box">{collectList.length}</div>
+                            <div className="personalcenter_data_right_box">{message.inspire_number == 0 ? '--' : message.inspire_number}</div>
                         </Link>
-                        </li> : ''
+                        </li>
+                            :
+                            <li onClick={() => toContent()}><Link to="/personalcenter/collects">
+                                <div className="personalcenter_data_left_box">
+                                    <div>灵感收藏</div>
+                                    <div>积少成多，好作品都是攒出来的</div>
+                                </div>
+                                <div className="personalcenter_data_right_box">{collength}</div>
+                            </Link>
+                            </li>
 
                     }
 
@@ -359,11 +390,12 @@ const PersonalCenter = () => {
                         <div><Link to="/personalcenter" onClick={(e) => Changstyle(e)}>朗家</Link></div>
                         <div><Link to={{
                             pathname: '/personalcenter/collects',
-                            state: { userlist: userList, collectlist: collectList }
+                            // state: { userlist: userList, collectlist: collectList },
+                            // search: JSON.stringify(collectList)
                         }} onClick={(e) => Changstyle(e)} className="personalcenter_title">灵感收藏</Link></div>
                         <div><Link to={{
                             pathname: "/personalcenter/likes",
-                            state: { userlist: userList, designList: designList }
+                            // state: { userlist: userList, designList: designList }
                         }} onClick={(e) => Changstyle(e)} className="personalcenter_myCollect">设计点赞</Link></div>
                         <div><Link to="/personalcenter/designs" onClick={(e) => Changstyle(e)} className="personalcenter_myCollect">我的设计</Link></div>
                     </div>
@@ -372,7 +404,7 @@ const PersonalCenter = () => {
                         {history.location.pathname === '/personalcenter' ?
                             <div>
                                 <ReactPlayer
-                                    url={collectList[parseInt(Math.random() * (collectList.length))] ? collectList[parseInt(Math.random() * (collectList.length))].vedio : 'http://user-platform-oss.kujiale.com/design/video/perm/MIUGZJYKTEFXCAABAAAAADQ8.mp4'}
+                                    url={Videos()}
                                     playing={true}
                                     autoPlay={true}
                                     muted={true}
@@ -382,7 +414,7 @@ const PersonalCenter = () => {
                                 />
                             </div> :
                             <Switch>
-                                <Route path="/personalcenter/collects" component={PersonalCollects}></Route>
+                                <Route path="/personalcenter/collects" component={PersonalCollects} ></Route>
                                 <Route path="/personalcenter/likes" component={PersonalLikes}></Route>
                                 <Route path="/personalcenter/designs" component={PersonalDesigns}></Route>
                             </Switch>
@@ -457,15 +489,26 @@ const PersonalCenter = () => {
                                     getMessage.map(item => {
                                         for (var i = 0; i < userList.length; i++) {
                                             if ((item.user_id_1 !== email && item.user_id_1 == userList[i].user_id) || (item.user_id_2 !== email && item.user_id_2 == userList[i].user_id)) {
-                                                return <div className="personalcenter_follow_user_outside"><Link to={{ pathname: '/designer', search: JSON.stringify(userList[i].user_id) }} target='_blank' className="personalcenter_follow_user" key={userList[i].user_id}>
-                                                    <div className="personalcenter_follow_headimg"><img src={'https://api.qasdwer.xyz:2019/headPortrait/' + userList[i].user_head_portrait} /></div>
-                                                    <div className="personalcenter_follow_intro">
-                                                        <div>{userList[i].user_name}</div>
-                                                        <div>{JSON.parse(item.message)[JSON.parse(item.message).length - 1].message}</div>
+                                                if (item.state === 1) {
+                                                    return <div className="personalcenter_follow_user_outside_new"><Link to={{ pathname: '/designer', search: JSON.stringify(userList[i].user_id) }} target='_blank' className="personalcenter_follow_user" key={userList[i].user_id}>
+                                                        <div className="personalcenter_follow_headimg"><img src={'https://api.qasdwer.xyz:2019/headPortrait/' + userList[i].user_head_portrait} /></div>
+                                                        <div className="personalcenter_follow_intro">
+                                                            <div>{userList[i].user_name}</div>
+                                                            <div>{JSON.parse(item.message)[JSON.parse(item.message).length - 1].message}</div>
+                                                        </div>
+                                                    </Link>
                                                     </div>
-                                                </Link>
-                                                    {/* <div className="personalcenter_follow_cancel" onClick={() => StopFollowed(userList[i])}>移除</div> */}
-                                                </div>
+                                                }
+                                                else {
+                                                    return <div className="personalcenter_follow_user_outside"><Link to={{ pathname: '/designer', search: JSON.stringify(userList[i].user_id) }} target='_blank' className="personalcenter_follow_user" key={userList[i].user_id}>
+                                                        <div className="personalcenter_follow_headimg"><img src={'https://api.qasdwer.xyz:2019/headPortrait/' + userList[i].user_head_portrait} /></div>
+                                                        <div className="personalcenter_follow_intro">
+                                                            <div>{userList[i].user_name}</div>
+                                                            <div>{JSON.parse(item.message)[JSON.parse(item.message).length - 1].message}</div>
+                                                        </div>
+                                                    </Link>
+                                                    </div>
+                                                }
                                             }
                                         }
                                     }) :

@@ -10,6 +10,10 @@ import { Dialog, Toast, } from 'antd-mobile'
 const PersonalCollects = (props) => {
     // const userlist = props.location.state.userlist;
     // const collist = props.location.state.collectlist;
+    // console.log(JSON.parse(decodeURI(props.location.search).slice(1,decodeURI(props.location.search).length)));
+    // console.log(props.location)
+    // console.log(props.location.state.collectlist);
+
     var num = 0;
     var [userList, setUserList] = useState([]);
     var [collectList, setCollectList] = useState([]);
