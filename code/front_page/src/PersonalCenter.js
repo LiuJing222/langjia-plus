@@ -478,7 +478,7 @@ const PersonalCenter = () => {
                                         }
                                     }) :
                                     <div className="blank_follow" style={{ backgroundImage: `url(${nothing})` }}>
-                                        <div>您还没有关注哦</div>
+                                        <div>您还没有粉丝哦</div>
                                     </div>
                             }
                         </div>
