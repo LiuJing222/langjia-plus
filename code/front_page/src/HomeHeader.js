@@ -31,13 +31,15 @@ const HomeHeader = () => {
             var portrait = document.getElementById("home_header_user_head_portrait")
             var portrait_hover = document.getElementById("home_header_user_portrait_hover")
             portrait.addEventListener("mouseover", (e) => {
-                portrait_hover.style.display = "flex"
+                portrait_hover.style.display = "flex";
+               
             })
             portrait.addEventListener("mouseleave", (e) => {
                 portrait_hover.style.display = "none"
             })
             portrait_hover.addEventListener("mouseover", (e) => {
-                portrait_hover.style.display = "flex"
+                portrait_hover.style.display = "flex";
+                
             })
             portrait_hover.addEventListener("mouseleave", (e) => {
                 portrait_hover.style.display = "none"
