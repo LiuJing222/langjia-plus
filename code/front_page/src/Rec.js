@@ -9,16 +9,19 @@ import line from './images/rec_line2.png'
 
 const Rec = () => {
     const [recs, setRecs] = useState([]);
-    // const recs = []
+    const three = [
+        'https://qhrenderpicoss.kujiale.com/r/2019/03/16/L3D123S8ENDIGJUDVQUI5NZUEYN3P3XS888_3200x2400.jpg?x-oss-process=image/resize,m_mfit,w_1440,h_810/format,webp',
+        'https://qhrenderpicoss.kujiale.com/r/2021/08/25/L3D336S62ENDPQ5ODQ5SGHGZYLUF3P3XK888_7680x4320.jpg?x-oss-process=image/resize,m_mfit,w_1440,h_810/format,webp',
+        'https://qhrenderpicoss.kujiale.com/r/2021/01/25/L3D206S21ENDPUI2ONFSGHIEWLUF3P3W6888_2560x1440.jpg?x-oss-process=image/resize,m_mfit,w_1440,h_810/format,webp'
+    ];
+    
     const [designer, setDesigner] = useState([]);
-    const [favor, setFavor] = useState([]);
-    const three = [];
     const history = useHistory();
     var i = -1;
     const email = localStorage.getItem('email')
     useEffect(() => {
-        
-        fetch('https://api.qasdwer.xyz:2019/getuserdesign/'+email)
+
+        fetch('https://api.qasdwer.xyz:2019/getuserdesign/' + email)
             .then(res => res.json())
             .then(res => {
                 console.log(res);
@@ -31,10 +34,10 @@ const Rec = () => {
                         }
                     }
                 }
-                
+
                 setRecs(res)
             })
-            
+
         fetch('https://api.qasdwer.xyz:2019/')
             .then(res => res.json())
             .then(res => {
@@ -92,10 +95,10 @@ const Rec = () => {
                     }
                 }
                 setRecs(res)
-                
+
             })
 
-        
+
 
     }
 
@@ -105,34 +108,45 @@ const Rec = () => {
             <div className='realRec_box'>
                 {/* 前三名 */}
                 <div className='realRec_three'>
-                    
-                    {   
-                        
-                        recs.map((item, index) => {
-                            // console.log(item)
-                            if(item.is_recom == 1){
-                                i++;
-                            }
-                            if (item.is_recom == 1 && i<3) {
-                            
-                                return <div className='realRec_three_item' id={'realRec_three_item' + i}>
-                                    <div className={'realRec_three_img_box' + i}>
-                                        <img src={item.imgpath} alt="rec" className={i == 0 ? 'realRec_three_img0' : 'realRec_three_img'} onClick={() => intomydesign(item)} />
+                    {
+                        !recs[0] ?
+                            <div>
+                                <img src={three[0]} className='realRec_three_item' id={'realRec_three_item' + 0} />
+                                <img src={three[1]} className='realRec_three_item' id={'realRec_three_item' + 1} />
+                                <img src={three[2]} className='realRec_three_item' id={'realRec_three_item' + 2} />
+                            </div>
+
+                            :
+
+                            recs.map((item, index) => {
+                                // console.log(item)
+
+
+                                if (item.is_recom == 1) {
+                                    i++;
+                                }
+                                if (item.is_recom == 1 && i < 3) {
+
+                                    return <div className='realRec_three_item' id={'realRec_three_item' + i}>
+                                        <div className={'realRec_three_img_box' + i}>
+                                            <img src={item.imgpath} alt="rec" className={i == 0 ? 'realRec_three_img0' : 'realRec_three_img'} onClick={() => intomydesign(item)} />
+                                        </div>
+
+                                        <div id={'realRec_three_praise' + i} className='realRec_three_praise'>
+                                            <img src={praise} alt="zan" className='realRec_three_praise_img' />
+                                            <div className='realRec_three_num'>{item.praise_quantity}</div>
+                                        </div>
+
+                                        <div className='realRec_three_name'>{item.design_name}</div>
                                     </div>
+                                }
 
-                                    <div id={'realRec_three_praise' + i} className='realRec_three_praise'>
-                                        <img src={praise} alt="zan" className='realRec_three_praise_img' />
-                                        <div className='realRec_three_num'>{item.praise_quantity}</div>
-                                    </div>
 
-                                    <div className='realRec_three_name'>{item.design_name}</div>
-                                </div>
-                            }
+                            })
 
-                        })
-                        
+
                     }
-                    
+
 
                 </div>
 
@@ -164,8 +178,8 @@ const Rec = () => {
                                         }
 
                                         <div className='high_content_item_txt2'>
-                                           
-                                            <img src={item.is_favor?unpraise:praise} alt="zan" className='high_content_item_praise' onClick={() => addPraise(item.design_id, email)} />
+
+                                            <img src={item.is_favor ? unpraise : praise} alt="zan" className='high_content_item_praise' onClick={() => addPraise(item.design_id, email)} />
                                             <span>{item.praise_quantity}</span>
                                         </div>
                                         {/* <div className='high_content_item_txt3'>发布于{item.create_time}</div> */}
