@@ -231,6 +231,7 @@
     width: 100px;
     height: 100px;
     border-radius: 100px;
+    object-fit: cover;
     position: absolute;
     bottom: 20px;
     left: 30px;
@@ -258,6 +259,11 @@
     width: 40px;
     height: 40px;
     float: left;
+    z-index: 99;
+}
+.high_content_item_praise：hover{
+    width: 45px;
+    height: 45px;
 }
 
 .high_content_item_txt2 span{
