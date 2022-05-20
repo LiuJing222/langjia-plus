@@ -27,7 +27,6 @@ const CreateHeader = () => {
     const history = useHistory();
     const [cutDis, setCutDis] = useState('none');
     const [saveMsg, setSaveMsg] = useState('');
-    const [pic, setPic] = useState('');
     useEffect(() => {
         const email = localStorage.getItem('email');
         fetch('https://api.qasdwer.xyz:2019/isLogin/' + email)
@@ -36,8 +35,6 @@ const CreateHeader = () => {
                 setUserdata(res);
             })
     }, [])
-
- 
 
     const clearAll = () => {
         localStorage.removeItem('points');
@@ -87,76 +84,32 @@ const CreateHeader = () => {
             document.getElementsByClassName('createHeaderHelpBox')[0].style.display = 'flex' :
             document.getElementsByClassName('createHeaderHelpBox')[0].style.display = 'none';
     }
-
-       // base64压缩
-       function dealImage(base64, w, callback) {
-        var newImage = new Image();
-        var quality = 0.6; //压缩系数0-1之间
-        newImage.src = base64;
-        var imgWidth, imgHeight;
-        newImage.onload = function () {
-            imgWidth = this.width;
-            imgHeight = this.height;
-            var canvas = document.createElement("canvas");
-            var ctx = canvas.getContext("2d");
-            if (Math.max(imgWidth, imgHeight) > w) {
-                if (imgWidth > imgHeight) {
-                    canvas.width = w;
-                    canvas.height = w * imgHeight / imgWidth;
-                } else {
-                    canvas.height = w;
-                    canvas.width = w * imgWidth / imgHeight;
-                }
-            } else {
-                canvas.width = imgWidth;
-                canvas.height = imgHeight;
-                quality = 0.6;
-            }
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.drawImage(this, 0, 0, canvas.width, canvas.height);
-            var base64 = canvas.toDataURL("image/jpeg", quality); //压缩语句
-            // 如想确保图片压缩到自己想要的尺寸,如要求在50-150kb之间，请加以下语句，quality初始值根据情况自定
-            // while (base64.length / 1024 > 150) {
-            // 	quality -= 0.01;
-            // 	base64 = canvas.toDataURL("image/jpeg", quality);
-            // }
-            // 防止最后一次压缩低于最低尺寸，只要quality递减合理，无需考虑
-            // while (base64.length / 1024 < 50) {
-            // 	quality += 0.001;
-            // 	base64 = canvas.toDataURL("image/jpeg", quality);
-            // }
-            callback(base64)
-        }
-    }
-    const set = (s)=>{
-        localStorage.setItem("image1",s)
-    }
     function showPic(imgStr, imgName) {
         setStorageDis('flex');
         setCutDis('none');
         localStorage.setItem("cutDis", "none")
-        dealImage(imgStr, 500, set);
-        var pic = localStorage.getItem("image1")
         var result = document.getElementById("result")
         if (result.childElementCount) {
             var imgOld = document.getElementById("imgPrtSc")
             result.removeChild(imgOld)
         }
         let imgNew = document.createElement('img');
-        imgNew.setAttribute('src', pic);
+        imgNew.setAttribute('src', imgStr);
+        // imgNew.style.transform.scale = `260/${imgNew.clientHeight}`
         imgNew.style.maxHeight = '100%';
         imgNew.style.maxWidth = '100%';
         imgNew.setAttribute('id', "imgPrtSc");
         result.appendChild(imgNew)
     }
     const ocrPic = () => {
+
         new kscreenshot({
             key: 65,
             immediately: true,
             needDownload: false,
             endCB(e) { //截图成功回调
                 // setStorageDis('flex');
-                showPic(e,"image1")
+                showPic(e, "image1")
             },
             cancelCB(e) {
                 // console.log("fail", e)
@@ -176,7 +129,6 @@ const CreateHeader = () => {
 
     }
     const storageOk = () => {
-        localStorage.removeItem("image1")
         if (value) {
             if (document.getElementById('imgPrtSc')) {
                 const imgName = document.getElementById('imgPrtSc').currentSrc;
@@ -204,13 +156,13 @@ const CreateHeader = () => {
                 }
             } else {
                 setSaveMsg("pleasePrtSc")
-            }
+           }
 
         } else {
             setSaveMsg("pleaseName")
         }
     }
-    // console.log(saveMsg)
+    console.log(saveMsg)
     return (
         <div data-step="1" data-title="基本操作" data-intro="实现操作过程中的后退清空与保存">
             {cutDis == "none" ?
