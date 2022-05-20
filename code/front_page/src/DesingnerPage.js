@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import { useHistory } from 'react-router'
+import {Link} from 'react-router-dom'
 import './DesignerPage.css'
 import email from './images/designer_email.png'
 import none from './images/designer_none.png'
@@ -13,7 +15,8 @@ const DesingnerPage = (props) => {
     const user_email = localStorage.getItem('email');
     const h = window.innerHeight - 1;
     const result = props.location.search;
-    const que = result.slice(4, result.length - 3)
+    const que = result.slice(4, result.length - 3);
+    const history = useHistory();
 
     const [designer, setDesigner] = useState([]);
     const [work, setWork] = useState([]);
@@ -157,6 +160,30 @@ const DesingnerPage = (props) => {
             sendMessage();
         }
     }
+    const intomydesign = (item) => {
+        const furn = JSON.parse(item.design_furniture);
+        var arr = [];
+        for (var i = 0; i < furn.length; i++) {
+            var obj = {
+                furniture_id: furn[i].furniture,
+                position: furn[i].point,
+                rotate: furn[i].rotate,
+                size: furn[i].size,
+                objname: furn[i].objname,
+                mtlname: furn[i].mtlname,
+                imgname: furn[i].imgname,
+                type: furn[i].type,
+            };
+            arr.push(obj);
+        }
+        localStorage.setItem('furniture', JSON.stringify(arr));
+        localStorage.setItem('points', item.design_point);
+        localStorage.setItem('dis3D', '{"display":"flex"}');
+        localStorage.setItem('dis2D', '{"display":"none"}');
+        localStorage.setItem('disStart', '{"display":"none"}');
+        localStorage.setItem('intro', true);
+        history.push('/create');
+    }
     return (
         <div className='designer_box' style={{ height: h }}>
             {
@@ -238,7 +265,7 @@ const DesingnerPage = (props) => {
                                                                         work.map(item => {
                                                                             if (item.user_id == que) {
                                                                                 return <div className='designer_work'>
-                                                                                    <img src={item.imgpath} alt="img" className='designer_work_img' />
+                                                                                    <Link to='/create'><img src={item.imgpath} alt="img" onClick={() => intomydesign(item)} className='designer_work_img' /></Link>
                                                                                     <div className='designer_work_txt1'>{item.design_name}</div>
                                                                                     <div className='designer_work_txt2'>{item.create_time}</div>
                                                                                 </div>
@@ -263,7 +290,7 @@ const DesingnerPage = (props) => {
                                                                         insList.map(item => {
                                                                             if (item.user_id == que) {
                                                                                 return <div className='designer_work'>
-                                                                                    <img src={JSON.parse(item.message)[0].imgpath} alt="img" className='designer_work_img' />
+                                                                                    <Link to='/create'><img src={JSON.parse(item.message)[0].imgpath} onClick={() => intomydesign(item)} alt="img" className='designer_work_img' /></Link>
                                                                                     <div className='designer_work_txt1'>{item.title.length > 6 ? item.title.slice(0, 6) + '...' : item.title}</div>
                                                                                     <div className='designer_work_txt2'>{item.create_time}</div>
                                                                                     <div className="designer_work_delIns" onClick={() => delIns(item.inspire_id, item.title)}><img src={delicon} alt="删除" /></div>

@@ -4,12 +4,13 @@ import './PersonalLikes.css'
 import blank from "./images/blank3.png"
 import hand from './images/hand.gif'
 import backline from './images/backline.jpg'
-
+import { useHistory } from 'react-router'
 import { Dialog, Toast, } from 'antd-mobile'
 
 const PersonalLikes = (props) => {
     // const userlist = props.location.state.userlist;
     var num = 0;
+    const history = useHistory();
     const [message, setMessage] = useState([]);
     var [collectList, setCollectList] = useState([]);
     var email = localStorage.getItem('email');
@@ -64,6 +65,30 @@ const PersonalLikes = (props) => {
             Toast.show({ content: '已取消', position: 'bottom' })
         }
     }
+    const intomydesign = (item) => {
+        const furn = JSON.parse(item.design_furniture);
+        var arr = [];
+        for (var i = 0; i < furn.length; i++) {
+            var obj = {
+                furniture_id: furn[i].furniture,
+                position: furn[i].point,
+                rotate: furn[i].rotate,
+                size: furn[i].size,
+                objname: furn[i].objname,
+                mtlname: furn[i].mtlname,
+                imgname: furn[i].imgname,
+                type: furn[i].type,
+            };
+            arr.push(obj);
+        }
+        localStorage.setItem('furniture', JSON.stringify(arr));
+        localStorage.setItem('points', item.design_point);
+        localStorage.setItem('dis3D', '{"display":"flex"}');
+        localStorage.setItem('dis2D', '{"display":"none"}');
+        localStorage.setItem('disStart', '{"display":"none"}');
+        localStorage.setItem('intro', true);
+        history.push('/create');
+    }
     return (
         <div className="personalcenter_collect_box">
             {
@@ -77,7 +102,7 @@ const PersonalLikes = (props) => {
                     <div className="personalcenter_collect_items_box" style={{ backgroundImage: `url(${backline})` }}>
                         {
                             collectList.map(item => <div className={num++ % 2 == 0 ? "personalcenter_collect_left_item" : "personalcenter_collect_right_item"} key={item.design_id}>
-                                <Link to={{ pathname: '/' }}><img src={item.imgpath} className="mycol_img" /></Link>
+                                <Link to={{ pathname: '/create' }}><img src={item.imgpath} onClick={() => intomydesign(item)} className="mycol_img" /></Link>
                                 <span></span>
                                 <div>
                                     <div>{item.design_name}</div>
