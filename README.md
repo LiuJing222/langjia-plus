@@ -10,11 +10,11 @@
 
 《朗家》是软件学院    依托 3D 建模技术自主研发的一款住宅设计平台，通过React架构和threejs技术，开发出的界面美观、功能齐全且方便使用的 **3D 全景搭建住宅**设计专用网站。
 
-##项目地址：
+## 项目地址：
 
 https://gitee.com/liu-jing222/langjia-plus
 
-##项目成员：
+## 项目成员：
 
 - 刘婧（项目经理、开发工程师）
 
@@ -40,12 +40,12 @@ https://gitee.com/liu-jing222/langjia-plus
 
   Gitee:https://gitee.com/Dear-J
 
-##成果视频：
+## 成果视频：
 
 链接：https://pan.baidu.com/s/1p6opHCjbhzdEmkhZ0CNFMQ 
 提取码：1010
 
-##项目材料：
+## 项目材料：
 
 > 项目截图
 
