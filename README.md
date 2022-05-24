@@ -6,15 +6,15 @@
 
 如想查看《朗家》1.0.0版本，请移步https://gitee.com/liu-jing222/langJia
 
-**项目介绍：**
+##项目介绍：
 
 《朗家》是软件学院    依托 3D 建模技术自主研发的一款住宅设计平台，通过React架构和threejs技术，开发出的界面美观、功能齐全且方便使用的 **3D 全景搭建住宅**设计专用网站。
 
-**项目地址：**
+##项目地址：
 
 https://gitee.com/liu-jing222/langjia-plus
 
-**项目成员：**
+##项目成员：
 
 - 刘婧（项目经理、开发工程师）
 
@@ -40,12 +40,12 @@ https://gitee.com/liu-jing222/langjia-plus
 
   Gitee:https://gitee.com/Dear-J
 
-**成果视频：**![输入图片说明](README_images/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%88%B7%E5%9E%8B.png)
+##成果视频：
 
 链接：https://pan.baidu.com/s/1p6opHCjbhzdEmkhZ0CNFMQ 
 提取码：1010
 
-**项目材料：**
+##项目材料：
 
 > 项目截图
 
@@ -149,6 +149,8 @@ https://gitee.com/liu-jing222/langjia-plus
 
 ![后台灵感管理](README_images/%E5%90%8E%E5%8F%B0%E7%81%B5%E6%84%9F%E7%AE%A1%E7%90%862.png)
 
+![后台灵感管理](README_images/%E5%90%8E%E5%8F%B0%E4%B8%8A%E4%BC%A0%E7%81%B5%E6%84%9F.png)
+
 2.4后台家具管理
 
 ![后台家具管理](README_images/%E5%90%8E%E5%8F%B0%E5%AE%B6%E5%85%B7%E7%B4%A0%E6%9D%901.png)
@@ -157,20 +159,20 @@ https://gitee.com/liu-jing222/langjia-plus
 
 2.5后台户型管理
 
-![输入图片说明](README_images/%E5%90%8E%E5%8F%B0%E6%88%B7%E5%9E%8B%E7%B4%A0%E6%9D%901.png)
+![后台户型管理](README_images/%E5%90%8E%E5%8F%B0%E6%88%B7%E5%9E%8B%E7%B4%A0%E6%9D%901.png)
 
-![输入图片说明](README_images/%E5%90%8E%E5%8F%B0%E6%88%B7%E5%9E%8B%E7%B4%A0%E6%9D%902.png)
+![后台户型管理](README_images/%E5%90%8E%E5%8F%B0%E6%88%B7%E5%9E%8B%E7%B4%A0%E6%9D%902.png)
 
-![输入图片说明](README_images/%E5%90%8E%E5%8F%B0%E6%88%B7%E5%9E%8B%E7%B4%A0%E6%9D%903.png)
+![后台户型管理](README_images/%E5%90%8E%E5%8F%B0%E6%88%B7%E5%9E%8B%E7%B4%A0%E6%9D%903.png)
 
 2.6后台系统管理
 
-![输入图片说明](README_images/%E5%90%8E%E5%8F%B0%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%861.png)
+![后台系统管理](README_images/%E5%90%8E%E5%8F%B0%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%861.png)
 
-![输入图片说明](README_images/%E5%90%8E%E5%8F%B0%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%862.png)
+![后台系统管理](README_images/%E5%90%8E%E5%8F%B0%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%862.png)
 
-![输入图片说明](README_images/%E5%90%8E%E5%8F%B0%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%863.png)
+![后台系统管理](README_images/%E5%90%8E%E5%8F%B0%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%863.png)
 
-![输入图片说明](README_images/%E5%90%8E%E5%8F%B0%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%864.png)
+![后台系统管理](README_images/%E5%90%8E%E5%8F%B0%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%864.png)
 
 
